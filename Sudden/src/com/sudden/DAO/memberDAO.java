@@ -115,5 +115,28 @@ public class memberDAO {
 		}
 		return check;
 	}
+	
+	public boolean nick_check(memberDTO dto) {
+
+		try {
+
+			getconn();
+
+			String sql = "select * from tbl_member where mem_nick=?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getNick());
+
+			rs = psmt.executeQuery();
+
+			check = rs.next();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		return check;
+	}
 
 }

@@ -72,7 +72,9 @@
 									<button type="button" id="idCheck" onclick="id_Checkbox()">중복체크</button>
 									</li>
 									<li><input type="password" name="pw"  placeholder="PW를 입력하세요"></li>
-									<li><input type="text" name="nick"  placeholder="ncik를 입력하세요"></li>
+									<li><input id="Join_nick" type="text"  name="nick"  placeholder="ncik를 입력하세요"></li>
+									<p id="nick_result"></p>
+									<button type="button" id="nickCheck" onclick="nick_Checkbox()">중복체크</button>
 									<li><input type="text" name="email"  placeholder="Email를 입력하세요"></li>
 									<li><input type="text" name="tel"  placeholder="전화번호를 입력하세요"></li>
 									<li><input type="text" name="addr"  placeholder="집주소를 입력하세요"></li>
@@ -273,7 +275,7 @@
 			<script src="assets/js/main.js"></script>
 			<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
 			<script type="text/javascript">
-				function id_Check() {
+				function id_Check() {//이거오류뜸 해결해야됨??되는듯 한번더 보기
 
 					$.ajax({
 						url : "check.do",
@@ -283,7 +285,12 @@
 						},
 						success : function(res) {
 							
-							alert("아이디가 중복되었습니다.");
+							if(res=='true'){
+								alert("아이디가 중복되었습니다.11");
+							}else{
+								
+							}
+							
 
 						},
 						error : function() {
@@ -306,6 +313,29 @@
 								$('p#result').html("중복된 아이디 입니다.").css('color','red');
 							}else{
 								$('p#result').html("사용가능한 아이디 입니다.").css('color','green');
+							}
+
+						},
+						error : function() {
+							alert("요청 실패");
+						}
+					});
+				
+				}
+				function nick_Checkbox() {
+
+					$.ajax({
+						url : "nick.do",
+						type : "get",
+						data : {
+							"nick" : $('#Join_nick').val(),						
+						},
+						success : function(res) {
+							
+							if(res=='true'){
+								$('p#nick_result').html("중복된 닉네임 입니다.").css('color','red');
+							}else{
+								$('p#nick_result').html("사용가능한 닉네임 입니다.").css('color','green');
 							}
 
 						},

@@ -46,6 +46,21 @@ public class FrontController extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.print(tof);
 					
+				}else if(command.equals("nick.do")) {
+					request.setCharacterEncoding("utf-8");
+
+					String id = request.getParameter("id");
+					String nick = request.getParameter("nick");
+					
+					System.out.println(nick);
+					
+					memberDTO dto = new memberDTO(id,nick);	
+					memberDAO dao = new memberDAO();
+					boolean tof = dao.nick_check(dto);
+					
+					PrintWriter out = response.getWriter();
+					out.print(tof);
+					System.out.println(tof);
 				}
 				
 				if(nextpage != null) {
