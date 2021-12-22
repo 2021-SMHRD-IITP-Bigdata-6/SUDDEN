@@ -1,4 +1,4 @@
-package com.member;
+package com.sudden.Member;
 
 public class Main {
 
