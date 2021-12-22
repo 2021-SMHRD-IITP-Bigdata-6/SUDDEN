@@ -16,7 +16,7 @@ public class memberDAO {
 	memberDTO dto = null;
 
 	int cnt = 0;
-	// private boolean check;
+	private boolean check;
 
 	public void getconn() {
 
@@ -69,7 +69,7 @@ public class memberDAO {
 		try {
 
 			getconn();
-			
+
 			System.out.println("");
 
 			String sql = "insert into tbl_member values (?,?,?,?,?,?,sysdate,'N')";
@@ -83,7 +83,7 @@ public class memberDAO {
 			psmt.setString(6, dto.getEmail());
 
 			cnt = psmt.executeUpdate();
-
+			System.out.println("여기");
 		} catch (Exception e) {
 			System.out.println("클래스파일 로딩실패");
 			e.printStackTrace();
@@ -91,6 +91,29 @@ public class memberDAO {
 			cloes();
 		}
 		return cnt;
+	}
+
+	public boolean Join_check(memberDTO dto) {
+
+		try {
+
+			getconn();
+
+			String sql = "select * from tbl_member where mem_id=?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+
+			rs = psmt.executeQuery();
+
+			check = rs.next();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		return check;
 	}
 
 }

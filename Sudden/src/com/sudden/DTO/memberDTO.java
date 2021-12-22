@@ -20,6 +20,10 @@ public class memberDTO {
 		this.tel = tel;
 		this.email = email;
 	}
+	public memberDTO(String id) {
+		super();
+		this.id = id;
+	}
 	
 	public String getId() {
 		return id;

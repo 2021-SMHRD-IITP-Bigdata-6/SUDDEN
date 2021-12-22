@@ -67,9 +67,9 @@
 						<ul class="actions vertical">
 							<li><h5>회원가입</h5></li>
 								<form action="Joincon.do" method="post">
-									<li><input id="Join_email" type="text" name="id"  placeholder="ID을 입력하세요">
+									<li><input id="Join_id" type="text" name="id"  placeholder="ID을 입력하세요">
 									<p id="result"></p>
-									<button type="button" id="emailCheck" onclick="email_Check()">중복체크</button>
+									<button type="button" id="idCheck" onclick="id_Checkbox()">중복체크</button>
 									</li>
 									<li><input type="password" name="pw"  placeholder="PW를 입력하세요"></li>
 									<li><input type="text" name="nick"  placeholder="ncik를 입력하세요"></li>
@@ -77,7 +77,7 @@
 									<li><input type="text" name="tel"  placeholder="전화번호를 입력하세요"></li>
 									<li><input type="text" name="addr"  placeholder="집주소를 입력하세요"></li>
 									
-									<li><input type="submit" value="JoinUs" class="button fit"></li>
+									<li><input type="submit" id="idCheck" value="JoinUs" class="button fit" onclick="id_Check()"></li>
 								</form>
 						</ul>
 					</nav>			
@@ -273,13 +273,32 @@
 			<script src="assets/js/main.js"></script>
 			<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
 			<script type="text/javascript">
-				function email_Check() {
+				function id_Check() {
 
 					$.ajax({
 						url : "check.do",
 						type : "get",
 						data : {
-							"email" : $('#Join_email').val(),						
+							"id" : $('#Join_id').val(),						
+						},
+						success : function(res) {
+							
+							alert("아이디가 중복되었습니다.");
+
+						},
+						error : function() {
+							alert("요청 실패");
+						}
+					});
+				
+				}
+				function id_Checkbox() {
+
+					$.ajax({
+						url : "check.do",
+						type : "get",
+						data : {
+							"id" : $('#Join_id').val(),						
 						},
 						success : function(res) {
 							

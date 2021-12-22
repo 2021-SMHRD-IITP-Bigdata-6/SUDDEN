@@ -1,6 +1,8 @@
 package com.sudden.Front;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.inter.Command;
+import com.sudden.DAO.memberDAO;
+import com.sudden.DTO.memberDTO;
 import com.sudden.Member.JoinService;
 
 @WebServlet("*.do")
@@ -30,6 +34,18 @@ public class FrontController extends HttpServlet {
 					
 					com = new JoinService();
 					nextpage = com.execute(request, response);
+				} else if(command.equals("check.do")) {
+					request.setCharacterEncoding("utf-8");
+
+					String id = request.getParameter("id");
+					
+					memberDTO dto = new memberDTO(id);	
+					memberDAO dao = new memberDAO();
+					boolean tof = dao.Join_check(dto);
+					
+					PrintWriter out = response.getWriter();
+					out.print(tof);
+					
 				}
 				
 				if(nextpage != null) {

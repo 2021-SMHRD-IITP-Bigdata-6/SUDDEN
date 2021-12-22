@@ -37,7 +37,7 @@ public class JoinService implements Command {
 		int cnt = dao.Join(dto);
 		
 		String nextpage = "";
-		
+		System.out.println("¿©±â1");
 		if (cnt > 0) {
 			
 			request.setAttribute("dto", dto);
