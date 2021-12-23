@@ -31,11 +31,15 @@ public class FrontController extends HttpServlet {
 				
 				System.out.println(command);
 
-				if(command.equals("Joincon.do")) {
-					
+				if(command.equals("Joincon.do")) {					
 					com = new JoinService();
 					nextpage = com.execute(request, response);
-				} else if(command.equals("check.do")) {
+					
+				}else if(command.equals("Logincon.do")) {					
+					com = new LoginService();
+					nextpage = com.execute(request, response);	
+					
+				}else if(command.equals("check.do")) {
 					request.setCharacterEncoding("utf-8");
 
 					String id = request.getParameter("id");
@@ -53,7 +57,7 @@ public class FrontController extends HttpServlet {
 					String id = request.getParameter("id");
 					String nick = request.getParameter("nick");
 					
-					System.out.println(nick);
+					
 					
 					memberDTO dto = new memberDTO(id,nick);	
 					memberDAO dao = new memberDAO();
@@ -62,11 +66,26 @@ public class FrontController extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.print(tof);
 					System.out.println(tof);
-				}else if(command.equals("Logincon.do")) {
 					
-					com = new LoginService();
-					nextpage = com.execute(request, response);
-				} 
+				}else if(command.equals("login_check.do")) {
+					request.setCharacterEncoding("utf-8");
+
+					String id = request.getParameter("id");
+					String pw = request.getParameter("pw");
+					String nick="";
+					String addr="";
+					
+					
+					
+					memberDTO dto = new memberDTO(id,pw,nick,addr);
+					memberDAO dao = new memberDAO();
+					boolean tof = dao.login_check(dto);
+					
+					PrintWriter out = response.getWriter();
+					out.print(tof);
+					System.out.println(tof);
+				}
+				
 				
 				if(nextpage != null) {
 					response.sendRedirect(nextpage);

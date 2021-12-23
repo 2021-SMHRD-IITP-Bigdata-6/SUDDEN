@@ -20,20 +20,28 @@ public class memberDTO {
 		this.tel = tel;
 		this.email = email;
 	}
-	public memberDTO(String id) {
+	public memberDTO(String id) {//check.do
 		super();
 		this.id = id;
 	}
-	public memberDTO(String id, String nick) {
+	public memberDTO(String id, String nick) {//joinservice
 		super();
 		this.id = id;
 		this.nick = nick;
 	}
-	public memberDTO(String id, String pw, String nick) {
+	
+	public memberDTO(String id, String pw, String nick) {//loginservice
 		super();
 		this.id = id;
 		this.pw = pw;
 		this.nick = nick;
+	}
+	public memberDTO(String id, String pw, String nick, String addr) {//login_check
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.nick = nick;
+		this.addr = addr;
 	}
 	
 	public String getId() {

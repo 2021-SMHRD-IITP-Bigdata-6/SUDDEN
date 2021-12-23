@@ -24,20 +24,16 @@ public class LoginService implements Command{
 
 		HttpSession session = request.getSession();
 		
-		memberDTO dto = new memberDTO(id, pw, nick);
-		
+		memberDTO dto = new memberDTO(id, pw, nick);	
 		memberDAO dao = new memberDAO();
-		System.out.println(id);
-		System.out.println(pw);
-		System.out.println(nick);
+
 		dto = dao.Login(dto);
-		System.out.println(dto);
 		String nextpage="";
 				
 		if (dto!=null) {
 			System.out.println("로그인 완료");
 			session.setAttribute("dto", dto);
-			nextpage = "index.html";
+			nextpage = "index.jsp";
 		} else {
 			System.out.println("로그인 실패");
 			nextpage = "log-in.html";

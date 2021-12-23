@@ -19,6 +19,7 @@ public class JoinService implements Command {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 
+		int cnt = 0;
 		request.setCharacterEncoding("utf-8");
 
 		String id = request.getParameter("id");
@@ -34,22 +35,26 @@ public class JoinService implements Command {
 		//1. memberDAO에 해당하는 기능메소드로 값 보내주기(객체생성, 메소드, 매개변수)
 		memberDAO dao = new memberDAO();
 		//2. cnt값 리턴해주기(메소드, 리턴)
-		int cnt = dao.Join(dto);
-		boolean check = dao.nick_check(dto1);
+		
+		boolean check = dao.nick_check(dto);
+		if(!check) {
+			cnt = dao.Join(dto);
+		}else {
+			System.out.println("닉네임중복");
+			response.sendRedirect("sign-up.html");
+		}
 		
 		
 		
+		System.out.println(check);
+		String nextpage="";
 		if (cnt > 0) {
-			if(check) {
-				System.out.println("닉네임중복");
-				response.sendRedirect("sign-up.html");
-			}else {
 			
 			request.setAttribute("dto", dto);
-			RequestDispatcher dis = request.getRequestDispatcher("index.html");
+			RequestDispatcher dis = request.getRequestDispatcher("log-in.html");
 			//RequestDispatcher dis = request.getRequestDispatcher("joinSuccess.jsp");
 			dis.forward(request, response);
-			}
+			
 			
 			//session과 request 차이
 			// joincon에서 사용하는 dto는 joincon,joinsuccess에서만 사용
@@ -59,7 +64,8 @@ public class JoinService implements Command {
 			// 모든 서버 페이지에서 dto사용할때 session
 		} else {
 			System.out.println("가입실패");
-			response.sendRedirect("sign-up.html");
+			nextpage = "sign-up.html";
+			//response.sendRedirect("sign-up.html");
 		}
 		return null;
 	}

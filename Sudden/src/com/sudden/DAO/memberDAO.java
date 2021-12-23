@@ -79,7 +79,7 @@ public class memberDAO {
 			psmt.setString(6, dto.getEmail());
 
 			cnt = psmt.executeUpdate();
-			System.out.println("여기");
+			System.out.println("dao-join");
 		} catch (Exception e) {
 			System.out.println("클래스파일 로딩실패");
 			e.printStackTrace();
@@ -87,6 +87,39 @@ public class memberDAO {
 			cloes();
 		}
 		return cnt;
+	}
+	public memberDTO Login(memberDTO dto1) {
+		try {
+
+			getconn();
+
+			String sql = "select * from tbl_member where mem_id=?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto1.getId());
+			
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				String getid = rs.getString("mem_id");
+				String getpw = rs.getString("mem_pw");
+//				String gettel = rs.getString("mem_tel");
+//				String getaddress = rs.getString("mem_addr");
+				if (dto1.getPw().equals(getpw)) {
+					dto = new memberDTO(getid);
+					
+
+				}
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		System.out.println(dto);
+		return dto;
 	}
 
 	public boolean Join_check(memberDTO dto) {
@@ -135,39 +168,35 @@ public class memberDAO {
 		return check;
 	}
 	
-	public memberDTO Login(memberDTO dto1) {
+	public boolean login_check(memberDTO dto) {
+		
 		try {
 
 			getconn();
 
-			String sql = "select * from tbl_member where mem_id=?";
+			String sql = "select * from tbl_member where mem_id=? and mem_pw=?";
 
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto1.getId());
-			System.out.println(dto1.getId());
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPw());
+			
+			System.out.println("id="+dto.getId());
+			System.out.println("pw="+dto.getPw());
+
 			rs = psmt.executeQuery();
 
-			if (rs.next()) {
-				String getid = rs.getString("mem_id");
-				String getpw = rs.getString("mem_pw");
-				String gettel = rs.getString("mem_tel");
-				String getaddress = rs.getString("mem_addr");
-				if (dto1.getPw().equals(getpw)) {
-					dto = new memberDTO(getid);
-					
-
-				}
-
-			}
+			check = rs.next();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			cloes();
 		}
-		System.out.println(dto);
-		return dto;
+		return check;
+		
+		
 	}
-	}
+	
+}
 
 
