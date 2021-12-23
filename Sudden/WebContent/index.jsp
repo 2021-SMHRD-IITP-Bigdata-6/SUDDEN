@@ -1,3 +1,4 @@
+<%@page import="com.sudden.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -207,10 +208,20 @@
                         <div class="header__top__right__auth">
                         
                             <div class="hero__search__login"><!-- 로그인하는곳 -->
-                            <script type="text/javascript">
-                            
-                            </script>
+                            <%
+                            memberDTO dto = (memberDTO)session.getAttribute("dto");
+                            System.out.print("dto가 " + dto);
+                            if(dto == null){
+                            %>
                             <a href="log-in.html"><i class="fa fa-user">Login</i></a>
+                            <%}else{ 
+                            	if(dto.getId().equals("admin")){%>
+                            <!-- 관리자 권한 기능  --> <%} %>
+                            
+                            <a href="log-in.html"><i class="fa fa-user">Logout</i></a>
+                            <%} %>
+                            
+                            
                             </div>
                         </div> 
                     <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">

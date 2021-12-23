@@ -103,10 +103,10 @@ public class memberDAO {
 			if (rs.next()) {
 				String getid = rs.getString("mem_id");
 				String getpw = rs.getString("mem_pw");
-//				String gettel = rs.getString("mem_tel");
+				String getnick = rs.getString("mem_nick");
 //				String getaddress = rs.getString("mem_addr");
 				if (dto1.getPw().equals(getpw)) {
-					dto = new memberDTO(getid);
+					dto = new memberDTO(getid, getnick);
 					
 
 				}
