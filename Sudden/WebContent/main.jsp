@@ -275,7 +275,7 @@
 			<script src="assets/js/main.js"></script>
 			<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
 			<script type="text/javascript">
-				function id_Check() {//이거오류뜸 해결해야됨??되는듯 한번더 보기
+				function id_Check() {
 
 					$.ajax({
 						url : "check.do",
@@ -286,7 +286,7 @@
 						success : function(res) {
 							
 							if(res=='true'){
-								alert("아이디가 중복되었습니다.11");
+								alert("아이디가 중복되었습니다.");
 							}else{
 								
 							}
