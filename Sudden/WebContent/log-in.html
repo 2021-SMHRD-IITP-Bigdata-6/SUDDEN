@@ -98,19 +98,19 @@
                     <h1>로그인</h1>
                     <!-- Sign Up Form -->
                     <div class="form-container">
-                        <form id="signUpForm" data-toggle="validator" data-focus="false">
+                        <form id="signUpForm" action="Logincon.do" data-toggle="validator" data-focus="false">
                             <div class="form-group">
-                                <input type="text" class="form-control-input" id="sid" required>
-                                <label class="label-control" for="sid">회원ID</label>
+                                <input type="text" class="form-control-input" name="id"  placeholder="ID를 입력하세요">
+                                
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" id="spassword" required>
-                                <label class="label-control" for="spassword">PW</label>
+                                <input type="text" class="form-control-input" name="pw"  placeholder="PW를 입력하세요">
+                                
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control-submit-button">로그인</button>
+                                <button type="submit" value="LogIn" class="form-control-submit-button">로그인</button>
                             </div>
                             <div class="form-message">
                                 <div id="smsgSubmit" class="h3 text-center hidden"></div>

@@ -13,6 +13,7 @@ import com.inter.Command;
 import com.sudden.DAO.memberDAO;
 import com.sudden.DTO.memberDTO;
 import com.sudden.Member.JoinService;
+import com.sudden.Member.LoginService;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -61,7 +62,11 @@ public class FrontController extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.print(tof);
 					System.out.println(tof);
-				}
+				}else if(command.equals("Logincon.do")) {
+					
+					com = new LoginService();
+					nextpage = com.execute(request, response);
+				} 
 				
 				if(nextpage != null) {
 					response.sendRedirect(nextpage);
