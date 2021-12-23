@@ -29,6 +29,12 @@ public class memberDTO {
 		this.id = id;
 		this.nick = nick;
 	}
+	public memberDTO(String id, String pw, String nick) {
+		super();
+		this.id = id;
+		this.pw = pw;
+		this.nick = nick;
+	}
 	
 	public String getId() {
 		return id;

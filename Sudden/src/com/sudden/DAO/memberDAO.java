@@ -60,10 +60,6 @@ public class memberDAO {
 
 	}
 
-	public void Login(memberDTO dto1) {
-
-	}
-
 	public int Join(memberDTO dto) {
 
 		try {
@@ -138,5 +134,40 @@ public class memberDAO {
 		}
 		return check;
 	}
+	
+	public memberDTO Login(memberDTO dto1) {
+		try {
 
-}
+			getconn();
+
+			String sql = "select * from tbl_member where mem_id=?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto1.getId());
+			System.out.println(dto1.getId());
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				String getid = rs.getString("mem_id");
+				String getpw = rs.getString("mem_pw");
+				String gettel = rs.getString("mem_tel");
+				String getaddress = rs.getString("mem_addr");
+				if (dto1.getPw().equals(getpw)) {
+					dto = new memberDTO(getid);
+					
+
+				}
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		System.out.println(dto);
+		return dto;
+	}
+	}
+
+
