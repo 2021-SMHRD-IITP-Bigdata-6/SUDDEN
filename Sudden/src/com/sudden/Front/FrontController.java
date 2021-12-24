@@ -2,6 +2,7 @@ package com.sudden.Front;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.inter.Command;
+import com.sudden.DAO.goodsDAO;
 import com.sudden.DAO.memberDAO;
+import com.sudden.DTO.goodsDTO;
 import com.sudden.DTO.memberDTO;
 import com.sudden.Member.JoinService;
 import com.sudden.Member.LoginService;
@@ -39,7 +42,8 @@ public class FrontController extends HttpServlet {
 					
 				}else if(command.equals("Logincon.do")) {					
 					com = new LoginService();
-					nextpage = com.execute(request, response);	
+					nextpage = com.execute(request, response);
+						
 					
 				}else if(command.equals("Logoutcon.do")) {					
 					com = new LogoutService();
@@ -48,6 +52,21 @@ public class FrontController extends HttpServlet {
 				}else if(command.equals("Search.do")) {					
 					com = new SearchService();
 					nextpage = com.execute(request, response);	
+					
+					request.setCharacterEncoding("utf-8");
+
+					String name = request.getParameter("name");				
+					System.out.println("controll="+name);
+					goodsDTO dto = new goodsDTO(name);	
+					goodsDAO dao = new goodsDAO();
+					ArrayList<goodsDTO> tof = dao.Search(dto); //°íÄ¥ºÎºÐ
+					boolean ch = false;
+					if(tof.get(0).getName().equals(null)) {
+						ch = true;
+					}
+					
+					PrintWriter out = response.getWriter();
+					out.print(ch);				
 					
 				}else if(command.equals("check.do")) {
 					request.setCharacterEncoding("utf-8");

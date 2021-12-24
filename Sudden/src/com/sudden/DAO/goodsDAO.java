@@ -67,7 +67,7 @@ public class goodsDAO {
 		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
 		
 		try {
-
+			System.out.println("dao="+dto);
 			getconn();
 
 			String sql = "select * from tbl_product where goods_name=?";
@@ -89,6 +89,7 @@ public class goodsDAO {
 				
 
 			}
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
