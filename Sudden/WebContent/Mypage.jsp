@@ -120,7 +120,7 @@
                     							</dl>                    							
                     					</div>
                     					<p class="btn_area_btm">
-                    						<a href="" onclick="changeImage();clicker(this,'imn.prfmodify','','',event);" class="btn_model">
+                    						<a href="Propile.html" onclick="changeImage();clicker(this,'imn.prfmodify','','',event);" class="btn_model">
                     							<b class="btn2">수정</b>
                     						</a>
                     					</p>
@@ -146,7 +146,7 @@
                     					</dl>
                     				</div>
                     				<p class="btn_area_btm">
-                    						<a href="" onclick="changeImage();clicker(this,'imn.prfmodify','','',event);" class="btn_model">
+                    						<a href="Propile2.html" onclick="changeImage();clicker(this,'imn.prfmodify','','',event);" class="btn_model">
                     							<b class="btn2">수정</b>
                     						</a>
                     					</p>
