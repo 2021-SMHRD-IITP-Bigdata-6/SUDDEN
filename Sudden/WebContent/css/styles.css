@@ -1088,10 +1088,7 @@ body, button, input, select, table, textarea {
     color: #666;
     background: #fff;
 }
-#content {
-    position: relative;
-    
-}
+
 b {
     font-weight: bold;
 }
@@ -1116,8 +1113,35 @@ b {
     color: black;
 }
 
+.tbl_model {
+    position: relative;
+    table-layout: fixed;
+    border-spacing: 0;
+    border-collapse: collapse;
+    word-wrap: break-word;
+    word-break: keep-all;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
 
 
-
-
+.tbl_model .thcell {
+    padding: 100px 100px 100px;
+}
+.tbl_model td {
+    color: #565656;
+}
+.tbl_model td, .tbl_model th {
+    line-height: 14px;
+    text-align: left;
+    vertical-align: top;
+    border: 0;
+    border-top: 1px solid #e5e5e5;
+}
+#content {
+    position: relative;
+    max-width: 954px;
+    height: 100%;
+    margin: 0 auto;
+}
 
