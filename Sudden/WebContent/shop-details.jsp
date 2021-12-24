@@ -1,3 +1,4 @@
+<%@page import="com.sudden.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -26,6 +27,10 @@
 </head>
 
 <body>
+
+	<%
+		memberDTO dto = (memberDTO) session.getAttribute("dto");
+	%>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -128,43 +133,62 @@
                             <span>전체 카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="#">여성의류</a></li>
-                            <li><a href="#">남성의류</a></li>
-                            <li><a href="#">신발</a></li>
-                            <li><a href="#">가방</a></li>
-                            <li><a href="#">시계/주얼리</a></li>
-                            <li><a href="#">패션엑세서리</a></li>
-                            <li><a href="#">디지털/가전</a></li>
-                            <li><a href="#">스포츠/레저</a></li>
-                            <li><a href="#">차량/오토바이</a></li>
-                            <li><a href="#">키덜트</a></li>
-                            <li><a href="#">도서/티켓/문구</a></li>
-                            <li><a href="#">뷰티/미용</a></li>
-                            <li><a href="#">가구/인테리어</a></li>
-                            <li><a href="#">생활/가공식품</a></li>
-                            <li><a href="#">유아동/출산</a></li>
-                            <li><a href="#">반려동물용품</a></li>
-                            <li><a href="#">기타</a></li>
-                            <li><a href="#">서든나눔</a></li>
+                            <li><a href="shop-grid.jsp">여성의류</a></li>
+                            <li><a href="shop-grid.jsp">남성의류</a></li>
+                            <li><a href="shop-grid.jsp">신발</a></li>
+                            <li><a href="shop-grid.jsp">가방</a></li>
+                            <li><a href="shop-grid.jsp">시계/주얼리</a></li>
+                            <li><a href="shop-grid.jsp">패션엑세서리</a></li>
+                            <li><a href="shop-grid.jsp">디지털/가전</a></li>
+                            <li><a href="shop-grid.jsp">스포츠/레저</a></li>
+                            <li><a href="shop-grid.jsp">차량/오토바이</a></li>
+                            <li><a href="shop-grid.jsp">키덜트</a></li>
+                            <li><a href="shop-grid.jsp">도서/티켓/문구</a></li>
+                            <li><a href="shop-grid.jsp">뷰티/미용</a></li>
+                            <li><a href="shop-grid.jsp">가구/인테리어</a></li>
+                            <li><a href="shop-grid.jsp">생활/가공식품</a></li>
+                            <li><a href="shop-grid.jsp">유아동/출산</a></li>
+                            <li><a href="shop-grid.jsp">반려동물용품</a></li>
+                            <li><a href="shop-grid.jsp">기타</a></li>
+                            <li><a href="shop-grid.jsp">서든나눔</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                            <form action="Search.do">
+                                <input type="text" id="search" name="name" placeholder="찾고 싶은 상품을 검색해 보세요">
+                                <button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
                             </form>
                         </div>
-                        <div class="hero__search__login">
-                            <div class="hero__search__login__icon">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="hero__search__login__text">
-                                <h5>Login</h5>
-                            </div>
-                        </div>
+                        <div class="header__top__right__auth">
+
+
+							<div class="hero__search__login">
+								<!-- 로그인하는곳 -->
+
+								<%
+								if (dto == null) {
+								%>
+								<a href="log_in_details.jsp"><i class="fa fa-user">Login</i></a>
+								<%
+									} else {
+								if (dto.getId().equals("admin")) {
+								%>
+								<!-- 관리자 권한 기능  -->
+								<%
+									}
+								%>
+
+								<a href="Logoutcon.do"><i class="fa fa-user">Logout</i></a>
+								<%
+									}
+								%>
+
+
+							</div>
+						</div>
                     </div>
                 </div>
             </div>
@@ -255,6 +279,31 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+	function search() {
+
+		$.ajax({
+			url : "search.do",
+			type : "get",
+			data : {
+				"name" : $('#search').val(),						
+			},
+			success : function(res) {
+				
+				if(res=='true'){
+					alert("다시 검색해 주세요");
+				}else{
+					
+				}
+
+			},
+			error : function() {
+				alert("요청 실패");
+			}
+		});
+	
+	}</script>
 
 
 </body>

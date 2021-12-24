@@ -750,7 +750,7 @@
 	<script src="js/mixitup.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-	
+	<script src="jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 	function search() {
 

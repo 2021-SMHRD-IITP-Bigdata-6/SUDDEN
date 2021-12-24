@@ -40,7 +40,7 @@ public class FrontController extends HttpServlet {
 					com = new JoinService();
 					nextpage = com.execute(request, response);
 					
-				}else if(command.equals("Logincon.do")) {					
+				}else if(command.equals("Logincon.do")||command.equals("Logincon_grid.do")||command.equals("Logincon_detail.do")) {					
 					com = new LoginService();
 					nextpage = com.execute(request, response);
 						

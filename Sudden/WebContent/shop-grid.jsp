@@ -1,3 +1,4 @@
+<%@page import="com.sudden.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -25,6 +26,10 @@
 </head>
 
 <body>
+
+	<%
+		memberDTO dto = (memberDTO) session.getAttribute("dto");
+	%>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -34,7 +39,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
+            <a href="index.jsp"><img src="img/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -147,14 +152,25 @@
                     </nav>
                 </div>
                 <div class="col-lg-3">
-                    <!-- <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                        <div class="header__cart__price">item: <span>$150.00</span></div>
-                    </div> -->
-                </div>
+				<!-- 로그인 한 후 아이콘 보여주는곳 -->
+				
+				<%if (dto == null) {
+				  } else {
+					  if (dto.getId().equals("admin")) {%>
+						  <!-- 관리자 권한 기능  -->
+					<%}%>
+					<div class="header__cart">
+					<ul>
+						<li><a href="Registe.html"><i class="fa fa-registered"></i></a></li>
+						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+						<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+					</ul>
+					<div class="header__cart__price">
+						item: <span>$150.00</span>
+					</div>
+				</div>
+				  <%}%>			
+			</div>
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -198,19 +214,38 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                            <form action="Search.do"><!-- 검색하는곳 -->
+                                <input type="text" id="search" name="name" placeholder="찾고 싶은 상품을 검색해 보세요">
+                                <button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
                             </form>
                         </div>
-                        <div class="hero__search__login">
-                            <div class="hero__search__login__icon">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="hero__search__login__text">
-                                <h5>Login</h5>
-                            </div>
-                        </div>
+                        <div class="header__top__right__auth">
+
+
+							<div class="hero__search__login">
+								<!-- 로그인하는곳 -->
+
+								<%
+								if (dto == null) {
+								%>
+								<a href="log_in_grid.jsp"><i class="fa fa-user">Login</i></a>
+								<%
+									} else {
+								if (dto.getId().equals("admin")) {
+								%>
+								<!-- 관리자 권한 기능  -->
+								<%
+									}
+								%>
+
+								<a href="Logoutcon.do"><i class="fa fa-user">Logout</i></a>
+								<%
+									}
+								%>
+
+
+							</div>
+						</div>
                     </div>
                 </div>
             </div>
@@ -594,6 +629,31 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+	function search() {
+
+		$.ajax({
+			url : "search.do",
+			type : "get",
+			data : {
+				"name" : $('#search').val(),						
+			},
+			success : function(res) {
+				
+				if(res=='true'){
+					alert("다시 검색해 주세요");
+				}else{
+					
+				}
+
+			},
+			error : function() {
+				alert("요청 실패");
+			}
+		});
+	
+	}</script>
 
 
 
