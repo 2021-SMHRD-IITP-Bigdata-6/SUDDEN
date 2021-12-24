@@ -3,256 +3,281 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.PreparedStatement"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Tivo is a HTML landing page template built with Bootstrap to help you crate engaging presentations for SaaS apps and convert visitors into users.">
-    <meta name="author" content="Inovatik">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
-	<meta property="og:site_name" content="" /> <!-- website name -->
-	<meta property="og:site" content="" /> <!-- website link -->
-	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
-	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-	<meta property="og:type" content="article" />
+<!-- SEO Meta Tags -->
+<meta name="description"
+	content="Tivo is a HTML landing page template built with Bootstrap to help you crate engaging presentations for SaaS apps and convert visitors into users.">
+<meta name="author" content="Inovatik">
 
-    <!-- Website Title -->
-    <title>Sign Up - Tivo - SaaS App HTML Landing Page Template</title>
-    
-    <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/swiper.css" rel="stylesheet">
-	<link href="css/magnific-popup.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
-	
-	<!-- Favicon  -->
-    <link rel="icon" href="images/favicon.png">
+<!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+<meta property="og:site_name" content="" />
+<!-- website name -->
+<meta property="og:site" content="" />
+<!-- website link -->
+<meta property="og:title" content="" />
+<!-- title shown in the actual shared post -->
+<meta property="og:description" content="" />
+<!-- description shown in the actual shared post -->
+<meta property="og:image" content="" />
+<!-- image link, make sure it's jpg -->
+<meta property="og:url" content="" />
+<!-- where do you want your post to link to -->
+<meta property="og:type" content="article" />
+
+<!-- Website Title -->
+<title>Sign Up - Tivo - SaaS App HTML Landing Page Template</title>
+
+<!-- Styles -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext"
+	rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/swiper.css" rel="stylesheet">
+<link href="css/magnific-popup.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+
+<!-- Favicon  -->
+<link rel="icon" href="images/favicon.png">
 </head>
 <body>
-    
-    <!-- Preloader -->
+
+	<!-- Preloader -->
 	<div class="spinner-wrapper">
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-        </div>
-    </div>
-    <!-- end of preloader -->
-    
+		<div class="spinner">
+			<div class="bounce1"></div>
+			<div class="bounce2"></div>
+			<div class="bounce3"></div>
+		</div>
+	</div>
+	<!-- end of preloader -->
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-        <div class="container">
 
-            <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
+	<!-- Navigation -->
+	<nav
+		class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+		<div class="container">
 
-            <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.jsp">SUDDEN</a> 
-            
-            <!-- Mobile Menu Toggle Button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-awesome fas fa-bars"></span>
-                <span class="navbar-toggler-awesome fas fa-times"></span>
-            </button>
-            <!-- end of mobile menu toggle button -->
+			<!-- Text Logo - Use this if you don't have a graphic logo -->
+			<!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
 
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                    </li>
-                    <li class="nav-item">  
-                    </li>
-                    <li class="nav-item">  
-                    </li>
+			<!-- Image Logo -->
+			<a class="navbar-brand logo-image" href="index.jsp">SUDDEN</a>
 
-                    <!-- Dropdown Menu -->          
-                    <li class="nav-item dropdown">
-                        
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">                          
-                            <div class="dropdown-items-divide-hr"></div>    
-                            <div class="dropdown-items-divide-hr"></div>
-                        </div>
-                    </li>
-                    <!-- end of dropdown menu -->
+			<!-- Mobile Menu Toggle Button -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarsExampleDefault"
+				aria-controls="navbarsExampleDefault" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-awesome fas fa-bars"></span> <span
+					class="navbar-toggler-awesome fas fa-times"></span>
+			</button>
+			<!-- end of mobile menu toggle button -->
 
-                    <li class="nav-item">
-                    </li>
-                </ul>
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="index.jsp">µ⁄∑Œ∞°±‚</a>
-                </span>
-            </div>
-        </div> <!-- end of container -->
-    </nav> <!-- end of navbar -->
-    <!-- end of navigation -->
-     <%
-     memberDTO dto = (memberDTO)session.getAttribute("dto");
-    //∫Øºˆº±æ
-    String nick ="";
-	String email ="";
-	String addr ="";
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"></li>
+					<li class="nav-item"></li>
+					<li class="nav-item"></li>
+
+					<!-- Dropdown Menu -->
+					<li class="nav-item dropdown">
+
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<div class="dropdown-items-divide-hr"></div>
+							<div class="dropdown-items-divide-hr"></div>
+						</div>
+					</li>
+					<!-- end of dropdown menu -->
+
+					<li class="nav-item"></li>
+				</ul>
+				<span class="nav-item"> <a class="btn-outline-sm"
+					href="index.jsp">Îí§Î°úÍ∞ÄÍ∏∞</a>
+				</span>
+			</div>
+		</div>
+		<!-- end of container -->
+	</nav>
+	<!-- end of navbar -->
+	<!-- end of navigation -->
+	<%
+	memberDTO dto = (memberDTO) session.getAttribute("dto");
+	//Î≥ÄÏàòÏÑ†Ïñ∏
+	String nick = "";
+	String email = "";
+	String addr = "";
 	String tel = "";
-	
+
 	//DAO
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
-	
+
 	try {
-		//µÂ∂Û¿Ãπˆ ø¨∞·
+		//ÎìúÎùºÏù¥Î≤Ñ Ïó∞Í≤∞
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524";
-			String dbid = "cgi_8_5_1216";
-			String dbpw = "smhrd5";
-			
-			conn = DriverManager.getConnection(url, dbid, dbpw);
-		
-		//idø° «ÿ¥Á«œ¥¬ ∏µÁ ¡§∫∏ ∞°¡Æø¿±‚
+		String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524";
+		String dbid = "cgi_8_5_1216";
+		String dbpw = "smhrd5";
+
+		conn = DriverManager.getConnection(url, dbid, dbpw);
+
+		//idÏóê Ìï¥ÎãπÌïòÎäî Î™®Îì† Ï†ïÎ≥¥ Í∞ÄÏ†∏Ïò§Í∏∞
 		String sql = "select * from tbl_member where mem_id=?";
 		psmt = conn.prepareStatement(sql);
 		psmt.setString(1, dto.getId());
 		rs = psmt.executeQuery();
 
-		if(rs.next()){
+		if (rs.next()) {
 			nick = dto.getNick();
 			email = rs.getString(6);
 			addr = rs.getString(4);
 			tel = rs.getString(5);
-			
-		};
+
+		}
+		;
 	} catch (Exception e) {
 		e.printStackTrace();
 	} finally {
 		try {
 			if (rs != null) {
-				rs.close();
+		rs.close();
 			}
 			if (psmt != null) {
-				psmt.close();
+		psmt.close();
 			}
 			if (conn != null) {
-				conn.close();
+		conn.close();
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-	}	
-    %> 
-    <!-- Header -->
-<header id="header" class="ex-2-header">
-        <div class="container">
-            <div class="row">
-                    			<!-- «¡∑Œ«  º≥¡§ -->
-                    			<div class="sh_group">
-                    				<div class="sh_header">
-                    					<h2>«¡∑Œ«  º≥¡§</h2>
-                    					</div>
-                    					<div class="sh_content">
-                    						<dl class="sh_lst">
-                    						<dt class="blind">&nbsp;</dt>
-                    						<dd class="intro_desc">&nbsp;</dd>
-                    							<dt class="blind">«¡∑Œ« ªÁ¡¯</dt>
-                    							<dd class="pic_desc">
-                    							<a href="#" onclick="changeImage();clickcr(this,'imn.prfmodify','','',event);">
-                    								<img src="" width="180" height="180" alt>
-                    								<span class = "spimg img_frame"></span>
-                    							</a>
-                    							</dd>
-                    							<dt class="blind">&nbsp;</dt>
-                    							<dd class="intro_desc">&nbsp;</dd>
-                    							<dt>∫∞∏Ì :</dt>
-                    							<dd><%=nick %></dd>
-                    							</dl>                    							
-                    					</div>
-                    					<p class="btn_area_btm">
-                    						<a href="Propile.html" onclick="changeImage();clicker(this,'imn.prfmodify','','',event);" class="btn_model">
-                    							<b class="btn2">ºˆ¡§</b>
-                    						</a>
-                    					</p>
-                    			</div>
-                    			<div class="sh_group">
-                    			<div class="column">
-                    				<div class="sh_header">
-                    					<h2>»∏ø¯ ¡§∫∏π◊ºˆ¡§</h2>
-                    				</div>
-                    				<div class="sh_content">
-                    					<dl class="sh_lst2">
-                    					<dt class="blind">&nbsp;</dt>
-                    					<dd class="intro_desc">&nbsp;</dd>
-                    					<dt class="nic_tit">¿Ã∏ﬁ¿œ :</dt>
-                    					<dd class="nic_desc"><%=email %></dd>
-                    					<dt>¡÷º“ : </dt>
-                    					<dd><%=addr %></dd>
-                    					<dt>¿¸»≠ π¯»£ :</dt>
-                    					<dd><%=tel %></dd>
-                    					<dt class="blind">&nbsp;</dt>
-                    					<dd class="intro_desc">&nbsp;</dd>
-                    					<dt class="blind">&nbsp;</dt>
-                    					</dl>
-                    				</div>
-                    				<p class="btn_area_btm">
-                    						<a href="Propile2.html" onclick="changeImage();clicker(this,'imn.prfmodify','','',event);" class="btn_model">
-                    							<b class="btn2">ºˆ¡§</b>
-                    						</a>
-                    					</p>
-                    			</div>
-                    			</div>
-                    			<div class="sh_group">
-                    				<div class="sh_header">
-                    					<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¡ˆø™ º≥¡§&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-                    					</div>
-                    					<div class="sh_content">
-                    						<dl class="sh_lst3">
-                    							<br><br>
-                    							<dt>«ˆ¿Á º≥¡§«— ¡ˆø™¿Ã æ¯Ω¿¥œ¥Ÿ.</dt>
-                    							<dt>¡ˆø™¿ª √ﬂ∞°«œΩ√∞⁄Ω¿¥œ±Ó?</dt>
-                    							<br><br>
-                    							</dl>                    							
-                    					</div>
-                    					<p class="btn_area_btm">
-                    						<a href="" onclick="changeImage();clicker(this,'imn.prfmodify','','',event);" class="btn_model">
-                    							<b class="btn2">√ﬂ∞°«œ±‚</b>
-                    						</a>
-                    					</p>
-                    			</div>
-                    			
-                    		</div>
-                    	</div>
-                    
-                    </div> <!-- end of form container -->
-                    <!-- end of sign up form -->
+	}
+	%>
+	<!-- Header -->
+	<header id="header" class="ex-2-header">
+		<div class="container">
+			<div class="row">
+				<!-- ÌîÑÎ°úÌïÑ ÏÑ§Ï†ï -->
+				<div class="sh_group">
+					<div class="sh_header">
+						<h2>ÌîÑÎ°úÌïÑ ÏÑ§Ï†ï</h2>
+					</div>
+					<div class="sh_content">
+						<dl class="sh_lst">
+							<dt class="blind">&nbsp;</dt>
+							<dd class="intro_desc">&nbsp;</dd>
+							<dt class="blind">ÌîÑÎ°úÌïÑÏÇ¨ÏßÑ</dt>
+							<dd class="pic_desc">
+								<a href="#"
+									onclick="changeImage();clickcr(this,'imn.prfmodify','','',event);">
+									<img src="" width="180" height="180" alt> <span
+									class="spimg img_frame"></span>
+								</a>
+							</dd>
+							<dt class="blind">&nbsp;</dt>
+							<dd class="intro_desc">&nbsp;</dd>
+							<dt>Î≥ÑÎ™Ö :</dt>
+							<dd><%=nick%></dd>
+						</dl>
+					</div>
+					<p class="btn_area_btm">
+						<a href="Propile.jsp"
+							onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
+							class="btn_model"> <b class="btn2">ÏàòÏ†ï</b>
+						</a>
+					</p>
+				</div>
+				<div class="sh_group">
+					<div class="column">
+						<div class="sh_header">
+							<h2>ÌöåÏõê Ï†ïÎ≥¥Î∞èÏàòÏ†ï</h2>
+						</div>
+						<div class="sh_content">
+							<dl class="sh_lst2">
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+								<dt class="nic_tit">Ïù¥Î©îÏùº :</dt>
+								<dd class="nic_desc"><%=email%></dd>
+								<dt>Ï£ºÏÜå :</dt>
+								<dd><%=addr%></dd>
+								<dt>Ï†ÑÌôî Î≤àÌò∏ :</dt>
+								<dd><%=tel%></dd>
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+								<dt class="blind">&nbsp;</dt>
+							</dl>
+						</div>
+						<p class="btn_area_btm">
+							<a href="Propile2.html"
+								onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
+								class="btn_model"> <b class="btn2">ÏàòÏ†ï</b>
+							</a>
+						</p>
+					</div>
+				</div>
+				<div class="sh_group">
+					<div class="sh_header">
+						<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ÏßÄÏó≠
+							ÏÑ§Ï†ï&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+					</div>
+					<div class="sh_content">
+						<dl class="sh_lst3">
+							<br>
+							<br>
+							<dt>ÌòÑÏû¨ ÏÑ§Ï†ïÌïú ÏßÄÏó≠Ïù¥ ÏóÜÏäµÎãàÎã§.</dt>
+							<dt>ÏßÄÏó≠ÏùÑ Ï∂îÍ∞ÄÌïòÏãúÍ≤†ÏäµÎãàÍπå?</dt>
+							<br>
+							<br>
+						</dl>
+					</div>
+					<p class="btn_area_btm">
+						<a href=""
+							onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
+							class="btn_model"> <b class="btn2">Ï∂îÍ∞ÄÌïòÍ∏∞</b>
+						</a>
+					</p>
+				</div>
 
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </header> <!-- end of ex-header -->
-    <!-- end of header -->
-   
-  
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-    
+			</div>
+		</div>
+
+		</div>
+		<!-- end of form container -->
+		<!-- end of sign up form -->
+
+		</div>
+		<!-- end of col -->
+		</div>
+		<!-- end of row -->
+		</div>
+		<!-- end of container -->
+	</header>
+	<!-- end of ex-header -->
+	<!-- end of header -->
+
+
+	<!-- Js Plugins -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.nice-select.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/mixitup.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/main.js"></script>
+
 </body>
 </html>
