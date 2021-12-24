@@ -219,6 +219,7 @@
                             <!-- 관리자 권한 기능  --> <%} %>
                             
                             <a href="log-in.html"><i class="fa fa-user">Logout</i></a>
+                            <a href="Mypage.jsp"><i class="fa fa-cog">마이페이지</i></a>
                             <%} %>
                             
                             
