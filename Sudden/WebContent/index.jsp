@@ -164,8 +164,7 @@
 					<%}%>
 					<div class="header__cart">
 					<ul>
-						<li><a href=""><i class="fa fa-registered"></i><span>+
-						</span></a></li>
+						<li><a href="Registe.html"><i class="fa fa-registered"></i></a></li>
 						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
 						<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
 					</ul>
@@ -200,7 +199,7 @@
 							<li><a href="shop-grid.jsp">디지털/가전</a></li>
 							<li><a href="shop-grid.jsp">스포츠/레저</a></li>
 							<li><a href="shop-grid.jsp">차량/오토바이</a></li>
-							<li><a href="shop-grid.jsp">키덜트 음반/악기</a></li>
+							<li><a href="shop-grid.jsp">키덜트</a></li>
 							<li><a href="shop-grid.jsp">도서/티켓/문구</a></li>
 							<li><a href="shop-grid.jsp">뷰티/미용</a></li>
 							<li><a href="shop-grid.jsp">가구/인테리어</a></li>
@@ -216,7 +215,7 @@
 					<div class="hero__search">
 						<div class="hero__search__form">
 							<form action="Search.do"><!-- 검색하는곳 -->
-								<input type="text" id="search" placeholder="찾고 싶은 상품을 검색해 보세요">
+								<input type="text" id="search" name="name" placeholder="찾고 싶은 상품을 검색해 보세요">
 								<button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
 							</form>
 						</div>
@@ -227,9 +226,9 @@
 								<!-- 로그인하는곳 -->
 
 								<%
-									if (dto == null) {
+								if (dto == null) {
 								%>
-								<a href="log-in.html"><i class="fa fa-user">Login</i></a>
+								<a href="log-in.jsp"><i class="fa fa-user">Login</i></a>
 								<%
 									} else {
 								if (dto.getId().equals("admin")) {
@@ -238,6 +237,7 @@
 								<%
 									}
 								%>
+<<<<<<< HEAD
 								<!-- 로그인 후 로그인창 화면-->
 								<div class="login__box">
 									<div class="profile">
@@ -260,6 +260,10 @@
 									</div>
 								</div>
 								
+=======
+
+								<a href="Logoutcon.do"><i class="fa fa-user">Logout</i></a>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
 								<%
 									}
 								%>
@@ -783,9 +787,9 @@
 			success : function(res) {
 				
 				if(res=='true'){
-					$('p#nick_result').html("중복된 닉네임 입니다.").css('color','red');
+					alert("다시 검색해 주세요");
 				}else{
-					$('p#nick_result').html("사용가능한 닉네임 입니다.").css('color','green');
+					
 				}
 
 			},

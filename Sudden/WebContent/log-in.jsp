@@ -1,3 +1,6 @@
+<%@page import="com.sudden.DTO.memberDTO"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +35,7 @@
     <link rel="icon" href="images/favicon.png">
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
+
     
     <!-- Preloader -->
 	<div class="spinner-wrapper">
@@ -82,7 +86,7 @@
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="btn-outline-sm" href="log-in.html">ÎèåÏïÑÍ∞ÄÍ∏∞</a>
+                    <a class="btn-outline-sm" href="index.jsp" id="back">µπæ∆∞°±‚</a>
                 </span>
             </div>
         </div> <!-- end of container -->
@@ -95,31 +99,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>PW Ïû¨ÏÑ§Ï†ï</h1>
+                    <h1>∑Œ±◊¿Œ</h1>
                     <!-- Sign Up Form -->
                     <div class="form-container">
-                        <form id="signUpForm" data-toggle="validator" data-focus="false">
+                        <form id="signUpForm" action="Logincon.do" data-toggle="validator" data-focus="false">
                             <div class="form-group">
-                                <input type="text" class="form-control-input" id="sid" required>
-                                <label class="label-control" for="sid">ÌöåÏõêID</label>
+                                <input type="text" id="login_id" class="form-control-input" name="id"  placeholder="ID∏¶ ¿‘∑¬«œººø‰">
+                                
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" id="upassword" required>
-                                <label class="label-control" for="upassword">ÏÑ§Ï†ïÌï† PW</label>
+                                <input type="text" id="login_pw" class="form-control-input" name="pw"  placeholder="PW∏¶ ¿‘∑¬«œººø‰">
+                                
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control-input" id="cpassword" required> 
-                                <label class="label-control" for="cpassword">ÏÑ§Ï†ïÌï† PWÌôïÏù∏</label>
-                                <div class="help-block with-errors"></div>
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="snip1535two">ÏÑ§Ï†ïÌïòÍ∏∞</button>
+                                <button type="submit" value="LogIn" class="snip1535two" id="loginCheck" value="loginUs" onclick="login_Check()">Log-In</button>
                             </div>
                             <div class="form-message">
                                 <div id="smsgSubmit" class="h3 text-center hidden"></div>
                             </div>
+                            <p>æ∆¡˜ »∏ø¯¿Ãæ∆¥œººø‰? <a class="white" href="sign-up.html">»∏ø¯∞°¿‘</a></p> 
+                            <p>∫Òπ–π¯»£∞° ª˝∞¢≥™¡ˆ æ ≥™ø‰? <a class="white" href="pwupdate.html">∫Òπ¯√£±‚</a></p> 
                         </form>
                     </div> <!-- end of form container -->
                     <!-- end of sign up form -->
@@ -140,5 +141,31 @@
     <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
     <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
     <script src="js/scripts.js"></script> <!-- Custom scripts -->
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+			<script type="text/javascript">
+				function login_Check() {
+
+					$.ajax({
+						url : "login_check.do",
+						type : "get",
+						data : {
+							"id" : $('#login_id').val(),						
+							"pw" : $('#login_pw').val()						
+						},
+						success : function(res) {
+							
+							if(res=='true'){
+								
+							}else{
+								alert("æ∆¿Ãµ »§¿∫ ∫Òπ–π¯»£∏¶ »Æ¿Œ«ÿ¡÷ººø‰.");
+							}
+							
+
+						},
+						error : function() {
+							alert("ø‰√ª Ω«∆–");
+						}
+					});
+				}
+				</script>
 </body>
-</html>

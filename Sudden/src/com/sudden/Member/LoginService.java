@@ -2,6 +2,7 @@ package com.sudden.Member;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,14 +21,17 @@ public class LoginService implements Command{
 
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		String nick="0";
 
 		HttpSession session = request.getSession();
+		ArrayList<String> arr = new ArrayList<String>();// 고칠 부분
+		arr.add("0");
+		System.out.println(arr.get(0));
 		
 		memberDTO dto = new memberDTO(id, pw, 0);	
 		memberDAO dao = new memberDAO();
 
-		dto = dao.Login(dto);
+		dto=dao.Login(dto);
+		
 		String nextpage="";
 				
 		if (dto!=null) {
@@ -36,7 +40,7 @@ public class LoginService implements Command{
 			nextpage = "index.jsp";
 		} else {
 			System.out.println("로그인 실패");
-			nextpage = "log-in.html";
+			nextpage = "log-in.jsp";
 		}
 		return nextpage;
 	}

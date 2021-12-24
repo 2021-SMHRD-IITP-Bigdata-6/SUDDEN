@@ -32,6 +32,10 @@
     <link rel="icon" href="images/favicon.png">
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
+
+	<%
+		memberDTO dto = (memberDTO) session.getAttribute("dto");
+	%>
     
     <!-- Preloader -->
 	<div class="spinner-wrapper">

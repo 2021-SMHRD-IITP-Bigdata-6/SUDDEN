@@ -24,22 +24,25 @@ public class SearchService implements Command{
 		request.setCharacterEncoding("utf-8");
 
 		String name = request.getParameter("name");		
-
+		System.out.println("service="+name);
+		
 		HttpSession session = request.getSession();
 		
 		goodsDTO dto = new goodsDTO(name);	
 		goodsDAO dao = new goodsDAO();
-
+		System.out.println("service="+dto);
 		ArrayList<goodsDTO> list = dao.Search(dto);
 		String nextpage="";
-				
-		if (dto!=null) {
-			System.out.println("search 완료");
-			session.setAttribute("list", list);
+		
+		String ch = list.get(0).getName();
+				System.out.println(ch);
+		if (ch.equals(null)) {
+			System.out.println("search 실패");
 			nextpage = "index.jsp";
 		} else {
-			System.out.println("search 실패");
-			nextpage = "log-in.html";
+			System.out.println("search 완료");
+			session.setAttribute("list", list);
+			nextpage = "shop-grid.jsp";
 		}
 		return nextpage;
 	}
