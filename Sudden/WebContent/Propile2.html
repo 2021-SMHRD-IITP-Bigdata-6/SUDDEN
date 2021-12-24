@@ -101,41 +101,45 @@
             </div>
             </div>
       
-            <div id="content" style="background-color:#fff; width:600px;margin-left: 670px; margin-right: auto;text-align: center; padding: 75px;border-radius: 20px;" >
+            <div id="content" style="background-color:#fff; width:600px;margin-left: 670px; margin-right: auto;text-align: center; padding: 30px;border-radius: 20px;" >
             <h2>프로필 수정</h2>
-            <p class="contxt">SUDDEN 프로필과 닉네임을 수정 하실수 있습니다.</p>
+            <p class="contxt">SUDDEN 연락처와 이메일을 수정할수 있습니다.</p>
             <table border="0" class="tbl_model">
-            		<tr>
+            	<tr>
             		<th scope="row">
-            			<div class="thcell">프로필 사진</div>
+            			<div class="thcell">이메일 수정</div>
             			</th>
             		<td>
-            		<div class="tdcell">
-            			<img id="imgThumb" src="https://static.nid.naver.com/images/web/user/default.png?type=s160" width="100" height="100">
-            			<span class="mask"></span>
+            		<div class="tdcell"><br><br><br><br><br><br>
+            			<input type="text" name="upemail" value="" style="width:254px; " onclick="clickcr(this,'prf.nick','','',event);">
+            			<input type="text" style="display:none;">
             		</div>
-            		<br>
-            		<div class="btn_area_btm">
-            			<span class="btn_file">
-            			 	<input type="file" id="inputImage" name="profileImage" accept="image/*">
-            			</span>
-            		</div>
-            		<br>
             		</td>
             		</tr>
+            		<tr>
             		<th scope="row">
-            		<div class="thcell">
-            			<label for="inpNickname">별명</label>
-            		</div>
+            		<div class="thcell">주소</div>
             		</th>
             		<td>
             		<div class="tdcell">
-            		<p class="contxt_webctrl nickname">
-            		<br><br><br>
-            		<input type="text" name="nickname" id="inpNickname" value="정채민" style="width:254px; " onclick="clickcr(this,'prf.nick','','',event);">
+            		<br><br><br><br><br><br>
+            		<input type="text" name="upaddr" value="" style="width:254px; " onclick="clickcr(this,'prf.nick','','',event);">
             		<input type="text" style="display:none;">
-            		</p>
             		</div>
+            		</td>
+            		</tr>
+            		<tr>
+            		<th scope="row">
+            		<div class="thcell">전화 번호</div>
+            		</th>
+            		<td>
+            		<div class="tdcell">
+            		<br><br><br><br><br><br>
+            		<input type="text" name="uptel" value="" style="width:254px; " onclick="clickcr(this,'prf.nick','','',event);">
+            		<input type="text" style="display:none;">
+            		</div>
+            		</td>
+            		</tr>
             </table>
             <div class="btn_wrap">
             	<a href="javascript::" class="btn_model">
