@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.inter.Command;
+import com.inter.Login_Command;
 import com.sudden.DAO.memberDAO;
 import com.sudden.DTO.memberDTO;
 

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.inter.Command;
+import com.inter.Login_Command;
 import com.sudden.DAO.goodsDAO;
 import com.sudden.DAO.memberDAO;
 import com.sudden.DTO.goodsDTO;
@@ -25,12 +26,12 @@ public class FrontController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//com.message.member package에 있는 servlet 파일들을 하나로 만들기
-				// 중복되는 코드or추적 및 보안을 적용할 때 유지보수에 용이	
+
 				String uri = request.getRequestURI();		
 				String path = request.getContextPath();		
 				String command = uri.substring(path.length()+1);
 				
+				Login_Command lcom = null;
 				Command com = null;
 				String nextpage =null;
 				
@@ -40,9 +41,12 @@ public class FrontController extends HttpServlet {
 					com = new JoinService();
 					nextpage = com.execute(request, response);
 					
-				}else if(command.equals("Logincon.do")) {					
-					com = new LoginService();
-					nextpage = com.execute(request, response);
+				}else if(command.equals("Logincon.do")||command.equals("Logincon_grid.do")||command.equals("Logincon_detail.do")) {					
+					lcom = new LoginService();// 수정할곳
+					System.out.println("여기는com");
+					
+					System.out.println("com = "+lcom);
+					nextpage = lcom.execute(request, response, command);
 						
 					
 				}else if(command.equals("Logoutcon.do")) {					

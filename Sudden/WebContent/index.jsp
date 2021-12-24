@@ -68,7 +68,7 @@
             </div> -->
 
 		</div>
-		<nav class="humberger__menu__nav mobile-menu">
+		<!--<nav class="humberger__menu__nav mobile-menu">
 			<ul>
 				<li class="active"><a href="./index.jsp">Home</a></li>
 				<li><a href="./shop-grid.jsp">Shop</a></li>
@@ -78,7 +78,7 @@
 						<li><a href="./shoping-cart.jsp">Shoping Cart</a></li>
 					</ul></li>
 			</ul>
-		</nav>
+		</nav>-->
 		<div id="mobile-menu-wrap"></div>
 		<div class="header__top__right__social">
 			<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
@@ -155,13 +155,13 @@
 				</nav>
 			</div>
 			<div class="col-lg-3">
-				<!-- 로그인 한 후 아이콘 보여주는곳 -->
+				
 				<%if (dto == null) {
 				  } else {
 					  if (dto.getId().equals("admin")) {%>
 						  <!-- 관리자 권한 기능  -->
 					<%}%>
-					<div class="header__cart">
+					<!-- <div class="header__cart">
 					<ul>
 						<li><a href="Registe.html"><i class="fa fa-registered"></i></a></li>
 						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
@@ -170,7 +170,7 @@
 					<div class="header__cart__price">
 						item: <span>$150.00</span>
 					</div>
-				</div>
+				</div> -->
 				  <%}%>			
 			</div>
 		</div>
@@ -230,13 +230,17 @@
 								<a href="log-in.jsp"><i class="fa fa-user">Login</i></a>
 								<%
 									} else {
+<<<<<<< HEAD
 								if (dto.getId().equals("admin")) {
 								%>
 								<!-- 관리자 권한 기능  크리스마스 잘보내셔요 -민철 -->
 								<%
 									}
+=======
+								
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
 								%>
-								<!-- 로그인 후 로그인창 화면-->
+								<!-- 로그인 후 아이콘-->
 								<div class="login__box">
 									<div class="profile">
 										<span class="profile__picture"><i class="fa fa-user-circle fa-lg"></i></span>
@@ -253,11 +257,11 @@
 											<span onclick="location.href='#'" style="cursor: pointer;"><i class="fa fa-comment"></i></span>
 										</div>
 										<div class="Logout">
-											<span onclick="location.href='index.jsp'" style="cursor: pointer;">Logout</span>
+										<span onclick="location.href='Logoutcon.do'" style="cursor: pointer;">Logout</span>
 										</div>
 									</div>
 								</div>
-								<a href="Logoutcon.do"><i class="fa fa-user">Logout</i></a>
+								 
 								<%
 									}
 								%>
@@ -765,7 +769,7 @@
 	<script src="js/mixitup.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-	
+	<script src="jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 	function search() {
 

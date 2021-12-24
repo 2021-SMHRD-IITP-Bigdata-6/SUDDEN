@@ -1,3 +1,4 @@
+<%@page import="com.sudden.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -26,6 +27,10 @@
 </head>
 
 <body>
+
+	<%
+		memberDTO dto = (memberDTO) session.getAttribute("dto");
+	%>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -96,7 +101,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <nav class="header__menu">
+                  <!--  <nav class="header__menu">
                         <ul>
                             <li><a href="./index.jsp">Home</a></li>
                             <li class="active"><a href="./shop-grid.jsp">Shop</a></li>
@@ -107,8 +112,28 @@
                                 </ul>
                             </li>
                         </ul>
-                    </nav>
+                    </nav>-->
                 </div>
+                <div class="col-lg-3">
+				<!-- 로그인 한 후 아이콘 보여주는곳 -->
+				
+				<!--<%if (dto == null) {
+				  } else {
+					  if (dto.getId().equals("admin")) {%>
+						   관리자 권한 기능  
+					<%}%>
+					  <div class="header__cart">
+					<ul>
+						<li><a href="Registe.html"><i class="fa fa-registered"></i></a></li>
+						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+						<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+					</ul>
+					<div class="header__cart__price">
+						item: <span>$150.00</span>
+					</div>
+				</div>
+				  <%}%>		 -->	
+			</div>
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -128,43 +153,78 @@
                             <span>전체 카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="#">여성의류</a></li>
-                            <li><a href="#">남성의류</a></li>
-                            <li><a href="#">신발</a></li>
-                            <li><a href="#">가방</a></li>
-                            <li><a href="#">시계/주얼리</a></li>
-                            <li><a href="#">패션엑세서리</a></li>
-                            <li><a href="#">디지털/가전</a></li>
-                            <li><a href="#">스포츠/레저</a></li>
-                            <li><a href="#">차량/오토바이</a></li>
-                            <li><a href="#">키덜트</a></li>
-                            <li><a href="#">도서/티켓/문구</a></li>
-                            <li><a href="#">뷰티/미용</a></li>
-                            <li><a href="#">가구/인테리어</a></li>
-                            <li><a href="#">생활/가공식품</a></li>
-                            <li><a href="#">유아동/출산</a></li>
-                            <li><a href="#">반려동물용품</a></li>
-                            <li><a href="#">기타</a></li>
-                            <li><a href="#">서든나눔</a></li>
+                            <li><a href="shop-grid.jsp">여성의류</a></li>
+                            <li><a href="shop-grid.jsp">남성의류</a></li>
+                            <li><a href="shop-grid.jsp">신발</a></li>
+                            <li><a href="shop-grid.jsp">가방</a></li>
+                            <li><a href="shop-grid.jsp">시계/주얼리</a></li>
+                            <li><a href="shop-grid.jsp">패션엑세서리</a></li>
+                            <li><a href="shop-grid.jsp">디지털/가전</a></li>
+                            <li><a href="shop-grid.jsp">스포츠/레저</a></li>
+                            <li><a href="shop-grid.jsp">차량/오토바이</a></li>
+                            <li><a href="shop-grid.jsp">키덜트</a></li>
+                            <li><a href="shop-grid.jsp">도서/티켓/문구</a></li>
+                            <li><a href="shop-grid.jsp">뷰티/미용</a></li>
+                            <li><a href="shop-grid.jsp">가구/인테리어</a></li>
+                            <li><a href="shop-grid.jsp">생활/가공식품</a></li>
+                            <li><a href="shop-grid.jsp">유아동/출산</a></li>
+                            <li><a href="shop-grid.jsp">반려동물용품</a></li>
+                            <li><a href="shop-grid.jsp">기타</a></li>
+                            <li><a href="shop-grid.jsp">서든나눔</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                            <form action="Search.do">
+                                <input type="text" id="search" name="name" placeholder="찾고 싶은 상품을 검색해 보세요">
+                                <button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
                             </form>
                         </div>
-                        <div class="hero__search__login">
-                            <div class="hero__search__login__icon">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="hero__search__login__text">
-                                <h5>Login</h5>
-                            </div>
-                        </div>
+                        <div class="header__top__right__auth">
+
+
+							<div class="hero__search__login">
+								<!-- 로그인하는곳 -->
+
+								<%
+								if (dto == null) {
+								%>
+								<a href="log-in_details.jsp"><i class="fa fa-user">Login</i></a>
+								<%
+									} else {
+								
+								%>
+								<!-- 로그인 후 아이콘-->
+								<div class="login__box">
+									<div class="profile">
+										<span class="profile__picture"><i class="fa fa-user-circle fa-lg"></i></span>
+										<span><%= dto.getId() %>님 환영합니다!</span>
+									</div>
+									<div class="icon">
+										<div class="MyPage">
+											<span onclick="location.href='Mypage.jsp'" style="cursor: pointer;"><i class="fa fa-user"></i></span>
+										</div>
+										<div class="Favorite">
+											<span onclick="location.href='shoping-cart.jsp'" style="cursor: pointer;"><i class="fa fa-heart"></i></span>
+										</div>
+										<div class="Chatting">
+											<span onclick="location.href='#'" style="cursor: pointer;"><i class="fa fa-comment"></i></span>
+										</div>
+										<div class="Logout">
+										<span onclick="location.href='Logoutcon.do'" style="cursor: pointer;">Logout</span>
+										</div>
+									</div>
+								</div>
+								 
+								<%
+									}
+								%>
+
+
+							</div>
+						</div>
                     </div>
                 </div>
             </div>
@@ -208,8 +268,20 @@
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>가격</b><a style="font-size:30px; color:black;">1000$</a></li>
-                            <li><b>연락하기</b><a href="#"><i class="fa fa-comment" style="font-size:50px; color:black;"></i></a>
-                            </li>
+                            <%
+								if (dto == null) {
+								%>
+								<li><b>연락하기</b><a href="log-in_details.jsp"><i class="fa fa-comment" style="font-size:50px; color:black;"></i></a>
+			                            </li>
+								
+								<%
+									} else {%>
+										<li><b>연락하기</b><a href="#"><i class="fa fa-comment" style="font-size:50px; color:black;"></i></a>
+			                            </li>
+									<%}%>
+								
+								
+                            
                         </ul>
                     </div>
                 </div>
@@ -255,6 +327,31 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+	function search() {
+
+		$.ajax({
+			url : "search.do",
+			type : "get",
+			data : {
+				"name" : $('#search').val(),						
+			},
+			success : function(res) {
+				
+				if(res=='true'){
+					alert("다시 검색해 주세요");
+				}else{
+					
+				}
+
+			},
+			error : function() {
+				alert("요청 실패");
+			}
+		});
+	
+	}</script>
 
 
 </body>
