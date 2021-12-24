@@ -14,6 +14,7 @@ import com.sudden.DAO.memberDAO;
 import com.sudden.DTO.memberDTO;
 import com.sudden.Member.JoinService;
 import com.sudden.Member.LoginService;
+import com.sudden.Member.SearchService;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -39,6 +40,10 @@ public class FrontController extends HttpServlet {
 					com = new LoginService();
 					nextpage = com.execute(request, response);	
 					
+				}else if(command.equals("Search.do")) {					
+					com = new SearchService();
+					nextpage = com.execute(request, response);	
+					
 				}else if(command.equals("check.do")) {
 					request.setCharacterEncoding("utf-8");
 
@@ -59,7 +64,7 @@ public class FrontController extends HttpServlet {
 					
 					
 					
-					memberDTO dto = new memberDTO(id,nick);	
+					memberDTO dto = new memberDTO(nick, 0);	
 					memberDAO dao = new memberDAO();
 					boolean tof = dao.nick_check(dto);
 					

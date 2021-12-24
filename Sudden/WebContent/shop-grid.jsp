@@ -174,24 +174,24 @@
                             <span>전체 카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="#">여성의류</a></li>
-                            <li><a href="#">남성의류</a></li>
-                            <li><a href="#">신발</a></li>
-                            <li><a href="#">가방</a></li>
-                            <li><a href="#">시계/주얼리</a></li>
-                            <li><a href="#">패션엑세서리</a></li>
-                            <li><a href="#">디지털/가전</a></li>
-                            <li><a href="#">스포츠/레저</a></li>
-                            <li><a href="#">차량/오토바이</a></li>
-                            <li><a href="#">키덜트 음반/악기</a></li>
-                            <li><a href="#">도서/티켓/문구</a></li>
-                            <li><a href="#">뷰티/미용</a></li>
-                            <li><a href="#">가구/인테리어</a></li>
-                            <li><a href="#">생활/가공식품</a></li>
-                            <li><a href="#">유아동/출산</a></li>
-                            <li><a href="#">반려동물용품</a></li>
-                            <li><a href="#">기타</a></li>
-                            <li><a href="#">서든나눔</a></li>
+                            <li><a href="shop-grid.jsp">여성의류</a></li>
+                            <li><a href="shop-grid.jsp">남성의류</a></li>
+                            <li><a href="shop-grid.jsp">신발</a></li>
+                            <li><a href="shop-grid.jsp">가방</a></li>
+                            <li><a href="shop-grid.jsp">시계/주얼리</a></li>
+                            <li><a href="shop-grid.jsp">패션엑세서리</a></li>
+                            <li><a href="shop-grid.jsp">디지털/가전</a></li>
+                            <li><a href="shop-grid.jsp">스포츠/레저</a></li>
+                            <li><a href="shop-grid.jsp">차량/오토바이</a></li>
+                            <li><a href="shop-grid.jsp">키덜트 음반/악기</a></li>
+                            <li><a href="shop-grid.jsp">도서/티켓/문구</a></li>
+                            <li><a href="shop-grid.jsp">뷰티/미용</a></li>
+                            <li><a href="shop-grid.jsp">가구/인테리어</a></li>
+                            <li><a href="shop-grid.jsp">생활/가공식품</a></li>
+                            <li><a href="shop-grid.jsp">유아동/출산</a></li>
+                            <li><a href="shop-grid.jsp">반려동물용품</a></li>
+                            <li><a href="shop-grid.jsp">기타</a></li>
+                            <li><a href="shop-grid.jsp">서든나눔</a></li>
                         </ul>
                     </div>
                 </div>
@@ -327,18 +327,18 @@
                 <div class="col-lg-9 col-md-7">
                     <div class="filter__item">
                         <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                                <div class="filter__sort">
+                          <!--  <div class="col-lg-4 col-md-5">
+                                  <div class="filter__sort">
                                     <span>Sort By</span>
                                     <select>
                                         <option value="0">Default</option>
                                         <option value="0">Default</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
+                                    <h6><span>15</span> Products found</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -353,13 +353,13 @@
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
-                                    <ul class="product__item__pic__hover">
+                                    <ul class="product__item__pic__hover"><!-- 관심상품 등록 -->
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Crab Pool Security</a></h6>
-                                    <h5>$30.00</h5>
+                                    <h6><a href="shop-details.jsp">Crab Pool Security</a></h6>
+                                    <h5>$1</h5>
                                 </div>
                             </div>
                         </div>
@@ -372,7 +372,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="#">Crab Pool Security</a></h6>
-                                    <h5>$30.00</h5>
+                                    <h5>$2</h5>
                                 </div>
                             </div>
                         </div>
@@ -385,7 +385,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="#">Crab Pool Security</a></h6>
-                                    <h5>$30.00</h5>
+                                    <h5>$3</h5>
                                 </div>
                             </div>
                         </div>
@@ -398,7 +398,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="#">Crab Pool Security</a></h6>
-                                    <h5>$30.00</h5>
+                                    <h5>$4</h5>
                                 </div>
                             </div>
                         </div>
@@ -411,7 +411,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="#">Crab Pool Security</a></h6>
-                                    <h5>$30.00</h5>
+                                    <h5>$5</h5>
                                 </div>
                             </div>
                         </div>
@@ -424,7 +424,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="#">Crab Pool Security</a></h6>
-                                    <h5>$30.00</h5>
+                                    <h5>$6</h5>
                                 </div>
                             </div>
                         </div>

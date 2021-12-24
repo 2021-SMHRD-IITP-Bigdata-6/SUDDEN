@@ -24,6 +24,11 @@ public class memberDTO {
 		super();
 		this.id = id;
 	}
+	public memberDTO(String nick, int i) {//joinservice
+		super();
+		this.nick = nick;
+		
+	}
 	public memberDTO(String id, String nick) {//joinservice
 		super();
 		this.id = id;
@@ -33,8 +38,7 @@ public class memberDTO {
 		super();
 		this.id = id;
 		this.pw = pw;
-	}
-	
+	}	
 	public memberDTO(String id, String pw, String nick) {//loginservice
 		super();
 		this.id = id;

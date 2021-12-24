@@ -1,44 +1,48 @@
 package com.sudden.Member;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.inter.Command;
+import com.sudden.DAO.goodsDAO;
 import com.sudden.DAO.memberDAO;
+import com.sudden.DTO.goodsDTO;
 import com.sudden.DTO.memberDTO;
 
-public class LoginService implements Command{
+@WebServlet("/SearchService")
+public class SearchService implements Command{
 	
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
-		
+
 		request.setCharacterEncoding("utf-8");
 
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		String nick="0";
+		String name = request.getParameter("name");		
 
 		HttpSession session = request.getSession();
 		
-		memberDTO dto = new memberDTO(id, pw, 0);	
-		memberDAO dao = new memberDAO();
+		goodsDTO dto = new goodsDTO(name);	
+		goodsDAO dao = new goodsDAO();
 
-		dto = dao.Login(dto);
+		ArrayList<goodsDTO> list = dao.Search(dto);
 		String nextpage="";
 				
 		if (dto!=null) {
-			System.out.println("로그인 완료");
-			session.setAttribute("dto", dto);
+			System.out.println("search 완료");
+			session.setAttribute("list", list);
 			nextpage = "index.jsp";
 		} else {
-			System.out.println("로그인 실패");
+			System.out.println("search 실패");
 			nextpage = "log-in.html";
 		}
 		return nextpage;
 	}
+		
+	}
 
-}
