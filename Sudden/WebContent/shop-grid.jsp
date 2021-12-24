@@ -159,7 +159,7 @@
 					  if (dto.getId().equals("admin")) {%>
 						  <!-- 관리자 권한 기능  -->
 					<%}%>
-					<div class="header__cart">
+					<!--  <div class="header__cart">
 					<ul>
 						<li><a href="Registe.html"><i class="fa fa-registered"></i></a></li>
 						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
@@ -169,7 +169,7 @@
 						item: <span>$150.00</span>
 					</div>
 				</div>
-				  <%}%>			
+				  <%}%>		 -->	
 			</div>
             </div>
             <div class="humberger__open">
@@ -228,17 +228,33 @@
 								<%
 								if (dto == null) {
 								%>
-								<a href="log_in_grid.jsp"><i class="fa fa-user">Login</i></a>
+								<a href="log-in.jsp"><i class="fa fa-user">Login</i></a>
 								<%
 									} else {
-								if (dto.getId().equals("admin")) {
+								
 								%>
-								<!-- 관리자 권한 기능  -->
-								<%
-									}
-								%>
-
-								<a href="Logoutcon.do"><i class="fa fa-user">Logout</i></a>
+								<!-- 로그인 후 아이콘-->
+								<div class="login__box">
+									<div class="profile">
+										<span class="profile__picture"><i class="fa fa-user-circle fa-lg"></i></span>
+										<span><%= dto.getId() %>님 환영합니다!</span>
+									</div>
+									<div class="icon">
+										<div class="MyPage">
+											<span onclick="location.href='Mypage.jsp'" style="cursor: pointer;"><i class="fa fa-user"></i></span>
+										</div>
+										<div class="Favorite">
+											<span onclick="location.href='shoping-cart.jsp'" style="cursor: pointer;"><i class="fa fa-heart"></i></span>
+										</div>
+										<div class="Chatting">
+											<span onclick="location.href='#'" style="cursor: pointer;"><i class="fa fa-comment"></i></span>
+										</div>
+										<div class="Logout">
+										<span onclick="location.href='Logoutcon.do'" style="cursor: pointer;">Logout</span>
+										</div>
+									</div>
+								</div>
+								 
 								<%
 									}
 								%>

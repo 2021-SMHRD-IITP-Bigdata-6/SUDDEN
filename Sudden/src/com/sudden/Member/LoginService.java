@@ -21,6 +21,7 @@ public class LoginService implements Command{
 
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+		String comd = request.getParameter("command");// °íÄ¥ ºÎºÐ
 
 		HttpSession session = request.getSession();
 		ArrayList<String> arr = new ArrayList<String>();// °íÄ¥ ºÎºÐ
