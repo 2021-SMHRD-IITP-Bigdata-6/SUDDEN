@@ -182,6 +182,7 @@
 		</div>
 	</div>
 	</header>
+<<<<<<< HEAD
 	<!-- Header Section End -->
     <!-- Hero Section Begin -->
     <section class="hero">
@@ -255,6 +256,9 @@
         </div>
     </section>
     <!-- Hero Section End -->
+=======
+	<!-- Header Section End -->
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
 
 	<!-- Hero Section Begin -->
 	<section class="hero">
