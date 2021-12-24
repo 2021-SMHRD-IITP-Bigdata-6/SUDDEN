@@ -31,7 +31,6 @@ public class JoinService implements Command {
 		
 		
 		memberDTO dto = new memberDTO(id, pw, nick, addr, tel, email);
-		memberDTO dto1 = new memberDTO(id, nick);
 		//1. memberDAO에 해당하는 기능메소드로 값 보내주기(객체생성, 메소드, 매개변수)
 		memberDAO dao = new memberDAO();
 		//2. cnt값 리턴해주기(메소드, 리턴)
