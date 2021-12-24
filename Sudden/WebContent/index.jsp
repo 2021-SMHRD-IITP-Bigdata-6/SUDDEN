@@ -68,7 +68,7 @@
             </div> -->
 
 		</div>
-		<nav class="humberger__menu__nav mobile-menu">
+		<!--<nav class="humberger__menu__nav mobile-menu">
 			<ul>
 				<li class="active"><a href="./index.jsp">Home</a></li>
 				<li><a href="./shop-grid.jsp">Shop</a></li>
@@ -78,7 +78,7 @@
 						<li><a href="./shoping-cart.jsp">Shoping Cart</a></li>
 					</ul></li>
 			</ul>
-		</nav>
+		</nav>-->
 		<div id="mobile-menu-wrap"></div>
 		<div class="header__top__right__social">
 			<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i

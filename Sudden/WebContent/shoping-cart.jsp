@@ -1,3 +1,4 @@
+<%@page import="com.sudden.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -25,6 +26,9 @@
 </head>
 
 <body>
+	<%
+		memberDTO dto = (memberDTO) session.getAttribute("dto");
+	%>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -133,7 +137,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <nav class="header__menu">
+                   <!-- <nav class="header__menu">
                         <ul>
                             <li><a href="./index.jsp">Home</a></li>
                             <li class="active"><a href="./shop-grid.jsp">Shop</a></li>
@@ -146,7 +150,7 @@
                             </li>
                         
                         </ul>
-                    </nav>
+                    </nav>-->
                 </div>
                 <div class="col-lg-3">
                     <!-- <div class="header__cart">
@@ -205,17 +209,48 @@
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
+                        <div class="header__top__right__auth">
                         <div class="hero__search__login">
-                            <div class="hero__search__login__icon">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="hero__search__login__text">
-                                <h5>Login</h5>
-                            </div>
+                            <!-- 로그인하는곳 -->
+
+								<%
+								if (dto == null) {
+								%>
+								
+								<%
+									} else {
+								
+								%>
+								<!-- 로그인 후 아이콘-->
+								<div class="login__box">
+									<div class="profile">
+										<span class="profile__picture"><i class="fa fa-user-circle fa-lg"></i></span>
+										<span><%= dto.getId() %>님 환영합니다!</span>
+									</div>
+									<div class="icon">
+										<div class="MyPage">
+											<span onclick="location.href='Mypage.jsp'" style="cursor: pointer;"><i class="fa fa-user"></i></span>
+										</div>
+										<div class="Favorite">
+											<span onclick="location.href='shoping-cart.jsp'" style="cursor: pointer;"><i class="fa fa-heart"></i></span>
+										</div>
+										<div class="Chatting">
+											<span onclick="location.href='#'" style="cursor: pointer;"><i class="fa fa-comment"></i></span>
+										</div>
+										<div class="Logout">
+										<span onclick="location.href='Logoutcon.do'" style="cursor: pointer;">Logout</span>
+										</div>
+									</div>
+								</div>
+								 
+								<%
+									}
+								%>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!-- Hero Section End -->
