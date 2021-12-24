@@ -1,3 +1,8 @@
+<%@page import="com.sudden.DTO.memberDTO"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -86,13 +91,68 @@
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="btn-outline-sm" href="log-in.html">뒤로가기</a>
+                    <a class="btn-outline-sm" href="index.jsp">뒤로가기</a>
                 </span>
             </div>
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
-    
+     <%
+     memberDTO dto = (memberDTO)session.getAttribute("dto");
+    //변수선언
+    String nick ="";
+	String email ="";
+	String addr ="";
+	String tel = "";
+	
+	//DAO
+	Connection conn = null;
+	PreparedStatement psmt = null;
+	ResultSet rs = null;
+	
+	try {
+		//드라이버 연결
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524";
+			String dbid = "cgi_8_5_1216";
+			String dbpw = "smhrd5";
+			
+			conn = DriverManager.getConnection(url, dbid, dbpw);
+		
+		//id에 해당하는 모든 정보 가져오기
+		String sql = "select * from tbl_member where mem_id=?";
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, dto.getId());
+		rs = psmt.executeQuery();
+
+		if(rs.next()){
+			nick = dto.getNick();
+			email = rs.getString(6);
+			addr = rs.getString(4);
+			tel = rs.getString(5);
+			
+		};
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
+			if (psmt != null) {
+				psmt.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}	
+    %> 
     <!-- Header -->
 <header id="header" class="ex-2-header">
         <div class="container">
@@ -116,7 +176,7 @@
                     							<dt class="blind">&nbsp;</dt>
                     							<dd class="intro_desc">&nbsp;</dd>
                     							<dt>별명 :</dt>
-                    							<dd>정채민</dd>
+                    							<dd><%=nick %></dd>
                     							</dl>                    							
                     					</div>
                     					<p class="btn_area_btm">
@@ -135,11 +195,11 @@
                     					<dt class="blind">&nbsp;</dt>
                     					<dd class="intro_desc">&nbsp;</dd>
                     					<dt class="nic_tit">이메일 :</dt>
-                    					<dd class="nic_desc">123456789</dd>
+                    					<dd class="nic_desc"><%=email %></dd>
                     					<dt>주소 : </dt>
-                    					<dd>@@@@@@@@@@</dd>
+                    					<dd><%=addr %></dd>
                     					<dt>전화 번호 :</dt>
-                    					<dd>000000000</dd>
+                    					<dd><%=tel %></dd>
                     					<dt class="blind">&nbsp;</dt>
                     					<dd class="intro_desc">&nbsp;</dd>
                     					<dt class="blind">&nbsp;</dt>
@@ -182,9 +242,8 @@
         </div> <!-- end of container -->
     </header> <!-- end of ex-header -->
     <!-- end of header -->
-    
-    
    
+  
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -194,8 +253,6 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-
-
-
+    
 </body>
 </html>
