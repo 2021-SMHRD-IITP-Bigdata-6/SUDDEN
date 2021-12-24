@@ -230,15 +230,11 @@
 								<a href="log-in.jsp"><i class="fa fa-user">Login</i></a>
 								<%
 									} else {
-<<<<<<< HEAD
 								if (dto.getId().equals("admin")) {
 								%>
 								<!-- 관리자 권한 기능  크리스마스 잘보내셔요 -민철 -->
 								<%
 									}
-=======
-								
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
 								%>
 								<!-- 로그인 후 아이콘-->
 								<div class="login__box">
