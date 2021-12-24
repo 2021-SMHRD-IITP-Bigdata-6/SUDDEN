@@ -165,7 +165,8 @@
 					<%}%>
 					<div class="header__cart">
 					<ul>
-						<li><a href=""><i class="fa fa-registered"></i><span>+</span></a></li>
+						<li><a href=""><i class="fa fa-registered"></i><span>+
+						</span></a></li>
 						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
 						<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
 					</ul>
@@ -173,7 +174,6 @@
 						item: <span>$150.00</span>
 					</div>
 				</div>
-					  
 				  <%}%>			
 			</div>
 		</div>
@@ -258,6 +258,8 @@
     </section>
     <!-- Hero Section End -->
 
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
+
 	<!-- Hero Section Begin -->
 	<section class="hero">
 		<div class="container">
@@ -268,37 +270,37 @@
 							<i class="fa fa-bars"></i> <span>전체 카테고리</span>
 						</div>
 						<ul>
-							<li><a href="#">여성의류</a></li>
-							<li><a href="#">남성의류</a></li>
-							<li><a href="#">신발</a></li>
-							<li><a href="#">가방</a></li>
-							<li><a href="#">시계/주얼리</a></li>
-							<li><a href="#">패션엑세서리</a></li>
-							<li><a href="#">디지털/가전</a></li>
-							<li><a href="#">스포츠/레저</a></li>
-							<li><a href="#">차량/오토바이</a></li>
-							<li><a href="#">키덜트 음반/악기</a></li>
-							<li><a href="#">도서/티켓/문구</a></li>
-							<li><a href="#">뷰티/미용</a></li>
-							<li><a href="#">가구/인테리어</a></li>
-							<li><a href="#">생활/가공식품</a></li>
-							<li><a href="#">유아동/출산</a></li>
-							<li><a href="#">반려동물용품</a></li>
-							<li><a href="#">기타</a></li>
-							<li><a href="#">서든나눔</a></li>
+							<li><a href="shop-grid.jsp">여성의류</a></li>
+							<li><a href="shop-grid.jsp">남성의류</a></li>
+							<li><a href="shop-grid.jsp">신발</a></li>
+							<li><a href="shop-grid.jsp">가방</a></li>
+							<li><a href="shop-grid.jsp">시계/주얼리</a></li>
+							<li><a href="shop-grid.jsp">패션엑세서리</a></li>
+							<li><a href="shop-grid.jsp">디지털/가전</a></li>
+							<li><a href="shop-grid.jsp">스포츠/레저</a></li>
+							<li><a href="shop-grid.jsp">차량/오토바이</a></li>
+							<li><a href="shop-grid.jsp">키덜트 음반/악기</a></li>
+							<li><a href="shop-grid.jsp">도서/티켓/문구</a></li>
+							<li><a href="shop-grid.jsp">뷰티/미용</a></li>
+							<li><a href="shop-grid.jsp">가구/인테리어</a></li>
+							<li><a href="shop-grid.jsp">생활/가공식품</a></li>
+							<li><a href="shop-grid.jsp">유아동/출산</a></li>
+							<li><a href="shop-grid.jsp">반려동물용품</a></li>
+							<li><a href="shop-grid.jsp">기타</a></li>
+							<li><a href="shop-grid.jsp">서든나눔</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
 					<div class="hero__search">
 						<div class="hero__search__form">
-							<form action="#">
-								<input type="text" placeholder="What do yo u need?">
-								<button type="submit" class="site-btn">SEARCH</button>
+							<form action="Search.do"><!-- 검색하는곳 -->
+								<input type="text" id="search" placeholder="찾고 싶은 상품을 검색해 보세요">
+								<button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
 							</form>
 						</div>
 						<div class="header__top__right__auth">
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
+
 
 							<div class="hero__search__login">
 								<!-- 로그인하는곳 -->
@@ -827,6 +829,31 @@
 	<script src="js/mixitup.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+	
+	<script type="text/javascript">
+	function search() {
+
+		$.ajax({
+			url : "search.do",
+			type : "get",
+			data : {
+				"name" : $('#search').val(),						
+			},
+			success : function(res) {
+				
+				if(res=='true'){
+					$('p#nick_result').html("중복된 닉네임 입니다.").css('color','red');
+				}else{
+					$('p#nick_result').html("사용가능한 닉네임 입니다.").css('color','green');
+				}
+
+			},
+			error : function() {
+				alert("요청 실패");
+			}
+		});
+	
+	}</script>
 
 
 
