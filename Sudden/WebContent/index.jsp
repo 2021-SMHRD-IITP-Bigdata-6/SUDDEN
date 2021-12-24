@@ -46,7 +46,6 @@
 		</div>
 		<div class="humberger__menu__cart">
 			<ul>
-		
 				<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
 				<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
 			</ul>
@@ -239,8 +238,28 @@
 								<%
 									}
 								%>
-
-								<a href="log-in.html"><i class="fa fa-user">Logout</i></a>
+								<!-- 로그인 후 로그인창 화면-->
+								<div class="login__box">
+									<div class="profile">
+										<span class="profile__picture"><i class="fa fa-user-circle fa-lg"></i></span>
+										<span><%= dto.getId() %>님 환영합니다!</span>
+									</div>
+									<div class="icon">
+										<div class="MyPage">
+											<span onclick="location.href='Mypage.jsp'" style="cursor: pointer;"><i class="fa fa-user"></i></span>
+										</div>
+										<div class="Favorite">
+											<span onclick="location.href='shoping-cart.jsp'" style="cursor: pointer;"><i class="fa fa-heart"></i></span>
+										</div>
+										<div class="Chatting">
+											<span onclick="location.href='#'" style="cursor: pointer;"><i class="fa fa-comment"></i></span>
+										</div>
+										<div class="Logout">
+											<span onclick="location.href='index.jsp'" style="cursor: pointer;">Logout</span>
+										</div>
+									</div>
+								</div>
+								
 								<%
 									}
 								%>

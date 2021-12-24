@@ -722,6 +722,47 @@ ol {
 	font-size: 14px;
 	color: #6f6f6f;
 }
+
+.login__box {
+	border: 1px solid #ebebeb;
+	width: 210px;
+	height: 80px;
+	position: relative;
+	left: 20px;
+	padding : 10px 10px 0;
+}
+
+.icon {
+	position: relative;
+	bottom: 200px;
+	display: flex;
+	justify-content:space-between;
+}
+
+.icon span{
+	font-size: 15px;
+	font-weight: 700;
+	color: #394aad !important;
+}
+
+.profile {
+	position: relative;
+	bottom: 100px;
+}
+
+.profile span {
+	font-size: 15px;
+	font-weight: 700;
+	color: #394aad !important;
+}
+
+.tab_box {
+	border: 1px solid #ebebeb;
+	width: 150px;
+	height: 35px;
+}
+
+
 .hero__item {
 	height: 670px;
 	display: flex;
