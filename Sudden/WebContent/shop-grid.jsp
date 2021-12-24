@@ -154,12 +154,12 @@
                 <div class="col-lg-3">
 				<!-- 로그인 한 후 아이콘 보여주는곳 -->
 				
-				<%if (dto == null) {
+				<!--<%if (dto == null) {
 				  } else {
 					  if (dto.getId().equals("admin")) {%>
-						  <!-- 관리자 권한 기능  -->
-					<%}%>
-					<!--  <div class="header__cart">
+						   관리자 권한 기능  
+				    <%}%>
+					  <div class="header__cart">
 					<ul>
 						<li><a href="Registe.html"><i class="fa fa-registered"></i></a></li>
 						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
@@ -169,7 +169,7 @@
 						item: <span>$150.00</span>
 					</div>
 				</div>
-				  <%}%>		 -->	
+				  <%}%>-->	
 			</div>
             </div>
             <div class="humberger__open">
@@ -228,7 +228,7 @@
 								<%
 								if (dto == null) {
 								%>
-								<a href="log-in.jsp"><i class="fa fa-user">Login</i></a>
+								<a href="log_in_grid.jsp"><i class="fa fa-user">Login</i></a>
 								<%
 									} else {
 								

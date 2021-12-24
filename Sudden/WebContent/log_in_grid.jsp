@@ -105,7 +105,7 @@
                         <form id="signUpForm" action="Logincon_grid.do" data-toggle="validator" data-focus="false">
                             <div class="form-group">
                                 <input type="text" id="login_id" class="form-control-input" name="id"  placeholder="ID를 입력하세요">
-                                
+                                <a name="type"></a>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">

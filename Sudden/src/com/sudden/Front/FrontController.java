@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.inter.Command;
+import com.inter.Login_Command;
 import com.sudden.DAO.goodsDAO;
 import com.sudden.DAO.memberDAO;
 import com.sudden.DTO.goodsDTO;
@@ -30,6 +31,7 @@ public class FrontController extends HttpServlet {
 				String path = request.getContextPath();		
 				String command = uri.substring(path.length()+1);
 				
+				Login_Command lcom = null;
 				Command com = null;
 				String nextpage =null;
 				
@@ -40,8 +42,11 @@ public class FrontController extends HttpServlet {
 					nextpage = com.execute(request, response);
 					
 				}else if(command.equals("Logincon.do")||command.equals("Logincon_grid.do")||command.equals("Logincon_detail.do")) {					
-					com = new LoginService();// 수정할곳
-					nextpage = com.execute(request, response);
+					lcom = new LoginService();// 수정할곳
+					System.out.println("여기는com");
+					
+					System.out.println("com = "+lcom);
+					nextpage = lcom.execute(request, response, command);
 						
 					
 				}else if(command.equals("Logoutcon.do")) {					

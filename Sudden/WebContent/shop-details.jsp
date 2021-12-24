@@ -117,12 +117,12 @@
                 <div class="col-lg-3">
 				<!-- 로그인 한 후 아이콘 보여주는곳 -->
 				
-				<%if (dto == null) {
+				<!--<%if (dto == null) {
 				  } else {
 					  if (dto.getId().equals("admin")) {%>
-						  <!-- 관리자 권한 기능  -->
+						   관리자 권한 기능  
 					<%}%>
-					<!--  <div class="header__cart">
+					  <div class="header__cart">
 					<ul>
 						<li><a href="Registe.html"><i class="fa fa-registered"></i></a></li>
 						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
@@ -191,7 +191,7 @@
 								<%
 								if (dto == null) {
 								%>
-								<a href="log-in.jsp"><i class="fa fa-user">Login</i></a>
+								<a href="log-in_details.jsp"><i class="fa fa-user">Login</i></a>
 								<%
 									} else {
 								
@@ -268,8 +268,20 @@
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>가격</b><a style="font-size:30px; color:black;">1000$</a></li>
-                            <li><b>연락하기</b><a href="#"><i class="fa fa-comment" style="font-size:50px; color:black;"></i></a>
-                            </li>
+                            <%
+								if (dto == null) {
+								%>
+								<li><b>연락하기</b><a href="log-in_details.jsp"><i class="fa fa-comment" style="font-size:50px; color:black;"></i></a>
+			                            </li>
+								
+								<%
+									} else {%>
+										<li><b>연락하기</b><a href="#"><i class="fa fa-comment" style="font-size:50px; color:black;"></i></a>
+			                            </li>
+									<%}%>
+								
+								
+                            
                         </ul>
                     </div>
                 </div>
