@@ -29,11 +29,6 @@ public class memberDTO {
 		this.id = id;
 		this.nick = nick;
 	}
-	public memberDTO(String id, String pw, int i) {//joinservice
-		super();
-		this.id = id;
-		this.pw = pw;
-	}
 	
 	public memberDTO(String id, String pw, String nick) {//loginservice
 		super();
