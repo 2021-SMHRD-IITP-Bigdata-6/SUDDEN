@@ -20,14 +20,14 @@ public class LoginService implements Command{
 
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		String nick="0";
+		
 
 		HttpSession session = request.getSession();
 		
 		memberDTO dto = new memberDTO(id, pw, 0);	
 		memberDAO dao = new memberDAO();
 
-		dto = dao.Login(dto);
+		
 		String nextpage="";
 				
 		if (dto!=null) {

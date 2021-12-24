@@ -18,13 +18,12 @@ public class LogoutService implements Command{
 
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String nextpage = "";
+		HttpSession session = request.getSession();
 		
-		HttpSession session=request.getSession();
 		session.removeAttribute("dto");
-		//response.sendRedirect("index.jsp");
-		nextpage = "index.jsp";
-		return nextpage;
+
+		
+		return "index.jsp";
 	}
 
 }

@@ -14,6 +14,7 @@ import com.sudden.DAO.memberDAO;
 import com.sudden.DTO.memberDTO;
 import com.sudden.Member.JoinService;
 import com.sudden.Member.LoginService;
+import com.sudden.Member.LogoutService;
 import com.sudden.Member.SearchService;
 
 @WebServlet("*.do")
@@ -38,6 +39,10 @@ public class FrontController extends HttpServlet {
 					
 				}else if(command.equals("Logincon.do")) {					
 					com = new LoginService();
+					nextpage = com.execute(request, response);	
+					
+				}else if(command.equals("Logoutcon.do")) {					
+					com = new LogoutService();
 					nextpage = com.execute(request, response);	
 					
 				}else if(command.equals("Search.do")) {					
@@ -88,7 +93,7 @@ public class FrontController extends HttpServlet {
 					
 					PrintWriter out = response.getWriter();
 					out.print(tof);
-					System.out.println(tof);
+					System.out.println("»Æ¿Œ = "+tof);
 				}
 				
 				
