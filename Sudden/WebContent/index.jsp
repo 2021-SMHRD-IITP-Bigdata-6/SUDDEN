@@ -156,7 +156,6 @@
 			</div>
 			<div class="col-lg-3">
 				<!-- 로그인 한 후 아이콘 보여주는곳 -->
-				
 				<%if (dto == null) {
 				  } else {
 					  if (dto.getId().equals("admin")) {%>
@@ -237,7 +236,6 @@
 								<%
 									}
 								%>
-<<<<<<< HEAD
 								<!-- 로그인 후 로그인창 화면-->
 								<div class="login__box">
 									<div class="profile">
@@ -259,16 +257,10 @@
 										</div>
 									</div>
 								</div>
-								
-=======
-
 								<a href="Logoutcon.do"><i class="fa fa-user">Logout</i></a>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
 								<%
 									}
 								%>
-
-
 							</div>
 						</div>
 						<div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
@@ -279,7 +271,6 @@
 								</h2>
 								<p>Free Pickup and Delivery Available</p>
 								<a href="#" class="primary-btn">SHOP NOW</a>
-
 							</div>
 						</div>
 					</div>
