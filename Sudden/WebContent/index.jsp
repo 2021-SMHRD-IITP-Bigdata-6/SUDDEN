@@ -228,9 +228,9 @@
 								<!-- 로그인하는곳 -->
 
 								<%
-									if (dto == null) {
+								if (dto == null) {
 								%>
-								<a href="log-in.html"><i class="fa fa-user">Login</i></a>
+								<a href="log-in.jsp"><i class="fa fa-user">Login</i></a>
 								<%
 									} else {
 								if (dto.getId().equals("admin")) {
@@ -240,7 +240,7 @@
 									}
 								%>
 
-								<a href="log-in.html"><i class="fa fa-user">Logout</i></a>
+								<a href="Logoutcon.do"><i class="fa fa-user">Logout</i></a>
 								<%
 									}
 								%>
