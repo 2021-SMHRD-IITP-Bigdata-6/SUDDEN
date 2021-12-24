@@ -263,7 +263,7 @@
                                         <i class="fa fa-heart"></i>
                                     </td>
                                     <td class="shoping__cart__item__close">
-                                        <a href="#" class="primary-btn">채팅</a>
+                                        <a href="#" class="snip1535two">채팅</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -278,7 +278,7 @@
                                         <i class="fa fa-heart"></i>
                                     </td>
                                     <td class="shoping__cart__item__close">
-                                        <a href="#" class="primary-btn">채팅</a>
+                                        <a href="#" class="snip1535two">채팅</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -293,7 +293,7 @@
                                         <i class="fa fa-heart"></i>
                                     </td>
                                     <td class="shoping__cart__item__close">
-                                        <a href="#" class="primary-btn">채팅</a>
+                                        <a href="#" class="snip1535two">채팅</a>
                                     </td>
                                 </tr>
                             </tbody>

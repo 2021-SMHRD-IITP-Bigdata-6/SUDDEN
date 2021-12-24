@@ -114,7 +114,7 @@
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" value="LogIn" class="form-control-submit-button" id="loginCheck" value="loginUs" onclick="login_Check()">·Î±×ÀÎ</button>
+                                <button type="submit" value="LogIn" class="snip1535two" id="loginCheck" value="loginUs" onclick="login_Check()">Log-In</button>
                             </div>
                             <div class="form-message">
                                 <div id="smsgSubmit" class="h3 text-center hidden"></div>
