@@ -34,15 +34,13 @@ public class memberDTO {
 		this.id = id;
 		this.nick = nick;
 	}
-<<<<<<< HEAD
+
 	public memberDTO(String id, String pw, int i) {//joinservice
 		super();
 		this.id = id;
 		this.pw = pw;
 	}	
-=======
-	
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
+
 	public memberDTO(String id, String pw, String nick) {//loginservice
 		super();
 		this.id = id;
