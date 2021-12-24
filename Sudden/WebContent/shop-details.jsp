@@ -137,7 +137,7 @@
                             <li><a href="#">디지털/가전</a></li>
                             <li><a href="#">스포츠/레저</a></li>
                             <li><a href="#">차량/오토바이</a></li>
-                            <li><a href="#">키덜트 음반/악기</a></li>
+                            <li><a href="#">키덜트</a></li>
                             <li><a href="#">도서/티켓/문구</a></li>
                             <li><a href="#">뷰티/미용</a></li>
                             <li><a href="#">가구/인테리어</a></li>
