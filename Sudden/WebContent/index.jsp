@@ -229,8 +229,6 @@
                         
                             <div class="hero__search__login"><!-- 로그인하는곳 -->
                             <%
-                            memberDTO dto = (memberDTO)session.getAttribute("dto");
-                            System.out.print("dto가 " + dto);
                             if(dto == null){
                             %>
                             <a href="log-in.html"><i class="fa fa-user">Login</i></a>
