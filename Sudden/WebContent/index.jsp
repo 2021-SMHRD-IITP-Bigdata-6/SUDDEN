@@ -141,7 +141,7 @@
 					<a href="./index.jsp"><img src="img/logo.png" alt=""></a>
 				</div>
 			</div>
-			<div class="col-lg-6">
+			<!--  <div class="col-lg-6">
 				<nav class="header__menu">
 					<ul>
 						<li class="active"><a href="./index.jsp">Home</a></li>
@@ -153,7 +153,7 @@
 							</ul></li>
 					</ul>
 				</nav>
-			</div>
+			</div>-->
 			<div class="col-lg-3">
 				
 				<%if (dto == null) {
