@@ -100,8 +100,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                      <div class="header__logo" style="widht:200px;height:250px;">
-                        <a href="./index.jsp"><img src="img/logo4.PNG" alt=""></a>
+                      <div class="header__logo">
+                        <a href="./index.jsp"><img style="widht:100px;height:200px;" src="img/logo4.PNG" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -279,7 +279,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo2.jpg" alt=""></a>
+                            <a href="./index.html"><img style="widht:200px;height:250px;" src="img/logo2.jpg" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>

@@ -825,8 +825,9 @@ ol {
 	display: block;
 }
 
+
 .categories__slider .col-lg-3 {
-	margin-left: 100px;
+	margin-left: 10px;
 }
 
 .categories__slider.owl-carousel .owl-nav button {
