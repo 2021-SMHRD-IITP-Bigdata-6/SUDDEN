@@ -83,9 +83,7 @@ p {
 	margin: 0 0 15px 0;
 }
 
-img {
-	max-width: 100%;
-}
+
 
 input:focus,
 select:focus,
@@ -411,6 +409,7 @@ ol {
 
 .header__logo {
 	padding: 15px 0;
+	
 }
 
 .header__logo a {
@@ -827,7 +826,7 @@ ol {
 }
 
 .categories__slider .col-lg-3 {
-	max-width: 100%;
+	margin-left: 100px;
 }
 
 .categories__slider.owl-carousel .owl-nav button {
@@ -1443,6 +1442,7 @@ ol {
 
 .product__discount__slider .col-lg-4 {
 	max-width: 100%;
+	margin-left: 30px;
 }
 
 .product__discount__slider.owl-carousel .owl-dots {
