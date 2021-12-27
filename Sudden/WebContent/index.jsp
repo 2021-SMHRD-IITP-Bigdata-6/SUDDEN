@@ -33,6 +33,7 @@
 
 	<%
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
+	int num = 0;
 	%>
 
 	<!-- Page Preloder -->
@@ -108,7 +109,7 @@
 					<div class="hero__search">
 						<div class="hero__search__form">
 							<form action="Search.do"><!-- 검색하는곳 -->
-								<input type="text" id="search" name="name" placeholder="찾고 싶은 상품을 검색해 보세요">
+								<input type="text" id="search" name="search" placeholder="찾고 싶은 상품을 검색해 보세요">
 								<button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
 							</form>
 						</div>
@@ -583,19 +584,35 @@
 			url : "search.do",
 			type : "get",
 			data : {
-				"name" : $('#search').val(),						
+				"name" : $('#search').val(),	//"name" : $('input[name=search]').val(),				
 			},
+			dataType : 'json',
 			success : function(res) {
-				
-				if(res=='true'){
-					alert("다시 검색해 주세요");
-				}else{
+				console.log("완료")
+				$('#row').html(''); 
+				for(let i= 0; i<12; i++){
+					//태그 만들기
+					let table='';
+					table +='<div class="col-lg-4 col-md-6 col-sm-6">';
+					table +='<div class="product__item">';
+					table +='<div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">';
+					table +='<ul class="product__item__pic__hover">';
+					table += "<li><a href="#"><i class="fa fa-heart"></i></a></li>";//관심상품 등록하는곳
+					table +='</ul>';
+					table +='</div>';
+					table +='<div class="product__item__text">';
+					table +='<h6><a href="shop-details.jsp">'+res[i].getname+'</tr>';
+					table +='<h5>'+getprice+'</h5>';
+					table +='</div>';
+					table +='</div>';
+					table +='</div>';
 					
+					$('#row').append(table);
 				}
 
 			},
 			error : function() {
-				alert("요청 실패");
+				alert("다시 검색해 주세요");
 			}
 		});
 	

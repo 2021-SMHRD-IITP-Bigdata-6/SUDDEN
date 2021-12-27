@@ -23,7 +23,7 @@ public class SearchService implements Command{
 
 		request.setCharacterEncoding("utf-8");
 
-		String name = request.getParameter("name");		
+		String name = request.getParameter("search");		
 		System.out.println("service="+name);
 		
 		HttpSession session = request.getSession();

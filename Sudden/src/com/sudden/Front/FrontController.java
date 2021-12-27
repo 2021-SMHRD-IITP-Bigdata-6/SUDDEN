@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.inter.Command;
 import com.inter.Login_Command;
 import com.sudden.DAO.goodsDAO;
@@ -62,23 +63,23 @@ public class FrontController extends HttpServlet {
 					nextpage = com.execute(request, response);	
 					
 				}else if(command.equals("Search.do")) {					
-					com = new SearchService();
-					nextpage = com.execute(request, response);	
-					
-					request.setCharacterEncoding("utf-8");
+//					com = new SearchService();
+//					nextpage = com.execute(request, response);	
+//					
+//					request.setCharacterEncoding("utf-8");
 
-					String name = request.getParameter("name");				
+					String name = request.getParameter("search");				
 					System.out.println("controll="+name);
 					goodsDTO dto = new goodsDTO(name);	
 					goodsDAO dao = new goodsDAO();
-					ArrayList<goodsDTO> tof = dao.Search(dto); //°íÄ¥ºÎºÐ
-					boolean ch = false;
-					if(tof.get(0).getName().equals(null)) {
-						ch = true;
-					}
+					ArrayList<goodsDTO> list = dao.Search(dto); //°íÄ¥ºÎºÐ
 					
+					Gson gson = new Gson();
+					String json = gson.toJson(list);
+					
+					response.setCharacterEncoding("utf-8");
 					PrintWriter out = response.getWriter();
-					out.print(ch);				
+					out.print(json);		
 					
 				}else if(command.equals("katelist.do")) {					
 					com = new LogoutService();

@@ -91,10 +91,7 @@ public class goodsDAO {
 	
 				dto = new goodsDTO(getname, getimg, getprice);
 				arr.add(dto);
-					
-
 				
-
 			}
 			
 
