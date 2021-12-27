@@ -51,7 +51,7 @@ public class JoinService implements Command {
 		if (cnt > 0) {
 			
 			request.setAttribute("dto", dto);
-			RequestDispatcher dis = request.getRequestDispatcher("log-in.html");
+			RequestDispatcher dis = request.getRequestDispatcher("log-in.jsp");
 			//RequestDispatcher dis = request.getRequestDispatcher("joinSuccess.jsp");
 			dis.forward(request, response);
 			
