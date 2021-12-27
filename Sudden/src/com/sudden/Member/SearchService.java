@@ -35,7 +35,7 @@ public class SearchService implements Command{
 		String nextpage="";
 		
 		String ch = list.get(0).getName();// 수정
-				System.out.println(ch);
+				System.out.println("ch"+ch);
 				
 		if (ch.equals(null)) {
 			System.out.println("search 실패");

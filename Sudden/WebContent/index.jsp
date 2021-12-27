@@ -8,7 +8,7 @@
 <meta name="description" content="Ogani Template">
 <meta name="keywords" content="Ogani, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="X-UA-Compatible" content="ie=edge" >
 <title>Ogani | Template</title>
 
 <!-- Google Font -->
@@ -351,7 +351,7 @@
 	<!-- Latest Product Section Begin -->
 	<section class="latest-product spad">
 		<div class="container">
-			<div class="row">
+			<div class="row" id="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="latest-product__text">
 						<h4>Latest Products</h4>
@@ -584,11 +584,12 @@
 			url : "search.do",
 			type : "get",
 			data : {
-				"name" : $('#search').val(),	//"name" : $('input[name=search]').val(),				
+				"name" : $('#search').val(), //"name" : $('#search').val(),	//"name" : $('input[name=search]').val(),				
 			},
 			dataType : 'json',
 			success : function(res) {//수정받을곳
 				console.log("완료")
+				console.log(res.length)
 				$('#row').html(''); 
 				for(let i= 0; i<12; i++){
 					//태그 만들기
@@ -601,8 +602,8 @@
 					table +='</ul>';
 					table +='</div>';
 					table +='<div class="product__item__text">';
-					table +='<h6><a href="shop-details.jsp">'+res[i].getname+'</tr>';
-					table +='<h5>'+getprice+'</h5>';
+					table +='<h6><a href="shop-details.jsp">'+res[i].name+'</tr>';
+					table +='<h5>'+res[i]price+'</h5>';
 					table +='</div>';
 					table +='</div>';
 					table +='</div>';

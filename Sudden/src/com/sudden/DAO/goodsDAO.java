@@ -78,23 +78,24 @@ public class goodsDAO {
 			getconn();
 
 			String sql = "select * from tbl_product where goods_name like ?";
-
+			String name1 = "%" + dto.getName() + "%";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, "%" + dto.getName() + "%");
+			psmt.setString(1, name1);
 			
 			rs = psmt.executeQuery();
 
-			if (rs.next()) {
-				String getname = rs.getString("goods_name");
-				String getimg = rs.getString("goods_img");
-				int getprice = rs.getInt("goods_price");
+			while (rs.next()) {
+				String name = rs.getString("goods_name");
+				String img = rs.getString("goods_img");
+				int price = rs.getInt("goods_price");
 	
-				dto = new goodsDTO(getname, getimg, getprice);
+				dto = new goodsDTO(name, img, price);
 				arr.add(dto);
 				
 			}
 			
-
+			System.out.println("arr_contr"+arr.size());
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -153,6 +154,105 @@ public class goodsDAO {
 			cloes();
 		}
 		return cnt;
+	}public ArrayList<goodsDTO> SearchAll() {
+		
+		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
+		
+		try {
+			
+			getconn();
+
+			String sql = "select * from tbl_product ";
+			psmt = conn.prepareStatement(sql);
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String name = rs.getString("goods_name");
+				String img = rs.getString("goods_img");
+				int price = rs.getInt("goods_price");
+	
+				dto = new goodsDTO(name, img, price);
+				arr.add(dto);
+				
+			}
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return arr;
+		
+		
+	}public ArrayList<goodsDTO> Searchgoods(goodsDTO gdto) {
+		
+		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
+		
+		try {
+			
+			getconn();
+
+			String sql = "select * from tbl_product where goods_name like ?";
+			String name1 = "%" + gdto.getName() + "%";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, name1);
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String name = rs.getString("goods_name");
+				String img = rs.getString("goods_img");
+				int price = rs.getInt("goods_price");
+	
+				dto = new goodsDTO(name, img, price);
+				arr.add(dto);
+				
+			}
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return arr;
+		
+		
+	}
+
+	public int intsearch(goodsDTO dto) {
+		try {
+			
+			getconn();
+
+			String sql = "select * from tbl_product where goods_name like ?";
+			String name1 = "%" + dto.getName() + "%";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, name1);
+			rs = psmt.executeQuery();
+			
+			if (rs.next()) {
+				cnt=1;
+				
+			}
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return cnt;
+		
+		
 	}
 	
 }

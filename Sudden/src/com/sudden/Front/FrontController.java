@@ -23,6 +23,7 @@ import com.sudden.Member.LogoutService;
 import com.sudden.Member.RegisteService;
 import com.sudden.Member.ResetService;
 import com.sudden.Member.SearchService;
+import com.sudden.Member.SearchgoodsService;
 import com.sudden.Member.UpdateService;
 import com.sudden.Member.UpdateService2;
 
@@ -44,7 +45,7 @@ public class FrontController extends HttpServlet {
 				Command com = null;
 				String nextpage =null;
 				
-				System.out.println(command);
+				
 
 				if(command.equals("Joincon.do")) {					
 					com = new JoinService();
@@ -65,14 +66,15 @@ public class FrontController extends HttpServlet {
 				}else if(command.equals("Search.do")) {					
 //					com = new SearchService();
 //					nextpage = com.execute(request, response);	
-//					
-//					request.setCharacterEncoding("utf-8");
+//					System.out.println("nextpage = " + nextpage);
+					request.setCharacterEncoding("utf-8");
 
 					String name = request.getParameter("search");				
 					System.out.println("controll="+name);
 					goodsDTO dto = new goodsDTO(name);	
 					goodsDAO dao = new goodsDAO();
 					ArrayList<goodsDTO> list = dao.Search(dto); //°íÄ¥ºÎºÐ
+					System.out.println("list_contr0 "+list.get(0).getName());
 					
 					Gson gson = new Gson();
 					String json = gson.toJson(list);
@@ -81,7 +83,11 @@ public class FrontController extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.print(json);		
 					
-				}else if(command.equals("katelist.do")) {					
+				}else if(command.equals("Searchgoods.do")) {				
+					com = new SearchgoodsService();			
+					nextpage = com.execute(request, response);
+				}
+				else if(command.equals("katelist.do")) {					
 					com = new LogoutService();
 					nextpage = com.execute(request, response);
 				}

@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.sudden.DAO.goodsDAO"%>
+<%@page import="com.sudden.DAO.memberDAO"%>
 <%@page import="com.sudden.DTO.memberDTO"%>
 <%@page import="com.sudden.DTO.goodsDTO"%>
 <%@page import="java.sql.Connection" %>
@@ -7,8 +10,8 @@
 
 
 	
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -32,6 +35,24 @@
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
+<style>
+.col-lg-4 {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 25%;
+    max-width: 25%;
+}
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -200px
+
+;
+    margin-left: -15px;
+}
+
+</style>
 
 <body>
 
@@ -55,19 +76,19 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.jsp"><img style="width:180px; height:180px;" src="img/logo4.PNG" alt=""></a>
+                        <a href="./index.jsp"><img style="width:210px; height:180px;" src="img/logo4.PNG" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                   
                 </div>
                 <div class="col-lg-3">
-				<!-- ·Î±×ÀÎ ÇÑ ÈÄ ¾ÆÀÌÄÜ º¸¿©ÁÖ´Â°÷ -->
+				<!-- ë¡œê·¸ì¸ í•œ í›„ ì•„ì´ì½˜ ë³´ì—¬ì£¼ëŠ”ê³³ -->
 				
 				<!--<%if (dto == null) {
 				  } else {
 					  if (dto.getId().equals("admin")) {%>
-						   °ü¸®ÀÚ ±ÇÇÑ ±â´É  
+						   ê´€ë¦¬ì ê¶Œí•œ ê¸°ëŠ¥  
 				    <%}%>
 					  <div class="header__cart">
 					<ul>
@@ -97,35 +118,35 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>ÀüÃ¼ Ä«Å×°í¸®</span>
+                            <span>ì „ì²´ ì¹´í…Œê³ ë¦¬</span>
                         </div>
                         <ul>
-                            <li><a href="shop-grid.jsp?cat_num=1">¿©¼ºÀÇ·ù</a></li>
-                            <li><a href="shop-grid.jsp">³²¼ºÀÇ·ù</a></li>
-                            <li><a href="shop-grid.jsp">½Å¹ß</a></li>
-                            <li><a href="shop-grid.jsp">°¡¹æ</a></li>
-                            <li><a href="shop-grid.jsp">½Ã°è/ÁÖ¾ó¸®</a></li>
-                            <li><a href="shop-grid.jsp">ÆĞ¼Ç¿¢¼¼¼­¸®</a></li>
-                            <li><a href="shop-grid.jsp">µğÁöÅĞ/°¡Àü</a></li>
-                            <li><a href="shop-grid.jsp">½ºÆ÷Ã÷/·¹Àú</a></li>
-                            <li><a href="shop-grid.jsp">Â÷·®/¿ÀÅä¹ÙÀÌ</a></li>
-                            <li><a href="shop-grid.jsp">Å°´úÆ®</a></li>
-                            <li><a href="shop-grid.jsp">µµ¼­/Æ¼ÄÏ/¹®±¸</a></li>
-                            <li><a href="shop-grid.jsp">ºäÆ¼/¹Ì¿ë</a></li>
-                            <li><a href="shop-grid.jsp">°¡±¸/ÀÎÅ×¸®¾î</a></li>
-                            <li><a href="shop-grid.jsp">»ıÈ°/°¡°ø½ÄÇ°</a></li>
-                            <li><a href="shop-grid.jsp">À¯¾Æµ¿/Ãâ»ê</a></li>
-                            <li><a href="shop-grid.jsp">¹İ·Áµ¿¹°¿ëÇ°</a></li>
-                            <li><a href="shop-grid.jsp">±âÅ¸</a></li>
-                            <li><a href="shop-grid.jsp">¼­µç³ª´®</a></li>
+                            <li><a href="shop-grid.jsp?cat_num=1">ì—¬ì„±ì˜ë¥˜</a></li>
+                            <li><a href="shop-grid.jsp">ë‚¨ì„±ì˜ë¥˜</a></li>
+                            <li><a href="shop-grid.jsp">ì‹ ë°œ</a></li>
+                            <li><a href="shop-grid.jsp">ê°€ë°©</a></li>
+                            <li><a href="shop-grid.jsp">ì‹œê³„/ì£¼ì–¼ë¦¬</a></li>
+                            <li><a href="shop-grid.jsp">íŒ¨ì…˜ì—‘ì„¸ì„œë¦¬</a></li>
+                            <li><a href="shop-grid.jsp">ë””ì§€í„¸/ê°€ì „</a></li>
+                            <li><a href="shop-grid.jsp">ìŠ¤í¬ì¸ /ë ˆì €</a></li>
+                            <li><a href="shop-grid.jsp">ì°¨ëŸ‰/ì˜¤í† ë°”ì´</a></li>
+                            <li><a href="shop-grid.jsp">í‚¤ëœíŠ¸</a></li>
+                            <li><a href="shop-grid.jsp">ë„ì„œ/í‹°ì¼“/ë¬¸êµ¬</a></li>
+                            <li><a href="shop-grid.jsp">ë·°í‹°/ë¯¸ìš©</a></li>
+                            <li><a href="shop-grid.jsp">ê°€êµ¬/ì¸í…Œë¦¬ì–´</a></li>
+                            <li><a href="shop-grid.jsp">ìƒí™œ/ê°€ê³µì‹í’ˆ</a></li>
+                            <li><a href="shop-grid.jsp">ìœ ì•„ë™/ì¶œì‚°</a></li>
+                            <li><a href="shop-grid.jsp">ë°˜ë ¤ë™ë¬¼ìš©í’ˆ</a></li>
+                            <li><a href="shop-grid.jsp">ê¸°íƒ€</a></li>
+                            <li><a href="shop-grid.jsp">ì„œë“ ë‚˜ëˆ”</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="Search.do"><!-- °Ë»öÇÏ´Â°÷ -->
-                                <input type="text" id="search" name="search" placeholder="Ã£°í ½ÍÀº »óÇ°À» °Ë»öÇØ º¸¼¼¿ä">
+                            <form action="Searchgoods.do"><!-- ê²€ìƒ‰í•˜ëŠ”ê³³ Search.do -->
+                                <input type="text" id="search" name="search" placeholder="ì°¾ê³  ì‹¶ì€ ìƒí’ˆì„ ê²€ìƒ‰í•´ ë³´ì„¸ìš”">
                                 <button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
                             </form>
                         </div>
@@ -133,7 +154,7 @@
 
 
 							<div class="hero__search__login">
-								<!-- ·Î±×ÀÎÇÏ´Â°÷ -->
+								<!-- ë¡œê·¸ì¸í•˜ëŠ”ê³³ -->
 
 								<%
 								if (dto == null) {
@@ -143,11 +164,11 @@
 									} else {
 								
 								%>
-								<!-- ·Î±×ÀÎ ÈÄ ¾ÆÀÌÄÜ-->
+								<!-- ë¡œê·¸ì¸ í›„ ì•„ì´ì½˜-->
 								<div class="login__box">
 									<div class="profile">
 										<span class="profile__picture"><i class="fa fa-user-circle fa-lg"></i></span>
-										<span><%= dto.getId() %>´Ô È¯¿µÇÕ´Ï´Ù!</span>
+										<span><%= dto.getId() %>ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤!</span>
 									</div>
 									<div class="icon">
 										<div class="MyPage">
@@ -185,7 +206,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>¾ÈÀüÇÑ Áß°í Á÷°Å·¡ ÇÃ·§Æû</h2>
+                        <h2>ì•ˆì „í•œ ì¤‘ê³  ì§ê±°ë˜ í”Œë«í¼</h2>
                         <h2>SUDDEN</h2>
                     </div>
                 </div>
@@ -205,7 +226,7 @@
 
                 <div class="col-lg-9 col-md-7">
 
-                    <div class="filter__item">
+                    <!--<div class="filter__item">
                         <div class="row">                     
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
@@ -219,12 +240,83 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row" id="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
+                    </div>-->
+                    <div class="row" id="row1">
+                    <%
+                    String name = request.getParameter("search");
+                    
+                    goodsDTO sdto = (goodsDTO)request.getAttribute("sdto");
+                	System.out.print("sdto= "+sdto);
+             		goodsDAO dao = new goodsDAO();
+             		String img ="";
+             		String title ="";
+             		String price ="";
+             		
+          
+             		ArrayList<goodsDTO> arr = null;
+             		
+             		if(sdto!=null){	
+             			System.out.print("sdto_name= "+sdto.getName()+"        ");
+             			goodsDTO gdto = new goodsDTO(sdto.getName());
+             			arr = dao.Searchgoods(gdto);
+             			for(int i = 0; i<20; i++){
+    						out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
+    						out.print("<div class='product__item'>");//Upload/191.jpg
+    						out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
+    						out.print("<ul class='product__item__pic__hover'>");
+    						out.print("<li><a href='#'><i class='fa fa-heart'></i></a></li>");
+    						out.print("</ul>");
+    						out.print("</div>");
+    						out.print("<div class='product__item__text'>");
+    						out.print("<h6><a href='shop-details.jsp'>"+arr.get(i).getName()+"</a></h6>");
+    						out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
+    						out.print("</div>");
+    						out.print("</div>");
+    						out.print("</div>");
+    					}
+
+             		}else{
+             			arr = dao.SearchAll();
+             			for(int i = 0; i<20; i++){
+    						out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
+    						out.print("<div class='product__item'>");//Upload/191.jpg
+    						out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
+    						out.print("<ul class='product__item__pic__hover'>");
+    						out.print("<li><a href='#'><i class='fa fa-heart'></i></a></li>");
+    						out.print("</ul>");
+    						out.print("</div>");
+    						out.print("<div class='product__item__text'>");
+    						out.print("<h6><a href='shop-details.jsp'>"+arr.get(i).getName()+"</a></h6>");
+    						out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
+    						out.print("</div>");
+    						out.print("</div>");
+    						out.print("</div>");
+    					}
+             		}
+                	
+					
+					
+					
+//					for(int i = 0; i<20; i++){
+	//					out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
+		//				out.print("<div class='product__item'>");//Upload/191.jpg
+			//			out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
+				//		out.print("<ul class='product__item__pic__hover'>");
+					//	out.print("<li><a href='#'><i class='fa fa-heart'></i></a></li>");
+//						out.print("</ul>");
+	//					out.print("</div>");
+		//				out.print("<div class='product__item__text'>");
+			//			out.print("<h6><a href='shop-details.jsp'>"+arr.get(i).getName()+"</a></h6>");
+				//		out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
+					//	out.print("</div>");
+				//		out.print("</div>");
+					//	out.print("</div>");
+				//	}
+			%><!--ul= ê´€ì‹¬ìƒí’ˆ ë“±ë¡ -->
+                      <!--    <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
-                                    <ul class="product__item__pic__hover"><!-- °ü½É»óÇ° µî·Ï -->
+                                    <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                     </ul>
                                 </div>
@@ -377,7 +469,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="product__pagination">
                         <a href="#">1</a>
                         <a href="#">2</a>
@@ -469,46 +561,7 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="jquery-3.6.0.min.js"></script>
-    <script type="text/javascript">
-	function search() {
 
-		$.ajax({
-			url : "search.do",
-			type : "get",
-			data : {
-				"name" : $('#search').val(),	//"name" : $('input[name=search]').val(),				
-			},
-			dataType : 'json',
-			success : function(res) {
-				
-				$('#row').html(''); 
-				for(let i=num; i<num+12; i++){
-					//ÅÂ±× ¸¸µé±â
-					let table='';
-					table +='<div class="col-lg-4 col-md-6 col-sm-6">';
-					table +='<div class="product__item">';
-					table +='<div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">';
-					table +='<ul class="product__item__pic__hover">';
-					table += "<li><a href="#"><i class="fa fa-heart"></i></a></li>";//°ü½É»óÇ° µî·ÏÇÏ´Â°÷
-					table +='</ul>';
-					table +='</div>';
-					table +='<div class="product__item__text">';
-					table +='<h6><a href="shop-details.jsp">'+res[i].getname+'</tr>';
-					table +='<h5>'+getprice+'</h5>';
-					table +='</div>';
-					table +='</div>';
-					table +='</div>';
-					
-					$('#row').append(table);
-				}
-
-			},
-			error : function() {
-				alert("´Ù½Ã °Ë»öÇØ ÁÖ¼¼¿ä");
-			}
-		});
-	
-	}</script>
 
 
 
