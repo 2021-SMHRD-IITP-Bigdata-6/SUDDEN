@@ -196,14 +196,14 @@
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
-<<<<<<< HEAD
+
             <div class="row" style="width:1500px;">
 				<div class="col-lg-9 col-md-7">
-=======
+
             <div class="row">
 
                 <div class="col-lg-9 col-md-7">
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
+
                     <div class="filter__item">
                         <div class="row">
                           <!--  <div class="col-lg-4 col-md-5">
