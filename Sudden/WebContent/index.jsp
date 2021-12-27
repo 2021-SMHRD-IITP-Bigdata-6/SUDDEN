@@ -587,7 +587,7 @@
 				"name" : $('#search').val(),	//"name" : $('input[name=search]').val(),				
 			},
 			dataType : 'json',
-			success : function(res) {
+			success : function(res) {//수정받을곳
 				console.log("완료")
 				$('#row').html(''); 
 				for(let i= 0; i<12; i++){
