@@ -1,9 +1,11 @@
 package com.sudden.DAO;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.sudden.DTO.goodsDTO;
@@ -70,7 +72,7 @@ public class goodsDAO {
 			System.out.println("dao="+dto);
 			getconn();
 
-			String sql = "select * from tbl_product where goods_name=?";
+			String sql = "select * from tbl_product where goods_name like ?";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, "%" + dto.getName() + "%");
@@ -100,6 +102,32 @@ public class goodsDAO {
 		return arr;
 		
 		
+	}
+
+	public int uploadFile(goodsDTO dto){
+		getconn();
+		try {
+		String sql = "INSERT INTO tbl_product (goods_cat, goods_name, goods_content, goods_img, goods_price, goods_status, goods_update, mem_id) VALUES "
+				+ "(?, ?, ?, ?, ?, 'N', sysdate, ?);";
+
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, dto.getKate());
+		psmt.setString(2, dto.getName());
+		psmt.setString(3, dto.getContent());
+		psmt.setString(4, dto.getImg());
+		psmt.setInt(5, dto.getPrice());
+		psmt.setString(6, dto.getId());
+
+		
+		cnt = psmt.executeUpdate();
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return cnt;
 	}
 	
 }

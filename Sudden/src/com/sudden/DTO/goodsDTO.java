@@ -3,21 +3,25 @@ package com.sudden.DTO;
 import java.sql.Date;
 
 public class goodsDTO {
+	private String kate;
 	private String name;
 	private String content;
 	private String img;
 	private int price;
 	private String status;
 	private Date update;
+	private String id;
 	
-	public goodsDTO(String name, String content, String img, int price, String status, Date update) {
+	public goodsDTO(String kate,String name, String content, String img, int price, String status, Date update, String id) {
 		super();
+		this.kate = kate;
 		this.name = name;
 		this.content = content;
 		this.img = img;
 		this.price = price;
 		this.status = status;
 		this.update = update;
+		this.id = id;
 	}
 	
 	
@@ -36,6 +40,24 @@ public class goodsDTO {
 
 
 
+	public goodsDTO(String kate, String name, String content, String img, int price, String id) {
+		this.kate = kate;
+		this.name = name;
+		this.content = content;
+		this.img = img;
+		this.price = price;
+		this.id = id;
+	}
+
+
+
+
+	public String getKate() {
+		return kate;
+	}
+	public void setKate(String kate) {
+		this.kate = kate;
+	}
 	public String getName() {
 		return name;
 	}
@@ -71,6 +93,12 @@ public class goodsDTO {
 	}
 	public void setUpdate(Date update) {
 		this.update = update;
+	}
+	public String getId() {
+		return id;		
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }

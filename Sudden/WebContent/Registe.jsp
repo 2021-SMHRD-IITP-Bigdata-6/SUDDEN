@@ -1,3 +1,4 @@
+<%@page import="com.sudden.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -35,6 +36,9 @@
 </head>
 
 <body>
+	<%
+		memberDTO dto = (memberDTO) session.getAttribute("dto");
+	%>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -136,8 +140,11 @@
                             <i class="fa fa-bars"></i>
                             <span>전체 카테고리</span>
                         </div>
+                        <form action="katelist.do">
                         <ul>
-                            <li><a href="#">여성의류</a></li>
+                            <li><a href="#" name="id">여성의류</a></li>
+                            <li><a onclick="location.href='Logoutcon.do'">여성의류</a></li>
+                            <li><div onclick="location.href='katelist.do'">여성의류</div></li>
                             <li><a href="#">남성의류</a></li>
                             <li><a href="#">신발</a></li>
                             <li><a href="#">가방</a></li>
@@ -156,6 +163,7 @@
                             <li><a href="#">기타</a></li>
                             <li><a href="#">서든나눔</a></li>
                         </ul>
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -215,13 +223,15 @@
      <h2>파일 업로드</h2>
      <table style="font-size:20px; color:black;">
      <form action="UploadService" method="post" enctype="multipart/form-data">
+     
+     <input type="hidden" name="id" value="<%=dto.getId()%>">
           <tr>
-              <td>상품 이름 : </td>
-              <td><input type="text" name=""/></td>
+              <td>제목 : </td>
+              <td><input type="text" name="title"/></td>
           </tr>
           <tr>
               <td>상품 가격 : </td>
-              <td><input type="text" name=""/></td>
+              <td><input type="text" name="price"/></td>
           </tr>
           <tr>
               <td>등록할 사진 : </td>
@@ -229,29 +239,29 @@
           </tr>
           <tr>
               <td>상품 설명 : </td>
-              <td><input type="text" value="" name=""/></td>
+              <td><input type="text" name="content"/></td>
           </tr>    
           <tr>
           		<td>카테고리 :</td>
-          		<td><select id="browsers" name="browsers" multiple size="3" required autofocus>
-			    <option value="1">여성의류</option>
-			    <option value="2">남성의류</option>
-			    <option value="3">신발</option>
-			    <option value="4">가방</option>
-			    <option value="5">시계/주얼리</option>
-			    <option value="6">패션엑세서리</option>
-			    <option value="7">디지털/가전</option>
-			    <option value="8">스포츠/레저</option>
-			    <option value="9">차량/오토바이</option>
-			    <option value="10">키덜트 음반/악기</option>
-			    <option value="11">도서/티켓/문구</option>
-			    <option value="12">뷰티/미용</option>
-			    <option value="13">가구/인테리어</option>
-			    <option value="14">생활/가공식품</option>
-			    <option value="15">유아동/출산</option>
-			    <option value="16">반려동물용품</option>
-			    <option value="17">기타</option>
-			    <option value="18">서든나눔</option>
+          		<td><select id="browsers" name="katenum" multiple size="3" required autofocus>
+			    <option>여성의류</option>
+			    <option >남성의류</option>
+			    <option >신발</option>
+			    <option >가방</option>
+			    <option >시계/주얼리</option>
+			    <option >패션엑세서리</option>
+			    <option >디지털/가전</option>
+			    <option >스포츠/레저</option>
+			    <option >차량/오토바이</option>
+			    <option >키덜트</option>
+			    <option >도서/티켓/문구</option>
+			    <option >뷰티/미용</option>
+			    <option >가구/인테리어</option>
+			    <option >생활/가공식품</option>
+			    <option >유아동/출산</option>
+			    <option >반려동물용품</option>
+			    <option >기타</option>
+			    <option >서든나눔</option>
 				</select>
 				</td>
           </tr>

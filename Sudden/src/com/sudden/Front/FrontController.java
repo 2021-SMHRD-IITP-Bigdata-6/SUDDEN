@@ -30,6 +30,10 @@ public class FrontController extends HttpServlet {
 				String uri = request.getRequestURI();		
 				String path = request.getContextPath();		
 				String command = uri.substring(path.length()+1);
+				System.out.println("uri= "+uri);
+				System.out.println("path= "+path);
+				System.out.println("command= "+command);
+				
 				
 				Login_Command lcom = null;
 				Command com = null;
@@ -72,6 +76,9 @@ public class FrontController extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.print(ch);				
 					
+				}else if(command.equals("katelist.do")) {					
+					com = new LogoutService();
+					nextpage = com.execute(request, response);
 				}else if(command.equals("check.do")) {
 					request.setCharacterEncoding("utf-8");
 
