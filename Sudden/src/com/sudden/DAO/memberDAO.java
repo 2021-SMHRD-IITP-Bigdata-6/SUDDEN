@@ -5,8 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import javax.websocket.Session;
-
 import com.sudden.DTO.memberDTO;
 
 public class memberDAO {
@@ -24,7 +22,7 @@ public class memberDAO {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½Ï·ï¿½");
+			System.out.println("Å¬·¡½ºÆÄÀÏ ·Îµù¿Ï·á");
 
 			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524";
 			String dbid = "cgi_8_5_1216";
@@ -33,9 +31,9 @@ public class memberDAO {
 			conn = DriverManager.getConnection(url, dbid, dbpw);
 
 			if (conn != null) {
-				System.out.println("ï¿½ï¿½ï¿½á¼ºï¿½ï¿½");
+				System.out.println("¿¬°á¼º°ø");
 			} else {
-				System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+				System.out.println("¿¬°á½ÇÆĞ");
 			}
 
 		} catch (Exception e) {
@@ -83,7 +81,7 @@ public class memberDAO {
 			cnt = psmt.executeUpdate();
 			System.out.println("dao-join");
 		} catch (Exception e) {
-			System.out.println("Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½");
+			System.out.println("Å¬·¡½ºÆÄÀÏ ·Îµù½ÇÆĞ");
 			e.printStackTrace();
 		} finally {
 			cloes();
@@ -196,6 +194,7 @@ public class memberDAO {
 		}
 		return check;
 		
+		
 	}
 
 	public int P1_Update(String nick, String id) {
@@ -212,10 +211,10 @@ public class memberDAO {
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {
-			System.out.println("í´ë˜ìŠ¤íŒŒì¼ ë¡œë”©ì‹¤íŒ¨");
+			
 			e.printStackTrace();
 		} finally {
-			System.out.println("ë¬´ì¡°ê±´ì‹¤í–‰");
+			
 			cloes();
 		}
 		return cnt;
@@ -237,10 +236,10 @@ public class memberDAO {
 			cnt = psmt.executeUpdate();
 
 		} catch (Exception e) {
-			System.out.println("í´ë˜ìŠ¤íŒŒì¼ ë¡œë”©ì‹¤íŒ¨");
+			
 			e.printStackTrace();
 		} finally {
-			System.out.println("ë¬´ì¡°ê±´ì‹¤í–‰");
+			
 			cloes();
 		}
 		return cnt;

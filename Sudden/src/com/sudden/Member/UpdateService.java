@@ -40,7 +40,7 @@ public class UpdateService implements Command {
 			session.setAttribute("dto", update_dto);
 			nextpage = "Mypage.jsp";
 		} else {
-			System.out.println("ì‹¤íŒ¨");
+			System.out.println("º¯°æ½ÇÆÐ");
 			nextpage = "propile.jsp";
 		}
 		return nextpage;

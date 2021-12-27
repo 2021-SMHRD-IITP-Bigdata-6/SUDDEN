@@ -25,7 +25,6 @@ import com.sudden.Member.SearchService;
 import com.sudden.Member.UpdateService;
 import com.sudden.Member.UpdateService2;
 
-
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
 
@@ -51,8 +50,8 @@ public class FrontController extends HttpServlet {
 					nextpage = com.execute(request, response);
 					
 				}else if(command.equals("Logincon.do")||command.equals("Logincon_grid.do")||command.equals("Logincon_detail.do")) {					
-					lcom = new LoginService();// ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½
-					System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½com");
+					lcom = new LoginService();// ¼öÁ¤ÇÒ°÷
+					System.out.println("¿©±â´Âcom");
 					
 					System.out.println("com = "+lcom);
 					nextpage = lcom.execute(request, response, command);
@@ -72,7 +71,7 @@ public class FrontController extends HttpServlet {
 					System.out.println("controll="+name);
 					goodsDTO dto = new goodsDTO(name);	
 					goodsDAO dao = new goodsDAO();
-					ArrayList<goodsDTO> tof = dao.Search(dto); //ï¿½ï¿½Ä¥ï¿½Îºï¿½
+					ArrayList<goodsDTO> tof = dao.Search(dto); //°íÄ¥ºÎºÐ
 					boolean ch = false;
 					if(tof.get(0).getName().equals(null)) {
 						ch = true;
@@ -134,7 +133,7 @@ public class FrontController extends HttpServlet {
 					
 					PrintWriter out = response.getWriter();
 					out.print(tof);
-					System.out.println("È®ï¿½ï¿½ = "+tof);
+					System.out.println("È®ÀÎ = "+tof);
 				}
 				
 				

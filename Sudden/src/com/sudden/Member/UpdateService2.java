@@ -47,9 +47,9 @@ public class UpdateService2 implements Command {
 			request.setAttribute("dto", dto);
 			RequestDispatcher dis = request.getRequestDispatcher("Mypage.jsp");
 			dis.forward(request, response);
-			System.out.println("ë³€ê²½ì„±ê³µ");
+			System.out.println("º¯°æ¼º°ø");
 		} else {
-			System.out.println("ì‹¤íŒ¨");
+			System.out.println("º¯°æ½ÇÆÐ");
 			nextpage = "propile.jsp";
 		}
 		return nextpage;
