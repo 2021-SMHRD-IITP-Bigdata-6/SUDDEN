@@ -143,9 +143,8 @@
 			email = rs.getString(6);
 			addr = rs.getString(4);
 			tel = rs.getString(5);
-
-		}
-		;
+	
+		};
 	} catch (Exception e) {
 		e.printStackTrace();
 	} finally {
@@ -221,7 +220,7 @@
 							</dl>
 						</div>
 						<p class="btn_area_btm">
-							<a href="Propile2.html"
+							<a href="Propile2.jsp"
 								onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
 								class="snip1535"> <b class="btn2">수정</b>
 							</a>

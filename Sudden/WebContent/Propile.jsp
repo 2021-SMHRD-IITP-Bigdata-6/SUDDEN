@@ -1,4 +1,3 @@
-<%@page import="com.sudden.DTO.memberDTO"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Connection"%>
@@ -49,20 +48,7 @@
 <link rel="icon" href="images/favicon.png">
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
-
-	<%
-	memberDTO dto = (memberDTO) session.getAttribute("dto");
-	
-	request.setCharacterEncoding("utf-8");
-
-	String id = (String)session.getAttribute("id");
-
-	//DAO
-	Connection conn = null;
-	PreparedStatement psmt = null;
-
-	%>
-
+<form action="UpdateCon.do" method="post">
 	<!-- Preloader -->
 	<div class="spinner-wrapper">
 		<div class="spinner">
@@ -82,7 +68,7 @@
 			<!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
 
 			<!-- Image Logo -->
-			<a class="navbar-brand logo-image" href="index.html">SUDDEN</a>
+			<a class="navbar-brand logo-image" href="index.jsp">SUDDEN</a>
 
 			<!-- Mobile Menu Toggle Button -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -111,7 +97,7 @@
 					<li class="nav-item"></li>
 				</ul>
 				<span class="nav-item"> <a class="btn-outline-sm"
-					href="Mypage.jsp">돌아가기</a>
+					href="index.jsp">돌아가기</a>
 				</span>
 			</div>
 		</div>
@@ -119,7 +105,7 @@
 	</nav>
 	<!-- end of navbar -->
 	<!-- end of navigation -->
-
+	
 	<!-- Header -->
 	<header id="header" class="ex-2-header">
 
@@ -132,7 +118,7 @@
 			style="background-color: #fff; width: 600px; margin-left: 670px; margin-right: auto; text-align: center; padding: 75px; border-radius: 20px;">
 			<h2>프로필 수정</h2>
 			<p class="contxt">SUDDEN 프로필과 닉네임을 수정 하실수 있습니다.</p>
-			<table border="0" class="tbl_model">
+			<table border="1" class="tbl_model">
 				<tr>
 					<th scope="row">
 						<div class="thcell">프로필 사진</div>
@@ -154,7 +140,6 @@
 					<div class="thcell">
 						<label for="inpNickname">별명</label>
 					</div>
-				</th>
 				<td>
 					<div class="tdcell">
 						<p class="contxt_webctrl nickname">
@@ -166,7 +151,6 @@
 						</p>
 					</div>
 				</td>
-
 
 			</table>
 
@@ -180,47 +164,6 @@
 				</a>
 			</div>
 		</div>
-
-		<%
-		try {
-			//드라이버 연결
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524";
-			String dbid = "cgi_8_5_1216";
-			String dbpw = "smhrd5";
-
-			conn = DriverManager.getConnection(url, dbid, dbpw);
-
-			String sql = "update tbl_member set mem_nick=? where mem_id = ?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getNick());
-			psmt.setString(2, id);
-			int rs = psmt.executeUpdate();
-
-			if (rs > 0) {
-				System.out.println("정보수정 성공");
-			} else {
-				System.out.println("정보수정 실패");
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (psmt != null) {
-			psmt.close();
-				}
-				if (conn != null) {
-			conn.close();
-				}
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-		}
-		%>
-	
+</form>	
 </body>
 </html>

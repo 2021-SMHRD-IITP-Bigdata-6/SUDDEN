@@ -83,7 +83,7 @@
 							<i class="fa fa-bars"></i> <span>전체 카테고리</span>
 						</div>
 						<ul>
-							<li><a href="shop-grid.jsp">여성의류</a></li>
+							<li><a href="shop-grid.jsp?cat_num=1">여성의류</a></li>
 							<li><a href="shop-grid.jsp">남성의류</a></li>
 							<li><a href="shop-grid.jsp">신발</a></li>
 							<li><a href="shop-grid.jsp">가방</a></li>
