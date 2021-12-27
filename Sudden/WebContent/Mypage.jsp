@@ -196,7 +196,7 @@
 					<p class="btn_area_btm">
 						<a href="Propile.jsp"
 							onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
-							class="btn_model"> <b class="btn2">수정</b>
+							class="snip1535"> <b class="btn2">수정</b>
 						</a>
 					</p>
 				</div>
@@ -223,7 +223,7 @@
 						<p class="btn_area_btm">
 							<a href="Propile2.html"
 								onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
-								class="btn_model"> <b class="btn2">수정</b>
+								class="snip1535"> <b class="btn2">수정</b>
 							</a>
 						</p>
 					</div>
@@ -246,7 +246,7 @@
 					<p class="btn_area_btm">
 						<a href=""
 							onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
-							class="btn_model"> <b class="btn2">추가하기</b>
+							class="snip1535"> <b class="btn2">추가하기</b>
 						</a>
 					</p>
 				</div>
