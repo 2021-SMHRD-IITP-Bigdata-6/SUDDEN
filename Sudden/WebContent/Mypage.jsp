@@ -47,6 +47,53 @@
 
 <!-- Favicon  -->
 <link rel="icon" href="images/favicon.png">
+<style>
+#browsers2{
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+
+margin: 0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+-webkit-appearance: none;
+-moz-appearance: none;
+
+
+background-image:
+linear-gradient(45deg, transparent 50%, gray 50%),
+linear-gradient(135deg, gray 50%, transparent 50%),
+radial-gradient(#ddd 70%, transparent 72%);
+background-position:
+calc(100% - 20px) calc(1em + 2px),
+calc(100% - 15px) calc(1em + 2px),
+calc(100% - .5em) .5em;
+background-size:
+5px 5px,
+5px 5px,
+1.5em 1.5em;
+background-repeat: no-repeat;
+}
+ table {
+    width: 100%;
+    border: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  th,td{
+    border: 1px solid #444444;
+  }
+  #td1{
+  font-size:20px;
+  color:white;
+  background-color:gray;
+  border: 1px solid #444444;
+  }
+</style>
 </head>
 <body>
 
@@ -233,44 +280,85 @@
 						<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지역
 							설정&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 					</div>
-					<div class="sh_content">
-						<dl class="sh_lst3">
-							<br>
-							<br>
-							<dt>현재 설정한 지역이 없습니다.</dt>
-							<dt>지역을 추가하시겠습니까?</dt>
-							<br>
-							<br>
-						</dl>
-					</div>
+				<dt>지역을 선택해 주세요!</dt>				
+					<table>
+							<tr>
+						       <td id="td1">도시</td>
+						          	<td>	
+						          		<select id="browsers2" name="browsers2">
+									    <option value="서울특별시">서울특별시</option>
+									    <option value="광주광역시">광주광역시</option>
+									    <option value="부산광역시">부산광역시</option>
+									    <option value="인천광역시">인천광역시</option>
+									    <option value="대구광역시">대구광역시</option>
+									    <option value="대전광역시">대전광역시</option>
+									    <option value="울산광역시">울산광역시</option>
+									    <option value="세종특별자치시">세종특별자치시</option>
+									    <option value="경기도">경기도</option>
+									    <option value="강원도">강원도</option>
+									    <option value="충청남도">충청남도</option>
+									    <option value="충청북도">충청북도</option>
+									    <option value="경상남도">경상남도</option>
+									    <option value="경상북도">경상북도</option>
+									    <option value="전라북도">전라북도</option>
+									    <option value="전라남도">전라남도</option>
+									    <option value="제주도">제주도</option>
+									    <option value="서든나눔">서든나눔</option>
+										</select>
+										</td>
+						          </tr>
+								<tr>
+									<td id="td1">지역</td>
+									<td><select id="browsers2" name="browsers2">
+									    <option value="광산구">광산구</option>
+									    <option value="북구">북구</option>
+									    <option value="동구">동구</option>
+									    <option value="남구">남구</option>
+									    <option value="서구">서구</option>
+										</select></td>
+								</tr>
+								<tr>
+									<td id="td1">읍/면/동</td>
+									<td>if<select id="browsers2" name="browsers2">
+									    <option value="구동">구동</option>
+									    <option value="구소동">구소동</option>
+									    <option value="노대동">노대동</option>
+									    <option value="대지동">대지동</option>
+									    <option value="대촌동">대촌동</option>
+									    <option value="덕남동">덕남동</option>
+									    <option value="도금동">도금동</option>
+									    <option value="방림동">방림동</option>
+									    <option value="사동">사동</option>
+									    <option value="사직동">사직동</option>
+									    <option value="서동">서동</option>
+									    <option value="백운동">백운동</option>
+									    <option value="봉선동">봉선동</option>
+									    <option value="송암동">송암동</option>
+									    <option value="송하동">송하동</option>
+									    <option value="송천동">송천동</option>
+									    <option value="신장동">신장동</option>
+									    <option value="압촌동">압촌동</option>
+										</select></td>
+								</tr>
+					</table>
 					<p class="btn_area_btm">
-						<a href=""
+						<a href="maps.jsp"
 							onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
-							class="snip1535"> <b class="btn2">추가하기</b>
+							class="snip1535"> <b class="btn2">검색하기</b>
 						</a>
 					</p>
 				</div>
 
-			</div>
-		</div>
+		
 
-		</div>
-		<!-- end of form container -->
-		<!-- end of sign up form -->
 
-		</div>
-		<!-- end of col -->
-		</div>
-		<!-- end of row -->
-		</div>
-		<!-- end of container -->
 	</header>
 	<!-- end of ex-header -->
 	<!-- end of header -->
 
 
 	<!-- Js Plugins -->
-	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery-3.6.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.nice-select.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>

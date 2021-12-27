@@ -196,7 +196,7 @@
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
-            <div class="row">
+            <div class="row" style="width:1500px;">
 				<div class="col-lg-9 col-md-7">
                     <div class="filter__item">
                         <div class="row">
