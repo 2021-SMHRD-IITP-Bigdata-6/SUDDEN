@@ -1,3 +1,4 @@
+<%@page import="com.sudden.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -35,89 +36,58 @@
 </head>
 
 <body>
+   <%
+		memberDTO dto = (memberDTO) session.getAttribute("dto");
+	%>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
 
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="#"><img src="img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <div class="header__cart__price">item: <span>$150.00</span></div>
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
-                <img src="img/language.png" alt="">
-                <div>English</div>
-                <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li><a href="#">Spanis</a></li>
-                    <li><a href="#">English</a></li>
-                </ul>
-            </div>
-            <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
-            </div>
-        </div>
-        <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="./shop-grid.html">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.html">Shop Details</a></li>
-                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-        </div>
-        <div class="humberger__menu__contact">
-            <ul>
-                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-                <li>Free Shipping for all Order of $99</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Humberger End -->
 
     <!-- Header Section Begin -->
     <header class="header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                      <div class="header__logo">
-                        <a href="./index.jsp"><img style="widht:100px;height:200px;" src="img/logo4.PNG" alt=""></a>
+                    <div class="header__logo">
+                        <a href="./index.jsp"><img  style="width:150px; height:130px;" src="img/logo4.PNG" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <nav class="header__menu">
+                  <!--  <nav class="header__menu">
                         <ul>
-                            <li><a href="./index.html">Home</a></li>
-                            <li class="active"><a href="./shop-grid.html">Shop</a></li>
+                            <li><a href="./index.jsp">Home</a></li>
+                            <li class="active"><a href="./shop-grid.jsp">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./shop-details.jsp">Shop Details</a></li>
+                                    <li><a href="./shoping-cart.jsp">Shoping Cart</a></li>
                                 </ul>
                             </li>
                         </ul>
-                    </nav>
+                    </nav>-->
                 </div>
+                <div class="col-lg-3">
+				<!-- 로그인 한 후 아이콘 보여주는곳 -->
+				
+				<!--<%if (dto == null) {
+				  } else {
+					  if (dto.getId().equals("admin")) {%>
+						   관리자 권한 기능  
+					<%}%>
+					  <div class="header__cart">
+					<ul>
+						<li><a href="Registe.html"><i class="fa fa-registered"></i></a></li>
+						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+						<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+					</ul>
+					<div class="header__cart__price">
+						item: <span>$150.00</span>
+					</div>
+				</div>
+				  <%}%>		 -->	
+			</div>
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -161,19 +131,54 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                            <form action="Search.do">
+                                <input type="text" id="search" name="name" placeholder="찾고 싶은 상품을 검색해 보세요">
+                                <button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
                             </form>
                         </div>
-                        <div class="hero__search__login">
-                            <div class="hero__search__login__icon">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="hero__search__login__text">
-                                <h5>Login</h5>
-                            </div>
-                        </div>
+                        <div class="header__top__right__auth">
+
+
+							<div class="hero__search__login">
+								<!-- 로그인하는곳 -->
+
+								<%
+								if (dto == null) {
+								%>
+								<a href="log-in_details.jsp"><i class="fa fa-user">Login</i></a>
+								<%
+									} else {
+								
+								%>
+								<!-- 로그인 후 아이콘-->
+								<div class="login__box">
+									<div class="profile">
+										<span class="profile__picture"><i class="fa fa-user-circle fa-lg"></i></span>
+										<span><%= dto.getId() %>님 환영합니다!</span>
+									</div>
+									<div class="icon">
+										<div class="MyPage">
+											<span onclick="location.href='Mypage.jsp'" style="cursor: pointer;"><i class="fa fa-user"></i></span>
+										</div>
+										<div class="Favorite">
+											<span onclick="location.href='shoping-cart.jsp'" style="cursor: pointer;"><i class="fa fa-heart"></i></span>
+										</div>
+										<div class="Register">
+											<span onclick="location.href='Registe.jsp'" style="cursor: pointer;"><i class="fa fa-plus-circle"></i></span>
+										</div>
+										<div class="Logout">
+										<span onclick="location.href='Logoutcon.do'" style="cursor: pointer;">Logout</span>
+										</div>
+									</div>
+								</div>
+								 
+								<%
+									}
+								%>
+
+
+							</div>
+						</div>
                     </div>
                 </div>
             </div>
@@ -282,9 +287,9 @@
                             <a href="./index.html"><img style="widht:200px;height:250px;" src="img/logo2.jpg" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
+                            <li>Address: 광주광역시 남구 송암로 60</li>
+                            <li>Phone: 000-0000-0000</li>
+                            <li>Email: jcm829700@naver.com</li>
                         </ul>
                     </div>
                 </div>
