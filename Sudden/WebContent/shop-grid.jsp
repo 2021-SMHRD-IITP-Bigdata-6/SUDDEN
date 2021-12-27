@@ -58,18 +58,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                  <!--  <nav class="header__menu">
-                        <ul>
-                            <li><a href="./index.jsp">Home</a></li>
-                            <li class="active"><a href="./shop-grid.jsp">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.jsp">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.jsp">Shoping Cart</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>-->
+                  
                 </div>
                 <div class="col-lg-3">
 				<!-- 로그인 한 후 아이콘 보여주는곳 -->
