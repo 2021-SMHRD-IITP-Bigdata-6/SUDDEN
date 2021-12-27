@@ -1,4 +1,12 @@
 <%@page import="com.sudden.DTO.memberDTO"%>
+<%@page import="com.sudden.DTO.goodsDTO"%>
+<%@page import="java.sql.Connection" %>
+<%@page import="java.sql.DriverManager" %>
+<%@page import="java.sql.Statement" %>
+<%@page import="java.sql.ResultSet"%>
+
+
+	
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -30,35 +38,27 @@
 	<%
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
 	%>
+	
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
 
   
+
     <!-- Header Section Begin -->
     <header class="header">
-       
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.jsp"><img style="width:180px; height:150px;" src="img/logo4.PNG" alt=""></a>
+                        <a href="./index.jsp"><img style="width:180px; height:180px;" src="img/logo4.PNG" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                  <!--  <nav class="header__menu">
-                        <ul>
-                            <li><a href="./index.jsp">Home</a></li>
-                            <li class="active"><a href="./shop-grid.jsp">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.jsp">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.jsp">Shoping Cart</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>-->
+                  
                 </div>
                 <div class="col-lg-3">
 				<!-- 로그인 한 후 아이콘 보여주는곳 -->
@@ -99,7 +99,7 @@
                             <span>전체 카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="shop-grid.jsp">여성의류</a></li>
+                            <li><a href="shop-grid.jsp?cat_num=1">여성의류</a></li>
                             <li><a href="shop-grid.jsp">남성의류</a></li>
                             <li><a href="shop-grid.jsp">신발</a></li>
                             <li><a href="shop-grid.jsp">가방</a></li>
@@ -155,8 +155,8 @@
 										<div class="Favorite">
 											<span onclick="location.href='shoping-cart.jsp'" style="cursor: pointer;"><i class="fa fa-heart"></i></span>
 										</div>
-										<div class="Register">
-											<span onclick="location.href='Registe.jsp'" style="cursor: pointer;"><i class="fa fa-plus-circle"></i></span>
+										<div class="Chatting">
+											<span onclick="location.href='#'" style="cursor: pointer;"><i class="fa fa-comment"></i></span>
 										</div>
 										<div class="Logout">
 										<span onclick="location.href='Logoutcon.do'" style="cursor: pointer;">Logout</span>
@@ -196,8 +196,14 @@
     <!-- Product Section Begin -->
     <section class="product spad">
         <div class="container">
+<<<<<<< HEAD
             <div class="row" style="width:1500px;">
 				<div class="col-lg-9 col-md-7">
+=======
+            <div class="row">
+
+                <div class="col-lg-9 col-md-7">
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
                     <div class="filter__item">
                         <div class="row">
                           <!--  <div class="col-lg-4 col-md-5">
@@ -236,7 +242,6 @@
                                 </div>
                             </div>
                         </div>
-                  
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
@@ -410,13 +415,49 @@
                             <a href="./index.jsp"><img style="width:230px; height:200px;" src="img/logo2.jpg" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 광주광역시 남구 송암로 60</li>
-                            <li>Phone: 000-0000-0000</li>
-                            <li>Email: jcm829700@naver.com</li>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: hello@colorlib.com</li>
                         </ul>
                     </div>
                 </div>
-                
+                <!-- <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Useful Links</h6>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">About Our Shop</a></li>
+                            <li><a href="#">Secure Shopping</a></li>
+                            <li><a href="#">Delivery infomation</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Our Sitemap</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Who We Are</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Innovation</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <h6>Join Our Newsletter Now</h6>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Enter your mail">
+                            <button type="submit" class="site-btn">Subscribe</button>
+                        </form>
+                        <div class="footer__widget__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div> -->
             </div>
             <div class="row">
                 <div class="col-lg-12">

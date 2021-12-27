@@ -25,6 +25,8 @@
 <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="css/style.css" type="text/css">
+
+
 </head>
 
 <body>
@@ -81,7 +83,7 @@
 							<i class="fa fa-bars"></i> <span>전체 카테고리</span>
 						</div>
 						<ul>
-							<li><a href="shop-grid.jsp">여성의류</a></li>
+							<li><a href="shop-grid.jsp?cat_num=1">여성의류</a></li>
 							<li><a href="shop-grid.jsp">남성의류</a></li>
 							<li><a href="shop-grid.jsp">신발</a></li>
 							<li><a href="shop-grid.jsp">가방</a></li>
@@ -573,8 +575,9 @@
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="jquery-3.6.0.min.js"></script>
+
 	<script type="text/javascript">
-	function search() {
+		function search() {
 
 		$.ajax({
 			url : "search.do",
@@ -599,6 +602,6 @@
 	}</script>
 
 
-
+	
 </body>
 </html>

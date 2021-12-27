@@ -19,7 +19,12 @@ import com.sudden.DTO.memberDTO;
 import com.sudden.Member.JoinService;
 import com.sudden.Member.LoginService;
 import com.sudden.Member.LogoutService;
+import com.sudden.Member.RegisteService;
+import com.sudden.Member.ResetService;
 import com.sudden.Member.SearchService;
+import com.sudden.Member.UpdateService;
+import com.sudden.Member.UpdateService2;
+
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -30,6 +35,10 @@ public class FrontController extends HttpServlet {
 				String uri = request.getRequestURI();		
 				String path = request.getContextPath();		
 				String command = uri.substring(path.length()+1);
+				System.out.println("uri= "+uri);
+				System.out.println("path= "+path);
+				System.out.println("command= "+command);
+				
 				
 				Login_Command lcom = null;
 				Command com = null;
@@ -42,8 +51,8 @@ public class FrontController extends HttpServlet {
 					nextpage = com.execute(request, response);
 					
 				}else if(command.equals("Logincon.do")||command.equals("Logincon_grid.do")||command.equals("Logincon_detail.do")) {					
-					lcom = new LoginService();// ¼öÁ¤ÇÒ°÷
-					System.out.println("¿©±â´Âcom");
+					lcom = new LoginService();// ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½
+					System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½com");
 					
 					System.out.println("com = "+lcom);
 					nextpage = lcom.execute(request, response, command);
@@ -63,7 +72,7 @@ public class FrontController extends HttpServlet {
 					System.out.println("controll="+name);
 					goodsDTO dto = new goodsDTO(name);	
 					goodsDAO dao = new goodsDAO();
-					ArrayList<goodsDTO> tof = dao.Search(dto); //°íÄ¥ºÎºÐ
+					ArrayList<goodsDTO> tof = dao.Search(dto); //ï¿½ï¿½Ä¥ï¿½Îºï¿½
 					boolean ch = false;
 					if(tof.get(0).getName().equals(null)) {
 						ch = true;
@@ -72,7 +81,16 @@ public class FrontController extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.print(ch);				
 					
-				}else if(command.equals("check.do")) {
+				}else if(command.equals("katelist.do")) {					
+					com = new LogoutService();
+					nextpage = com.execute(request, response);
+				}
+				else if(command.equals("Upload.do")) {				//helpÇÒ°÷	
+					com = new ResetService();
+					//com = new RegisteService();
+					nextpage = com.execute(request, response);
+				}
+				else if(command.equals("check.do")) {
 					request.setCharacterEncoding("utf-8");
 
 					String id = request.getParameter("id");
@@ -116,12 +134,22 @@ public class FrontController extends HttpServlet {
 					
 					PrintWriter out = response.getWriter();
 					out.print(tof);
-					System.out.println("È®ÀÎ = "+tof);
+					System.out.println("È®ï¿½ï¿½ = "+tof);
 				}
 				
 				
 				if(nextpage != null) {
 					response.sendRedirect(nextpage);
+				}else if(command.equals("UpdateCon.do")) {
+					
+					com = new UpdateService();
+					nextpage = com.execute(request, response);
+					
+				}else if(command.equals("UpdateCon2.do")) {
+					
+					com = new UpdateService2();
+					nextpage = com.execute(request, response);
+					
 				}
 		
 	}

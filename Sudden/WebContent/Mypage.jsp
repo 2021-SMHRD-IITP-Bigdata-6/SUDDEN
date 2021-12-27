@@ -190,9 +190,8 @@ background-repeat: no-repeat;
 			email = rs.getString(6);
 			addr = rs.getString(4);
 			tel = rs.getString(5);
-
-		}
-		;
+	
+		};
 	} catch (Exception e) {
 		e.printStackTrace();
 	} finally {
@@ -236,8 +235,6 @@ background-repeat: no-repeat;
 							</dd>
 							<dt class="blind">&nbsp;</dt>
 							<dd class="intro_desc">&nbsp;</dd>
-							<dt>별명 :</dt>
-							<dd><%=nick%></dd>
 						</dl>
 					</div>
 					<p class="btn_area_btm">
@@ -256,6 +253,8 @@ background-repeat: no-repeat;
 							<dl class="sh_lst2">
 								<dt class="blind">&nbsp;</dt>
 								<dd class="intro_desc">&nbsp;</dd>
+								<dt>별명 :</dt>
+								<dd><%=nick%></dd>
 								<dt class="nic_tit">이메일 :</dt>
 								<dd class="nic_desc"><%=email%></dd>
 								<dt>주소 :</dt>
@@ -268,7 +267,7 @@ background-repeat: no-repeat;
 							</dl>
 						</div>
 						<p class="btn_area_btm">
-							<a href="Propile2.html"
+							<a href="Propile2.jsp"
 								onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
 								class="snip1535"> <b class="btn2">수정</b>
 							</a>
