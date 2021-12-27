@@ -1,7 +1,8 @@
+<%@page import="com.sudden.DTO.goodsDTO"%>
 <%@page import="com.sudden.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="zxx">
 
 <head>
@@ -36,58 +37,93 @@
 </head>
 
 <body>
-   <%
+	<%  goodsDTO gdto = null;
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
+		gdto = (goodsDTO) session.getAttribute("gdto");
 	%>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
 
+    <!-- Humberger Begin -->
+    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="#"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div class="humberger__menu__cart">
+            <ul>
+                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            </ul>
+            <div class="header__cart__price">item: <span>$150.00</span></div>
+        </div>
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__language">
+                <img src="img/language.png" alt="">
+                <div>English</div>
+                <span class="arrow_carrot-down"></span>
+                <ul>
+                    <li><a href="#">Spanis</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </div>
+            <div class="header__top__right__auth">
+                <a href="#"><i class="fa fa-user"></i> Login</a>
+            </div>
+        </div>
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+                <li class="active"><a href="./index.html">Home</a></li>
+                <li><a href="./shop-grid.html">Shop</a></li>
+                <li><a href="#">Pages</a>
+                    <ul class="header__menu__dropdown">
+                        <li><a href="./shop-details.html">Shop Details</a></li>
+                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="header__top__right__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+        </div>
+        <div class="humberger__menu__contact">
+            <ul>
+                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                <li>Free Shipping for all Order of $99</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Humberger End -->
 
     <!-- Header Section Begin -->
     <header class="header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="./index.jsp"><img  style="width:150px; height:130px;" src="img/logo4.PNG" alt=""></a>
+                      <div class="header__logo">
+                        <a href="./index.jsp"><img style="widht:100px;height:200px;" src="img/logo4.PNG" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                  <!--  <nav class="header__menu">
+                    <nav class="header__menu">
                         <ul>
-                            <li><a href="./index.jsp">Home</a></li>
-                            <li class="active"><a href="./shop-grid.jsp">Shop</a></li>
+                            <li><a href="./index.html">Home</a></li>
+                            <li class="active"><a href="./shop-grid.html">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.jsp">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.jsp">Shoping Cart</a></li>
+                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
                                 </ul>
                             </li>
                         </ul>
-                    </nav>-->
+                    </nav>
                 </div>
-                <div class="col-lg-3">
-				<!-- 로그인 한 후 아이콘 보여주는곳 -->
-				
-				<!--<%if (dto == null) {
-				  } else {
-					  if (dto.getId().equals("admin")) {%>
-						   관리자 권한 기능  
-					<%}%>
-					  <div class="header__cart">
-					<ul>
-						<li><a href="Registe.html"><i class="fa fa-registered"></i></a></li>
-						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-						<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-					</ul>
-					<div class="header__cart__price">
-						item: <span>$150.00</span>
-					</div>
-				</div>
-				  <%}%>		 -->	
-			</div>
             </div>
             <div class="humberger__open">
                 <i class="fa fa-bars"></i>
@@ -106,8 +142,11 @@
                             <i class="fa fa-bars"></i>
                             <span>전체 카테고리</span>
                         </div>
+                        <form action="katelist.do">
                         <ul>
-                            <li><a href="#">여성의류</a></li>
+                            <li><a href="#" name="id">여성의류</a></li>
+                            <li><a onclick="location.href='Logoutcon.do'">여성의류</a></li>
+                            <li><div onclick="location.href='katelist.do'">여성의류</div></li>
                             <li><a href="#">남성의류</a></li>
                             <li><a href="#">신발</a></li>
                             <li><a href="#">가방</a></li>
@@ -126,14 +165,15 @@
                             <li><a href="#">기타</a></li>
                             <li><a href="#">서든나눔</a></li>
                         </ul>
+                        </form>
                     </div>
                 </div>
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="Search.do">
-                                <input type="text" id="search" name="name" placeholder="찾고 싶은 상품을 검색해 보세요">
-                                <button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
+                            <form action="#">
+                                <input type="text" placeholder="What do yo u need?">
+                                <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
                         <div class="header__top__right__auth">
@@ -144,11 +184,15 @@
 
 								<%
 								if (dto == null) {
-								%>
-								<a href="log-in_details.jsp"><i class="fa fa-user">Login</i></a>
-								<%
-									} else {
 								
+								
+								
+									} else {
+								if (dto.getId().equals("admin")) {
+								%>
+								<!-- 관리자 권한 기능  -->
+								<%
+									}
 								%>
 								<!-- 로그인 후 아이콘-->
 								<div class="login__box">
@@ -175,8 +219,6 @@
 								<%
 									}
 								%>
-
-
 							</div>
 						</div>
                     </div>
@@ -200,7 +242,6 @@
         </div>
     </section>
     <!-- Breadcrumb Section End -->
-
     <!-- Product Details Section Begin -->
     <section class="product-details spad">
         <div class="container">
@@ -208,7 +249,11 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
-                        	<img id="imgThumb" src="upload/imges.jpg" width="400px" height="400px">
+                        <%if(gdto!=null){ %>
+                        	<img src="Upload/<%=gdto.getImg()%>">
+                        	<%}else{ %>
+                        	<img src="Upload/img.jsp">
+                        	<% }%>
                         </div>
 
                     </div>
@@ -219,51 +264,70 @@
      <fieldset>
      <h2>파일 업로드</h2>
      <table style="font-size:20px; color:black;">
-     <form action="UploadService" method="post" enctype="multipart/form-data">
+     <form action="RegisteService" method="post" enctype="multipart/form-data">
+     
+     <input type="hidden" name="id" value="<%=dto.getId()%>">
           <tr>
-              <td>상품 이름 : </td>
-              <td><input type="text" name=""/></td>
+              <td>제목 : </td>
+              <%if(gdto!=null){ %>
+              <td><input type="text" name="title" value="<%=gdto.getName()%>"/></td>
+              <%}else{ %>
+              <td><input type="text" name="title" value=""/></td>
+              <% }%>
           </tr>
           <tr>
               <td>상품 가격 : </td>
-              <td><input type="text" name=""/></td>
+              <%if(gdto!=null){ %>
+              <td><input type="text" name="title" value="<%=gdto.getPrice()%>"/></td>
+              <%}else{ %>
+              <td><input type="text" name="price" value=""/></td>
+              <% }%>
           </tr>
           <tr>
               <td>등록할 사진 : </td>
-              <td><input type="file" value="파일 선택" name="file"/></td>
+              <%if(gdto!=null){ %>
+              <td><input type="file" value="<%=gdto.getImg()%>" name="file"/></td>
+              <%}else{ %>
+              <td><input type="file" value="" name="file"/></td>
+              <% }%>
           </tr>
           <tr>
               <td>상품 설명 : </td>
-              <td><input type="text" value="" name=""/></td>
+              <%if(gdto!=null){ %>
+              <td><input type="text" name="price" value="<%=gdto.getContent()%>"/></td>
+              <%}else{ %>
+              <td><input type="text" name="content"/></td>
+              <% }%>
           </tr>    
           <tr>
           		<td>카테고리 :</td>
-          		<td><select id="browsers" name="browsers" multiple size="3" required autofocus>
-			    <option value="1">여성의류</option>
-			    <option value="2">남성의류</option>
-			    <option value="3">신발</option>
-			    <option value="4">가방</option>
-			    <option value="5">시계/주얼리</option>
-			    <option value="6">패션엑세서리</option>
-			    <option value="7">디지털/가전</option>
-			    <option value="8">스포츠/레저</option>
-			    <option value="9">차량/오토바이</option>
-			    <option value="10">키덜트 음반/악기</option>
-			    <option value="11">도서/티켓/문구</option>
-			    <option value="12">뷰티/미용</option>
-			    <option value="13">가구/인테리어</option>
-			    <option value="14">생활/가공식품</option>
-			    <option value="15">유아동/출산</option>
-			    <option value="16">반려동물용품</option>
-			    <option value="17">기타</option>
-			    <option value="18">서든나눔</option>
+          		<td><select id="browsers" name="katenum" multiple size="3" required autofocus>
+			    <option>여성의류</option>
+			    <option>남성의류</option>
+			    <option>신발</option>
+			    <option>가방</option>
+			    <option>시계/주얼리</option>
+			    <option>패션엑세서리</option>
+			    <option>디지털/가전</option>
+			    <option>스포츠/레저</option>
+			    <option>차량/오토바이</option>
+			    <option>키덜트</option>
+			    <option>도서/티켓/문구</option>
+			    <option>뷰티/미용</option>
+			    <option>가구/인테리어</option>
+			    <option>생활/가공식품</option>
+			    <option>유아동/출산</option>
+			    <option>반려동물용품</option>
+			    <option>기타</option>
+			    <option>서든나눔</option>
 				</select>
 				</td>
           </tr>
           <tr>
-              <td colspan="2"><button class="snip1535" "type="submit" value="업로드"/>업로드</button></td>
+              <td colspan="0"><button class="snip1535" "type="submit" value="사진확인"/>사진확인</button></td>
+            <td colspan="0"><button class="snip1535" type="button" value="업로드" onclick="location.href='Upload.do'"/>사진확인1</button></td>
           </tr>
-        
+       
           </form>
      </table>
 </fieldset>
@@ -287,9 +351,9 @@
                             <a href="./index.html"><img style="widht:200px;height:250px;" src="img/logo2.jpg" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 광주광역시 남구 송암로 60</li>
-                            <li>Phone: 000-0000-0000</li>
-                            <li>Email: jcm829700@naver.com</li>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: hello@colorlib.com</li>
                         </ul>
                     </div>
                 </div>
@@ -312,6 +376,7 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
 
 
 </body>

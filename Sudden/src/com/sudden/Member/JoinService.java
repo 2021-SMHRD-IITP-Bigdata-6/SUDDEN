@@ -44,8 +44,6 @@ public class JoinService implements Command {
 			response.sendRedirect("sign-up.html");
 		}
 		
-		
-		
 		System.out.println(check);
 		String nextpage="";
 		if (cnt > 0) {

@@ -34,8 +34,9 @@ public class SearchService implements Command{
 		ArrayList<goodsDTO> list = dao.Search(dto);
 		String nextpage="";
 		
-		String ch = list.get(0).getName();
+		String ch = list.get(0).getName();// 수정
 				System.out.println(ch);
+				
 		if (ch.equals(null)) {
 			System.out.println("search 실패");
 			nextpage = "index.jsp";

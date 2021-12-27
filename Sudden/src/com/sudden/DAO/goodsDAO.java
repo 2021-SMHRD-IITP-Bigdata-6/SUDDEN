@@ -1,10 +1,13 @@
 package com.sudden.DAO;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
 
 import com.sudden.DTO.goodsDTO;
 import com.sudden.DTO.memberDTO;
@@ -16,9 +19,13 @@ public class goodsDAO {
 	ResultSet rs = null;
 
 	goodsDTO dto = null;
+	goodsDTO vo = null;
 
 	int cnt = 0;
 	private boolean check;
+	private static goodsDAO instance = new goodsDAO();
+	
+
 
 	public void getconn() {
 
@@ -70,7 +77,7 @@ public class goodsDAO {
 			System.out.println("dao="+dto);
 			getconn();
 
-			String sql = "select * from tbl_product where goods_name=?";
+			String sql = "select * from tbl_product where goods_name like ?";
 
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, "%" + dto.getName() + "%");
@@ -101,5 +108,56 @@ public class goodsDAO {
 		
 		
 	}
+
+	public int uploadimg(goodsDTO dto){
+		getconn();
+		try {
+		String sql = "INSERT INTO tbl_product (goods_cat, goods_name, goods_content, goods_img, goods_price, goods_status, goods_update, mem_id) VALUES (?, ?, ?, ?, ?, 'N', sysdate, ?)";
+
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, dto.getKate());
+		psmt.setString(2, dto.getName());
+		psmt.setString(3, dto.getContent());
+		psmt.setString(4, dto.getImg());
+		psmt.setInt(5, dto.getPrice());
+		psmt.setString(6, dto.getId());
+
+		
+		cnt = psmt.executeUpdate();
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return cnt;
+	}
+
+	public int reset(goodsDTO dto) {
+		
+		try {
+
+			getconn();
+
+			System.out.println("");
+
+			String sql = "DELETE FROM tbl_product WHERE goods_name=?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getName());
+
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("클래스파일 로딩실패");
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		return cnt;
+	}
 	
 }
+	
+

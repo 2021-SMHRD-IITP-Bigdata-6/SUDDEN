@@ -19,6 +19,8 @@ import com.sudden.DTO.memberDTO;
 import com.sudden.Member.JoinService;
 import com.sudden.Member.LoginService;
 import com.sudden.Member.LogoutService;
+import com.sudden.Member.RegisteService;
+import com.sudden.Member.ResetService;
 import com.sudden.Member.SearchService;
 import com.sudden.Member.UpdateService;
 import com.sudden.Member.UpdateService2;
@@ -33,6 +35,10 @@ public class FrontController extends HttpServlet {
 				String uri = request.getRequestURI();		
 				String path = request.getContextPath();		
 				String command = uri.substring(path.length()+1);
+				System.out.println("uri= "+uri);
+				System.out.println("path= "+path);
+				System.out.println("command= "+command);
+				
 				
 				Login_Command lcom = null;
 				Command com = null;
@@ -75,7 +81,16 @@ public class FrontController extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.print(ch);				
 					
-				}else if(command.equals("check.do")) {
+				}else if(command.equals("katelist.do")) {					
+					com = new LogoutService();
+					nextpage = com.execute(request, response);
+				}
+				else if(command.equals("Upload.do")) {				//helpÇÒ°÷	
+					com = new ResetService();
+					//com = new RegisteService();
+					nextpage = com.execute(request, response);
+				}
+				else if(command.equals("check.do")) {
 					request.setCharacterEncoding("utf-8");
 
 					String id = request.getParameter("id");
