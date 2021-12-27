@@ -226,12 +226,13 @@ public class memberDAO {
 
 			getconn();
 
-			String sql = "update tbl_member set mem_email=?,mem_addr=?,mem_tel=? where mem_id=?";
+			String sql = "update tbl_member set mem_nick=?,mem_email=?,mem_addr=?,mem_tel=? where mem_id=?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getEmail());
-			psmt.setString(2, dto.getAddr());
-			psmt.setString(3, dto.getTel());
-			psmt.setString(4, dto.getId());
+			psmt.setString(1, dto.getNick());
+			psmt.setString(2, dto.getEmail());
+			psmt.setString(3, dto.getAddr());
+			psmt.setString(4, dto.getTel());
+			psmt.setString(5, dto.getId());
 	
 			cnt = psmt.executeUpdate();
 

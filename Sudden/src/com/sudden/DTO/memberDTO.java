@@ -54,9 +54,10 @@ public class memberDTO {
 		this.nick = nick;
 		this.addr = addr;
 	}
-	public memberDTO(String id, String email, String addr, String tel, int i ) {//login_check
+	public memberDTO(String id, String nick, String email, String addr, String tel, int i ) {//propile_check
 		super();
 		this.id = id;
+		this.nick = nick;
 		this.email = email;
 		this.addr = addr;
 		this.tel = tel;

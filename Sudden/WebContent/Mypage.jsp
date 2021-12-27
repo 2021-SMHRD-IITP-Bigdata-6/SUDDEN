@@ -188,8 +188,6 @@
 							</dd>
 							<dt class="blind">&nbsp;</dt>
 							<dd class="intro_desc">&nbsp;</dd>
-							<dt>별명 :</dt>
-							<dd><%=nick%></dd>
 						</dl>
 					</div>
 					<p class="btn_area_btm">
@@ -208,6 +206,8 @@
 							<dl class="sh_lst2">
 								<dt class="blind">&nbsp;</dt>
 								<dd class="intro_desc">&nbsp;</dd>
+								<dt>별명 :</dt>
+								<dd><%=nick%></dd>
 								<dt class="nic_tit">이메일 :</dt>
 								<dd class="nic_desc"><%=email%></dd>
 								<dt>주소 :</dt>

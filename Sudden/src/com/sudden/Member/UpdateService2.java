@@ -28,21 +28,24 @@ public class UpdateService2 implements Command {
 
 
 		String id = request.getParameter("id");
+		String nick = request.getParameter("upnick");
 		String email = request.getParameter("upemail");
 		String addr = request.getParameter("upaddr");
 		String tel = request.getParameter("uptel");
 		
 		System.out.println(id);
+		System.out.println(nick);
 		System.out.println(email);
 		System.out.println(addr);
 		System.out.println(tel);
-		memberDTO dto = new memberDTO(id, email, addr, tel, 0);
+		
+		memberDTO dto = new memberDTO(id, nick, email, addr, tel, 0);
 		memberDAO dao = new memberDAO();
 		int cnt = dao.P2_Update(dto);
 		
 		if (cnt > 0) {
 			request.setAttribute("dto", dto);
-			RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("Mypage.jsp");
 			dis.forward(request, response);
 			System.out.println("변경성공");
 		} else {

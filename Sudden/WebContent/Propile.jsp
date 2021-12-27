@@ -144,10 +144,9 @@
 					<div class="tdcell">
 						<p class="contxt_webctrl nickname">
 							<br> <br> <br> <input type="text" name="nickname"
-								id="inpNickname" placeholder="변경할 닉네임 입력"
+								id="upnickname" placeholder="변경할 닉네임 입력"
 								style="width: 254px;"
-								onclick="clickcr(this,'prf.nick','','',event)"> <input
-								type="text" style="display: none">
+								>
 						</p>
 					</div>
 				</td>
