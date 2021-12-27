@@ -9,9 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
-
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -27,6 +27,8 @@ public class RegisteService extends HttpServlet {
 		int cnt = 0;
 		String kate ="";
 		request.setCharacterEncoding("utf-8");
+		
+		HttpSession session = request.getSession();
 
 		String fileName = request.getParameter("file");
 		System.out.println(fileName);
@@ -53,10 +55,17 @@ public class RegisteService extends HttpServlet {
 			String name = multi.getParameter("title");
 			String id =  multi.getParameter("id");
 			String price1 = multi.getParameter("price");
-			String content = multi.getFilesystemName("content");
-			String katenum = multi.getFilesystemName("kate");
+			String content = multi.getParameter("content");
+			String katenum = multi.getParameter("katenum");
 			String img = multi.getFilesystemName("file");
 			int price = Integer.valueOf(price1);
+			
+			System.out.println(name);
+			System.out.println(id);
+			System.out.println(price);
+			System.out.println(content);
+			System.out.println(katenum);
+			System.out.println(img);
 			
 			if (katenum.equals("여성의류")) {
 				kate = "0";
@@ -97,11 +106,14 @@ public class RegisteService extends HttpServlet {
 			}
 			goodsDTO dto = new goodsDTO(kate, name, content, img, price, id);
 			
-				int result = dao.uploadFile(dto);
+				int result = dao.uploadimg(dto);
+				
 				String moveUrl = "";
 				if (result > 0) {
 					System.out.println("저장완료");
-					moveUrl = "shop-details.jsp";
+					session.setAttribute("gdto", dto);
+					//moveUrl = "OpenimgService";
+					moveUrl = "Registe.jsp";
 				} else {
 					System.out.println("저장실패");
 					moveUrl = "Registe.jsp";

@@ -1,7 +1,8 @@
+<%@page import="com.sudden.DTO.goodsDTO"%>
 <%@page import="com.sudden.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="zxx">
 
 <head>
@@ -36,8 +37,9 @@
 </head>
 
 <body>
-	<%
+	<%  goodsDTO gdto = null;
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
+		gdto = (goodsDTO) session.getAttribute("gdto");
 	%>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -174,14 +176,51 @@
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
-                        <div class="hero__search__login">
-                            <div class="hero__search__login__icon">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <div class="hero__search__login__text">
-                                <h5>Login</h5>
-                            </div>
-                        </div>
+                        <div class="header__top__right__auth">
+
+
+							<div class="hero__search__login">
+								<!-- 로그인하는곳 -->
+
+								<%
+								if (dto == null) {
+								
+								
+								
+									} else {
+								if (dto.getId().equals("admin")) {
+								%>
+								<!-- 관리자 권한 기능  -->
+								<%
+									}
+								%>
+								<!-- 로그인 후 아이콘-->
+								<div class="login__box">
+									<div class="profile">
+										<span class="profile__picture"><i class="fa fa-user-circle fa-lg"></i></span>
+										<span><%= dto.getId() %>님 환영합니다!</span>
+									</div>
+									<div class="icon">
+										<div class="MyPage">
+											<span onclick="location.href='Mypage.jsp'" style="cursor: pointer;"><i class="fa fa-user"></i></span>
+										</div>
+										<div class="Favorite">
+											<span onclick="location.href='shoping-cart.jsp'" style="cursor: pointer;"><i class="fa fa-heart"></i></span>
+										</div>
+										<div class="Register">
+											<span onclick="location.href='Registe.jsp'" style="cursor: pointer;"><i class="fa fa-plus-circle"></i></span>
+										</div>
+										<div class="Logout">
+										<span onclick="location.href='Logoutcon.do'" style="cursor: pointer;">Logout</span>
+										</div>
+									</div>
+								</div>
+								 
+								<%
+									}
+								%>
+							</div>
+						</div>
                     </div>
                 </div>
             </div>
@@ -203,7 +242,6 @@
         </div>
     </section>
     <!-- Breadcrumb Section End -->
-
     <!-- Product Details Section Begin -->
     <section class="product-details spad">
         <div class="container">
@@ -211,7 +249,11 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
-                        	<img id="imgThumb" src="upload/imges.jpg" width="400px" height="400px">
+                        <%if(gdto!=null){ %>
+                        	<img src="Upload/<%=gdto.getImg()%>">
+                        	<%}else{ %>
+                        	<img src="Upload/img.jsp">
+                        	<% }%>
                         </div>
 
                     </div>
@@ -222,53 +264,70 @@
      <fieldset>
      <h2>파일 업로드</h2>
      <table style="font-size:20px; color:black;">
-     <form action="UploadService" method="post" enctype="multipart/form-data">
+     <form action="RegisteService" method="post" enctype="multipart/form-data">
      
      <input type="hidden" name="id" value="<%=dto.getId()%>">
           <tr>
               <td>제목 : </td>
-              <td><input type="text" name="title"/></td>
+              <%if(gdto!=null){ %>
+              <td><input type="text" name="title" value="<%=gdto.getName()%>"/></td>
+              <%}else{ %>
+              <td><input type="text" name="title" value=""/></td>
+              <% }%>
           </tr>
           <tr>
               <td>상품 가격 : </td>
-              <td><input type="text" name="price"/></td>
+              <%if(gdto!=null){ %>
+              <td><input type="text" name="title" value="<%=gdto.getPrice()%>"/></td>
+              <%}else{ %>
+              <td><input type="text" name="price" value=""/></td>
+              <% }%>
           </tr>
           <tr>
               <td>등록할 사진 : </td>
-              <td><input type="file" value="파일 선택" name="file"/></td>
+              <%if(gdto!=null){ %>
+              <td><input type="file" value="<%=gdto.getImg()%>" name="file"/></td>
+              <%}else{ %>
+              <td><input type="file" value="" name="file"/></td>
+              <% }%>
           </tr>
           <tr>
               <td>상품 설명 : </td>
+              <%if(gdto!=null){ %>
+              <td><input type="text" name="price" value="<%=gdto.getContent()%>"/></td>
+              <%}else{ %>
               <td><input type="text" name="content"/></td>
+              <% }%>
           </tr>    
           <tr>
           		<td>카테고리 :</td>
           		<td><select id="browsers" name="katenum" multiple size="3" required autofocus>
 			    <option>여성의류</option>
-			    <option >남성의류</option>
-			    <option >신발</option>
-			    <option >가방</option>
-			    <option >시계/주얼리</option>
-			    <option >패션엑세서리</option>
-			    <option >디지털/가전</option>
-			    <option >스포츠/레저</option>
-			    <option >차량/오토바이</option>
-			    <option >키덜트</option>
-			    <option >도서/티켓/문구</option>
-			    <option >뷰티/미용</option>
-			    <option >가구/인테리어</option>
-			    <option >생활/가공식품</option>
-			    <option >유아동/출산</option>
-			    <option >반려동물용품</option>
-			    <option >기타</option>
-			    <option >서든나눔</option>
+			    <option>남성의류</option>
+			    <option>신발</option>
+			    <option>가방</option>
+			    <option>시계/주얼리</option>
+			    <option>패션엑세서리</option>
+			    <option>디지털/가전</option>
+			    <option>스포츠/레저</option>
+			    <option>차량/오토바이</option>
+			    <option>키덜트</option>
+			    <option>도서/티켓/문구</option>
+			    <option>뷰티/미용</option>
+			    <option>가구/인테리어</option>
+			    <option>생활/가공식품</option>
+			    <option>유아동/출산</option>
+			    <option>반려동물용품</option>
+			    <option>기타</option>
+			    <option>서든나눔</option>
 				</select>
 				</td>
           </tr>
           <tr>
-              <td colspan="2"><button class="snip1535" "type="submit" value="업로드"/>업로드</button></td>
+              <td colspan="0"><button class="snip1535" "type="submit" value="사진확인"/>사진확인</button></td>
+            <td colspan="0"><button class="snip1535" type="button" value="업로드" onclick="location.href='Upload.do'"/>사진확인1</button></td>
           </tr>
-        
+       
           </form>
      </table>
 </fieldset>
@@ -317,6 +376,7 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+
 
 
 </body>

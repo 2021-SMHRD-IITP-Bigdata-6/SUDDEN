@@ -30,6 +30,16 @@ public class goodsDTO {
 	public goodsDTO(String name) {
 		this.name = name;
 	}
+	
+	public goodsDTO(String img, int i) {
+		this.img = img;
+		
+	}
+	public goodsDTO(String img, String id) {
+		
+		this.img = img;
+		this.id = id;
+	}
 
 	public goodsDTO(String name, String img, int price) {
 		this.name = name;
