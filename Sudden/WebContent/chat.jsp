@@ -59,6 +59,13 @@ var currentTime = function(){
     var ct = apm + " "+hh+":"+mm+"";
     return ct;
 }
+
+$(document).ready(function () {
+	  $("button[name='send']").click(function () {
+		  
+	  });
+	});
+	
 </script>
  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -139,26 +146,28 @@ var currentTime = function(){
     <!-- end of navigation -->
    <div class="chat_wrap">
       <div class="inner">
-      
-         	<!-- 이미지 지도를 표시할 div 입니다 -->
-	<div id="staticMap" style="width: 330px; height: 230px;"></div>
-
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=713cfaa3a4daee68c31cd491fa80cd90"></script>
-	<script>
-	var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
-    staticMapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 이미지 지도의 중심좌표
-        level: 3 // 이미지 지도의 확대 레벨
-    };
-
-	// 이미지 지도를 표시할 div와 옵션으로 이미지 지도를 생성합니다
-	var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
-	</script>
+      	<!-- 이미지 지도를 표시할 div 입니다 -->
+		<div id="staticMap" style="width: 330px; height: 230px;"></div>
 	
+		<script type="text/javascript"
+			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=713cfaa3a4daee68c31cd491fa80cd90"></script>
+		<script>
+		var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
+	    staticMapOption = { 
+	        center: new kakao.maps.LatLng(33.450701, 126.570667), // 이미지 지도의 중심좌표
+	        level: 3 // 이미지 지도의 확대 레벨
+	    };
+	
+		// 이미지 지도를 표시할 div와 옵션으로 이미지 지도를 생성합니다
+		var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
+		</script>
       </div>
    <input type="text" class="mymsg" placeholder="내용 입력">
    <input type="text" class="yourmsg" placeholder="내용 입력">
+   <div class = "button">
+   		<button name='send' onclick="function()">안심지역 보내기</button>
+   </div>
+   
    </div>
 </body>
 </html>
