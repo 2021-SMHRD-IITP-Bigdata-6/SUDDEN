@@ -289,7 +289,7 @@
                        out.print("</ul>");
                        out.print("</div>");
                        out.print("<div class='product__item__text'>");
-                       out.print("<h6><a href='shop-details.jsp?goodsname="+arr.get(i).getName()+"'>"+arr.get(i).getName()+"</a></h6>");
+                       out.print("<h6><a href='shop-details.jsp?goodsseq="+arr.get(i).getSeq()+"'>"+arr.get(i).getName()+"</a></h6>");
                        out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
                        out.print("</div>");
                        out.print("</div>");
@@ -544,30 +544,7 @@
                         </div>
                     </div>-->
      <!--    상품페이지전환    -->    
-     <div class="product__pagination">    
-     <%
-     int size= arr.size();
-	 int cout = size/20;
-	 if(size%20==0){
-		 cout=cout+1;
-	 }else{
-		 cout=cout+2;
-	 }
-	 int i=1;
-	 int tw=0;
-	 System.out.println(cout);
-     while(true){
-    	 
-    	 out.print("<a href='shop-grid.jsp?change_num="+tw+"'>"+i+"</a>");
-    	 i++;
-    	 tw=tw+20;
-    	 
-    	 if(cout==i) {
-    		 break;
-    	 }
-    	 
-     }
-		%></div>
+     
      			   <!--  <div class="product__pagination">
                         <a href="shop-grid.jsp?change_num=0">1</a>
                         <a href="shop-grid.jsp?change_num=20">2</a>
@@ -582,6 +559,30 @@
                         <a href="#"><i class="fa fa-long-arrow-right"></i></a>
                     </div>-->
                 </div>
+                <div class="product__pagination">    
+     <%
+     int size= arr.size();
+	 int cout = size/20;
+	 if(size%20==0){
+		 cout=cout+1;
+	 }else{
+		 cout=cout+2;
+	 }
+	 int i=1;
+	 int tw=0;
+	 System.out.println("밑에 ="+cout);
+     while(true){
+    	 
+    	 out.print("<a href='shop-grid.jsp?change_num="+tw+"'>"+i+"</a>");
+    	 i++;
+    	 tw=tw+20;
+    	 
+    	 if(cout==i) {
+    		 break;
+    	 }
+    	 
+     }
+		%></div>
             </div>
         </div>
     </section>

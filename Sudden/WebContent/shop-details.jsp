@@ -35,26 +35,26 @@
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
 		ArrayList<goodsDTO> arr = null;
 		 
-		String goodsname="";
+		int goodsseq=0;
 		System.out.println("여기");
         try{
         	System.out.println("여기1");
-        	goodsname =  request.getParameter(" goodsname");
-        	System.out.println("받아옴 "+goodsname);
+        	goodsseq =  Integer.parseInt(request.getParameter("goodsseq"));
+        	System.out.println("받아옴 "+goodsseq);
         }catch(Exception e){
         	
         }
-        System.out.println("이름이 머니 = "+goodsname);
-        if(goodsname==null){
+        System.out.println("이름이 머니 = "+goodsseq);
+        if(goodsseq==0){
         	System.out.println("여기2");
     		gdto = (goodsDTO) session.getAttribute("gdto");
         }
         else{
         	System.out.println("여기3");
         	goodsDAO dao = new goodsDAO();
-        	gdto = new goodsDTO(goodsname);
-        	int ch_detail = dao.goodsdetail(gdto);
-        	gdto = (goodsDTO) session.getAttribute("gddto");
+        	gdto = new goodsDTO(goodsseq);
+        	gdto = dao.goodsdetail(gdto);
+        	
         	System.out.println("받아오기 = "+gdto.getName());
         	
         	

@@ -137,17 +137,17 @@ public class goodsDAO {
 		
 		return cnt;
 	}
-	public int goodsdetail(goodsDTO dto){
-		HttpSession session = request.getSession();
+	public goodsDTO goodsdetail(goodsDTO dto){
+		goodsDTO gddto = null;
 		String moveUrl="";
 		int cnt=0;
 		getconn();
 		try {
-		String sql = "select * from tbl_product where goods_name=?";
+		String sql = "select * from tbl_product where goods_seq=?";
 
 		psmt = conn.prepareStatement(sql);
 
-		psmt.setString(1, dto.getName());
+		psmt.setInt(1, dto.getSeq());
 		rs = psmt.executeQuery();
 
 		while (rs.next()) {
@@ -156,16 +156,15 @@ public class goodsDAO {
 			String img = rs.getString("goods_img");
 			int price = rs.getInt("goods_price");
 
-			dto = new goodsDTO(name,content, img, price);
-			System.out.println("디테일에 들어갈꺼"+dto.getName());
-			session.setAttribute("gddto", dto);
-			//moveUrl = "OpenimgService";
-			moveUrl = "shop-details.jsp";
-			response.sendRedirect(moveUrl);
+			gddto = new goodsDTO(name,content, img, price);
 			
 			cnt = 1;
 		}
-		
+//		System.out.println("디테일에 들어갈꺼"+dto.getName());
+//		request.setAttribute("gddto", dto);
+//		//moveUrl = "OpenimgService";
+//		moveUrl = "shop-details.jsp";
+//		response.sendRedirect(moveUrl);
 		
 		
 	} catch (Exception e) {
@@ -174,7 +173,7 @@ public class goodsDAO {
 		cloes();
 	}
 		
-		return cnt;
+		return gddto;
 	}
 
 

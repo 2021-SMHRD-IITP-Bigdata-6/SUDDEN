@@ -32,6 +32,9 @@ public class goodsDTO {
 	public goodsDTO(String name) {
 		this.name = name;
 	}
+	public goodsDTO(int seq) {
+		this.seq = seq;
+	}
 	
 	public goodsDTO(String img, int i) {
 		this.img = img;
