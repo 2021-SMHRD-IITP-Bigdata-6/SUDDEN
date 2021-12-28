@@ -1,131 +1,223 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.SQLException"%>
+<%@page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%
+   Connection conn = null;
+   PreparedStatement pstmt = null;
+   ResultSet rs = null;
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Tivo is a HTML landing page template built with Bootstrap to help you crate engaging presentations for SaaS apps and convert visitors into users.">
-    <meta name="author" content="Inovatik">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/swiper.css" rel="stylesheet">
-	<link href="css/magnific-popup.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
-	
-	<!-- Favicon  -->
-    <link rel="icon" href="images/favicon.png">
+<!-- SEO Meta Tags -->
+<meta name="description"
+	content="Tivo is a HTML landing page template built with Bootstrap to help you crate engaging presentations for SaaS apps and convert visitors into users.">
+<meta name="author" content="Inovatik">
+
+<!-- Styles -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext"
+	rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/swiper.css" rel="stylesheet">
+<link href="css/magnific-popup.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+
+<!-- Favicon  -->
+<link rel="icon" href="images/favicon.png">
+
 </head>
 <body>
-<body data-spy="scroll" data-target=".fixed-top" style="background-color:#394aad;">
+<body data-spy="scroll" data-target=".fixed-top"
+	style="background-color: #394aad;">
 
-    
-    <!-- Preloader -->
+
+	<!-- Preloader -->
 	<div class="spinner-wrapper">
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-        </div>
-    </div>
-    <!-- end of preloader -->
-    
+		<div class="spinner">
+			<div class="bounce1"></div>
+			<div class="bounce2"></div>
+			<div class="bounce3"></div>
+		</div>
+	</div>
+	<!-- end of preloader -->
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-        <div class="container">
 
-            <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
+	<!-- Navigation -->
+	<nav
+		class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+		<div class="container">
 
-            <!-- Image Logo -->
-            <a class="navbar-brand logo-image" href="index.jsp">SUDDEN</a> 
-            
-            <!-- Mobile Menu Toggle Button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-awesome fas fa-bars"></span>
-                <span class="navbar-toggler-awesome fas fa-times"></span>
-            </button>
-            <!-- end of mobile menu toggle button -->
+			<!-- Text Logo - Use this if you don't have a graphic logo -->
+			<!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
 
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                    </li>
-                    <li class="nav-item">
-                    </li>
-                    <li class="nav-item">
-                    </li>
+			<!-- Image Logo -->
+			<a class="navbar-brand logo-image" href="index.jsp">SUDDEN</a>
 
-                    <!-- Dropdown Menu -->          
-                    <li class="nav-item dropdown">
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <div class="dropdown-items-divide-hr"></div>
-                            <div class="dropdown-items-divide-hr"></div>   
-                        </div>
-                    </li>
-                    <!-- end of dropdown menu -->
-                    <li class="nav-item">    
-                    </li>
-                </ul>
-                <span class="nav-item">
-                    <a class="btn-outline-sm" href="Mypage.jsp" id="back">µ¹¾Æ°¡±â</a>
-                </span>
-            </div>
-        </div> <!-- end of container -->
-    </nav> <!-- end of navbar -->
-    <!-- end of navigation -->
+			<!-- Mobile Menu Toggle Button -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarsExampleDefault"
+				aria-controls="navbarsExampleDefault" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-awesome fas fa-bars"></span> <span
+					class="navbar-toggler-awesome fas fa-times"></span>
+			</button>
+			<!-- end of mobile menu toggle button -->
+
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"></li>
+					<li class="nav-item"></li>
+					<li class="nav-item"></li>
+
+					<!-- Dropdown Menu -->
+					<li class="nav-item dropdown">
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<div class="dropdown-items-divide-hr"></div>
+							<div class="dropdown-items-divide-hr"></div>
+						</div>
+					</li>
+					<!-- end of dropdown menu -->
+					<li class="nav-item"></li>
+				</ul>
+				<span class="nav-item"> <a class="btn-outline-sm"
+					href="Mypage.jsp" id="back">ëŒì•„ê°€ê¸°</a>
+				</span>
+			</div>
+		</div>
+		<!-- end of container -->
+	</nav>
+	<!-- end of navbar -->
+	<!-- end of navigation -->
 </head>
 <body>
-<div id="map" style="position:absolute; top:100px;left:470px; width:1000px;height:700px;"></div>
+	<div id="map"
+		style="position: absolute; top: 100px; left: 470px; width: 1000px; height: 700px;"></div>
 
-	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9721db22573b52ec59546dbe834b5f05&libraries=services,clusterer,drawing"></script>
+	<script
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=713cfaa3a4daee68c31cd491fa80cd90"></script>
 	<script>
-		var mapContainer = document.getElementById('map'), // Áöµµ¸¦ Ç¥½ÃÇÒ div 
-		    mapOption = {
-		        center: new kakao.maps.LatLng(37.56682, 126.97865), // ÁöµµÀÇ Áß½ÉÁÂÇ¥
-		        level: 1, // ÁöµµÀÇ È®´ë ·¹º§
-		        mapTypeId : kakao.maps.MapTypeId.ROADMAP // ÁöµµÁ¾·ù
-		    }; 
+   if(localStorage.getItem('í‚¤')){ 
+      var lastData = localStorage.getItem('í‚¤')
+      console.log(lastData);   
+   }
+      var mapContainer = document.getElementById('map'), // ì§€ë„ë¥¼ í‘œì‹œí•  div 
+          mapOption = {
+              center: new kakao.maps.LatLng(37.56682, 126.97865), // ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+              level: 1, // ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
+              mapTypeId : kakao.maps.MapTypeId.ROADMAP // ì§€ë„ì¢…ë¥˜
+          }; 
 
-		// Áöµµ¸¦ »ı¼ºÇÕ´Ï´Ù    
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
+      // ì§€ë„ë¥¼ ìƒì„±í•©ë‹ˆë‹¤    
+      var map = new kakao.maps.Map(mapContainer, mapOption); 
 
-		// ÁÖ¼Ò-ÁÂÇ¥ º¯È¯ °´Ã¼¸¦ »ı¼ºÇÕ´Ï´Ù
-		var geocoder = new kakao.maps.services.Geocoder();
+      // ì£¼ì†Œ-ì¢Œí‘œ ë³€í™˜ ê°ì²´ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
+      var geocoder = new kakao.maps.services.Geocoder();
 
-		// ÁÖ¼Ò·Î ÁÂÇ¥¸¦ °Ë»öÇÕ´Ï´Ù
-		geocoder.addressSearch('Á¦ÁÖÆ¯º°ÀÚÄ¡µµ Á¦ÁÖ½Ã Ã·´Ü·Î 242', function(result, status) {
+      // ì£¼ì†Œë¡œ ì¢Œí‘œë¥¼ ê²€ìƒ‰í•©ë‹ˆë‹¤
+      geocoder.addressSearch(lastData, function(result, status) {
 
-		    // Á¤»óÀûÀ¸·Î °Ë»öÀÌ ¿Ï·áµÆÀ¸¸é 
-		     if (status === kakao.maps.services.Status.OK) {
+          // ì •ìƒì ìœ¼ë¡œ ê²€ìƒ‰ì´ ì™„ë£Œëìœ¼ë©´ 
+           if (status === kakao.maps.services.Status.OK) {
 
-		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+              var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-		        // °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡¸¦ ¸¶Ä¿·Î Ç¥½ÃÇÕ´Ï´Ù
-		        var marker = new kakao.maps.Marker({
-		            map: map,
-		            position: coords
-		        });
+              // ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¥¼ ë§ˆì»¤ë¡œ í‘œì‹œí•©ë‹ˆë‹¤
+              var marker = new kakao.maps.Marker({
+                  map: map,
+                  position: coords
+              });
 
-		        // ÀÎÆ÷À©µµ¿ì·Î Àå¼Ò¿¡ ´ëÇÑ ¼³¸íÀ» Ç¥½ÃÇÕ´Ï´Ù
-		        var infowindow = new kakao.maps.InfoWindow({
-		            content: '<div style="width:150px;text-align:center;padding:6px 0;">SUDDEN ¾È½É±¸¿ª</div>'
-		        });
-		        infowindow.open(map, marker);
+              // ì¸í¬ìœˆë„ìš°ë¡œ ì¥ì†Œì— ëŒ€í•œ ì„¤ëª…ì„ í‘œì‹œí•©ë‹ˆë‹¤
+              var infowindow = new kakao.maps.InfoWindow({
+                  content: '<div style="width:150px;text-align:center;padding:6px 0;">SUDDEN ì•ˆì‹¬êµ¬ì—­</div>'
+              });
+              infowindow.open(map, marker);
 
-		        // ÁöµµÀÇ Áß½ÉÀ» °á°ú°ªÀ¸·Î ¹ŞÀº À§Ä¡·Î ÀÌµ¿½ÃÅµ´Ï´Ù
-		        map.setCenter(coords);
-		    } 
-		});    
+              // ì§€ë„ì˜ ì¤‘ì‹¬ì„ ê²°ê³¼ê°’ìœ¼ë¡œ ë°›ì€ ìœ„ì¹˜ë¡œ ì´ë™ì‹œí‚µë‹ˆë‹¤
+              map.setCenter(coords);
+          } 
+      });    
+   
+   </script>
 
+	<!-- ì´ë¯¸ì§€ ì§€ë„ë¥¼ í‘œì‹œí•  div ì…ë‹ˆë‹¤ -->
+	<div id="staticMap" style="width: 600px; height: 350px;"></div>
+
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=713cfaa3a4daee68c31cd491fa80cd90"></script>
+	<script>
+	var staticMapContainer  = document.getElementById('staticMap'), // ì´ë¯¸ì§€ ì§€ë„ë¥¼ í‘œì‹œí•  div  
+    staticMapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // ì´ë¯¸ì§€ ì§€ë„ì˜ ì¤‘ì‹¬ì¢Œí‘œ
+        level: 3 // ì´ë¯¸ì§€ ì§€ë„ì˜ í™•ëŒ€ ë ˆë²¨
+    };
+
+	// ì´ë¯¸ì§€ ì§€ë„ë¥¼ í‘œì‹œí•  divì™€ ì˜µì…˜ìœ¼ë¡œ ì´ë¯¸ì§€ ì§€ë„ë¥¼ ìƒì„±í•©ë‹ˆë‹¤
+	var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
 	</script>
+   <%
+try{
+   try {
+      Class.forName("oracle.jdbc.driver.OracleDriver");
+      System.out.println("í´ë˜ìŠ¤íŒŒì¼ ë¡œë”©ì™„ë£Œ");
+
+      String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524";
+      String dbid = "cgi_8_5_1216";
+      String dbpw = "smhrd5";
+
+      conn = DriverManager.getConnection(url, dbid, dbpw);
+
+      if (conn != null) {
+         System.out.println("ì—°ê²°ì„±ê³µ");
+      } else {
+         System.out.println("ì—°ê²°ì‹¤íŒ¨");
+      }
+
+   } catch (Exception e) {
+      e.printStackTrace();
+   }
+   
+   String sql = "select * from "; //DBë¥¼ ì¡°íšŒí•  selectë¬¸
+   pstmt = conn.prepareStatement(sql); //sqlë¬¸ìœ¼ë¡œ conn
+   rs = pstmt.executeQuery(); //pstmt ì‹¤í–‰ í›„ ê²°ê³¼ë¥¼ rsì— í• ë‹¹
+   
+   while(rs.next()){ //ì¡°íšŒë˜ëŠ” ë¡œìš°(í–‰) ë°˜ë³µ
+      out.print("<tr>");
+      out.print("<td>" + rs.getString("sabun") + "</td>"); //DBì—ì„œ sabun ì»¬ëŸ¼ì— í•´ë‹¹í•˜ëŠ” ë ˆì½”ë“œ ê°’ì„ ë¶ˆëŸ¬ì˜´
+      out.print("<td>" + rs.getString("hakkwa") + "</td>");
+      out.print("<td>" + rs.getInt("kor") + "</td>");
+      out.print("<td>" + rs.getInt("eng") + "</td>");
+      out.print("<td>" + rs.getInt("com") + "</td>");
+      out.print("</tr>");
+   }
+   
+   rs.close();
+   pstmt.close();
+   conn.close();
+}catch(Exception e){
+   e.printStackTrace();
+}finally{
+   try{
+      if(rs!=null) rs.close();
+      if(pstmt!=null) pstmt.close();
+      if(conn!=null) conn.close();
+   }catch(Exception e){
+      e.printStackTrace();
+   }
+}
+%>
 </body>
 </html>

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
 <script src="https://code.jquery.com/jquery-1.8.3.min.js" integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8=" crossorigin="anonymous"></script>
 <style>
-  	.chat_wrap {border:1px solid #999;background-color:white; position:absolute; left:670px; width:500px; top:150px; padding:5px; font-size:45px; color:#333}
+     .chat_wrap {border:1px solid #999;background-color:white; position:absolute; left:670px; width:500px; top:150px; padding:5px; font-size:45px; color:#333}
         .chat_wrap .inner{background-color:#acc2d2; border-radius:5px; padding:10px; overflow-y:scroll;height: 600px;}
         .chat_wrap .item{margin-top:15px}
         .chat_wrap .item:first-child{margin-top:0px}
@@ -72,10 +72,10 @@ var currentTime = function(){
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/swiper.css" rel="stylesheet">
-	<link href="css/magnific-popup.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
-	
-	<!-- Favicon  -->
+   <link href="css/magnific-popup.css" rel="stylesheet">
+   <link href="css/styles.css" rel="stylesheet">
+   
+   <!-- Favicon  -->
     <link rel="icon" href="images/favicon.png">
 </head>
 <body>
@@ -83,7 +83,7 @@ var currentTime = function(){
 
     
     <!-- Preloader -->
-	<div class="spinner-wrapper">
+   <div class="spinner-wrapper">
         <div class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>
@@ -137,14 +137,28 @@ var currentTime = function(){
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
-	<div class="chat_wrap">
-		<div class="inner">
-		
-		</div>
+   <div class="chat_wrap">
+      <div class="inner">
+      
+         	<!-- 이미지 지도를 표시할 div 입니다 -->
+	<div id="staticMap" style="width: 330px; height: 230px;"></div>
 
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=713cfaa3a4daee68c31cd491fa80cd90"></script>
+	<script>
+	var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
+    staticMapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 이미지 지도의 중심좌표
+        level: 3 // 이미지 지도의 확대 레벨
+    };
+
+	// 이미지 지도를 표시할 div와 옵션으로 이미지 지도를 생성합니다
+	var staticMap = new kakao.maps.StaticMap(staticMapContainer, staticMapOption);
+	</script>
 	
-	<input type="text" class="mymsg" placeholder="내용 입력">
-	<input type="text" class="yourmsg" placeholder="내용 입력">
-	</div>
+      </div>
+   <input type="text" class="mymsg" placeholder="내용 입력">
+   <input type="text" class="yourmsg" placeholder="내용 입력">
+   </div>
 </body>
 </html>
