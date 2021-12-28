@@ -141,7 +141,18 @@
   document.all["d5"].style.display="block";
   }
  }
- </script>
+ const showValue = (target) => {
+	  // 선택한 option의 value 값
+	  console.log(target.value);
+	  
+	  // option의 text 값
+	  console.log(target.options[target.selectedIndex].text);
+	}
+ 
+
+  </script>
+  
+ 
 </head>
 <body>
 
@@ -259,6 +270,7 @@
 		}
 
 	}
+
 	%>
 	<!-- Header -->
 	<header id="header" class="ex-2-header">
@@ -397,7 +409,7 @@
 									<td id="td1">읍/면/동</td>
 									<td>
 									<!-- 남구 -->
-									<select id="d1" style="display:none;margin-left: auto; margin-right: auto;">
+									<select id="d1"onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 										<option value="선택">선택</option>
 									    <option value="구동">구동</option>
 									    <option value="구소동">구소동</option>
@@ -439,7 +451,7 @@
 									    <option value="압촌동">효덕동</option>
 										</select>
 										<!-- 동구 -->
-										<select id="d2" style="display:none;margin-left: auto; margin-right: auto;">
+										<select id="d2" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 										<option value="선택">선택</option>
 									    <option value="대인동">대인동</option>
 									    <option value="금남로">금남로</option>
@@ -457,7 +469,7 @@
 									    <option value="지원동">지원동</option>
 										</select>
 										<!-- 광산구 -->
-										<select id="d3" style="display:none;margin-left: auto; margin-right: auto;">
+										<select id="d3" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 										<option value="선택">선택</option>
 									    <option value="송정동">송정동</option>
 									    <option value="도산동">도산동</option>
@@ -526,7 +538,7 @@
 									    <option value="월곡동">월곡동</option>
 										</select>
 										<!-- 북구 -->
-										<select id="d4" style="display:none;margin-left: auto; margin-right: auto;">
+										<select id="d4" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 										<option value="선택">선택</option>
 		                                <option value="중흥동">중흥동</option>
 		                                <option value="유동">유동</option>
@@ -573,7 +585,7 @@
 		                                <option value="석곡동">석곡동</option>
 		                               </select>
 		                                <!-- 서구 -->
-		                               <select id="d5" sstyle="display:none;margin-left: auto; margin-right: auto;">
+		                               <select id="d5" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 		                               <option value="선택">선택</option>
 		                               <option value="양동">양동</option>
 		                               <option value="농성동">농성동</option>
@@ -606,7 +618,7 @@
 						</a>
 					</p>
 				</div>
-					
+
 					
 	</header>
 	<!-- end of ex-header -->
@@ -614,7 +626,7 @@
 
 
 	<!-- Js Plugins -->
-	<script src="js/jquery-3.6.0.min.js"></script>
+	
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.nice-select.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
@@ -625,4 +637,9 @@
 	
 
 </body>
+<script type="text/javascript">
+  function getItem(){
+	  $("#id5 option:selected").text();
+  }
+ </script>
 </html>
