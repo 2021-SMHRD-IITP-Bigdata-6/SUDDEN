@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
 <script src="https://code.jquery.com/jquery-1.8.3.min.js" integrity="sha256-YcbK69I5IXQftf/mYD8WY0/KmEDCv1asggHpJk1trM8=" crossorigin="anonymous"></script>
 <style>
-     .chat_wrap {border:1px solid #999;background-color:white; position:absolute; left:670px; width:500px; top:150px; padding:5px; font-size:45px; color:#333}
+     .chat_wrap {border:1px solid #999;background-color:white; position:absolute; left:500px; width:500px; top:150px; padding:5px; font-size:45px; color:#333}
         .chat_wrap .inner{background-color:#acc2d2; border-radius:5px; padding:10px; overflow-y:scroll;height: 600px;}
         .chat_wrap .item{margin-top:15px}
         .chat_wrap .item:first-child{margin-top:0px}

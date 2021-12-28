@@ -85,13 +85,22 @@
 </head>
 <body>
 <div id="map" style="position:absolute; top:100px;left:470px; width:1000px;height:700px;"></div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d45d67312de0b775f7a3137b821341a4&libraries=services,clusterer,drawing"></script>
+	
 
-	<script src=""></script>
+      
 	<script>
+	if(localStorage.getItem('키')){ 
+	      var lastData = localStorage.getItem('키')
+	      console.log(lastData);
+	      }
+	
+	function makeMap(maps){
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		    mapOption = {
 		        center: new kakao.maps.LatLng(37.56682, 126.97865), // 지도의 중심좌표
-		        level: 1, // 지도의 확대 레벨
+		        level: 3, // 지도의 확대 레벨
 		        mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
 		    }; 
 
@@ -119,12 +128,13 @@
 		        var infowindow = new kakao.maps.InfoWindow({
 		            content: '<div style="width:150px;text-align:center;padding:6px 0;">SUDDEN 안심구역</div>'
 		        });
-		        infowindow.open(map, marker);
+		        //infowindow.open(map, marker);
 
 		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 		        map.setCenter(coords);
 		    } 
-		});    
+		});
+	};
 
 	</script>
 </body>
