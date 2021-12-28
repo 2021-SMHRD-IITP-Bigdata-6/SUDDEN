@@ -11,6 +11,7 @@ public class memberDTO {
 	
 	
 	
+	
 	public memberDTO(String id, String pw, String nick, String addr, String tel, String email) {
 		super();
 		this.id = id;
@@ -62,6 +63,7 @@ public class memberDTO {
 		this.addr = addr;
 		this.tel = tel;
 	}
+	
 	
 	public String getId() {
 		return id;

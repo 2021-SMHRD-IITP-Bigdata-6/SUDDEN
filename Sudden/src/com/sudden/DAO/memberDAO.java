@@ -244,7 +244,26 @@ public class memberDAO {
 		}
 		return cnt;
 	}
+	public void cctv(memberDTO dto) {
+		try {
+
+			getconn();
+
+			String sql = "select *from tbl_cctv where cam_addr=%¿î¾Ï%";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getNick());
+			
 	
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		} finally {
+			
+			cloes();
+		}
+	}
 }
 
 
