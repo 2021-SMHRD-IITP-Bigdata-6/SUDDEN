@@ -3,6 +3,7 @@ package com.sudden.DTO;
 import java.sql.Date;
 
 public class goodsDTO {
+	private int seq;
 	private String kate;
 	private String name;
 	private String content;
@@ -12,8 +13,9 @@ public class goodsDTO {
 	private Date update;
 	private String id;
 	
-	public goodsDTO(String kate,String name, String content, String img, int price, String status, Date update, String id) {
+	public goodsDTO(int seq,String kate,String name, String content, String img, int price, String status, Date update, String id) {
 		super();
+		this.seq=seq;
 		this.kate = kate;
 		this.name = name;
 		this.content = content;
@@ -30,6 +32,9 @@ public class goodsDTO {
 	public goodsDTO(String name) {
 		this.name = name;
 	}
+	public goodsDTO(int seq) {
+		this.seq = seq;
+	}
 	
 	public goodsDTO(String img, int i) {
 		this.img = img;
@@ -42,6 +47,19 @@ public class goodsDTO {
 	}
 
 	public goodsDTO(String name, String img, int price) {
+		this.name = name;
+		this.img = img;
+		this.price = price;
+	}
+	
+	public goodsDTO(String name, String content, String img, int price) {
+		this.name = name;
+		this.content = content;
+		this.img = img;
+		this.price = price;
+	}
+	public goodsDTO(int seq, String name, String img, int price) {
+		this.seq = seq;
 		this.name = name;
 		this.img = img;
 		this.price = price;
@@ -61,7 +79,12 @@ public class goodsDTO {
 
 
 
-
+	public int getSeq() {
+		return seq;
+	}
+	public void setSeq(int seq) {
+		this.seq = seq;
+	}
 	public String getKate() {
 		return kate;
 	}

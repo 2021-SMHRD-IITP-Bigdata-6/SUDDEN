@@ -363,9 +363,10 @@
 									    <option value="제주도">제주도</option>
 										</select>
 										</td>
-						          </tr>
+						        </tr>
+						        
 								<tr>
-										<td id="td1">지역</td>
+									<td id="td1">지역</td>
 									<td><select id="text" onchange="Change()" style=" background-color: white;
 																					 border: 1px solid white;
 																					  border-radius: 10px;
@@ -608,6 +609,7 @@
                                        </select>
                                        </td> 
 								</tr>
+								
 					</table>
 					<p class="btn_area_btm">
 						<a href="maps.jsp"
@@ -632,8 +634,13 @@
 	<script src="js/mixitup.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-	
-
+	<script type = "text/javascript">
+		function view_browsers3() {
+			var browsers3 = document.getElementsByName("browsers3")[0];
+			var idx = browsers3.selectedIndex;
+			var browsers3Value = browsers3.options[idx].value;
+		}	
+	</script>
 </body>
 
 </html>

@@ -8,6 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sudden.DTO.goodsDTO;
 import com.sudden.DTO.memberDTO;
@@ -17,6 +20,8 @@ public class goodsDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
+	HttpServletRequest request=null;
+	HttpServletResponse response=null;
 
 	goodsDTO dto = null;
 	goodsDTO vo = null;
@@ -101,13 +106,14 @@ public class goodsDAO {
 		} finally {
 			cloes();
 		}
-		System.out.println(dto);
+
 		return arr;
 		
 		
 	}
 
 	public int uploadimg(goodsDTO dto){
+		
 		getconn();
 		try {
 		String sql = "INSERT INTO tbl_product (goods_cat, goods_name, goods_content, goods_img, goods_price, goods_status, goods_update, mem_id) VALUES (?, ?, ?, ?, ?, 'N', sysdate, ?)";
@@ -131,6 +137,45 @@ public class goodsDAO {
 		
 		return cnt;
 	}
+	public goodsDTO goodsdetail(goodsDTO dto){
+		goodsDTO gddto = null;
+		String moveUrl="";
+		int cnt=0;
+		getconn();
+		try {
+		String sql = "select * from tbl_product where goods_seq=?";
+
+		psmt = conn.prepareStatement(sql);
+
+		psmt.setInt(1, dto.getSeq());
+		rs = psmt.executeQuery();
+
+		while (rs.next()) {
+			String name = rs.getString("goods_name");
+			String content = rs.getString("goods_content");
+			String img = rs.getString("goods_img");
+			int price = rs.getInt("goods_price");
+
+			gddto = new goodsDTO(name,content, img, price);
+			
+			cnt = 1;
+		}
+//		System.out.println("디테일에 들어갈꺼"+dto.getName());
+//		request.setAttribute("gddto", dto);
+//		//moveUrl = "OpenimgService";
+//		moveUrl = "shop-details.jsp";
+//		response.sendRedirect(moveUrl);
+		
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		cloes();
+	}
+		
+		return gddto;
+	}
+
 
 	public int reset(goodsDTO dto) {
 		
@@ -204,11 +249,12 @@ public class goodsDAO {
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
+				int seq = rs.getInt("goods_seq");
 				String name = rs.getString("goods_name");
 				String img = rs.getString("goods_img");
 				int price = rs.getInt("goods_price");
 	
-				dto = new goodsDTO(name, img, price);
+				dto = new goodsDTO(seq, name, img, price);
 				arr.add(dto);
 				
 			}

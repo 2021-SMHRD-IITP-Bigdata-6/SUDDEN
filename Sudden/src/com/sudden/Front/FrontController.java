@@ -91,7 +91,7 @@ public class FrontController extends HttpServlet {
 					com = new LogoutService();
 					nextpage = com.execute(request, response);
 				}
-				else if(command.equals("Upload.do")) {				//helpÇÒ°÷	
+				else if(command.equals("Upload.do")) {					
 					com = new ResetService();
 					//com = new RegisteService();
 					nextpage = com.execute(request, response);
