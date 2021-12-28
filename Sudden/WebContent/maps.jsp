@@ -22,6 +22,7 @@
 	
 	<!-- Favicon  -->
     <link rel="icon" href="images/favicon.png">
+    <script src="jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <body data-spy="scroll" data-target=".fixed-top" style="background-color:#394aad;">
@@ -85,15 +86,37 @@
 </head>
 <body>
 <div id="map" style="position:absolute; top:100px;left:470px; width:1000px;height:700px;"></div>
-
-	<script src=""></script>
+	<!-- 키값 -->
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9721db22573b52ec59546dbe834b5f05&libraries=services,clusterer,drawing"></script>
 	<script>
+	if(localStorage.getItem('키')){ 
+		var lastData = localStorage.getItem('키')
+		console.log(lastData);
+		} 
+	
+	$.ajax({
+		url : 'cctv',//요청할 url
+		type : 'get',	// 전송방식
+		dataType : 'json', //받아올 데이터 타입
+		data:{
+			"addr":lastData
+		},
+		success: function(cctvpoint){
+			alert('성공');
+			console.log(cctvpoint);
+			makeMap(cctvpoint); // 지도를 만들어 주는 함수 
+		},
+		error : function(){
+			alert("실패");
+		}
+	});
+	function makeMap(cctv){
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		    mapOption = {
-		        center: new kakao.maps.LatLng(37.56682, 126.97865), // 지도의 중심좌표
-		        level: 1, // 지도의 확대 레벨
-		        mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
-		    }; 
+	    mapOption = {
+	        center: new kakao.maps.LatLng(35.110458, 126.877987), // 지도의 중심좌표
+	        level: 1, // 지도의 확대 레벨
+	        mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+	    };
 
 		// 지도를 생성합니다    
 		var map = new kakao.maps.Map(mapContainer, mapOption); 
@@ -101,9 +124,9 @@
 		// 주소-좌표 변환 객체를 생성합니다
 		var geocoder = new kakao.maps.services.Geocoder();
 
-		// 주소로 좌표를 검색합니다
-		geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
-
+		for(var i=0;i<cctv.length;i++){
+			geocoder.addressSearch(cctv[i].addr, function(result, status) {
+		
 		    // 정상적으로 검색이 완료됐으면 
 		     if (status === kakao.maps.services.Status.OK) {
 
@@ -114,7 +137,7 @@
 		            map: map,
 		            position: coords
 		        });
-
+		     
 		        // 인포윈도우로 장소에 대한 설명을 표시합니다
 		        var infowindow = new kakao.maps.InfoWindow({
 		            content: '<div style="width:150px;text-align:center;padding:6px 0;">SUDDEN 안심구역</div>'
@@ -124,7 +147,9 @@
 		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 		        map.setCenter(coords);
 		    } 
+		
 		});    
+		};
 
 	</script>
 </body>
