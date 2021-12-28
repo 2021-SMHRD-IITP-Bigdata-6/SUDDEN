@@ -253,46 +253,51 @@
              		String price ="";
              		
           
-             		ArrayList<goodsDTO> arr = null;
-             		
-             		if(sdto!=null){	
-             			System.out.print("sdto_name= "+sdto.getName()+"        ");
-             			goodsDTO gdto = new goodsDTO(sdto.getName());
-             			arr = dao.Searchgoods(gdto);
-             			for(int i = 0; i<20; i++){
-    						out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
-    						out.print("<div class='product__item'>");//Upload/191.jpg
-    						out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
-    						out.print("<ul class='product__item__pic__hover'>");
-    						out.print("<li><a href='#'><i class='fa fa-heart'></i></a></li>");
-    						out.print("</ul>");
-    						out.print("</div>");
-    						out.print("<div class='product__item__text'>");
-    						out.print("<h6><a href='shop-details.jsp'>"+arr.get(i).getName()+"</a></h6>");
-    						out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
-    						out.print("</div>");
-    						out.print("</div>");
-    						out.print("</div>");
-    					}
 
-             		}else{
-             			arr = dao.SearchAll();
-             			for(int i = 0; i<20; i++){
-    						out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
-    						out.print("<div class='product__item'>");//Upload/191.jpg
-    						out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
-    						out.print("<ul class='product__item__pic__hover'>");
-    						out.print("<li><a href='#'><i class='fa fa-heart'></i></a></li>");
-    						out.print("</ul>");
-    						out.print("</div>");
-    						out.print("<div class='product__item__text'>");
-    						out.print("<h6><a href='shop-details.jsp'>"+arr.get(i).getName()+"</a></h6>");
-    						out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
-    						out.print("</div>");
-    						out.print("</div>");
-    						out.print("</div>");
-    					}
-             		}
+                    ArrayList<goodsDTO> arr = null;
+                    
+                    if(sdto!=null){   
+                       System.out.print("sdto_name= "+sdto.getName()+"        ");
+                       goodsDTO gdto = new goodsDTO(sdto.getName());
+                       arr = dao.Searchgoods(gdto);
+                       System.out.print(arr.size());
+                       int size=arr.size();
+                       for(int i = 0; i<20; i++){
+                       out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
+                       out.print("<div class='product__item'>");//Upload/191.jpg
+                       out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
+                       out.print("<ul class='product__item__pic__hover'>");
+                       out.print("<li><a href='#'><i class='fa fa-heart'></i></a></li>");
+                       out.print("</ul>");
+                       out.print("</div>");
+                       out.print("<div class='product__item__text'>");
+                       out.print("<h6><a href='shop-details.jsp'>"+arr.get(i).getName()+"</a></h6>");
+                       out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
+                       out.print("</div>");
+                       out.print("</div>");
+                       out.print("</div>");
+                    }
+
+                    }else{
+                       arr = dao.SearchAll();
+                       for(int i = 0; i<20; i++){
+                       out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
+                       out.print("<div class='product__item'>");//Upload/191.jpg
+                       out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
+                       out.print("<ul class='product__item__pic__hover'>");
+                       out.print("<li><a href='#'><i class='fa fa-heart'></i></a></li>");
+                       out.print("</ul>");
+                       out.print("</div>");
+                       out.print("<div class='product__item__text'>");
+                       out.print("<h6><a href='shop-details.jsp'>"+arr.get(i).getName()+"</a></h6>");
+                       out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
+                       out.print("</div>");
+                       out.print("</div>");
+                       out.print("</div>");
+                    }
+                    }
+                    
+                
                 	
 					
 					
@@ -470,7 +475,7 @@
                             </div>
                         </div>
                     </div>-->
-                    <div class="product__pagination">
+                    <div class="product__pagination"><!-- 상품페이지전환 -->
                         <a href="#">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>
