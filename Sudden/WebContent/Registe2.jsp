@@ -28,7 +28,6 @@
     
     <!-- 외부 JS 지정 -->
     <script src="js/jquery-3.3.1.min.js"></script>
-    
            			 <!-- 내부 JS 지정 -->
     <script>
 
@@ -308,8 +307,8 @@
 				</td>
           </tr>
           <tr>
-              <td colspan="0"><button class="snip1535" "type="submit" value="사진확인"/>저장하기</button></td>
-            
+              <td colspan="0"><button class="snip1535" "type="submit" value="사진확인"/>사진확인</button></td>
+            <td colspan="0"><button class="snip1535" type="button" value="업로드" onclick="location.href='Upload.do'"/>사진확인1</button></td>
           </tr>
        
           </form>
@@ -322,26 +321,6 @@
           </div>
     </section>
     <!-- Product Details Section End -->
-    
-    <script type="text/javascript">
-    
-    	$(function(){
-    		$('#file_check').on('change', function(){
-    			img_check(this);
-    		});
-    	})
-    			
-    	function img_check(input){
-    		if(input.files && input.files[0]){
-    			var reader = new FileReader();
-    			reader.onload = function(e){
-    				$('#file_check_img').attr('src', e.target.result);
-    			}
-    			reader.readAsDataURL(input.files[0]);
-    		}
-    	}
-    </script>
-    
 
     
 
@@ -370,6 +349,25 @@
         </div>
     </footer>
     <!-- Footer Section End -->
+    
+    <script type="text/javascript">
+    
+    	$(function(){
+    		$('#file_check').on('change', function(){
+    			img_check(this);
+    		});
+    	})
+    			
+    	function img_check(input){
+    		if(input.files && input.files[0]){
+    			var reader = new FileReader();
+    			reader.onload = function(e){
+    				$('#file_check_img').attr('src', e.target.result);
+    			}
+    			reader.readAsDataURL(input.files[0]);
+    		}
+    	}
+    </script>
 
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>

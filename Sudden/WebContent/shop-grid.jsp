@@ -147,7 +147,7 @@
                         <div class="hero__search__form">
                             <form action="Searchgoods.do"><!-- 검색하는곳 Search.do -->
                                 <input type="text" id="search" name="search" placeholder="찾고 싶은 상품을 검색해 보세요">
-                                <button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
+                                <button type="submit" class="site-btn" id="search_goods">SEARCH</button>
                             </form>
                         </div>
                         <div class="header__top__right__auth">
@@ -243,26 +243,44 @@
                     </div>-->
                     <div class="row" id="row1">
                     <%
-                    String name = request.getParameter("search");
+                    String name = request.getParameter("search");// 이거는 그냥 널값 들어가서
                     
-                    goodsDTO sdto = (goodsDTO)request.getAttribute("sdto");
+                    int change_num = 0;
+                    try{
+	                    change_num = Integer.parseInt(request.getParameter("change_num"));
+                    }catch(Exception e){
+                    	
+                    }
+                    System.out.println("change_num= "+change_num);
+                    // 세션에 검색된 결과 정보를 담아둘거면 여기서 꺼내오는것도 바꿔줘야하지만,
+                    // Controller에서 담아주는 부분도 바꿔주어야겠죠? 일단 거기까지 해봅시다. 그리고 하나더 있는데
+                    
+                    		
+                    goodsDTO sdto = (goodsDTO)session.getAttribute("sdto");//이부분 고치면 되나요? 여기서 받아와요 처음에 검색하기 전에 계속 오류떠서 그냥 만든거예요
                 	System.out.print("sdto= "+sdto);
              		goodsDAO dao = new goodsDAO();
              		String img ="";
              		String title ="";
              		String price ="";
              		
+             		
+             		
           
 
                     ArrayList<goodsDTO> arr = null;
                     
                     if(sdto!=null){   
-                       System.out.print("sdto_name= "+sdto.getName()+"        ");
+                       // 만약 검색한 적이 있다면 여기 코드가 실행이 되겠죠? 네
+                    		   
+                       // 저희가 배웠던 것중에서 페이지가 바뀌어도 정보가 유지되려면 request가 아니라 어떤걸 사용했죠? 세션? 그렇죠 세션에 담아놔주면 되겠죠?
+                       System.out.println("sdto_name= "+sdto.getName());
                        goodsDTO gdto = new goodsDTO(sdto.getName());
                        arr = dao.Searchgoods(gdto);
                        System.out.print(arr.size());
-                       int size=arr.size();
-                       for(int i = 0; i<20; i++){
+                       int size=arr.size();//36
+                       int i=change_num;//40
+                       int z=0;
+                       while(i!=size){
                        out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
                        out.print("<div class='product__item'>");//Upload/191.jpg
                        out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
@@ -271,16 +289,42 @@
                        out.print("</ul>");
                        out.print("</div>");
                        out.print("<div class='product__item__text'>");
-                       out.print("<h6><a href='shop-details.jsp'>"+arr.get(i).getName()+"</a></h6>");
+                       out.print("<h6><a href='shop-details.jsp?goodsname="+arr.get(i).getName()+"'>"+arr.get(i).getName()+"</a></h6>");
                        out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
                        out.print("</div>");
                        out.print("</div>");
                        out.print("</div>");
-                    }
+                       i++;
+                       z++;
+       					
+       						if(z==20){
+       							break;
+       						}
+       					
+       				}                      
+//                      out.print("<div class='product__pagination'>");
+//                      out.print("<a href='#'>1</a>");
+//                      out.print("<a href='#'>2</a>");
+//                      out.print("<a href='#'>3</a>");
+//                      out.print("<a href='#'>4</a>");
+//                      out.print("<a href='#'>5</a>");
+//                      out.print("<a href='#'>6</a>");
+//                      out.print("<a href='#'>7</a>");
+//                      out.print("<a href='#'>8</a>");
+//                      out.print("<a href='#'>9</a>");
+//                      out.print("<a href='#'>10</a>");
+
+//                      out.print("<a href='#'><i class='fa fa-long-arrow-right'></i></a>");
+//		                out.print("</div>");
+//          		    out.print("</div>");
 
                     }else{
+                    	
+                    
                        arr = dao.SearchAll();
-                       for(int i = 0; i<20; i++){
+                       int size=arr.size();
+                       int i=change_num;
+                       while(i!=size){
                        out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
                        out.print("<div class='product__item'>");//Upload/191.jpg
                        out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
@@ -289,13 +333,37 @@
                        out.print("</ul>");
                        out.print("</div>");
                        out.print("<div class='product__item__text'>");
-                       out.print("<h6><a href='shop-details.jsp'>"+arr.get(i).getName()+"</a></h6>");
+                       out.print("<h6><a href='shop-details.jsp?goodsname="+arr.get(i).getName()+"'>"+arr.get(i).getName()+"</a></h6>");
                        out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
                        out.print("</div>");
                        out.print("</div>");
                        out.print("</div>");
+                       i++;
+       					
+       						if(i==20){
+       							break;
+       						}
+       					
+       				}
+                   // 	}
                     }
-                    }
+//                     out.print("<div class='product__pagination'>");
+//                     out.print("<a href='#'>1</a>");
+//                     out.print("<a href='#'>2</a>");
+//                     out.print("<a href='#'>3</a>");
+//                     out.print("<a href='#'>4</a>");
+//                     out.print("<a href='#'>5</a>");
+//                     out.print("<a href='#'>6</a>");
+//                     out.print("<a href='#'>7</a>");
+//                     out.print("<a href='#'>8</a>");
+//                     out.print("<a href='#'>9</a>");
+//                     out.print("<a href='#'>10</a>");
+
+//                     out.print("<a href='#'><i class='fa fa-long-arrow-right'></i></a>");
+//		               out.print("</div>");
+//         		       out.print("</div>");
+
+                    
                     
                 
                 	
@@ -475,19 +543,44 @@
                             </div>
                         </div>
                     </div>-->
-                    <div class="product__pagination"><!-- 상품페이지전환 -->
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">7</a>
-                        <a href="#">8</a>
-                        <a href="#">9</a>
-                        <a href="#">10</a>
+     <!--    상품페이지전환    -->    
+     <div class="product__pagination">    
+     <%
+     int size= arr.size();
+	 int cout = size/20;
+	 if(size%20==0){
+		 cout=cout+1;
+	 }else{
+		 cout=cout+2;
+	 }
+	 int i=1;
+	 int tw=0;
+	 System.out.println(cout);
+     while(true){
+    	 
+    	 out.print("<a href='shop-grid.jsp?change_num="+tw+"'>"+i+"</a>");
+    	 i++;
+    	 tw=tw+20;
+    	 
+    	 if(cout==i) {
+    		 break;
+    	 }
+    	 
+     }
+		%></div>
+     			   <!--  <div class="product__pagination">
+                        <a href="shop-grid.jsp?change_num=0">1</a>
+                        <a href="shop-grid.jsp?change_num=20">2</a>
+                        <a href="shop-grid.jsp?change_num=40">3</a>
+                        <a href="shop-grid.jsp?change_num=60">4</a>
+                        <a href="shop-grid.jsp?change_num=80">5</a>
+                        <a href="shop-grid.jsp?change_num=100">6</a>
+                        <a href="shop-grid.jsp?change_num=120">7</a>
+                        <a href="shop-grid.jsp?change_num=140">8</a>
+                        <a href="shop-grid.jsp?change_num=160">9</a>
+                        <a href="shop-grid.jsp?change_num=180">10</a>
                         <a href="#"><i class="fa fa-long-arrow-right"></i></a>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

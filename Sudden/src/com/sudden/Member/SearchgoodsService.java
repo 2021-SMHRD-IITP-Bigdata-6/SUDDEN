@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.inter.Command;
 import com.sudden.DAO.goodsDAO;
@@ -19,6 +20,7 @@ public class SearchgoodsService implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 
 		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
 		String name = request.getParameter("search");
 		
 		goodsDTO dto = new goodsDTO(name);	
@@ -29,7 +31,7 @@ public class SearchgoodsService implements Command {
 		System.out.println("cnt = "+cnt);
 		if (cnt > 0) {
 			
-			request.setAttribute("sdto", dto);
+			session.setAttribute("sdto", dto);
 			RequestDispatcher dis = request.getRequestDispatcher("shop-grid.jsp");
 			dis.forward(request, response);
 
