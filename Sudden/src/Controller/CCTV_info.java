@@ -20,11 +20,11 @@ import Model.DTO;
 public class CCTV_info extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Controller : Foodshop_info");
+		System.out.println("Controller : CCTV_info");
 		
 		// DAO를 통해서 DB에서 음식점 정보 list 가지고 오기
 		DAO dao = new DAO();
-		ArrayList<DTO> foodshop_list = dao.showInfo();
+		ArrayList<DTO> CCTV_list = dao.showInfo();
 	
 		// GSON : Java에서 Json파일을 파싱하고 생성하기 위해 구글에서 만든 오픈소스
 		// WebContent - WEB-INF - lib 에 넣어주기
@@ -35,7 +35,7 @@ public class CCTV_info extends HttpServlet {
 		
 		// GSON을 사용해서 ArrayList -> JSON으로 변환
 		// gson.toJson(변환할 대상)
-		String foodshop_json = gson.toJson(foodshop_list);
+		String CCTV_json = gson.toJson(CCTV_list);
 		
 		// 응답하기 전에 인코딩진행!
 		response.setCharacterEncoding("UTF-8");
@@ -44,7 +44,7 @@ public class CCTV_info extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		// json 파일 출력하기!
-		out.print(foodshop_json);
+		out.print(CCTV_json);
 	}
 
 }

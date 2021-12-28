@@ -284,7 +284,7 @@ background-repeat: no-repeat;
 							<tr>
 						       <td id="td1">도시</td>
 						          	<td>	
-						          		<select id="browsers2" name="browsers2">
+						          		<select id="browsers1" name="browsers1" onchange="view_browsers1()">
 									    <option value="서울특별시">서울특별시</option>
 									    <option value="광주광역시">광주광역시</option>
 									    <option value="부산광역시">부산광역시</option>
@@ -302,13 +302,13 @@ background-repeat: no-repeat;
 									    <option value="전라북도">전라북도</option>
 									    <option value="전라남도">전라남도</option>
 									    <option value="제주도">제주도</option>
-									    <option value="서든나눔">서든나눔</option>
 										</select>
 										</td>
-						          </tr>
+						        </tr>
+						        
 								<tr>
 									<td id="td1">지역</td>
-									<td><select id="browsers2" name="browsers2">
+									<td><select id="browsers2" name="browsers2" onchange="view_browsers2()">
 									    <option value="광산구">광산구</option>
 									    <option value="북구">북구</option>
 									    <option value="동구">동구</option>
@@ -318,7 +318,7 @@ background-repeat: no-repeat;
 								</tr>
 								<tr>
 									<td id="td1">읍/면/동</td>
-									<td>if<select id="browsers2" name="browsers2">
+									<td><select id="browsers3" name="browsers3" onchange="view_browsers3()">
 									    <option value="구동">구동</option>
 									    <option value="구소동">구소동</option>
 									    <option value="노대동">노대동</option>
@@ -339,6 +339,7 @@ background-repeat: no-repeat;
 									    <option value="압촌동">압촌동</option>
 										</select></td>
 								</tr>
+								
 					</table>
 					<p class="btn_area_btm">
 						<a href="maps.jsp"
@@ -365,6 +366,27 @@ background-repeat: no-repeat;
 	<script src="js/mixitup.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
-
+	<script type = "text/javascript">
+		function view_browsers1() {
+			var browsers1 = document.getElementsByName("browsers1")[0];
+			var idx = browsers1.selectedIndex;
+			var browsers1Value = browsers1.options[idx].value;
+			console.log(browsers1Value);
+		}
+	</script>
+    <script type = "text/javascript">
+		function view_browsers2() {
+			var browsers2 = document.getElementsByName("browsers2")[0];
+			var idx = browsers2.selectedIndex;
+			var browsers2Value = browsers2.options[idx].value;
+		}
+	</script>
+	<script type = "text/javascript">
+		function view_browsers3() {
+			var browsers3 = document.getElementsByName("browsers3")[0];
+			var idx = browsers3.selectedIndex;
+			var browsers3Value = browsers3.options[idx].value;
+		}	
+	</script>
 </body>
 </html>

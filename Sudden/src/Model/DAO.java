@@ -15,12 +15,20 @@ public class DAO {
 
 	   public void conn() {
 		      try {
-		         Class.forName("oracle.jdbc.driver.OracleDriver");
+					Class.forName("oracle.jdbc.driver.OracleDriver");
+					System.out.println("클래스파일 로딩완료");
 
-		         String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
-		         String db_id = "hr";
-		         String db_pw = "hr";
-		         conn = DriverManager.getConnection(db_url, db_id, db_pw);
+					String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524";
+					String dbid = "cgi_8_5_1216";
+					String dbpw = "smhrd5";
+
+					conn = DriverManager.getConnection(url, dbid, dbpw);
+					
+					if (conn != null) {
+						System.out.println("연결성공");
+					} else {
+						System.out.println("연결실패");
+					}
 
 		      } catch (Exception e) {
 		         e.printStackTrace();
@@ -45,31 +53,28 @@ public class DAO {
 
 		   }
 	   
-	   // 음식점 정보를 담는 메소드
+	   // CCTV 정보를 담는 메소드
 	   public ArrayList<DTO> showInfo() {
-		   ArrayList<DTO> foodshop_list = new ArrayList<DTO>();
+		   ArrayList<DTO> CCTV_list = new ArrayList<DTO>();
 		   
 		   conn();
 		   
 		   try {
-			   String sql = "select * from food_shop";
+			   String sql = "select * from CCTV_list";
 			   psmt = conn.prepareStatement(sql);
 			   rs = psmt.executeQuery();
 			   
 			   while(rs.next()) {
-				   String name = rs.getString("name");
-				   String address = rs.getString("address");
-				   String tell = rs.getString("tell");
-				   
+				   String address = rs.getString("CAM_ADDR");
 				   DTO dto = new DTO(address);
-				   foodshop_list.add(dto);
+				   CCTV_list.add(dto);
 			   }
 			
 		   } catch (Exception e) {
 			   e.printStackTrace();
 		   } finally {
 			   close();
-		   } return foodshop_list;
+		   } return CCTV_list;
 	   }
 	   
 	   
