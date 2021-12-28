@@ -233,6 +233,7 @@ public class goodsDAO {
 
 			String sql = "select * from tbl_product where goods_name like ?";
 			String name1 = "%" + dto.getName() + "%";
+			System.out.println("ints = "+dto.getName());
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, name1);
 			rs = psmt.executeQuery();

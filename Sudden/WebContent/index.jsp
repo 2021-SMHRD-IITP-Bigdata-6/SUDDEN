@@ -108,10 +108,10 @@
 				<div class="col-lg-9">
 					<div class="hero__search">
 						<div class="hero__search__form">
-							<form action="Search.do"><!-- 검색하는곳 -->
-								<input type="text" id="search" name="search" placeholder="찾고 싶은 상품을 검색해 보세요">
-								<button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
-							</form>
+							<form action="Searchgoods.do"><!-- 검색하는곳 Search.do -->
+                                <input type="text" id="search" name="search" placeholder="찾고 싶은 상품을 검색해 보세요">
+                                <button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
+                            </form>
 						</div>
 						<div class="header__top__right__auth">
 
@@ -577,47 +577,7 @@
 	<script src="js/main.js"></script>
 	<script src="jquery-3.6.0.min.js"></script>
 
-	<script type="text/javascript">
-		function search() {
 
-		$.ajax({
-			url : "search.do",
-			type : "get",
-			data : {
-				"name" : $('#search').val(), //"name" : $('#search').val(),	//"name" : $('input[name=search]').val(),				
-			},
-			dataType : 'json',
-			success : function(res) {//수정받을곳
-				console.log("완료")
-				console.log(res.length)
-				$('#row').html(''); 
-				for(let i= 0; i<12; i++){
-					//태그 만들기
-					let table='';
-					table +='<div class="col-lg-4 col-md-6 col-sm-6">';
-					table +='<div class="product__item">';
-					table +='<div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">';
-					table +='<ul class="product__item__pic__hover">';
-					table += "<li><a href="#"><i class="fa fa-heart"></i></a></li>";//관심상품 등록하는곳
-					table +='</ul>';
-					table +='</div>';
-					table +='<div class="product__item__text">';
-					table +='<h6><a href="shop-details.jsp">'+res[i].name+'</tr>';
-					table +='<h5>'+res[i]price+'</h5>';
-					table +='</div>';
-					table +='</div>';
-					table +='</div>';
-					
-					$('#row').append(table);
-				}
-
-			},
-			error : function() {
-				alert("다시 검색해 주세요");
-			}
-		});
-	
-	}</script>
 
 
 	
