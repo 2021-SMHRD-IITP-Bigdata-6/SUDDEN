@@ -113,7 +113,7 @@ public class RegisteService extends HttpServlet {
 					System.out.println("저장완료");
 					session.setAttribute("gdto", dto);
 					//moveUrl = "OpenimgService";
-					moveUrl = "Registe.jsp";
+					moveUrl = "shop-details.jsp";
 				} else {
 					System.out.println("저장실패");
 					moveUrl = "Registe.jsp";

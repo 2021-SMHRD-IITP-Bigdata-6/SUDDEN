@@ -106,8 +106,12 @@
 	<div id="map"
 		style="position: absolute; top: 100px; left: 470px; width: 1000px; height: 700px;"></div>
 
+<<<<<<< HEAD
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=713cfaa3a4daee68c31cd491fa80cd90"></script>
+=======
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d45d67312de0b775f7a3137b821341a4&libraries=services,clusterer,drawing"></script>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
 	<script>
    if(localStorage.getItem('키')){ 
       var lastData = localStorage.getItem('키')
@@ -157,7 +161,7 @@
 	<div id="staticMap" style="width: 600px; height: 350px;"></div>
 
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=713cfaa3a4daee68c31cd491fa80cd90"></script>
+		src=""></script>
 	<script>
 	var staticMapContainer  = document.getElementById('staticMap'), // 이미지 지도를 표시할 div  
     staticMapOption = { 
