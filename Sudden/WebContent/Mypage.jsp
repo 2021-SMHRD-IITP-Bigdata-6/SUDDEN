@@ -144,11 +144,9 @@
  const showValue = (target) => {
 	  // 선택한 option의 value 값
 	  console.log(target.value);
-	  
-	  // option의 text 값
-	  console.log(target.options[target.selectedIndex].text);
+	  localStorage.setItem('키',target.value);
+
 	}
- 
 
   </script>
   
@@ -637,9 +635,5 @@
 	
 
 </body>
-<script type="text/javascript">
-  function getItem(){
-	  $("#id5 option:selected").text();
-  }
- </script>
+
 </html>
