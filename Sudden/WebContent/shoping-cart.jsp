@@ -1,6 +1,6 @@
 <%@page import="com.sudden.DTO.memberDTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -62,41 +62,41 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>ÀüÃ¼ Ä«Å×°í¸®</span>
+                            <span>ì „ì²´ ì¹´í…Œê³ ë¦¬</span>
                         </div>
                         <ul>
-                            <li><a href="#">¿©¼ºÀÇ·ù</a></li>
-                            <li><a href="#">³²¼ºÀÇ·ù</a></li>
-                            <li><a href="#">½Å¹ß</a></li>
-                            <li><a href="#">°¡¹æ</a></li>
-                            <li><a href="#">½Ã°è/ÁÖ¾ó¸®</a></li>
-                            <li><a href="#">ÆÐ¼Ç¿¢¼¼¼­¸®</a></li>
-                            <li><a href="#">µðÁöÅÐ/°¡Àü</a></li>
-                            <li><a href="#">½ºÆ÷Ã÷/·¹Àú</a></li>
-                            <li><a href="#">Â÷·®/¿ÀÅä¹ÙÀÌ</a></li>
-                            <li><a href="#">Å°´úÆ®</a></li>
-                            <li><a href="#">µµ¼­/Æ¼ÄÏ/¹®±¸</a></li>
-                            <li><a href="#">ºäÆ¼/¹Ì¿ë</a></li>
-                            <li><a href="#">°¡±¸/ÀÎÅ×¸®¾î</a></li>
-                            <li><a href="#">»ýÈ°/°¡°ø½ÄÇ°</a></li>
-                            <li><a href="#">À¯¾Æµ¿/Ãâ»ê</a></li>
-                            <li><a href="#">¹Ý·Áµ¿¹°¿ëÇ°</a></li>
-                            <li><a href="#">±âÅ¸</a></li>
-                            <li><a href="#">¼­µç³ª´®</a></li>
+                            <li><a href="#">ì—¬ì„±ì˜ë¥˜</a></li>
+                            <li><a href="#">ë‚¨ì„±ì˜ë¥˜</a></li>
+                            <li><a href="#">ì‹ ë°œ</a></li>
+                            <li><a href="#">ê°€ë°©</a></li>
+                            <li><a href="#">ì‹œê³„/ì£¼ì–¼ë¦¬</a></li>
+                            <li><a href="#">íŒ¨ì…˜ì—‘ì„¸ì„œë¦¬</a></li>
+                            <li><a href="#">ë””ì§€í„¸/ê°€ì „</a></li>
+                            <li><a href="#">ìŠ¤í¬ì¸ /ë ˆì €</a></li>
+                            <li><a href="#">ì°¨ëŸ‰/ì˜¤í† ë°”ì´</a></li>
+                            <li><a href="#">í‚¤ëœíŠ¸</a></li>
+                            <li><a href="#">ë„ì„œ/í‹°ì¼“/ë¬¸êµ¬</a></li>
+                            <li><a href="#">ë·°í‹°/ë¯¸ìš©</a></li>
+                            <li><a href="#">ê°€êµ¬/ì¸í…Œë¦¬ì–´</a></li>
+                            <li><a href="#">ìƒí™œ/ê°€ê³µì‹í’ˆ</a></li>
+                            <li><a href="#">ìœ ì•„ë™/ì¶œì‚°</a></li>
+                            <li><a href="#">ë°˜ë ¤ë™ë¬¼ìš©í’ˆ</a></li>
+                            <li><a href="#">ê¸°íƒ€</a></li>
+                            <li><a href="#">ì„œë“ ë‚˜ëˆ”</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+                            <form action="Searchgoods.do"><!-- ê²€ìƒ‰í•˜ëŠ”ê³³ Search.do -->
+                                <input type="text" id="search" name="search" placeholder="ì°¾ê³  ì‹¶ì€ ìƒí’ˆì„ ê²€ìƒ‰í•´ ë³´ì„¸ìš”">
+                                <button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
                             </form>
                         </div>
                         <div class="header__top__right__auth">
                         <div class="hero__search__login">
-                            <!-- ·Î±×ÀÎÇÏ´Â°÷ -->
+                            <!-- ë¡œê·¸ì¸í•˜ëŠ”ê³³ -->
 
 								<%
 								if (dto == null) {
@@ -106,11 +106,11 @@
 									} else {
 								
 								%>
-								<!-- ·Î±×ÀÎ ÈÄ ¾ÆÀÌÄÜ-->
+								<!-- ë¡œê·¸ì¸ í›„ ì•„ì´ì½˜-->
 								<div class="login__box">
 									<div class="profile">
 										<span class="profile__picture"><i class="fa fa-user-circle fa-lg"></i></span>
-										<span><%= dto.getId() %>´Ô È¯¿µÇÕ´Ï´Ù!</span>
+										<span><%= dto.getId() %>ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤!</span>
 									</div>
 									<div class="icon">
 										<div class="MyPage">
@@ -146,7 +146,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>¾ÈÀüÇÑ Áß°í Á÷°Å·¡ ÇÃ·§Æû</h2>
+                        <h2>ì•ˆì „í•œ ì¤‘ê³  ì§ê±°ëž˜ í”Œëž«í¼</h2>
                         <h2>SUDDEN</h2>
                     </div>
                 </div>
@@ -164,26 +164,26 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">»óÇ°</th>
-                                    <th>°¡°Ý</th>
-                                    <th>Âò</th>
-                                    <th>¿¬¶ôÇÏ±â</th>
+                                    <th class="shoping__product">ìƒí’ˆ</th>
+                                    <th>ê°€ê²©</th>
+                                    <th>ì°œ</th>
+                                    <th>ì—°ë½í•˜ê¸°</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td class="shoping__cart__item">
                                         <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Vegetable¡¯s Package</h5>
+                                        <h5>Vegetableâ€™s Package</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        98,000¿ø
+                                        98,000ì›
                                     </td>
                                     <td class="shoping__cart__total">
                                         <i class="fa fa-heart"></i>
                                     </td>
                                     <td class="shoping__cart__item__close">
-                                        <a href="chat.jsp" class="snip1535two">Ã¤ÆÃ</a>
+                                        <a href="chat.jsp" class="snip1535two">ì±„íŒ…</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -192,13 +192,13 @@
                                         <h5>Fresh Garden Vegetable</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        200,000¿ø
+                                        200,000ì›
                                     </td>
                                     <td class="shoping__cart__total">
                                         <i class="fa fa-heart"></i>
                                     </td>
                                     <td class="shoping__cart__item__close">
-                                        <a href="chat.jsp" class="snip1535two">Ã¤ÆÃ</a>
+                                        <a href="chat.jsp" class="snip1535two">ì±„íŒ…</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -207,13 +207,13 @@
                                         <h5>Organic Bananas</h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        50,000¿ø
+                                        50,000ì›
                                     </td>
                                     <td class="shoping__cart__total">
                                         <i class="fa fa-heart"></i>
                                     </td>
                                     <td class="shoping__cart__item__close">
-                                        <a href="chat.jsp" class="snip1535two">Ã¤ÆÃ</a>
+                                        <a href="chat.jsp" class="snip1535two">ì±„íŒ…</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -236,7 +236,7 @@
                             <a href="./index.jsp"><img style="width:230px; height:200px;" src="img/logo2.jpg" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: ±¤ÁÖ±¤¿ª½Ã ³²±¸ ¼Û¾Ï·Î 60</li>
+                            <li>Address: ê´‘ì£¼ê´‘ì—­ì‹œ ë‚¨êµ¬ ì†¡ì•”ë¡œ 60</li>
                             <li>Phone: 000-0000-0000</li>
                             <li>Email: jcm829700@naver.com</li>
                         </ul>
