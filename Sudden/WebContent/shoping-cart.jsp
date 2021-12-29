@@ -1,3 +1,7 @@
+<%@page import="com.sudden.DAO.InterDAO"%>
+<%@page import="com.sudden.DAO.goodsDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.sudden.DTO.goodsDTO"%>
 <%@page import="com.sudden.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
@@ -154,6 +158,42 @@
         </div>
     </section>
     <!-- Breadcrumb Section End -->
+    <%
+    goodsDTO gdto = null;
+	ArrayList<goodsDTO> arr = null;
+	 
+	int goodsseq=0;
+	System.out.println("관심");
+    try{
+    	System.out.println("관심1");
+    	goodsseq =  Integer.parseInt(request.getParameter("goodsseq"));
+    	System.out.println("관심받아옴 "+goodsseq);
+    }catch(Exception e){
+    	
+    }
+    System.out.println("관심이름이 머니 = "+goodsseq);
+    
+    if(goodsseq==0){
+    	System.out.println("관심2");
+		gdto = (goodsDTO) session.getAttribute("gdto");
+    }
+    else{
+    	System.out.println("관심3");
+    	InterDAO dao = new InterDAO();
+    	gdto = new goodsDTO(goodsseq);
+    	//gdto = dao.goodsdetail(gdto);
+    	
+    	
+    	arr = dao.addInter(gdto);
+    	//arr = dao.addInter(arr);
+        
+    	
+    	System.out.println("관심받아오기 = "+arr.get(0).getName());
+    	
+    }
+    
+    %>
+    
 
     <!-- Shoping Cart Section Begin -->
     <section class="shoping-cart spad">
@@ -171,51 +211,74 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <!--  <tr>
                                     <td class="shoping__cart__item">
                                         <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Vegetable’s Package</h5>
+                                        <h5>여기에 상품명 GOODS_NAME </h5>
                                     </td>
-                                    <td class="shoping__cart__price">
-                                        98,000원
-                                    </td>
+                                    
+                                    <td class="shoping__cart__price">가격 GOODS_PRICE</td>
+                                    
                                     <td class="shoping__cart__total">
                                         <i class="fa fa-heart"></i>
                                     </td>
+                                    
                                     <td class="shoping__cart__item__close">
                                         <a href="chat.jsp" class="snip1535two">채팅</a>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-2.jpg" alt="">
-                                        <h5>Fresh Garden Vegetable</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        200,000원
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        <i class="fa fa-heart"></i>
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <a href="chat.jsp" class="snip1535two">채팅</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img src="img/cart/cart-3.jpg" alt="">
-                                        <h5>Organic Bananas</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        50,000원
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        <i class="fa fa-heart"></i>
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <a href="chat.jsp" class="snip1535two">채팅</a>
-                                    </td>
-                                </tr>
+                                </tr>-->
+                                
+                              <%
+                              if(goodsseq==0){
+                            	out.print("<tr>");
+  								out.print("<td class='shoping__cart__item'>");
+  								out.print("<img src=''>");//alt=''  이미지가 없을 때 안에 텍스트로 대체
+  								out.print("<h5><a href='shop-details.jsp?goodsseq='></a></h5>");
+  								out.print("</td>");
+  								 
+  								out.print("<td class='shoping__cart__price'></td>");
+  								out.print("<td class='shoping__cart__total'></td>");
+  								
+  								out.print("<td class='shoping__cart__item__close'>");
+  								out.print("<a href='chat.jsp'></a>");
+  								out.print("</td>");
+  								out.print("</tr>");
+                              }else{
+                              
+                                 int size=0;
+                                 int i=0;
+    							 size= arr.size();
+    							 
+    						     while(true){
+    						     	out.print("<tr>");
+    								out.print("<td class='shoping__cart__item'>");
+    								out.print("<td class='shoping__cart__item'>");
+    								out.print("<img src='Upload/"+arr.get(i).getImg()+"'>");//alt=''  이미지가 없을 때 안에 텍스트로 대체
+    								
+    								out.print("<h5><a href='shop-details.jsp?goodsseq="+arr.get(i).getSeq()+"'>"+arr.get(i).getName()+"</a></h5>");
+    								out.print("</td>");
+    								 
+    								out.print("<td class='shoping__cart__price'>"+arr.get(i).getPrice()+"</td>");
+    								out.print("<td class='shoping__cart__total'>");
+    								out.print("<i class='fa fa-heart'></i>");
+    								out.print("</td>");
+    								out.print("<td class='shoping__cart__item__close'>");
+    								out.print("<a href='chat.jsp' class='snip1535two'>채팅</a>");
+    								out.print("</td>");
+    								out.print("</tr>");
+    								i++;
+    	 							if(size==i) {
+    									break;
+    								}
+    	 
+    							 }
+                              }
+    						  %>
+									
+                                
+                                
+                                
+                               
                             </tbody>
                         </table>
                     </div>

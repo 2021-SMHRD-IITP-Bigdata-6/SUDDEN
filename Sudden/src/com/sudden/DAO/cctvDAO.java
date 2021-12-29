@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 import com.sudden.DTO.cctvDTO;
 
-import Model.DTO;
-
 
 public class cctvDAO {
 	Connection conn = null;
