@@ -308,7 +308,7 @@
 				</td>
           </tr>
           <tr>
-              <td colspan="0"><button class="snip1535" "type="submit" value="사진확인"/>저장하기</button></td>
+              <td colspan="0"><button class="snip1535" "type="submit" value="사진확인">저장하기</button></td>
             
           </tr>
        

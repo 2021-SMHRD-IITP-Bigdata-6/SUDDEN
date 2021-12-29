@@ -222,8 +222,7 @@ public class goodsDAO {
 				
 			}
 			
-			
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -301,6 +300,43 @@ public class goodsDAO {
 		
 		
 	}
+	
+	public ArrayList<goodsDTO> Sales(memberDTO dto) {
+		
+		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
+		
+		try {
+			
+			getconn();
+
+			String sql = "select * from tbl_product where mem_id = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				
+				String name = rs.getString("goods_name");
+				String img = rs.getString("goods_img");
+				int price = rs.getInt("goods_price");
+	
+				goodsDTO gdto = new goodsDTO(name, img, price);
+				arr.add(gdto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return arr;
+		
+		
+	}
+	
+	
 	
 }
 	

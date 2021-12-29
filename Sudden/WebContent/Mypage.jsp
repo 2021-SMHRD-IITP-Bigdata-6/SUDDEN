@@ -276,36 +276,9 @@
 			<div class="row">
 				<!-- 프로필 설정 -->
 				<div class="sh_group">
-					<div class="sh_header">
-						<h2>프로필 설정</h2>
-					</div>
-					<div class="sh_content">
-						<dl class="sh_lst">
-							<dt class="blind">&nbsp;</dt>
-							<dd class="intro_desc">&nbsp;</dd>
-							<dt class="blind">프로필사진</dt>
-							<dd class="pic_desc">
-								<a href="#"
-									onclick="changeImage();clickcr(this,'imn.prfmodify','','',event);">
-									<img src="" width="180" height="180" alt> <span
-									class="spimg img_frame"></span>
-								</a>
-							</dd>
-							<dt class="blind">&nbsp;</dt>
-							<dd class="intro_desc">&nbsp;</dd>
-						</dl>
-					</div>
-					<p class="btn_area_btm">
-						<a href="Propile.jsp"
-							onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
-							class="snip1535"> <b class="btn2">수정</b>
-						</a>
-					</p>
-				</div>
-				<div class="sh_group">
 					<div class="column">
 						<div class="sh_header">
-							<h2>회원 정보및수정</h2>
+							<h2>프로필 수정</h2>
 						</div>
 						<div class="sh_content">
 							<dl class="sh_lst2">
@@ -333,12 +306,49 @@
 					</div>
 				</div>
 				<div class="sh_group">
+					<div class="column">
+						<div class="sh_header">
+							<h2>구매 및 판매 내역</h2>
+						</div>
+						<div class="sh_content">
+							<dl class="sh_lst2">
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+								<div onclick="location.href='PURCHASE_HISTORY.jsp';" style="cursor:pointer">구매내역</div>
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+								<div onclick="location.href='salbuy.jsp';" style="cursor:pointer">판매내역</div>
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+							</dl>
+						</div>
+						<p class="btn_area_btm">
+							<a href="Propile2.jsp"
+								onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
+								class="snip1535"> <b class="btn2">수정</b>
+							</a>
+						</p>
+					</div>
+				</div>
+				<div class="sh_group">
 					<div class="sh_header">
 						<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지역
 							설정&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 					</div>
 				<dt>지역을 선택해 주세요!</dt>				
-					<table>
+<!-- 					<table>
 							<tr>
 						       <td id="td1">도시</td>
 						          	<td>	
@@ -407,7 +417,7 @@
 								<tr>						
 									<td id="td1">읍/면/동</td>
 									<td>
-									<!-- 남구 -->
+									남구
 									<select id="d1"onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 										<option value="선택">선택</option>
 									    <option value="구동">구동</option>
@@ -449,7 +459,7 @@
 									    <option value="방림동">방림동</option>
 									    <option value="압촌동">효덕동</option>
 										</select>
-										<!-- 동구 -->
+										동구
 										<select id="d2" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 										<option value="선택">선택</option>
 									    <option value="대인동">대인동</option>
@@ -467,7 +477,7 @@
 									    <option value="서남동">서남동</option>
 									    <option value="지원동">지원동</option>
 										</select>
-										<!-- 광산구 -->
+										광산구
 										<select id="d3" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 										<option value="선택">선택</option>
 									    <option value="송정동">송정동</option>
@@ -536,7 +546,7 @@
 									    <option value="첨단동">첨단동</option>
 									    <option value="월곡동">월곡동</option>
 										</select>
-										<!-- 북구 -->
+										북구
 										<select id="d4" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 										<option value="선택">선택</option>
 		                                <option value="중흥동">중흥동</option>
@@ -583,7 +593,7 @@
 		                                <option value="중앙동">중앙동</option>
 		                                <option value="석곡동">석곡동</option>
 		                               </select>
-		                                <!-- 서구 -->
+		                                서구
 		                               <select id="d5" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 		                               <option value="선택">선택</option>
 		                               <option value="양동">양동</option>
@@ -611,7 +621,8 @@
 								</tr>
 								
 					</table>
-					<p class="btn_area_btm">
+ -->					
+ 				<p class="btn_area_btm">
 						<a href="maps.jsp"
 							onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
 							class="snip1535"> <b class="btn2">검색하기</b>

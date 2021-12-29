@@ -48,6 +48,8 @@ public class memberDTO {
 		this.pw = pw;
 		this.nick = nick;
 	}
+
+	
 	public memberDTO(String id, String pw, String nick, String addr) {//login_check
 		super();
 		this.id = id;
