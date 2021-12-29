@@ -167,7 +167,6 @@
 								<!-- 로그인 후 아이콘-->
 								<div class="login__box">
 									<div class="profile">
-										<span class="profile__picture"><i class="fa fa-user-circle fa-lg"></i></span>
 										<span><%= dto.getId() %>님 환영합니다!</span>
 									</div>
 									<div class="icon">
@@ -177,8 +176,8 @@
 										<div class="Favorite">
 											<span onclick="location.href='shoping-cart.jsp'" style="cursor: pointer;"><i class="fa fa-heart"></i></span>
 										</div>
-										<div class="Chatting">
-											<span onclick="location.href='#'" style="cursor: pointer;"><i class="fa fa-comment"></i></span>
+										<div class="Register">
+											<span onclick="location.href='Registe.jsp'" style="cursor: pointer;"><i class="fa fa-plus-circle"></i></span>
 										</div>
 										<div class="Logout">
 										<span onclick="location.href='Logoutcon.do'" style="cursor: pointer;">Logout</span>
