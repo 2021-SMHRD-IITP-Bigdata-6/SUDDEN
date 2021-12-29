@@ -54,30 +54,33 @@ public class cctvDAO {
 		}
 
 	}
-public void cctv_addr(cctvDTO dto) {
-		
+public ArrayList<cctvDTO> cctv_addr(cctvDTO dto) {
+	ArrayList<cctvDTO> cctv_list = new ArrayList<cctvDTO>();
 		try {
 
 			getconn();
 
-			System.out.println("");
+			System.out.println("56"+dto.getCctv());
 
 			String sql = "select *from tbl_cctv where cam_addr like ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, "%"+dto.getCctv()+"%");
+			psmt.setString(1,"%"+dto.getCctv()+"%");
 
 			rs= psmt.executeQuery();
 			
 			while(rs.next()) {
-				String addr= rs.getNString("cam_addr");
+				String addr= rs.getString("cam_addr");
+				dto = new cctvDTO(addr);
+				   cctv_list.add(dto);
+				   System.out.println("78"+cctv_list.size());
 			}
-
+			
 		} catch (Exception e) {
 			System.out.println("클래스파일 로딩실패");
 			e.printStackTrace();
 		} finally {
 			cloes();
 		}
-	
+		return cctv_list;
 	}
 }
