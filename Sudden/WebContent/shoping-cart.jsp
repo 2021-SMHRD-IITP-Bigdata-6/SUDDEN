@@ -160,9 +160,16 @@
     <!-- Breadcrumb Section End -->
     <%
     goodsDTO gdto = null;
+    goodsDTO igdto = null;
 	ArrayList<goodsDTO> arr = null;
-	 
-	int goodsseq=0;
+	ArrayList<goodsDTO> iarr = null;
+	ArrayList<goodsDTO> marr = null;
+	InterDAO dao = null;
+	int cnt=0;
+	int goodsseq=-1;
+	int size=0;
+
+	int cn=0;
 	System.out.println("관심");
     try{
     	System.out.println("관심1");
@@ -173,24 +180,48 @@
     }
     System.out.println("관심이름이 머니 = "+goodsseq);
     
-    if(goodsseq==0){
+    
+    //상품목록에 대한 번호가 없을때
+    if(goodsseq==-1){
     	System.out.println("관심2");
 		gdto = (goodsDTO) session.getAttribute("gdto");
+		size=0;
+
     }
     else{
     	System.out.println("관심3");
-    	InterDAO dao = new InterDAO();
+    	dao = new InterDAO();
     	gdto = new goodsDTO(goodsseq);
-    	//gdto = dao.goodsdetail(gdto);
     	
     	
-    	arr = dao.addInter(gdto);
-    	//arr = dao.addInter(arr);
+    	//arr = dao.addInter(gdto);
+    	//int seq = arr.get(0).getSeq();
+    	int seq = goodsseq;
+    	String mid = dto.getId();
+    	System.out.println("관심seq= "+seq);
+    	System.out.println("관심id= "+mid);
+    	igdto = new goodsDTO(seq,mid);
+    	cnt = dao.InterUpload(igdto);
+    	iarr = dao.searchInter(mid);
+    	size= iarr.size();
+    	if(cnt>0){
+    		System.out.println("저장완료");
+    	}else{
+    		System.out.println("저장실패");
+    	}
+		System.out.println("관심받아오기 = "+iarr.size());
+    	
+    	System.out.println("관심seq= "+goodsseq);
+    	
+    	}
+    
+    	
+    	
         
     	
-    	System.out.println("관심받아오기 = "+arr.get(0).getName());
     	
-    }
+    	
+    
     
     %>
     
@@ -229,35 +260,79 @@
                                 </tr>-->
                                 
                               <%
-                              if(goodsseq==0){
-                            	out.print("<tr>");
-  								out.print("<td class='shoping__cart__item'>");
-  								out.print("<img src=''>");//alt=''  이미지가 없을 때 안에 텍스트로 대체
-  								out.print("<h5><a href='shop-details.jsp?goodsseq='></a></h5>");
-  								out.print("</td>");
-  								 
-  								out.print("<td class='shoping__cart__price'></td>");
-  								out.print("<td class='shoping__cart__total'></td>");
+                              if(size<=0){
+                            	  dao = new InterDAO();
+                          		String cid=dto.getId();
+                          		//String cid="smart";         		
+                          		System.out.println("관심cid= "+cid);
+                        		int check = dao.checkInter(cid);
+                             	if(check<=0){
+                            		out.print("<tr>");
+  									out.print("<td class='shoping__cart__item'>");
+  									out.print("<img src=''>");//alt=''  이미지가 없을 때 안에 텍스트로 대체
+  									out.print("<h5><a href='shop-details.jsp?goodsseq='></a></h5>");
+  									out.print("</td>");
+  									
+  									out.print("<td class='shoping__cart__price'></td>");
+  									out.print("<td class='shoping__cart__total'></td>");
   								
-  								out.print("<td class='shoping__cart__item__close'>");
-  								out.print("<a href='chat.jsp'></a>");
-  								out.print("</td>");
-  								out.print("</tr>");
-                              }else{
+  									out.print("<td class='shoping__cart__item__close'>");
+  									out.print("<a href='chat.jsp'></a>");
+  									out.print("</td>");
+  									out.print("</tr>");
+                              	}else{
+                                    
+                                    
+                                    int i=0;
+                                    int j=0;
+                                    String eid=dto.getId();
+                                    arr = dao.searchInter(eid);
+                                    size= arr.size();
+       						     while(true){
+       						    	int iseq = arr.get(j).getSeq();
+    						    	System.out.println("관심iseq= "+iseq);
+    						    	dao = new InterDAO();
+    						    	marr = dao.addInter(iseq);
+       						    	
+       						     	out.print("<tr>");
+       								out.print("<td class='shoping__cart__item'>");
+       								out.print("<img src='Upload/"+marr.get(i).getImg()+"'>");//alt=''  이미지가 없을 때 안에 텍스트로 대체
+       								out.print("<h5><a href='shop-details.jsp?goodsseq="+marr.get(i).getSeq()+"'>"+marr.get(i).getName()+"</a></h5>");
+       								out.print("</td>");
+       								out.print("<td class='shoping__cart__price'>"+marr.get(i).getPrice()+"</td>");
+       								out.print("<td class='shoping__cart__total'>");
+       								out.print("<i class='fa fa-heart'></i>");
+       								out.print("</td>");
+       								out.print("<td class='shoping__cart__item__close'>");
+       								out.print("<a href='chat.jsp' class='snip1535two'>채팅</a>");
+       								out.print("</td>");
+       								out.print("</tr>");
+       								j++;
+       	 							if(size==j) {
+       									break;
+       								}
+       	 
+       							 }
+                              		
+                              	}
+                              }
+                              else{
                               
-                                 int size=0;
+                                 
                                  int i=0;
-    							 size= arr.size();
+                                 int j=0;
     							 
+    							 System.out.println("관심size= "+size);
     						     while(true){
+    						    	int iseq = iarr.get(j).getSeq();
+    						    	System.out.println("관심iseq= "+iseq);
+    						    	dao = new InterDAO();
+    						    	arr = dao.addInter(iseq);
     						     	out.print("<tr>");
     								out.print("<td class='shoping__cart__item'>");
-    								out.print("<td class='shoping__cart__item'>");
     								out.print("<img src='Upload/"+arr.get(i).getImg()+"'>");//alt=''  이미지가 없을 때 안에 텍스트로 대체
-    								
     								out.print("<h5><a href='shop-details.jsp?goodsseq="+arr.get(i).getSeq()+"'>"+arr.get(i).getName()+"</a></h5>");
     								out.print("</td>");
-    								 
     								out.print("<td class='shoping__cart__price'>"+arr.get(i).getPrice()+"</td>");
     								out.print("<td class='shoping__cart__total'>");
     								out.print("<i class='fa fa-heart'></i>");
@@ -266,8 +341,8 @@
     								out.print("<a href='chat.jsp' class='snip1535two'>채팅</a>");
     								out.print("</td>");
     								out.print("</tr>");
-    								i++;
-    	 							if(size==i) {
+    								j++;
+    	 							if(size==j) {
     									break;
     								}
     	 
@@ -275,10 +350,7 @@
                               }
     						  %>
 									
-                                
-                                
-                                
-                               
+                 
                             </tbody>
                         </table>
                     </div>

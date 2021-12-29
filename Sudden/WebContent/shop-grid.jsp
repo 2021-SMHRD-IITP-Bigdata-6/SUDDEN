@@ -285,7 +285,7 @@
                        out.print("<div class='product__item'>");//Upload/191.jpg
                        out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
                        out.print("<ul class='product__item__pic__hover'>");
-                       out.print("<li><a href='#?goodsseq="+arr.get(i).getSeq()+"'><i class='fa fa-heart'></i></a></li>");
+                       out.print("<li><a href='shoping-cart.jsp?goodsseq="+arr.get(i).getSeq()+"'><i class='fa fa-heart'></i></a></li>");
                        out.print("</ul>");
                        out.print("</div>");
                        out.print("<div class='product__item__text'>");
@@ -329,7 +329,7 @@
                        out.print("<div class='product__item'>");//Upload/191.jpg
                        out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
                        out.print("<ul class='product__item__pic__hover'>");
-                       out.print("<li><a href='#'><i class='fa fa-heart'></i></a></li>");
+                       out.print("<li><a href='shoping-cart.jsp'><i class='fa fa-heart'></i></a></li>");
                        out.print("</ul>");
                        out.print("</div>");
                        out.print("<div class='product__item__text'>");

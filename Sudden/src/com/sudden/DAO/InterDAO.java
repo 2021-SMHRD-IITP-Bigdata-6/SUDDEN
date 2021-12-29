@@ -67,28 +67,27 @@ public class InterDAO {
 
 	}
 
-	public ArrayList<goodsDTO> addInter(goodsDTO dto) { /// 관심추가
-		
+	public ArrayList<goodsDTO> addInter(int iseq) { // 관심상품 보기
+
 		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
-		
+
 		try {
 
 			getconn();
 
 			String sql = "select * from tbl_product where goods_seq=?";
-			psmt = conn.prepareStatement(sql); 
-			psmt.setInt(1, dto.getSeq()); 
- 
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, iseq);
+
 			rs = psmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				int seq = rs.getInt("goods_seq");
 				String name = rs.getString("goods_name");
 				String img = rs.getString("goods_img");
 				int price = rs.getInt("goods_price");
-				
-				gdto = new goodsDTO(seq,name,img,price);
+				String id = rs.getString("mem_id");
+				gdto = new goodsDTO(seq, name, img, price,id);
 				arr.add(gdto);
-				
 			}
 		} catch (Exception e) {
 			System.out.println("클래스파일 로딩실패");
@@ -101,81 +100,95 @@ public class InterDAO {
 
 	}
 
-	public ArrayList<InterDTO> InterSearch(InterDTO dto){ //관심목록 불러오기
-		
-		ArrayList<InterDTO> arrlist = new ArrayList<InterDTO>();
+	public int InterUpload(goodsDTO dto) { // 관심등록한 값 저장하기
+
 		getconn();
-				
 		try {
-			StringBuffer sb = new StringBuffer();
-			sb.append("SELECT  ");
-			sb.append("FROM tbl_product p");
 			
-			String sql = sb.toString();
-			
-			
+			String sql = "INSERT INTO tbl_my_goods (goods_seq, inter_date, mem_id) VALUES (?,sysdate,?)";
 			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
+			psmt.setInt(1, dto.getSeq());
+			psmt.setString(2, dto.getId());
 			
-			while(rs.next()) {
-				String g_img = gdto.getImg();
-				String g_name = gdto.getName();
-				int g_price = gdto.getPrice();
-				
-				//이미지랑 가격 같은거는 goodDTO에 있어 그럼 거기에다가 넣으면 되나
-				//gdto = new goodsDTO();
-				//arrlist.add(gdto);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		
-		return arrlist;
-		
-	}
-	
-	public void resetInter() {  //관심삭제 /딱히 삭제버튼 없음
-		
-		getconn();
-		
-		String sql = "delere from tbl_my_goods WHERE ?";
-		
-		try {
-			psmt = conn.prepareStatement(sql);
-			//요기도 모루겟어
-			
+			cnt = psmt.executeUpdate();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			cloes();
 		}
-				
+
+		return cnt;
 	}
-	
-//	public boolean selectInter(String id, int seq) {  //관심상품보여주기
-//
-//		getconn();
-//
-//		String sql = "SELECT * FROM TBL_MY_GOODS WHERE mem_id = ? AND GOODS_SEQ = ?";
-//
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setString(1, id);
-//			psmt.setInt(2, seq);
-//			rs = psmt.executeQuery();
-//			if (rs.next()) {
-//				//tbl_product 테이블에 있는  이미지, 상품명, 가격
-//			}
-//		} catch (Exception e) {
-//			System.out.println("클래스파일 로딩실패");
-//			e.printStackTrace();
-//		} finally {
-//			cloes();
-//		}
-//		return false;
-//	}
-	
-	
+
+	public int resetInter(goodsDTO dto) { // 관심삭제 /딱히 삭제버튼 없음
+
+		getconn();
+
+		String sql = "delere from tbl_my_goods where goods_seq=? ?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, dto.getSeq());
+			
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		return cnt;
+	}public ArrayList<goodsDTO> searchInter(String id) { // 관심상품 보기
+
+		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
+
+		try {
+
+			getconn();
+
+			String sql = "select * from tbl_my_goods where mem_id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				int seq = rs.getInt("goods_seq");
+				gdto = new goodsDTO(seq);
+				arr.add(gdto);
+
+			}
+		} catch (Exception e) {
+			System.out.println("클래스파일 로딩실패");
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+
+		return arr;
+
+	}public int checkInter(String cid) { // 관심등록한 값 저장하기
+		int check=0;
+		getconn();
+		try {
+			System.out.println("interdao = "+cid);
+			String sql = "select * from tbl_my_goods where mem_id =?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, cid);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				check=1;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+
+		return check;
+	}
+
 }

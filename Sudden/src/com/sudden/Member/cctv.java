@@ -25,6 +25,7 @@ public class cctv extends HttpServlet {
 		
 		String addr=request.getParameter("addr");
 		System.out.println("90addr"+addr);
+
 		cctvDTO dto=new cctvDTO(addr);
 		
 		cctvDAO dao =new cctvDAO();
