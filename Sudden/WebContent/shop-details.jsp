@@ -236,30 +236,23 @@
 
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="product__details__text">
-                        <h3><%=gdto.getName()%></h3>
-                        <div class="product__details__price"><%=gdto.getPrice()%></div>
-                        <p><%=gdto.getContent()%></p>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
-                        <ul>
-                            <li><b>가격</b><a style="font-size:30px; color:black;"><%=gdto.getPrice()%></a></li>
-                            <%
-								if (dto == null) {
-								%>
-								<li><b>연락하기</b><a href="log-in_details.jsp"><i class="fa fa-comment" style="font-size:50px; color:black;"></i></a>
-			                            </li>
-								
-								<%
-									} else {%>
-										<li><b>연락하기</b><a href="chat.jsp"><i class="fa fa-comment" style="font-size:50px; color:black;"></i></a>
-			                            </li>
-									<%}%>
-								
-								
-                            
-                        </ul>
-                    </div>
+                <% out.print("<div class='product__details__text'>");
+                    
+                     out.print("<h3>"+gdto.getName()+"</h3>");
+                     out.print("<div class='product__details__price'>"+gdto.getPrice()+"</div>");
+                     out.print("<p>"+gdto.getContent()+"</p>");
+                     out.print("<a href='#' class='heart-icon'><span class='icon_heart_alt'></span></a>");
+                     out.print("<ul>");
+                     out.print("<li><b>가격</b><a style='font-size:30px; color:black;'>"+gdto.getPrice()+"</a></li>");
+                     if (dto == null) {
+                     	out.print("<li><b>연락하기</b><a href='log-in_details.jsp'><i class='fa fa-comment' style='font-size:50px; color:black;''></i></a></li>");
+                     } else {	
+                     	out.print("<li><b>연락하기</b><a href='chat.jsp?goodsseq="+gdto.getSeq()+"'><i class='fa fa-comment' style='font-size:50px; color:black;'></i></a></li>");
+                     }
+                     out.print("</ul>");
+                   out.print("</div>");
+                     	
+                         %>
                 </div>
              </div>
           </div>
