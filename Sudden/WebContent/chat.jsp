@@ -582,7 +582,7 @@ var currentTime = function(){
 					<div><a href="maps.jsp" style="font-size:20px;position:absolute;left:130px;">지도 크게 보기</a></div>
 					<form><input type="button" value="검색하기" onClick="window.location.href=window.location.href"></form>
 					<div>
-						<p id="onecctv"><%=data%></p>
+						<p id="onecctv"></p>
 					</div>
   	  
    </div>
@@ -665,8 +665,10 @@ var currentTime = function(){
 		          
 
 
-		         location.href="chat.jsp?data="+encodeURI(encodeURIComponent(addr));
+		         //location.href="chat.jsp?data="+encodeURI(encodeURIComponent(addr));
 		         alert(addr);
+		         document.getElementById("onecctv").innerHTML=addr;
+		         
 		     });
 		    //} 
 
