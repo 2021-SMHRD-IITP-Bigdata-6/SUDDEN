@@ -30,10 +30,10 @@
         .chat_wrap .item.on .box{margin:0; opacity: 1;}
 		
 		.shop_wrap {border:1px solid #999;background-color:white; top:150px; position:absolute; left:1000px;width:350px; height:690px; padding:5px; font-size:45px; color:#333}
-        .shop_wrap .shop_info{background-color:gray; border-radius:5px;padding:10px; height:350px; width:320px;}
-        .shop_wrap .shop_info .shop_munu{font-size:30px;}
-        .shop_wrap .shop_info .shop_img{font-size:30px;height:200px; width:300px;}
-        .shop_wrap .shop_info .shop_pay{font-size:30px;}
+        .shop_wrap .shop_info{background-color:#acc2d2; border-radius:5px;padding:10px; height:250px; width:320px;}
+        .shop_wrap .shop_info .shop_menu{font-size:17px;font-weight:bold;}
+        .shop_wrap .shop_info .shop_img{height:150px; width:200px;}
+        .shop_wrap .shop_info .shop_price{font-size:17px;font-weight:bold;}
       
         
         
@@ -173,6 +173,7 @@ var currentTime = function(){
 	  localStorage.setItem('키',target.value);
 
 	}
+ 
 
   </script>
  <meta charset="utf-8">
@@ -260,105 +261,51 @@ var currentTime = function(){
    <input type="text" class="yourmsg" placeholder="내용 입력">
    </div>
    <div class="shop_wrap">
-      <div class="shop_info">
-      	<div class="shop_munu"></div>
-      	<div class="shop_img" ></div>
-      	<div class="shop_pay"></div>
-   	</div>
-  	  <div id="maps" style=" width:320px;height:200px;">
+<!-- --------------------------------------------------------------------------- -->
+      <div class="shop_info"><%
+      
+      String data = request.getParameter("data");
+      
+      goodsDTO gdto = null;
+      memberDTO dto = (memberDTO) session.getAttribute("dto");
+      ArrayList<goodsDTO> arr = null;
+       
+      int goodsseq=0;
+      System.out.println("여기");
+        try{
+           System.out.println("여기1");
+           goodsseq =  Integer.parseInt(request.getParameter("goodsseq"));
+           System.out.println("받아옴 "+goodsseq);
+        }catch(Exception e){
+           
+        }
+        System.out.println("이름이 머니 = "+goodsseq);
+        if(goodsseq==0){
+           System.out.println("여기2");
+          gdto = (goodsDTO) session.getAttribute("gdto");
+        }
+        else{
+           System.out.println("여기3");
+           goodsDAO dao = new goodsDAO();
+           gdto = new goodsDTO(goodsseq);
+           gdto = dao.goodsdetail(gdto);
+           
+           System.out.println("받아오기 = "+gdto.getName());
+           
+           
+        }
+      
+      
+      	out.print("<div class='shop_menu'>"+"상품 제목 :"+gdto.getName()+"</div>");
+      	out.print("<div class='shop_img'><img style='width:250px; height:150px; position:absolute; left:30px;' class='product__details__pic__item--large'src='Upload/"+gdto.getImg()+"'></div>");
+      	out.print("<div class='shop_price'>"+"상품 가격 :"+gdto.getPrice()+"</div>");
+      	
+   	%></div>
+  	  <div id="map" style=" width:320px;height:200px;">
   	  
   	  </div>
-  	  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9721db22573b52ec59546dbe834b5f05&libraries=services,clusterer,drawing"></script>
-   <script type="text/javaScript">
-		//ajax로 음식점 이름,주소,전화번호 받아오기
-		$.ajax({
-			url : 'cctv',//요청할 url
-			type : 'get',	// 전송방식
-			dataType : 'json', //받아올 데이터 타입
-			success: function(foodshop_info){
-				alert('성공');
-				console.log(foodshop_info);
-				makeMap(foodshop_info); // 지도를 만들어 주는 함수 
-			},
-			error : function(){
-				alert("실패");
-			}
-		});
-		
-		function makeMap(foodshop_info){
-	         // 지도를 담을 영역 객체 조회
-	         var container = document.getElementById('maps');
-	         
-	         //지도를 생성할 때 필요한 기본 옵션
-	         var options = {
-	            center : new kakao.maps.LatLng(35.110458, 126.877987), //지도의 중심좌표(위도, 경도)
-	            level : 3
-	         //지도의 레벨(확대, 축소 정도) : 숫자가 낮을 수록 더 확대
-	         }; 
-	      
-	         // 지도 생성 해서 map 변수에 담기
-	         var map = new kakao.maps.Map(container, options);
-	      
-	         // 주소-좌표를 변환하는 객체를 생성해서 geocoder 변수에 담기
-	         var geocoder = new kakao.maps.services.Geocoder();
-	         
-	         for (var i = 0; i < cctv.length; i ++) {
-	            // 주소로 좌표를 검색하여 map에 마크로 나타낸다
-	            geocoder.addressSearch(foodshop_info[i].address, info(foodshop_info[i].name, foodshop_info[i].tell));         
-	         }
-	         
-	         function info(name, tell){//좌표 검색과, 해당 좌표에 대한 데이터를 출력하기 위한 클로저 함수
-	            return function(result, status) {
-	            
-	                // 정상적으로 검색이 완료됐으면 
-	                 if (status === kakao.maps.services.Status.OK) {
-	            
-	                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-	            
-	                    // 결과값으로 받은 위치를 마커로 표시합니다
-	                    var marker = new kakao.maps.Marker({
-	                        map: map,
-	                        position: coords
-	                    });
-	            
-	                    // 인포윈도우로 장소에 대한 설명을 표시합니다
-	                    var infowindow = new kakao.maps.InfoWindow({
-	                        content: '업소명 :<div style="width:150px;text-align:left;padding:0px 0;">'+name+'</div><br>'+
-	                        '전화번호 :<div style="width:150px;text-align:left;padding:0px 0;">'+tell+'</div>'
-	                    });
-	                    
-	                    
-	                  // mouse를 올리면 infoWindow 보이기
-	                  kakao.maps.event.addListener(marker,'mouseover', function() {
-	                           infowindow.open(map, marker);
-	                        });
-	   
-	                  // mouse를 이동하면 infoWindow 지우기
-	                  kakao.maps.event.addListener(marker,'mouseout', function() {
-	                           infowindow.close();
-	                        });
-	   
-	                    
-	                    // 마커에 클릭이벤트를 등록합니다
-	                    kakao.maps.event.addListener(marker, 'click', function() {
-	                       //클릭한 해당 마크의 name 과 tell 을 쿼리스트링으로 get 방식으로 넘겨줌 
-	                       location.href = "foodshop_info.jsp?name=" +name+"&&tell="+tell;
-	                    });
-	         
-	                } 
-	                
-	            }
-	         }
-	      };
-	   
-		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-		var options = { //지도를 생성할 때 필요한 기본 옵션
-	  	center: new kakao.maps.LatLng(35.110458, 126.877987), //지도의 중심좌표(위도,경도)
-	  	level: 1 //지도의 레벨(확대, 축소 정도)
-	};	
-
-	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-	</script>
+  	 
+  	  
   	  <table style="width:320px;">
 							<tr>
 						       <td id="td1">도시</td>
@@ -632,13 +579,108 @@ var currentTime = function(){
 								</tr>
 								
 					</table>
+					<div><a href="maps.jsp" style="font-size:20px;position:absolute;left:130px;">지도</a></div>
 					<div>
-						<a href="maps.jsp"
-							class="snip1535"> <b class="btn2">검색하기</b>
-						</a>
+						<p id="onecctv"><%=data%></p>
 					</div>
   	  
    </div>
+   
+  <script type="text/javascript"></script>
+	<script>
+	if(localStorage.getItem('키')){ 
+	      var lastData = localStorage.getItem('키')
+	      console.log(lastData);
+	      }
+		
+	$.ajax({
+		url : 'cctv',//요청할 url
+		type : 'get',	// 전송방식
+		dataType : 'json', //받아올 데이터 타입
+		data:{
+			"addr":lastData
+		},
+		success: function(cctvpoint){
+			alert('성공');
+			console.log("test"+cctvpoint);
+			makeMap(cctvpoint); // 지도를 만들어 주는 함수 
+		},
+		error : function(){
+			alert("실패");
+		}
+	});
+	
+	function makeMap(cctv){
+		var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
+
+		    mapOption = {
+		        center: new kakao.maps.LatLng(35.110458, 126.877987), // 지도의 중심좌표
+		        level: 3, // 지도의 확대 레벨
+		        mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+		    }; 
+
+
+		// 지도를 생성합니다    
+		var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+		
+		for(var i=0;i<cctv.length;i++){//광주 남구 송하동 373 광주 남구 송암로 66
+			var addr = cctv[i].addr;
+			geocoder.addressSearch(cctv[i].addr, info(addr));
+			console.log(cctv[i].addr);
+		}
+		
+		function info(addr){
+			return function(result, status){
+				//geocoder.addressSearch("광주 남구 송하동 373", function (result, status) {
+				//return function(result, status) {
+		    // 정상적으로 검색이 완료됐으면 
+		     if (status === kakao.maps.services.Status.OK) {
+
+		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+		        // 결과값으로 받은 위치를 마커로 표시합니다
+		        var marker = new kakao.maps.Marker({
+		            map: map,
+		            position: coords,
+		            clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+		        });
+		     
+		        // 인포윈도우로 장소에 대한 설명을 표시합니다
+		        var infowindow = new kakao.maps.InfoWindow({
+		            content: '<div style="width:10px;text-align:center;padding:6px 0;">SUDDEN 안심구역</div>'
+		        });
+		        infowindow.open(map, marker);
+
+		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+		        map.setCenter(coords);
+		        }
+		  // 마커에 클릭이벤트를 등록합니다
+		     kakao.maps.event.addListener(marker, 'click', function() {
+		           // 마커 위에 인포윈도우를 표시합니다
+		           //infowindow.open(map, marker);
+		          
+
+
+		         location.href="chat.jsp?data="+encodeURI(encodeURIComponent(addr));
+		         alert(addr);
+		     });
+		    //} 
+
+		}
+			
+
+		}
+	}
+		
+			
+
+
+
+
+	</script>
    
 </body>
 </html>
