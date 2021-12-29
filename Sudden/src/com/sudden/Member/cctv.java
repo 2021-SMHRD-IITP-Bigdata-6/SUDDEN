@@ -22,7 +22,7 @@ public class cctv extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String addr=request.getParameter("addr");
-		System.out.println("90"+addr);
+		System.out.println("선택한 동 = "+addr);
 		cctvDTO dto=new cctvDTO(addr);
 		
 		cctvDAO dao =new cctvDAO();
