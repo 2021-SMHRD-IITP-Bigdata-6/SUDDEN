@@ -174,10 +174,10 @@
                                 <tr>
                                     <td class="shoping__cart__item">
                                         <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Vegetable’s Package</h5>
+                                        <h5>여기에 상품명 GOODS_NAME </h5>
                                     </td>
                                     <td class="shoping__cart__price">
-                                        98,000원
+                                        	가격 GOODS_PRICE
                                     </td>
                                     <td class="shoping__cart__total">
                                         <i class="fa fa-heart"></i>
