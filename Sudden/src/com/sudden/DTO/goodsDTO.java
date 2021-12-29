@@ -63,6 +63,12 @@ public class goodsDTO {
 		this.name = name;
 		this.img = img;
 		this.price = price;
+	}public goodsDTO(int seq, String name, String content, String img, int price) {
+		this.seq = seq;
+		this.name = name;
+		this.content=content;
+		this.img = img;
+		this.price = price;
 	}
 
 

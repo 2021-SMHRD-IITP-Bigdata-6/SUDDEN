@@ -151,12 +151,13 @@ public class goodsDAO {
 		rs = psmt.executeQuery();
 
 		while (rs.next()) {
+			int seq = rs.getInt("goods_seq");
 			String name = rs.getString("goods_name");
 			String content = rs.getString("goods_content");
 			String img = rs.getString("goods_img");
 			int price = rs.getInt("goods_price");
 
-			gddto = new goodsDTO(name,content, img, price);
+			gddto = new goodsDTO(seq,name,content, img, price);
 			
 			cnt = 1;
 		}
