@@ -67,20 +67,29 @@ public class InterDAO {
 
 	}
 
-	public int addInter(InterDTO dto) { /// 관심추가
+	public ArrayList<goodsDTO> addInter(goodsDTO dto) { /// 관심추가
+		
+		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
+		
 		try {
 
 			getconn();
 
-			String sql = "INSERT INTO tbl_my_goods (INTER_SEQ, GOODS_SEQ, INTER_DATE,MEM_ID, INTER_MEMO) VALUES (?,?,sysdate,?,?) ";
-			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, idto.getItr_seq()); 
-			psmt.setInt(2, idto.getSeq()); 
-			psmt.setString(3, idto.getId()); 
-			psmt.setString(4, idto.getMemo()); 
-
-			cnt = psmt.executeUpdate();
-			System.out.println("Ny goods update");
+			String sql = "select * from tbl_product where goods_seq=?";
+			psmt = conn.prepareStatement(sql); 
+			psmt.setInt(1, dto.getSeq()); 
+ 
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				int seq = rs.getInt("goods_seq");
+				String name = rs.getString("goods_name");
+				String img = rs.getString("goods_img");
+				int price = rs.getInt("goods_price");
+				
+				gdto = new goodsDTO(seq,name,img,price);
+				arr.add(gdto);
+				
+			}
 		} catch (Exception e) {
 			System.out.println("클래스파일 로딩실패");
 			e.printStackTrace();
@@ -88,7 +97,7 @@ public class InterDAO {
 			cloes();
 		}
 
-		return cnt;
+		return arr;
 
 	}
 
