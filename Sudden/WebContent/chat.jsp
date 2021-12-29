@@ -579,14 +579,15 @@ var currentTime = function(){
 								</tr>
 								
 					</table>
-					<div><a href="maps.jsp" style="font-size:20px;position:absolute;left:130px;">지도</a></div>
+					<div><a href="maps.jsp" style="font-size:20px;position:absolute;left:130px;">지도 크게 보기</a></div>
+					<form><input type="button" value="검색하기" onClick="window.location.href=window.location.href"></form>
 					<div>
-						<p id="onecctv"><%=data%></p>
+						<p id="onecctv"></p>
 					</div>
   	  
    </div>
    
-  <script type="text/javascript"></script>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9721db22573b52ec59546dbe834b5f05&libraries=services,clusterer,drawing"></script>
 	<script>
 	if(localStorage.getItem('키')){ 
 	      var lastData = localStorage.getItem('키')
@@ -601,7 +602,7 @@ var currentTime = function(){
 			"addr":lastData
 		},
 		success: function(cctvpoint){
-			alert('성공');
+			//alert('성공');
 			console.log("test"+cctvpoint);
 			makeMap(cctvpoint); // 지도를 만들어 주는 함수 
 		},
@@ -650,7 +651,7 @@ var currentTime = function(){
 		     
 		        // 인포윈도우로 장소에 대한 설명을 표시합니다
 		        var infowindow = new kakao.maps.InfoWindow({
-		            content: '<div style="width:10px;text-align:center;padding:6px 0;">SUDDEN 안심구역</div>'
+		            content: '<div style="font-size:10px; width:100px; text-align:center; height:10px;">SUDDEN SAFE ZONE</div>'
 		        });
 		        infowindow.open(map, marker);
 
@@ -664,8 +665,10 @@ var currentTime = function(){
 		          
 
 
-		         location.href="chat.jsp?data="+encodeURI(encodeURIComponent(addr));
+		         //location.href="chat.jsp?data="+encodeURI(encodeURIComponent(addr));
 		         alert(addr);
+		         document.getElementById("onecctv").innerHTML=addr;
+		         
 		     });
 		    //} 
 

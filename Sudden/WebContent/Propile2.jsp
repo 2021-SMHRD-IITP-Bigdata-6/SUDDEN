@@ -199,7 +199,7 @@
 						onclick="updatecheck()" />
 					적용
 					</button>
-					<a class="snip1535" href="index.jsp">돌아가기</a>
+					<a class="snip1535" href="Mypage.jsp">돌아가기</a>
 
 				</div>
 			</div>
