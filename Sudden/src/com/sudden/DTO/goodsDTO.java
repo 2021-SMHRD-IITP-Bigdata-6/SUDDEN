@@ -33,17 +33,21 @@ public class goodsDTO {
 	public goodsDTO(int seq) {
 		this.seq = seq;
 	}
-	
-	
-	
-	 public goodsDTO(String img, int i) { this.img = img;
+	 public goodsDTO(String img, int i) { 
+		 this.img = img;
 	  
 	  }
+	 
+	 public goodsDTO(int seq, String id) {
+			this.seq = seq;
+			this.id = id;
+		}
 	
+
 	public goodsDTO(String img, String id) {
 		
 		this.img = img;
-		this.id = id;
+		
 	}
 
 	public goodsDTO(String name, String img, int price) {
@@ -61,6 +65,18 @@ public class goodsDTO {
 	public goodsDTO(int seq, String name, String img, int price) {
 		this.seq = seq;
 		this.name = name;
+		this.img = img;
+		this.price = price;
+	}public goodsDTO(int seq, String name, String img, int price ,String id) {
+		this.seq = seq;
+		this.name = name;
+		this.img = img;
+		this.price = price;
+		this.id = id;
+	}public goodsDTO(int seq, String name, String content, String img, int price) {
+		this.seq = seq;
+		this.name = name;
+		this.content=content;
 		this.img = img;
 		this.price = price;
 	}
