@@ -121,7 +121,7 @@
                             <span>전체 카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="shop-kate.jsp?cat_num=0">여성의류</a></li>
+							<li><a href="shop-kate.jsp?cat_num=0">여성의류</a></li>
 							<li><a href="shop-kate.jsp?cat_num=1">남성의류</a></li>
 							<li><a href="shop-kate.jsp?cat_num=2">신발</a></li>
 							<li><a href="shop-kate.jsp?cat_num=3">가방</a></li>
@@ -246,35 +246,29 @@
                     String name = request.getParameter("search");// 이거는 그냥 널값 들어가서
                     
                     int change_num = 0;
+
                     try{
 	                    change_num = Integer.parseInt(request.getParameter("change_num"));
+	                   
                     }catch(Exception e){
                     	
                     }
                     
                     int cat_num = 0;
+                    
                     try{
 	                    
 	                    cat_num = Integer.parseInt(request.getParameter("cat_num"));
                     }catch(Exception e){
                     	
                     }
-                    
-                    int change_kate = 0;
-					try{
-	                    
-						change_kate = Integer.parseInt(request.getParameter("change_kate"));
-                    }catch(Exception e){
-                    	
-                    }
-                    System.out.println("change_num= "+change_num);
-                    System.out.println("change_kate= "+change_kate);
+                    System.out.println("1change_num= "+change_num);
+                    System.out.println("1cat_num= "+(cat_num));
                     // 세션에 검색된 결과 정보를 담아둘거면 여기서 꺼내오는것도 바꿔줘야하지만,
                     // Controller에서 담아주는 부분도 바꿔주어야겠죠? 일단 거기까지 해봅시다. 그리고 하나더 있는데
                     
                     		
-                    goodsDTO sdto = (goodsDTO)session.getAttribute("sdto");//이부분 고치면 되나요? 여기서 받아와요 처음에 검색하기 전에 계속 오류떠서 그냥 만든거예요
-                	System.out.print("sdto= "+sdto);
+
              		goodsDAO dao = new goodsDAO();
              		String img ="";
              		String title ="";
@@ -286,18 +280,19 @@
 
                     ArrayList<goodsDTO> arr = null;
                     
-                    if(sdto!=null){   
+                    
                        // 만약 검색한 적이 있다면 여기 코드가 실행이 되겠죠? 네
                     		   
                        // 저희가 배웠던 것중에서 페이지가 바뀌어도 정보가 유지되려면 request가 아니라 어떤걸 사용했죠? 세션? 그렇죠 세션에 담아놔주면 되겠죠?
-                       System.out.println("sdto_name= "+sdto.getName());
-                       goodsDTO gdto = new goodsDTO(sdto.getName());
-                       arr = dao.Searchgoods(gdto);
-                       System.out.print("arr.size = "+arr.size());
+                       
+                       goodsDTO gdto = new goodsDTO(cat_num);
+                       arr = dao.kategoods(gdto);
+                       System.out.println("arr.size = "+arr.size());
                        int size=arr.size();//36
                        int i=change_num;//40
                        int z=0;
                        while(i!=size){
+                    	System.out.println("횟수="+i);
                        out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
                        out.print("<div class='product__item'>");//Upload/191.jpg
                        out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
@@ -315,68 +310,40 @@
                        z++;
        					
        						if(z==20){
+       							System.out.println("카테성공");
        							break;
        						}
        					
        				}                      
 
 
-                    }else{
-                    	
                     
-                       arr = dao.SearchAll();
-                       int size=arr.size();
-                       int i=change_num;
-                       while(i!=size){
-                       out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
-                       out.print("<div class='product__item'>");//Upload/191.jpg
-                       out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
-                       out.print("<ul class='product__item__pic__hover'>");
-                       out.print("<li><a href='shoping-cart.jsp'><i class='fa fa-heart'></i></a></li>");
-                       out.print("</ul>");
-                       out.print("</div>");
-                       out.print("<div class='product__item__text'>");
-                       out.print("<h6><a href='shop-details.jsp?goodsname="+arr.get(i).getName()+"'>"+arr.get(i).getName()+"</a></h6>");
-                       out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
-                       out.print("</div>");
-                       out.print("</div>");
-                       out.print("</div>");
-                       i++;
-       					
-       						if(i==20){
-       							break;
-       						}
-       					
-       				}
-
-                    }
-
-			%>
+                    	%>
                 </div>
                 <div class="product__pagination">    
      <%
      
-     int size= arr.size();
 	 int cout = size/20;
 	 if(size%20==0){
 		 cout=cout+1;
 	 }else{
 		 cout=cout+2;
 	 }
-	 int i=1;
+	 int a=1;
 	 int tw=0;
 	 System.out.println("밑에 ="+cout);
      while(true){
-    	 out.print("<a href='shop-grid.jsp?change_num="+tw+"'>"+i+"</a>");
     	 
-    	 i++;
+    	 out.print("<a href='shop-kate.jsp?cat_num="+cat_num+"&change_num="+tw+"'>"+a+"</a>");
+    	 a++;
     	 tw=tw+20;
     	 
-    	 if(cout==i) {
+    	 if(cout==a) {
     		 break;
     	 }
     	 
      }
+     System.out.println("카테끝");
 		%></div>
             </div>
         </div>

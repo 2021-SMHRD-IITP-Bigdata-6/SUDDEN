@@ -84,24 +84,24 @@
 							<i class="fa fa-bars"></i> <span>전체 카테고리</span>
 						</div>
 						<ul>
-							<li><a href="shop-grid.jsp?cat_num=1">여성의류</a></li>
-							<li><a href="shop-grid.jsp">남성의류</a></li>
-							<li><a href="shop-grid.jsp">신발</a></li>
-							<li><a href="shop-grid.jsp">가방</a></li>
-							<li><a href="shop-grid.jsp">시계/주얼리</a></li>
-							<li><a href="shop-grid.jsp">패션엑세서리</a></li>
-							<li><a href="shop-grid.jsp">디지털/가전</a></li>
-							<li><a href="shop-grid.jsp">스포츠/레저</a></li>
-							<li><a href="shop-grid.jsp">차량/오토바이</a></li>
-							<li><a href="shop-grid.jsp">키덜트</a></li>
-							<li><a href="shop-grid.jsp">도서/티켓/문구</a></li>
-							<li><a href="shop-grid.jsp">뷰티/미용</a></li>
-							<li><a href="shop-grid.jsp">가구/인테리어</a></li>
-							<li><a href="shop-grid.jsp">생활/가공식품</a></li>
-							<li><a href="shop-grid.jsp">유아동/출산</a></li>
-							<li><a href="shop-grid.jsp">반려동물용품</a></li>
-							<li><a href="shop-grid.jsp">기타</a></li>
-							<li><a href="shop-grid.jsp">서든나눔</a></li>
+							<li><a href="shop-kate.jsp?cat_num=0">여성의류</a></li>
+							<li><a href="shop-kate.jsp?cat_num=1">남성의류</a></li>
+							<li><a href="shop-kate.jsp?cat_num=2">신발</a></li>
+							<li><a href="shop-kate.jsp?cat_num=3">가방</a></li>
+							<li><a href="shop-kate.jsp?cat_num=4">시계/주얼리</a></li>
+							<li><a href="shop-kate.jsp?cat_num=5">패션엑세서리</a></li>
+							<li><a href="shop-kate.jsp?cat_num=6">디지털/가전</a></li>
+							<li><a href="shop-kate.jsp?cat_num=7">스포츠/레저</a></li>
+							<li><a href="shop-kate.jsp?cat_num=8">차량/오토바이</a></li>
+							<li><a href="shop-kate.jsp?cat_num=9">키덜트</a></li>
+							<li><a href="shop-kate.jsp?cat_num=10">도서/티켓/문구</a></li>
+							<li><a href="shop-kate.jsp?cat_num=11">뷰티/미용</a></li>
+							<li><a href="shop-kate.jsp?cat_num=12">가구/인테리어</a></li>
+							<li><a href="shop-kate.jsp?cat_num=13">생활/가공식품</a></li>
+							<li><a href="shop-kate.jsp?cat_num=14">유아동/출산</a></li>
+							<li><a href="shop-kate.jsp?cat_num=15">반려동물용품</a></li>
+							<li><a href="shop-kate.jsp?cat_num=16">기타</a></li>
+							<li><a href="shop-kate.jsp?cat_num=17">서든나눔</a></li>
 						</ul>
 					</div>
 				</div>
