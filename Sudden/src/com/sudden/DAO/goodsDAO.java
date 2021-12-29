@@ -300,7 +300,43 @@ public class goodsDAO {
 		return cnt;
 		
 		
-	}public ArrayList<goodsDTO> kategoods(goodsDTO gdto) {
+	}
+	
+	public ArrayList<goodsDTO> Sales(memberDTO dto) {
+		
+		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
+		
+		try {
+			
+			getconn();
+
+			String sql = "select * from tbl_product where mem_id = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				
+				String name = rs.getString("goods_name");
+				String img = rs.getString("goods_img");
+				int price = rs.getInt("goods_price");
+				
+				goodsDTO gdto = new goodsDTO(name, img, price);
+				arr.add(gdto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return arr;
+		
+		
+	}
+	public ArrayList<goodsDTO> kategoods(goodsDTO gdto) {
 		 
 		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
 		
@@ -340,46 +376,6 @@ public class goodsDAO {
 		return arr;
 		
 		
-	}
-
-	public ArrayList<goodsDTO> Sales(memberDTO dto) {
-		
-		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
-		
-		try {
-			
-			getconn();
-
-			String sql = "select * from tbl_product where mem_id = ?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getId());
-
-			rs = psmt.executeQuery();
-
-			while (rs.next()) {
-				
-				String name = rs.getString("goods_name");
-				String img = rs.getString("goods_img");
-				int price = rs.getInt("goods_price");
-	
-<<<<<<< HEAD
-	
-	
-=======
-				goodsDTO gdto = new goodsDTO(name, img, price);
-				arr.add(gdto);
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			cloes();
-		}
-		
-		return arr;
-		
-		
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
 	}
 	
 	
