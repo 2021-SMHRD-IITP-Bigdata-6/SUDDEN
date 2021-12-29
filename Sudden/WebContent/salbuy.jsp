@@ -28,6 +28,15 @@
     .td.shoping__cart__item {width: 555px; height: 261px;}
     .shoping__cart__table{background-color:white; width:700px; position:absolute;left:200px; top:100px;}
     .footer{width:100%;position:absolute;top:2000px; }
+    .shoping__cart__table table thead tr {
+	border-bottom: 3px solid #ebebeb;
+	}
+	.shoping__cart__item .images .shoping__cart__total .shoping__cart__price{
+	
+	}
+	
+	
+
     
     </style>
 	<!-- Favicon  -->
@@ -122,9 +131,9 @@
 		out.print("<tr>");
 		out.print("<td class='shoping__cart__item'>"+"");
 		out.print("<img class='images' src='Upload/"+arr.get(i).getImg()+"'>");
-        out.print("<td class='shoping__cart__total' style='width:300px; text-align:center;'>"+"");
+        out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
 		out.print("<h5>"+arr.get(i).getName()+"</h5>");
-		out.print("<td class='shoping__cart__price' style='width:200px; text-align:center;'>"+arr.get(i).getPrice()+"");
+		out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"");
 		out.print("</td>");
 		out.print("</tr>");
 	}
