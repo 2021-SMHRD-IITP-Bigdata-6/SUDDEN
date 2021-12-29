@@ -44,6 +44,7 @@
 	<!-- Header Section Begin -->
 	<header class="header">
 
+<<<<<<< HEAD
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
@@ -104,6 +105,51 @@
 						<div class="header__top__right__auth">
 							<div class="hero__search__login">
 								<!-- 로그인하는곳 -->
+=======
+    <!-- Hero Section Begin -->
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>전체 카테고리</span>
+                        </div>
+                        <ul>
+                            <li><a href="shop-kate.jsp?cat_num=0">여성의류</a></li>
+							<li><a href="shop-kate.jsp?cat_num=1">남성의류</a></li>
+							<li><a href="shop-kate.jsp?cat_num=2">신발</a></li>
+							<li><a href="shop-kate.jsp?cat_num=3">가방</a></li>
+							<li><a href="shop-kate.jsp?cat_num=4">시계/주얼리</a></li>
+							<li><a href="shop-kate.jsp?cat_num=5">패션엑세서리</a></li>
+							<li><a href="shop-kate.jsp?cat_num=6">디지털/가전</a></li>
+							<li><a href="shop-kate.jsp?cat_num=7">스포츠/레저</a></li>
+							<li><a href="shop-kate.jsp?cat_num=8">차량/오토바이</a></li>
+							<li><a href="shop-kate.jsp?cat_num=9">키덜트</a></li>
+							<li><a href="shop-kate.jsp?cat_num=10">도서/티켓/문구</a></li>
+							<li><a href="shop-kate.jsp?cat_num=11">뷰티/미용</a></li>
+							<li><a href="shop-kate.jsp?cat_num=12">가구/인테리어</a></li>
+							<li><a href="shop-kate.jsp?cat_num=13">생활/가공식품</a></li>
+							<li><a href="shop-kate.jsp?cat_num=14">유아동/출산</a></li>
+							<li><a href="shop-kate.jsp?cat_num=15">반려동물용품</a></li>
+							<li><a href="shop-kate.jsp?cat_num=16">기타</a></li>
+							<li><a href="shop-kate.jsp?cat_num=17">서든나눔</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="Searchgoods.do"><!-- 검색하는곳 Search.do -->
+                                <input type="text" id="search" name="search" placeholder="찾고 싶은 상품을 검색해 보세요">
+                                <button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
+                            </form>
+                        </div>
+                        <div class="header__top__right__auth">
+                        <div class="hero__search__login">
+                            <!-- 로그인하는곳 -->
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
 
 								<%
 								if (dto == null) {
@@ -116,9 +162,13 @@
 								<!-- 로그인 후 아이콘-->
 								<div class="login__box">
 									<div class="profile">
+<<<<<<< HEAD
 										<span class="profile__picture"><i
 											class="fa fa-user-circle fa-lg"></i></span> <span><%= dto.getId() %>님
 											환영합니다!</span>
+=======
+										<span><%= dto.getId() %>님 환영합니다!</span>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-6/SUDDEN.git
 									</div>
 									<div class="icon">
 										<div class="MyPage">

@@ -25,30 +25,29 @@ public class goodsDTO {
 		this.update = update;
 		this.id = id;
 	}
-	
-	
-	
-	
+
+
 	public goodsDTO(String name) {
 		this.name = name;
 	}
 	public goodsDTO(int seq) {
 		this.seq = seq;
 	}
+	 public goodsDTO(String img, int i) { 
+		 this.img = img;
+	  
+	  }
+	 
+	 public goodsDTO(int seq, String id) {
+			this.seq = seq;
+			this.id = id;
+		}
 	
-	public goodsDTO(String img, int i) {
-		this.img = img;
-		
-	}
-	public goodsDTO(int seq, String id) {
-		this.seq = seq;
-		this.id = id;
-		
-	}
+
 	public goodsDTO(String img, String id) {
 		
 		this.img = img;
-		this.id = id;
+		
 	}
 
 	public goodsDTO(String name, String img, int price) {
@@ -93,6 +92,9 @@ public class goodsDTO {
 		this.price = price;
 		this.id = id;
 	}
+	
+	
+
 
 
 

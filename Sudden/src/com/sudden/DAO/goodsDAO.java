@@ -223,8 +223,7 @@ public class goodsDAO {
 				
 			}
 			
-			
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -303,9 +302,84 @@ public class goodsDAO {
 		
 	}
 	
-	
+	public ArrayList<goodsDTO> Sales(memberDTO dto) {
+		
+		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
+		
+		try {
+			
+			getconn();
+
+			String sql = "select * from tbl_product where mem_id = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				
+				String name = rs.getString("goods_name");
+				String img = rs.getString("goods_img");
+				int price = rs.getInt("goods_price");
+				
+				goodsDTO gdto = new goodsDTO(name, img, price);
+				arr.add(gdto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return arr;
+		
+		
+	}
+	public ArrayList<goodsDTO> kategoods(goodsDTO gdto) {
+		 
+		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
+		
+		try {
+			
+			getconn();
+			System.out.println("goodsdao_kate = "+gdto.getSeq());
+			String sql = "select * from tbl_product where goods_cat = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, gdto.getSeq());
+
+			rs = psmt.executeQuery();
+			System.out.println("goodsdao_kate_sql 성공");
+			int i = 1;
+			while (rs.next()) {
+				if(i<=2) {System.out.println("rs성공");}
+				int seq = rs.getInt("goods_seq");
+				String name = rs.getString("goods_name");
+				String img = rs.getString("goods_img");
+				int price = rs.getInt("goods_price");
+				
+				dto = new goodsDTO(seq, name, img, price);
+				arr.add(dto);
+				i++;
+				
+			}
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return arr;
+		
+		
 	}
 	
-
 	
+	
+}
+
 

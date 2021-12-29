@@ -97,7 +97,7 @@
 
 	<script src="js/jquery-3.3.1.min.js"></script>
 	<!-- 키값 -->
-	<script type="text/javascript"> </script>
+	<script type="text/javascript"src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9721db22573b52ec59546dbe834b5f05&libraries=services,clusterer,drawing"> </script>
 	<script>
 	if(localStorage.getItem('키')){ 
 	      var lastData = localStorage.getItem('키')
