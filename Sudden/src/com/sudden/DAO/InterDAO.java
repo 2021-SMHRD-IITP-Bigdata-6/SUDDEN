@@ -121,15 +121,15 @@ public class InterDAO {
 		return cnt;
 	}
 
-	public int resetInter(goodsDTO dto) { // 관심삭제 /딱히 삭제버튼 없음
+	public int resetInter(String name) { // 관심삭제 /딱히 삭제버튼 없음
 
 		getconn();
 
-		String sql = "delere from tbl_my_goods where goods_seq=? ?";
+		String sql = "delere from tbl_my_goods where goods_name=?";
 
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, dto.getSeq());
+			psmt.setString(1, name);
 			
 			cnt = psmt.executeUpdate();
 
@@ -167,7 +167,7 @@ public class InterDAO {
 
 		return arr;
 
-	}public int checkInter(String cid) { // 관심등록한 값 저장하기
+	}public int checkInter(String cid) { //관심 상품 체크용
 		int check=0;
 		getconn();
 		try {
