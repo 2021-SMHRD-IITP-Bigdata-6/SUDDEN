@@ -56,13 +56,14 @@ public class cctvDAO {
 	}
 public ArrayList<cctvDTO> cctv_addr(cctvDTO dto) {
 	ArrayList<cctvDTO> cctv_list = new ArrayList<cctvDTO>();
-		try {
+		
+	try {
+		getconn();
 
-			getconn();
 
 			System.out.println("CCTVDAO = "+dto.getCctv());
 
-			String sql = "select *from tbl_cctv where cam_addr like ?";
+			String sql = "select * from tbl_cctv where cam_addr like ?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1,"%"+dto.getCctv()+"%");
 
@@ -71,7 +72,11 @@ public ArrayList<cctvDTO> cctv_addr(cctvDTO dto) {
 			while(rs.next()) {
 				String addr= rs.getString("cam_addr");
 				dto = new cctvDTO(addr);
-				   cctv_list.add(dto);
+
+				cctv_list.add(dto);
+				System.out.println("78"+cctv_list.size());
+				System.out.println("addr왜"+addr);
+
 				   
 			}
 			System.out.println("불러온 주소개수 ="+cctv_list.size());
