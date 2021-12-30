@@ -268,7 +268,7 @@
                           		//String cid="smart";         		
                           		System.out.println("관심cid= "+cid);
                         		int check = dao.checkInter(cid);
-                             	if(check<=0){
+                             	if(check<=0){ //관심상품없을떄
                             		out.print("<tr>");
   									out.print("<td class='shoping__cart__item'>");
   									out.print("<img src=''>");//alt=''  이미지가 없을 때 안에 텍스트로 대체
@@ -282,7 +282,7 @@
   									out.print("<a href='chat.jsp'></a>");
   									out.print("</td>");
   									out.print("</tr>");
-                              	}else{
+                              	}else{ //로그인 한 후 관심 아이콘에서  들어 갈때
                                     
                                     
                                     int i=0;
@@ -318,7 +318,7 @@
                               		
                               	}
                               }
-                              else{
+                              else{ //상품쪽에서 관심상품 들어 갈때
                               
                                  
                                  int i=0;
@@ -337,7 +337,7 @@
     								out.print("</td>");
     								out.print("<td class='shoping__cart__price'>"+arr.get(i).getPrice()+"</td>");
     								out.print("<td class='shoping__cart__total'>");
-    								out.print("<a href='DeleteInter.do?delete_seq="+iarr.get(j).getSeq()+"'>삭제</a>");
+    								out.print("<a href='DeleteInter.do?delete_seq="+arr.get(j).getSeq()+"'>삭제</a>");
     								out.print("</td>");
     								out.print("<td class='shoping__cart__item__close'>");
     								out.print("<a href='chat.jsp' class='snip1535two'>채팅</a>");
