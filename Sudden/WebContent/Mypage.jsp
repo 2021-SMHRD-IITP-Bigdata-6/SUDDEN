@@ -314,7 +314,7 @@
 							<dl class="sh_lst2">
 								<dt class="blind">&nbsp;</dt>
 								<dd class="intro_desc">&nbsp;</dd>
-								<div onclick="location.href='salbuy2.jsp';" style="cursor:pointer">구매내역</div>
+								<div onclick="location.href='pur_history.jsp';" style="cursor:pointer">구매내역</div>
 								<dt class="blind">&nbsp;</dt>
 								<dd class="intro_desc">&nbsp;</dd>
 								<dt class="blind">&nbsp;</dt>
@@ -323,7 +323,7 @@
 								<dd class="intro_desc">&nbsp;</dd>
 								<dt class="blind">&nbsp;</dt>
 								<dd class="intro_desc">&nbsp;</dd>
-								<div onclick="location.href='salbuy.jsp';" style="cursor:pointer">판매내역</div>
+								<div onclick="location.href='sal_history.jsp';" style="cursor:pointer">판매내역</div>
 								<dt class="blind">&nbsp;</dt>
 								<dd class="intro_desc">&nbsp;</dd>
 								<dt class="blind">&nbsp;</dt>

@@ -76,7 +76,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.jsp"><img style="width:210px; height:180px;" src="img/logo4.PNG" alt=""></a>
+                        <a href="./index.jsp"><img style="width:190px; height:150px;" src="img/logo4.PNG" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -356,12 +356,12 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.jsp"><img style="width:230px; height:200px;" src="img/logo2.jpg" alt=""></a>
+                            <a href="./index.jsp"><img style="width:170px; height:150px;" src="img/logo2.jpg" alt=""></a>
                         </div>
                         <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
+                            <li>Address: 광주광역시 남구 송암로 60</li>
+                            <li>Phone: 000-0000-0000</li>
+                            <li>Email: jcm829700@naver.com</li>
                         </ul>
                     </div>
                 </div>

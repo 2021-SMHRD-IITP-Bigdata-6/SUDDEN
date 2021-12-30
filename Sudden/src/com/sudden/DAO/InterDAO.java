@@ -177,15 +177,20 @@ public class InterDAO {
 		
 		getconn();
 
-		String sql = "delete from tbl_my_goods where goods_name=?";
+		String sql = "delete from tbl_my_goods where goods_seq=?";
 
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, seq);
 			
 			cnt = psmt.executeUpdate();
+			
+			if(cnt<0) {
+				System.out.println("삭제실패");
+			}
 
 		} catch (Exception e) {
+			System.out.println("클래스파일 로딩실패");
 			e.printStackTrace();
 		} finally {
 			cloes();

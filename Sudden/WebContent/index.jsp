@@ -547,7 +547,7 @@
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="footer__about">
 						<div class="footer__about__logo">
-							<a href="./index.jsp"><img style="width:200px; height:180px;" src="img/logo2.jpg" alt=""></a>
+							<a href="./index.jsp"><img style="width:170px; height:150px;" src="img/logo2.jpg" alt=""></a>
 						</div>
 						<ul>
 							<li>Address: 광주광역시 남구 송암로 60</li>

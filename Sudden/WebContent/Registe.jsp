@@ -111,21 +111,12 @@
             <div class="row">
                 <div class="col-lg-3">
                       <div class="header__logo">
-                        <a href="./index.jsp"><img style="widht:100px;height:200px;" src="img/logo4.PNG" alt=""></a>
+                        <a href="./index.jsp"><img style="widht:170px;height:150px;" src="img/logo4.PNG" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="header__menu">
-                        <ul>
-                            <li><a href="./index.html">Home</a></li>
-                            <li class="active"><a href="./shop-grid.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                        
                     </nav>
                 </div>
             </div>
@@ -146,7 +137,7 @@
                             <i class="fa fa-bars"></i>
                             <span>전체 카테고리</span>
                         </div>
-                        <form action="katelist.do">
+                        
                         <ul>
                             <li><a href="shop-kate.jsp?cat_num=0">여성의류</a></li>
 							<li><a href="shop-kate.jsp?cat_num=1">남성의류</a></li>
@@ -167,7 +158,7 @@
 							<li><a href="shop-kate.jsp?cat_num=16">기타</a></li>
 							<li><a href="shop-kate.jsp?cat_num=17">서든나눔</a></li>
                         </ul>
-                        </form>
+                        
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -250,7 +241,7 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
-                        	<img src="#" id="file_check_img" alt="여기에 미리보기로 보여줄 대체 이미지 하나 구해서 넣어놓으면 될 것 같구요">
+                        	<img src="img/imgsample.PNG" style="width:500px;height:400px;" id="file_check_img">
                         </div>
 
                     </div>
@@ -349,7 +340,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img style="widht:200px;height:250px;" src="img/logo2.jpg" alt=""></a>
+                            <a href="./index.html"><img style="widht:170px;height:150px;" src="img/logo2.jpg" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 60-49 Road 11378 New York</li>

@@ -317,12 +317,13 @@ public class goodsDAO {
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				
+				int seq = rs.getInt("goods_seq");
 				String name = rs.getString("goods_name");
 				String img = rs.getString("goods_img");
 				int price = rs.getInt("goods_price");
+				String status = rs.getString("goods_status");
 				
-				goodsDTO gdto = new goodsDTO(name, img, price);
+				goodsDTO gdto = new goodsDTO(seq, name, img, price,status,0);
 				arr.add(gdto);
 			}
 			
@@ -376,6 +377,29 @@ public class goodsDAO {
 		return arr;
 		
 		
+	}
+
+	public int Salcmplte(goodsDTO dto) {
+		
+		try {
+			System.out.println("ÇÉ¸Å¿Ï·ádao");
+			System.out.println("ÇÉ¸Å¿Ï·ádao_seq = "+dto.getSeq() );
+			getconn();
+			String sql = "update tbl_product set goods_status = 'Y' where goods_seq = ? ";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, dto.getSeq());
+
+			cnt = psmt.executeUpdate();
+			System.out.println("ÇÉ¸Å¿Ï·ádao_cnt = "+cnt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+
+				
+		
+		return cnt;
 	}
 	
 	
