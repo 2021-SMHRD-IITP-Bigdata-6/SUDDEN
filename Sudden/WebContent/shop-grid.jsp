@@ -297,6 +297,7 @@
                        int i=change_num;//40
                        int z=0;
                        while(i!=size){
+                       String status = arr.get(i).getStatus();
                        out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
                        out.print("<div class='product__item'>");//Upload/191.jpg
                        out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
@@ -306,7 +307,11 @@
                        out.print("</div>");
                        out.print("<div class='product__item__text'>");
                        out.print("<h6><a href='shop-details.jsp?goodsseq="+arr.get(i).getSeq()+"'>"+arr.get(i).getName()+"</a></h6>");
-                       out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
+                       if(status.equals("Y")){
+                    	   out.print("<h5>판매완료</h5>");
+                       }else{
+                    	   out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
+                       }
                        out.print("</div>");
                        out.print("</div>");
                        out.print("</div>");
