@@ -187,6 +187,8 @@ public class InterDAO {
 			
 			if(cnt<0) {
 				System.out.println("삭제실패");
+			}else {
+				System.out.println("삭제성공");
 			}
 
 		} catch (Exception e) {

@@ -17,17 +17,28 @@ public class DeleteInterService implements Command{
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		int seq = Integer.parseInt(request.getParameter("delete_saq"));
+		String nextpage="";
+		int cnt = 0;
+		String seq = request.getParameter("delete_seq");
+		//int seq = Integer.parseInt(request.getParameter("delete_saq"));
 		System.out.println("seq=" + seq);
+		
+		int g_seq =Integer.parseInt(seq);
+		System.out.println("int형 변경 = " + g_seq);
 		//int g_seq = Integer.parseInt(seq);
-		System.out.println("삭제하는  상품번호:"+seq);
+		System.out.println("삭제하는  상품번호:" + g_seq);
 		
 		request.setCharacterEncoding("utf-8");
 		
 		InterDAO dao = new InterDAO();
-		int cnt = dao.DeleteInter(seq);
-
-		return "shoping-cart.jsp";
+		cnt = dao.DeleteInter(g_seq);
+		
+		if(cnt>=0) {
+			nextpage= "shoping-cart.jsp";
+		}
+		System.out.println("이동할 페이지"+nextpage);
+		
+		return nextpage;
 	}
 
 

@@ -146,9 +146,7 @@ public class FrontController extends HttpServlet {
 				}
 				
 				
-				if(nextpage != null) {
-					response.sendRedirect(nextpage);
-				}else if(command.equals("UpdateCon.do")) {
+				else if(command.equals("UpdateCon.do")) {
 					
 					com = new UpdateService();
 					nextpage = com.execute(request, response);
@@ -163,7 +161,10 @@ public class FrontController extends HttpServlet {
 					com = new DeleteInterService();
 					nextpage = com.execute(request, response);
 		
-	}
+				}
+				if(nextpage != null) {
+					response.sendRedirect(nextpage);
+				}
 
-}
+	}
 }
