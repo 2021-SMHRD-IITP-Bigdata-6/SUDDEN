@@ -156,8 +156,9 @@ public class goodsDAO {
 			String content = rs.getString("goods_content");
 			String img = rs.getString("goods_img");
 			int price = rs.getInt("goods_price");
+			String status = rs.getString("goods_status");
 
-			gddto = new goodsDTO(seq,name,content, img, price);
+			gddto = new goodsDTO(seq,name,content, img, price, status);
 			
 			cnt = 1;
 		}
@@ -253,9 +254,11 @@ public class goodsDAO {
 				String name = rs.getString("goods_name");
 				String img = rs.getString("goods_img");
 				int price = rs.getInt("goods_price");
-	
-				dto = new goodsDTO(seq, name, img, price);
+				String status = rs.getString("goods_status");
+				
+				goodsDTO dto = new goodsDTO(seq, name, img, price,status,0);
 				arr.add(dto);
+				
 				
 			}
 			
@@ -352,17 +355,17 @@ public class goodsDAO {
 
 			rs = psmt.executeQuery();
 			System.out.println("goodsdao_kate_sql 성공");
-			int i = 1;
+			
 			while (rs.next()) {
-				if(i<=2) {System.out.println("rs성공");}
 				int seq = rs.getInt("goods_seq");
 				String name = rs.getString("goods_name");
 				String img = rs.getString("goods_img");
 				int price = rs.getInt("goods_price");
+				String status = rs.getString("goods_status");
 				
-				dto = new goodsDTO(seq, name, img, price);
+				goodsDTO dto = new goodsDTO(seq, name, img, price,status,0);
 				arr.add(dto);
-				i++;
+				
 				
 			}
 			

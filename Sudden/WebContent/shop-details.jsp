@@ -30,6 +30,21 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
+<style>
+#asu{
+    font-size: 30px;
+    color: black;
+    margin-left: 50px;
+}
+
+#tdsu{
+    font-size: 20px;
+    margin-bottom: 18px;
+    margin-right: -2px;
+    color: #000000;
+}
+</style>
+
 <body>
 
 	<%   goodsDTO gdto = null;
@@ -235,21 +250,41 @@
 
                     </div>
                 </div>
-                <% out.print("<div class='product__details__text'>");
-                    
-                     out.print("<h3>"+gdto.getName()+"</h3>");
-                     out.print("<div class='product__details__price'>"+gdto.getPrice()+"</div>");
-                     out.print("<p>"+gdto.getContent()+"</p>");
-                     out.print("<a href='#' class='heart-icon'><span class='icon_heart_alt'></span></a>");
-                     out.print("<ul>");
-                     out.print("<li><b>가격</b><a style='font-size:30px; color:black;'>"+gdto.getPrice()+"</a></li>");
-                     if (dto == null) {
-                     	out.print("<li><b>연락하기</b><a href='log-in_details.jsp'><i class='fa fa-comment' style='font-size:50px; color:black;''></i></a></li>");
-                     } else {	
-                     	out.print("<li><b>연락하기</b><a href='chat.jsp?goodsseq="+gdto.getSeq()+"'><i class='fa fa-comment' style='font-size:50px; color:black;'></i></a></li>");
-                     }
-                     out.print("</ul>");
-                   out.print("</div>");
+             <% out.print("<div class='product__details__text'>");
+                String status = gdto.getStatus();
+               		out.print("<h3>"+gdto.getName()+"</h3>");
+                	//out.print("<div class='product__details__price'>"+gdto.getPrice()+"</div>");
+                	out.print("<p>"+gdto.getContent()+"</p>");
+                	out.print("<a href='#' class='heart-icon'><span class='icon_heart_alt'></span></a>");
+               		
+               		
+               		if(status.equals("Y")){
+               			out.print("<table>");
+               			out.print("<tr>");
+         				out.print("<td id='tdsu'><b>가격</b></td>");
+         				out.print("<td rowspan='2'><a id='asu' style='font-size:30px; color:black;'>판매완료</a></td>");
+         				out.print("</tr>");
+         				out.print("<tr>");
+         				out.print("<td id = 'tdsu'><b>연락하기</b></td>");
+         				out.print("</tr>");
+         				out.print("</table>");
+               		}else{
+               			out.print("<ul>");
+               			if(dto == null){
+               				out.print("<li><b>가격</b><a style='font-size:30px; color:black;'>"+gdto.getPrice()+"</a></li>");
+               				out.print("<li><b>연락하기</b><a href='log-in_details.jsp'><i class='fa fa-comment' style='font-size:50px; color:black;''></i></a></li>");
+               			}else{
+               				out.print("<li><b>가격</b><a style='font-size:30px; color:black;'>"+gdto.getPrice()+"</a></li>");
+               				out.print("<li><b>연락하기</b><a href='chat.jsp?goodsseq="+gdto.getSeq()+"'><i class='fa fa-comment' style='font-size:50px; color:black;'></i></a></li>");
+               			}
+               			out.print("/<ul>");
+               		}
+               		
+             		
+            				
+         			
+       				
+         		out.print("</div>");
                      	
                          %>
                 </div>
