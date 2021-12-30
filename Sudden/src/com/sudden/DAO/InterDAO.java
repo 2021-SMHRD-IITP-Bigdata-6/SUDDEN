@@ -173,7 +173,7 @@ public class InterDAO {
 		return check;
 	}
 
-	public int DeleteInter(int iseq) {
+	public int DeleteInter(int seq) {
 		
 		getconn();
 
@@ -181,7 +181,7 @@ public class InterDAO {
 
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, iseq);
+			psmt.setInt(1, seq);
 			
 			cnt = psmt.executeUpdate();
 			
