@@ -173,7 +173,7 @@ public class InterDAO {
 		return check;
 	}public int inter_ckeck(int iseq) { //관심 중복체크용
 		
-		int inter_ckeck=0;
+		int inter_ckeck = 0;
 		
 		getconn();
 		
@@ -186,7 +186,7 @@ public class InterDAO {
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
-				inter_ckeck=1;
+			 inter_ckeck=1;
 			}
 
 		} catch (Exception e) {
