@@ -205,11 +205,6 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script type="text/javascript">
-   	  const drawStar = (target) => {
-        document.querySelector(`.star span`).style.width = `${target.value * 10}%`;
-      }
-    </script>
 
 
 </body>
