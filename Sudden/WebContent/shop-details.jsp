@@ -255,8 +255,11 @@
                		out.print("<h3>"+gdto.getName()+"</h3>");
                 	//out.print("<div class='product__details__price'>"+gdto.getPrice()+"</div>");
                 	out.print("<p>"+gdto.getContent()+"</p>");
-                	out.print("<a href='#' class='heart-icon'><span class='icon_heart_alt'></span></a>");
-               		
+                	if(dto == null){
+                		out.print("<a href='log-in_details.jsp' class='heart-icon'><span class='icon_heart_alt'></span></a>");
+                	} else{
+                		out.print("<a href='shoping-cart.jsp?goodsseq="+gdto.getSeq()+"' class='heart-icon'><span class='icon_heart_alt'></span></a>");
+                	}
                		
                		if(status.equals("Y")){
                			out.print("<table>");
