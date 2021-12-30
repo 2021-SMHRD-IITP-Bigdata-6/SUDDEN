@@ -177,7 +177,7 @@
 											<span onclick="location.href='shoping-cart.jsp'" style="cursor: pointer;"><i class="fa fa-heart"></i></span>
 										</div>
 										<div class="Chatting">
-											<span onclick="location.href='#'" style="cursor: pointer;"><i class="fa fa-plus-circle"></i></span>
+											<span onclick="location.href='Registe.jsp'" style="cursor: pointer;"><i class="fa fa-plus-circle"></i></span>
 										</div>
 										<div class="Logout">
 										<span onclick="location.href='Logoutcon.do'" style="cursor: pointer;">Logout</span>
