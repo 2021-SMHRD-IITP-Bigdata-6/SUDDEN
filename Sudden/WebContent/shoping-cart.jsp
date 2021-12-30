@@ -306,7 +306,7 @@
        								out.print("<a href='DeleteInter.do?delete_seq="+marr.get(i).getSeq()+"'>삭제</a>");
        								out.print("</td>");
        								out.print("<td class='shoping__cart__item__close'>");
-       								out.print("<a href='chat.jsp?goodsseq="+marr.get(i).getSeq()+"' class='snip1535two'>채팅</a>");
+       								out.print("<a href='chat.jsp' class='snip1535two'>채팅</a>");
        								out.print("</td>");
        								out.print("</tr>");
        								j++;
@@ -319,7 +319,6 @@
                               	}
                               }
                               else{ //상품쪽에서 관심상품 들어 갈때
-                              // 이부분이에요? 네네
                                  
                                  int i=0;
                                  int j=0;
@@ -340,7 +339,7 @@
     								out.print("<a href='DeleteInter.do?delete_seq="+arr.get(i).getSeq()+"'>삭제</a>");
     								out.print("</td>");
     								out.print("<td class='shoping__cart__item__close'>");
-    								out.print("<a href='chat.jsp?goodsseq="+marr.get(i).getSeq()+"' class='snip1535two'>채팅</a>");
+    								out.print("<a href='chat.jsp' class='snip1535two'>채팅</a>");
     								out.print("</td>");
     								out.print("</tr>");
     								j++;
