@@ -1,6 +1,6 @@
 <%@page import="com.sudden.DTO.memberDTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +86,7 @@
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="btn-outline-sm" href="shop-grid.jsp" id="back">���ư���</a>
+                    <a class="btn-outline-sm" href="shop-grid.jsp" id="back">돌아가기</a>
                 </span>
             </div>
         </div> <!-- end of container -->
@@ -104,7 +104,7 @@
                     	
                     }
 
-                    System.out.println("�α���sdto = "+sdto);
+                    System.out.println("로그인sdto = "+sdto);
                     
     %>
 
@@ -114,30 +114,30 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>�α���</h1>
+                    <h1>로그인</h1>
                     <!-- Sign Up Form -->
                     <div class="form-container">
                         <form id="signUpForm" action="Logincon_grid.do" data-toggle="validator" data-focus="false">
                         
                         <input type="hidden" name="sdto" value="<%=sdto%>">
                             <div class="form-group">
-                                <input type="text" id="login_id" class="form-control-input" name="id"  placeholder="ID�� �Է��ϼ���">
+                                <input type="text" id="login_id" class="form-control-input" name="id"  placeholder="ID를 입력하세요">
                                 <a name="type"></a>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="login_pw" class="form-control-input" name="pw"  placeholder="PW�� �Է��ϼ���">
+                                <input type="text" id="login_pw" class="form-control-input" name="pw"  placeholder="PW를 입력하세요">
                                 
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" value="LogIn" class="form-control-submit-button" id="loginCheck" value="loginUs" onclick="login_Check()">�α���</button>
+                                <button type="submit" value="LogIn" class="form-control-submit-button" id="loginCheck" value="loginUs" onclick="login_Check()">로그인</button>
                             </div>
                             <div class="form-message">
                                 <div id="smsgSubmit" class="h3 text-center hidden"></div>
                             </div>
-                            <p>���� ȸ���̾ƴϼ���? <a class="white" href="sign-up.html">ȸ������</a></p> 
-                            <p>��й�ȣ�� �������� �ʳ���? <a class="white" href="pwupdate.html">���ã��</a></p> 
+                            <p>아직 회원이아니세요? <a class="white" href="sign-up.html">회원가입</a></p> 
+                            <p>비밀번호가 생각나지 않나요? <a class="white" href="pwupdate.html">비번찾기</a></p> 
                         </form>
                     </div> <!-- end of form container -->
                     <!-- end of sign up form -->
@@ -174,13 +174,13 @@
 							if(res=='true'){
 								
 							}else{
-								alert("���̵� Ȥ�� ��й�ȣ�� Ȯ�����ּ���.");
+								alert("아이디 혹은 비밀번호를 확인해주세요.");
 							}
 							
 
 						},
 						error : function() {
-							alert("��û ����");
+							alert("요청 실패");
 						}
 					});
 				}
