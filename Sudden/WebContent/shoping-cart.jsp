@@ -325,12 +325,16 @@
     							 
     							 System.out.println("관심size= "+size);
     						     while(true){
-    			       
+    						    	 
     						    	int iseq = iarr.get(j).getSeq();
-    						    	System.out.println("상품쪽 관심iseq= "+iseq);		
+    						    	System.out.println("상품쪽 관심iseq= "+iseq);	
+		
+    						    	int inter_ckeck = dao.inter_ckeck(iseq);
+      						    	System.out.println("리턴값= "+inter_ckeck);
+       								//if(inter_ckeck == 1){
+        													 
+      						    		System.out.println("실행");
     						    	dao = new InterDAO();
-    						    	iseq=dao.inter_ckeck(iseq);
-    						    	
     						    	arr = dao.addInter(iseq);
     						     	out.print("<tr>");
     								out.print("<td class='shoping__cart__item'>");
@@ -346,12 +350,14 @@
     								out.print("</td>");
     								out.print("</tr>");
     								j++;
+    								
     	 							if(size==j) {
     									break;
     								}
     	 
-    							 }                          	 
-                              }
+    							 	}                          	 
+                             	 }
+                             // } 
     						  %>
 
 
