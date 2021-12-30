@@ -314,7 +314,7 @@
 							<dl class="sh_lst2">
 								<dt class="blind">&nbsp;</dt>
 								<dd class="intro_desc">&nbsp;</dd>
-								<div onclick="location.href='PURCHASE_HISTORY.jsp';" style="cursor:pointer">구매내역</div>
+								<div onclick="location.href='salbuy2.jsp';" style="cursor:pointer">구매내역</div>
 								<dt class="blind">&nbsp;</dt>
 								<dd class="intro_desc">&nbsp;</dd>
 								<dt class="blind">&nbsp;</dt>
@@ -342,13 +342,13 @@
 						</p>
 					</div>
 				</div>
-				<div class="sh_group">
+ 				<!-- <div class="sh_group">
 					<div class="sh_header">
 						<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지역
 							설정&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 					</div>
 				<dt>지역을 선택해 주세요!</dt>				
-<!-- 					<table>
+					<table>
 							<tr>
 						       <td id="td1">도시</td>
 						          	<td>	
@@ -621,7 +621,7 @@
 								</tr>
 								
 					</table>
- -->					
+					
  				<p class="btn_area_btm">
 						<a href="maps.jsp"
 							onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
@@ -632,7 +632,25 @@
 
 					
 	</header>
-	<!-- end of ex-header -->
+ -->	
+ 		 		<div class="sh_group">
+				<div class="sh_header">
+					<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;리뷰 &
+							평점&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+				</div>
+				<div class="sh_content">
+							<dl class="sh_lst2">
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+								<div onclick="location.href='review.jsp';" style="cursor:pointer">확인하러 가기</div>
+								<dt class="blind">&nbsp;</dt>
+								<dd class="intro_desc">&nbsp;</dd>
+							</dl>
+						</div>
+ 
+ 
+ 
+    <!-- end of ex-header -->
 	<!-- end of header -->
 
 

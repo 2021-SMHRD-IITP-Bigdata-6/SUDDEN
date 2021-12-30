@@ -1,3 +1,4 @@
+<%@page import="com.sudden.DAO.memberDAO"%>
 <%@page import="com.sudden.DTO.goodsDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.sudden.DAO.goodsDAO"%>
@@ -24,13 +25,16 @@
 	<link href="css/magnific-popup.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	<style>
-    .images {width:200px; height:200px;}
-    .td.shoping__cart__item {width: 555px; height: 261px;}
-    .shoping__cart__table{background-color:white; width:700px; position:absolute;left:200px; top:100px;}
+    
+    .td.shoping__cart__item {width: 600px; height: 261px;}
+    .shoping__cart__table{background-color:white; width:700px; height:700px; position:absolute;left:200px; top:100px; padding:10px 30px 10px;}
     .footer{width:100%;position:absolute;top:2000px; }
-    .shoping__cart__table table thead tr {
-	border-bottom: 3px solid #ebebeb;
-	}
+    .review {width: 630px; height: 200px; background-color:white; border: 1px solid #ebebeb; padding: 10px 20px 10px;}
+    .reviewer_name {width:50px; height:20px;}
+    .reviewer_score {width: 600px; height:30px;}
+    .reviewer_score_image {width:15px; height:10px;}
+    .reviewer_product_link {width:240px; height:30px; border: 1px solid #ebebeb;}
+
 	
 	
 
@@ -109,36 +113,23 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__table">
-                        <table>
-                            <thead>
-                                <tr style="height : 50px;">
-                                    <th class="shoping__product" style="font-size:30px; text-align:center;">판매내역</th>
-                                    <th style="font-size:30px;text-align:center;">제품명</th>
-                                    <th style="font-size:30px;text-align:center;">가격</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-   
-    <% goodsDAO dao = new goodsDAO();
-    
-	ArrayList<goodsDTO> arr = dao.Sales(dto);
-	
-	
-	for(int i = 0; i < arr.size(); i++) {
-		out.print("<tr>");
-		out.print("<td class='shoping__cart__item'>"+"");
-		out.print("<img class='images' src='Upload/"+arr.get(i).getImg()+"'>&nbsp;");
-        out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
-		out.print("<h5>"+arr.get(i).getName()+"</h5>");
-		out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"");
-		out.print("</td>");
-		out.print("</tr>");
-	}
-	 
-	%>
-  
-                            </tbody>
-                        </table>
+                    	<div class="review_title">리뷰 및 평점</div>
+                    	<div class="review">
+                    	    <div class="reviewer_name">
+                    			<a class="name" href="#">김병관<!-- 리뷰 남기는 사람의 이름 --></a>
+                    		</div>
+                    		<div class="reviewer_score">
+                    			<a class="name" href="#"><img src="#" class="reviewer_score_image"/><!-- 리뷰 남기는 사람의 점수 이미지 --></a>
+                    		</div>
+                    		<a class="reviewer_product">
+                    			<button class="reviewer_product_link"><!-- 리뷰 남기는 사람이 구매한 제품으로 이동 -->
+                    				<i class="fa fa-arrow-right"></i>
+                    			</button>
+                    		</a>
+                    	</div>
+
+                    	<div class="review">dddd</div>
+                    	<div class="review">dddd</div>
                     </div>
                 </div>
             </div>

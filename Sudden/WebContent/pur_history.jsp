@@ -111,8 +111,8 @@
                     <div class="shoping__cart__table">
                         <table>
                             <thead>
-                                <tr style="height : 50px;">
-                                    <th class="shoping__product" style="font-size:30px; text-align:center;">판매내역</th>
+                                <tr>
+                                    <th class="shoping__product" style="font-size:30px; text-align:center;">구매내역</th>
                                     <th style="font-size:30px;text-align:center;">제품명</th>
                                     <th style="font-size:30px;text-align:center;">가격</th>
                                 </tr>
@@ -127,7 +127,7 @@
 	for(int i = 0; i < arr.size(); i++) {
 		out.print("<tr>");
 		out.print("<td class='shoping__cart__item'>"+"");
-		out.print("<img class='images' src='Upload/"+arr.get(i).getImg()+"'>&nbsp;");
+		out.print("<img class='images' src='Upload/"+arr.get(i).getImg()+"'>");
         out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
 		out.print("<h5>"+arr.get(i).getName()+"</h5>");
 		out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"");
