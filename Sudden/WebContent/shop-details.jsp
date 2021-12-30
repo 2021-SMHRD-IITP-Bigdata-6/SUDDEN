@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.jsp"><img  style="width:150px; height:130px;" src="img/logo4.PNG" alt=""></a>
+                        <a href="./index.jsp"><img  style="width:190px; height:150px;" src="img/logo4.PNG" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -267,7 +267,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.jsp"><img  style="width:250px; height:230px;" src="img/logo2.jpg" alt=""></a>
+                            <a href="./index.jsp"><img  style="width:170px; height:150px;" src="img/logo2.jpg" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: 광주광역시 남구 송암로 60</li>
