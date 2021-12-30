@@ -167,7 +167,6 @@
 								<!-- 로그인 후 아이콘-->
 								<div class="login__box">
 									<div class="profile">
-										<span class="profile__picture"><i class="fa fa-user-circle fa-lg"></i></span>
 										<span><%= dto.getId() %>님 환영합니다!</span>
 									</div>
 									<div class="icon">
