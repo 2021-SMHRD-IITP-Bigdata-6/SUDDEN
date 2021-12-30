@@ -29,8 +29,8 @@
         .chat_wrap .item.mymsg .box{transition:all .3s ease-out; margin:0 20px 0 0;}
         .chat_wrap .item.on .box{margin:0; opacity: 1;}
 		
-		.shop_wrap {border:1px solid #999;background-color:white; top:150px; position:absolute; left:1000px;width:350px; height:690px; padding:5px; font-size:45px; color:#333}
-        .shop_wrap .shop_info{background-color:#acc2d2; border-radius:5px;padding:10px; height:250px; width:320px;}
+		.shop_wrap {border:1px solid #999;background-color:#EAEAEA; top:150px; position:absolute; left:1000px;width:330px; height:690px; padding:5px; font-size:45px; color:#333}
+        .shop_wrap .shop_info{background-color:white; border-radius:5px;padding:10px; height:250px; width:320px;}
         .shop_wrap .shop_info .shop_menu{font-size:17px;font-weight:bold;}
         .shop_wrap .shop_info .shop_img{height:150px; width:200px;}
         .shop_wrap .shop_info .shop_price{font-size:17px;font-weight:bold;}
@@ -255,7 +255,8 @@ var currentTime = function(){
     <!-- end of navigation -->
    <div class="chat_wrap">
       <div class="inner">
-
+      <p style="position:absolute; left:160px;">SUDDEN SAFE ZONE</p><br>
+		<p id="cctv" style="position:absolute; left:130px;"></p>
    </div>
    <input type="text" class="mymsg" placeholder="내용 입력">
    <input type="text" class="yourmsg" placeholder="내용 입력">
@@ -305,7 +306,7 @@ var currentTime = function(){
   	  
   	  </div>
   	 
-  	  
+  	  <br>
   	  <table style="width:320px;">
 							<tr>
 						       <td id="td1">도시</td>
@@ -579,15 +580,15 @@ var currentTime = function(){
 								</tr>
 								
 					</table>
-					<div><a href="maps.jsp" style="font-size:20px;position:absolute;left:130px;">지도 크게 보기</a></div>
-					<form><input type="button" value="검색하기" onClick="window.location.href=window.location.href"></form>
+					<div><a href="maps.jsp" style="font-size:12px;position:absolute;left:125px;">지도 크게 보기</a></div><br><br>
+					<form><input type="button" style="position: absolute; left:130px;" value="검색하기" onClick="window.location.href=window.location.href"></form>
 					<div>
-						<p id="onecctv"></p>
+					
 					</div>
   	  
    </div>
-   
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9721db22573b52ec59546dbe834b5f05&libraries=services,clusterer,drawing"></script>
+   <!-- 키넣는곳 -->
+  <script type=""></script>
 	<script>
 	if(localStorage.getItem('키')){ 
 	      var lastData = localStorage.getItem('키')
@@ -667,7 +668,7 @@ var currentTime = function(){
 
 		         //location.href="chat.jsp?data="+encodeURI(encodeURIComponent(addr));
 		         alert(addr);
-		         document.getElementById("onecctv").innerHTML=addr;
+		         document.getElementById("cctv").innerHTML=addr;
 		         
 		     });
 		    //} 
