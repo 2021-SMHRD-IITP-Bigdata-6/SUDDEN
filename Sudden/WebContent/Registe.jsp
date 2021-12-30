@@ -173,11 +173,11 @@
                 <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
+							<form action="Searchgoods.do"><!-- 검색하는곳 Search.do -->
+                                <input type="text" id="search" name="search" placeholder="찾고 싶은 상품을 검색해 보세요">
+                                <button type="submit" class="site-btn" id="search_goods" onclick="search()">SEARCH</button>
                             </form>
-                        </div>
+						</div>
                         <div class="header__top__right__auth">
 
 
