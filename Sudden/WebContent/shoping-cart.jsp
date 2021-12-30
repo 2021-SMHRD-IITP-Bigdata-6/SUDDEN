@@ -306,7 +306,7 @@
        								out.print("<a href='DeleteInter.do?delete_seq="+marr.get(i).getSeq()+"'>삭제</a>");
        								out.print("</td>");
        								out.print("<td class='shoping__cart__item__close'>");
-       								out.print("<a href='chat.jsp' class='snip1535two'>채팅</a>");
+       								out.print("<a href='chat.jsp?goodsseq="+marr.get(i).getSeq()+"' class='snip1535two'>채팅</a>");
        								out.print("</td>");
        								out.print("</tr>");
        								j++;
@@ -340,7 +340,7 @@
     								out.print("<a href='DeleteInter.do?delete_seq="+arr.get(i).getSeq()+"'>삭제</a>");
     								out.print("</td>");
     								out.print("<td class='shoping__cart__item__close'>");
-    								out.print("<a href='chat.jsp' class='snip1535two'>채팅</a>");
+    								out.print("<a href='chat.jsp?goodsseq="+marr.get(i).getSeq()+"' class='snip1535two'>채팅</a>");
     								out.print("</td>");
     								out.print("</tr>");
     								j++;

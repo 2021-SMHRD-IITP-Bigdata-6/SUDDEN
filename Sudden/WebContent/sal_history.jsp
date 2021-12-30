@@ -1,3 +1,4 @@
+<%@page import="com.sudden.DTO.InterDTO"%>
 <%@page import="com.sudden.DTO.goodsDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.sudden.DAO.goodsDAO"%>
@@ -34,6 +35,24 @@
 	.shoping__cart__item .images .shoping__cart__total .shoping__cart__price{
 	
 	}
+	
+	#buttstyle {
+    background-color: #394aad;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'BenchNine', Arial, sans-serif;
+    font-size: 1em;
+    font-size: 15px;
+    line-height: 1em;
+    margin: 15px 3px;
+    outline: none;
+    padding: -10px 40px 10px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 100%;
+}
 	
 	
 
@@ -118,28 +137,42 @@
                                     <th class="shoping__product" style="font-size:30px; text-align:center;">판매내역</th>
                                     <th style="font-size:30px;text-align:center;">제품명</th>
                                     <th style="font-size:30px;text-align:center;">가격</th>
+                                    <th style="font-size:30px;text-align:center;"></th>
+                                    
                                 </tr>
+                                
                             </thead>
                             <tbody>
+                            
+                            
+                            	
+                            	
    
     <% goodsDAO dao = new goodsDAO();
+    
     
 	ArrayList<goodsDTO> arr = dao.Sales(dto);
 	
 	
 	for(int i = 0; i < arr.size(); i++) {
+		String status = arr.get(i).getStatus();
 		out.print("<tr>");
 		out.print("<td class='shoping__cart__item'>"+"");
 		out.print("<img class='images' src='Upload/"+arr.get(i).getImg()+"'>");
         out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
-		out.print("<h5>"+arr.get(i).getName()+"</h5>");
-		out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"");
+		out.print("<h5><a href='shop-details.jsp?goodsseq="+arr.get(i).getSeq()+"'>"+arr.get(i).getName()+"</a></h5>");
+		if(status.equals("Y")){
+			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>판매완료");
+		}else{
+			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"");
+		}
+		out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a id='buttstyle' class='snip1535two' href=Salcmplt.do?goodsseq="+arr.get(i).getSeq()+">판매완료</button>");	
 		out.print("</td>");
 		out.print("</tr>");
 	}
 	 
 	%>
-  
+  								
                             </tbody>
                         </table>
                     </div>
@@ -161,6 +194,23 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+	function salcmplt(){
+		let gseq = arr.get(i).getSeq();
+		$.ajax({
+			url : "SalecmpltService",
+			type : "get",
+			data : gseq,
+			success : function(res){
+				if(res=='ture'){
+					alert("판매완료오류.");
+				}
+				alert("판매가 되었습니다.");
+			}
+			
+		})
+	}
+	</script>
 
 
 </body>
