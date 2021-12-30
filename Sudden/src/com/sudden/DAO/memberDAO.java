@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import com.sudden.DTO.goodsDTO;
 import com.sudden.DTO.memberDTO;
 
 public class memberDAO {
@@ -265,6 +266,7 @@ public class memberDAO {
 			cloes();
 		}
 	}
+	
 	
 
 }
