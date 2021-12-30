@@ -292,7 +292,7 @@
                                     size= arr.size();
        						     while(true){
        						    	int iseq = arr.get(j).getSeq();
-    						    	System.out.println("관심iseq= "+iseq);
+    						    	System.out.println("로그인관심iseq= "+iseq);
     						    	dao = new InterDAO();
     						    	marr = dao.addInter(iseq);
        						    	
@@ -306,7 +306,7 @@
        								out.print("<a href='DeleteInter.do?delete_seq="+marr.get(i).getSeq()+"'>삭제</a>");
        								out.print("</td>");
        								out.print("<td class='shoping__cart__item__close'>");
-       								out.print("<a href='chat.jsp' class='snip1535two'>채팅</a>");
+       								out.print("<a href='chat.jsp?goodsseq="+marr.get(i).getSeq()+"' class='snip1535two'>채팅</a>");
        								out.print("</td>");
        								out.print("</tr>");
        								j++;
@@ -319,15 +319,18 @@
                               	}
                               }
                               else{ //상품쪽에서 관심상품 들어 갈때
-                                 
+                                
                                  int i=0;
                                  int j=0;
     							 
     							 System.out.println("관심size= "+size);
     						     while(true){
+    			       
     						    	int iseq = iarr.get(j).getSeq();
-    						    	System.out.println("관심iseq= "+iseq);
+    						    	System.out.println("상품쪽 관심iseq= "+iseq);		
     						    	dao = new InterDAO();
+    						    	iseq=dao.inter_ckeck(iseq);
+    						    	
     						    	arr = dao.addInter(iseq);
     						     	out.print("<tr>");
     								out.print("<td class='shoping__cart__item'>");
@@ -339,7 +342,7 @@
     								out.print("<a href='DeleteInter.do?delete_seq="+arr.get(i).getSeq()+"'>삭제</a>");
     								out.print("</td>");
     								out.print("<td class='shoping__cart__item__close'>");
-    								out.print("<a href='chat.jsp' class='snip1535two'>채팅</a>");
+    								out.print("<a href='chat.jsp?goodsseq="+arr.get(i).getSeq()+"' class='snip1535two'>채팅</a>");
     								out.print("</td>");
     								out.print("</tr>");
     								j++;
@@ -347,7 +350,7 @@
     									break;
     								}
     	 
-    							 }
+    							 }                          	 
                               }
     						  %>
 

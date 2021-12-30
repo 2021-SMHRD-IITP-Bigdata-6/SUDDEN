@@ -171,8 +171,32 @@ public class InterDAO {
 		}
 
 		return check;
-	}
+	}public int inter_ckeck(int iseq) { //관심 중복체크용
+		
+		int inter_ckeck=0;
+		
+		getconn();
+		
+		try {
+			System.out.println("goods_seq= "+iseq);
+			String sql = "select * from tbl_my_goods where goods_seq =?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, iseq);
+			
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				inter_ckeck=1;
+			}
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+
+		return inter_ckeck;
+	}
 	public int DeleteInter(int seq) {
 		
 		getconn();
