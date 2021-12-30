@@ -146,7 +146,7 @@
                             <i class="fa fa-bars"></i>
                             <span>전체 카테고리</span>
                         </div>
-                        <form action="katelist.do">
+                        
                         <ul>
                             <li><a href="shop-kate.jsp?cat_num=0">여성의류</a></li>
 							<li><a href="shop-kate.jsp?cat_num=1">남성의류</a></li>
@@ -167,7 +167,7 @@
 							<li><a href="shop-kate.jsp?cat_num=16">기타</a></li>
 							<li><a href="shop-kate.jsp?cat_num=17">서든나눔</a></li>
                         </ul>
-                        </form>
+                        
                     </div>
                 </div>
                 <div class="col-lg-9">

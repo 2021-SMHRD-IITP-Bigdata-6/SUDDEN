@@ -24,6 +24,7 @@ import com.sudden.Member.LoginService;
 import com.sudden.Member.LogoutService;
 import com.sudden.Member.RegisteService;
 import com.sudden.Member.ResetService;
+import com.sudden.Member.SalcmpltService;
 import com.sudden.Member.SearchService;
 import com.sudden.Member.SearchgoodsService;
 import com.sudden.Member.UpdateService;
@@ -89,10 +90,10 @@ public class FrontController extends HttpServlet {
 					com = new SearchgoodsService();			
 					nextpage = com.execute(request, response);
 				}
-				else if(command.equals("katelist.do")) {					
-					com = new LogoutService();
-					nextpage = com.execute(request, response);
-				}
+				//else if(command.equals("katelist.do")) {					
+				//	com = new LogoutService();
+				//	nextpage = com.execute(request, response);
+				//}
 				else if(command.equals("Upload.do")) {					
 					com = new ResetService();
 					//com = new RegisteService();
@@ -143,11 +144,6 @@ public class FrontController extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.print(tof);
 					System.out.println("확인 = "+tof);
-				}
-				
-				
-				if(nextpage != null) {
-					response.sendRedirect(nextpage);
 				}else if(command.equals("UpdateCon.do")) {
 					
 					com = new UpdateService();
@@ -162,8 +158,19 @@ public class FrontController extends HttpServlet {
 					
 					com = new DeleteInterService();
 					nextpage = com.execute(request, response);
-		
-	}
-
-}
-}
+				}else if(command.equals("Salcmplt.do")) {
+					System.out.println("판매완료컨트롤");
+					com = new SalcmpltService();
+					nextpage = com.execute(request, response);
+				}
+				
+					
+					
+				
+				
+				if(nextpage != null) {
+					response.sendRedirect(nextpage);
+				
+				}
+			}
+		}
