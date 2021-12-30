@@ -18,11 +18,21 @@ public class LoginService implements Login_Command{
 	public String execute(HttpServletRequest request, HttpServletResponse response, String command) throws ServletException, IOException  {
 		
 		request.setCharacterEncoding("utf-8");
+		
+
 
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		String comd = request.getParameter("command");// 고칠 부분
+		String seq = request.getParameter("goodsseq");
+		String sdto = request.getParameter("sdto");
+		String cat_num = request.getParameter("cat_num");
 
+		
+		
+		System.out.println("로그인_seq= "+seq);
+		System.out.println("로그인_sdto= "+sdto);
+		System.out.println("로그인_cat_num= "+cat_num);
+		
 		HttpSession session = request.getSession();
 		ArrayList<String> arr = new ArrayList<String>();// 고칠 부분
 		arr.add("0");
@@ -42,12 +52,16 @@ public class LoginService implements Login_Command{
 			if(command.equals("Logincon.do")) {
 				nextpage = "index.jsp";
 			}else if(command.equals("Logincon_grid.do")) {
-				nextpage = "shop-grid.jsp";
+				nextpage = "shop-grid.jsp?sdto="+sdto;
+				
+			}else if(command.equals("Logincon_kate.do")) {
+				nextpage = "shop-kate.jsp?cat_num="+cat_num;
+					
 			}
 			else if(command.equals("Logincon_detail.do")) {
-				nextpage = "shop-details.jsp";
+				nextpage = "shop-details.jsp?goodsseq="+seq;
 			}
-			//nextpage = "index.jsp";
+			
 		} else {
 			System.out.println("로그인 실패");
 			nextpage = "log-in.jsp";

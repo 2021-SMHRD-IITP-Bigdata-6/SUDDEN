@@ -54,11 +54,11 @@ public class FrontController extends HttpServlet {
 					com = new JoinService();
 					nextpage = com.execute(request, response);
 					
-				}else if(command.equals("Logincon.do")||command.equals("Logincon_grid.do")||command.equals("Logincon_detail.do")) {					
+				}else if(command.equals("Logincon.do")||command.equals("Logincon_grid.do")||command.equals("Logincon_detail.do")||command.equals("Logincon_kate.do")) {			
 					lcom = new LoginService();// 수정할곳
 					System.out.println("여기는com");
 					
-					System.out.println("com = "+lcom);
+					System.out.println("1com = "+lcom);
 					nextpage = lcom.execute(request, response, command);
 						
 					

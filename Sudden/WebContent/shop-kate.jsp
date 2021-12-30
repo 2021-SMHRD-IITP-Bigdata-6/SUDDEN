@@ -109,6 +109,26 @@
         </div>
     </header>
     <!-- Header Section End -->
+    <%
+                    String name = request.getParameter("search");// 이거는 그냥 널값 들어가서
+                    
+                    int change_num = 0;
+
+                    try{
+	                    change_num = Integer.parseInt(request.getParameter("change_num"));
+	                   
+                    }catch(Exception e){
+                    	
+                    }
+                    
+                    int cat_num = 0;
+                    
+                    try{
+	                    
+	                    cat_num = Integer.parseInt(request.getParameter("cat_num"));
+                    }catch(Exception e){
+                    	
+                    }%>
 
     <!-- Hero Section Begin -->
     <section class="hero hero-normal">
@@ -159,7 +179,7 @@
 								<%
 								if (dto == null) {
 								%>
-								<a href="log_in_grid.jsp"><i class="fa fa-user">Login</i></a>
+								<a href="log_in_kate.jsp?cat_num=<%=cat_num %>"><i class="fa fa-user">Login</i></a>
 								<%
 									} else {
 								
@@ -241,28 +261,29 @@
                         </div>
                     </div>-->
                     <div class="row" id="row1">
+                    <!--
+   //                 String name = request.getParameter("search");// 이거는 그냥 널값 들어가서
+     //               
+       //             int change_num = 0;
+//
+  //                  try{
+	//                    change_num = Integer.parseInt(request.getParameter("change_num"));
+	  //                 
+        //            }catch(Exception e){
+          //          	
+            //        }
+              //      
+                //    int cat_num = 0;
+                    
+   //                 try{
+	 //                   
+	   //                 cat_num = Integer.parseInt(request.getParameter("cat_num"));
+         //           }catch(Exception e){
+           //         	
+             //       }-->
                     <%
-                    String name = request.getParameter("search");// 이거는 그냥 널값 들어가서
-                    
-                    int change_num = 0;
-
-                    try{
-	                    change_num = Integer.parseInt(request.getParameter("change_num"));
-	                   
-                    }catch(Exception e){
-                    	
-                    }
-                    
-                    int cat_num = 0;
-                    
-                    try{
-	                    
-	                    cat_num = Integer.parseInt(request.getParameter("cat_num"));
-                    }catch(Exception e){
-                    	
-                    }
-                    System.out.println("1change_num= "+change_num);
-                    System.out.println("1cat_num= "+(cat_num));
+                    System.out.println("change_num= "+change_num);
+                    System.out.println("cat_num= "+(cat_num));
                     // 세션에 검색된 결과 정보를 담아둘거면 여기서 꺼내오는것도 바꿔줘야하지만,
                     // Controller에서 담아주는 부분도 바꿔주어야겠죠? 일단 거기까지 해봅시다. 그리고 하나더 있는데
                     

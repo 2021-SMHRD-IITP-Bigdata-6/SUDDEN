@@ -108,11 +108,11 @@ public class RegisteService extends HttpServlet {
 			goodsDTO dto = new goodsDTO(kate, name, content, img, price, id);
 			
 				int result = dao.uploadimg(dto);
-				
+				goodsDTO gdto = dao.seqdetail(dto);
 				String moveUrl = "";
 				if (result > 0) {
 					System.out.println("저장완료");
-					session.setAttribute("gdto", dto);
+					session.setAttribute("gdto", gdto);
 					//moveUrl = "OpenimgService";
 					moveUrl = "shop-details.jsp";
 				} else {

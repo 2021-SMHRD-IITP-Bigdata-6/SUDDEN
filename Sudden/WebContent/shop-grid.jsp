@@ -109,6 +109,43 @@
         </div>
     </header>
     <!-- Header Section End -->
+    <%
+                    String name = request.getParameter("search");// 이거는 그냥 널값 들어가서
+                    
+                    int change_num = 0;
+                    try{
+	                    change_num = Integer.parseInt(request.getParameter("change_num"));
+                    }catch(Exception e){
+                    	
+                    }
+                    
+                    int cat_num = 0;
+                    try{
+	                    
+	                    cat_num = Integer.parseInt(request.getParameter("cat_num"));
+                    }catch(Exception e){
+                    	
+                    }
+                    
+                    int change_kate = 0;
+					try{
+	                    
+						change_kate = Integer.parseInt(request.getParameter("change_kate"));
+                    }catch(Exception e){
+                    	
+                    }
+                    System.out.println("change_num= "+change_num);
+                    System.out.println("change_kate= "+change_kate);
+                    // 세션에 검색된 결과 정보를 담아둘거면 여기서 꺼내오는것도 바꿔줘야하지만,
+                    // Controller에서 담아주는 부분도 바꿔주어야겠죠? 일단 거기까지 해봅시다. 그리고 하나더 있는데
+                    
+                    		
+                    goodsDTO sdto = (goodsDTO)session.getAttribute("sdto");//이부분 고치면 되나요? 여기서 받아와요 처음에 검색하기 전에 계속 오류떠서 그냥 만든거예요
+                	System.out.print("sdto= "+sdto);
+             		goodsDAO dao = new goodsDAO();
+             		String img ="";
+             		String title ="";
+             		String price ="";%>
 
     <!-- Hero Section Begin -->
     <section class="hero hero-normal">
@@ -157,9 +194,9 @@
 								<!-- 로그인하는곳 -->
 
 								<%
-								if (dto == null) {
+								if (dto == null) {//바로 아래부분 수정 name값이 안들어감
 								%>
-								<a href="log_in_grid.jsp"><i class="fa fa-user">Login</i></a>
+								<a  href="log_in_grid.jsp?search=<%=sdto.getName()%>"><i class="fa fa-user">Login</i></a>
 								<%
 									} else {
 								
@@ -241,43 +278,8 @@
                         </div>
                     </div>-->
                     <div class="row" id="row1">
-                    <%
-                    String name = request.getParameter("search");// 이거는 그냥 널값 들어가서
                     
-                    int change_num = 0;
-                    try{
-	                    change_num = Integer.parseInt(request.getParameter("change_num"));
-                    }catch(Exception e){
-                    	
-                    }
-                    
-                    int cat_num = 0;
-                    try{
-	                    
-	                    cat_num = Integer.parseInt(request.getParameter("cat_num"));
-                    }catch(Exception e){
-                    	
-                    }
-                    
-                    int change_kate = 0;
-					try{
-	                    
-						change_kate = Integer.parseInt(request.getParameter("change_kate"));
-                    }catch(Exception e){
-                    	
-                    }
-                    System.out.println("change_num= "+change_num);
-                    System.out.println("change_kate= "+change_kate);
-                    // 세션에 검색된 결과 정보를 담아둘거면 여기서 꺼내오는것도 바꿔줘야하지만,
-                    // Controller에서 담아주는 부분도 바꿔주어야겠죠? 일단 거기까지 해봅시다. 그리고 하나더 있는데
-                    
-                    		
-                    goodsDTO sdto = (goodsDTO)session.getAttribute("sdto");//이부분 고치면 되나요? 여기서 받아와요 처음에 검색하기 전에 계속 오류떠서 그냥 만든거예요
-                	System.out.print("sdto= "+sdto);
-             		goodsDAO dao = new goodsDAO();
-             		String img ="";
-             		String title ="";
-             		String price ="";
+             	<%
              		
              		
              		

@@ -588,7 +588,7 @@ var currentTime = function(){
   	  
    </div>
    <!-- 키넣는곳 -->
-  <script type=""></script>
+  <script type="" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d45d67312de0b775f7a3137b821341a4&libraries=services,clusterer,drawing"></script>
 	<script>
 	if(localStorage.getItem('키')){ 
 	      var lastData = localStorage.getItem('키')

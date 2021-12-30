@@ -94,17 +94,22 @@
     <!-- end of navigation -->
     
     <%
-                  
-                    String sdto = "";
+                   
+                    
+                   	String cat_num = "";
+                   
 
                     try{
-                    	sdto = request.getParameter("sdto");
+                    	cat_num = request.getParameter("cat_num");
+                    	
 	                   
                     }catch(Exception e){
                     	
                     }
-
-                    System.out.println("로그인sdto = "+sdto);
+                    
+                    
+                    System.out.println("로그인cat_num = "+cat_num);
+                    
                     
     %>
 
@@ -117,9 +122,8 @@
                     <h1>로그인</h1>
                     <!-- Sign Up Form -->
                     <div class="form-container">
-                        <form id="signUpForm" action="Logincon_grid.do" data-toggle="validator" data-focus="false">
-                        
-                        <input type="hidden" name="sdto" value="<%=sdto%>">
+                        <form id="signUpForm" action="Logincon_kate.do" data-toggle="validator" data-focus="false">
+                        <input type="hidden" name="cat_num" value="<%=cat_num%>">
                             <div class="form-group">
                                 <input type="text" id="login_id" class="form-control-input" name="id"  placeholder="ID를 입력하세요">
                                 <a name="type"></a>

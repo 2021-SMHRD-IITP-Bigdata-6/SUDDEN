@@ -182,7 +182,8 @@
 								<%
 								if (dto == null) {
 								%>
-								<a href="log-in_details.jsp"><i class="fa fa-user">Login</i></a>
+								<a href='log-in_details.jsp?goodsseq=<%= gdto.getSeq() %>'><i class="fa fa-user">Login</i></a>
+								
 								<%
 									} else {
 								
@@ -251,6 +252,7 @@
                     </div>
                 </div>
              <% out.print("<div class='product__details__text'>");
+             
                 String status = gdto.getStatus();
                		out.print("<h3>"+gdto.getName()+"</h3>");
                 	//out.print("<div class='product__details__price'>"+gdto.getPrice()+"</div>");

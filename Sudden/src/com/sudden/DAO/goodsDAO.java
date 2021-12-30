@@ -404,6 +404,45 @@ public class goodsDAO {
 		
 		return cnt;
 	}
+
+	public goodsDTO seqdetail(goodsDTO dto) {
+		goodsDTO gddto = null;
+		String moveUrl="";
+		int cnt=0;
+		getconn();
+		try {
+		String sql = "select * from tbl_product where goods_img=? and mem_id=?";
+
+		psmt = conn.prepareStatement(sql);
+
+		psmt.setString(1, dto.getImg());
+		psmt.setString(2, dto.getId());
+		
+		rs = psmt.executeQuery();
+
+		while (rs.next()) {
+			int seq = rs.getInt("goods_seq");
+			String name = rs.getString("goods_name");
+			String content = rs.getString("goods_content");
+			String img = rs.getString("goods_img");
+			int price = rs.getInt("goods_price");
+			String status = rs.getString("goods_status");
+
+			gddto = new goodsDTO(seq,name,content, img, price, status);
+			
+			cnt = 1;
+		}
+		
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		cloes();
+	}
+		
+		return gddto;
+	
+	}
 	
 	
 	

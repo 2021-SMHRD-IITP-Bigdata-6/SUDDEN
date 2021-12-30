@@ -92,6 +92,19 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
+    
+    <%
+                   
+                    
+                    String goodsseq = "";
+
+                    try{
+                    	goodsseq = request.getParameter("goodsseq");
+	                   
+                    }catch(Exception e){
+                    	
+                    }
+    %>
 
 
     <!-- Header -->
@@ -103,6 +116,7 @@
                     <!-- Sign Up Form -->
                     <div class="form-container">
                         <form id="signUpForm" action="Logincon_detail.do" data-toggle="validator" data-focus="false">
+                        <input type="hidden" name="goodsseq" value="<%=goodsseq%>">
                             <div class="form-group">
                                 <input type="text" id="login_id" class="form-control-input" name="id"  placeholder="ID를 입력하세요">
                                 
