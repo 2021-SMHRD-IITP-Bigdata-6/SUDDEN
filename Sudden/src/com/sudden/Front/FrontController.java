@@ -18,6 +18,7 @@ import com.sudden.DAO.goodsDAO;
 import com.sudden.DAO.memberDAO;
 import com.sudden.DTO.goodsDTO;
 import com.sudden.DTO.memberDTO;
+import com.sudden.Member.DeleteInterService;
 import com.sudden.Member.JoinService;
 import com.sudden.Member.LoginService;
 import com.sudden.Member.LogoutService;
@@ -157,9 +158,12 @@ public class FrontController extends HttpServlet {
 					com = new UpdateService2();
 					nextpage = com.execute(request, response);
 					
-				}
-
+				}else if(command.equals("DeleteInter.do")) {
+					
+					com = new DeleteInterService();
+					nextpage = com.execute(request, response);
 		
 	}
 
+}
 }

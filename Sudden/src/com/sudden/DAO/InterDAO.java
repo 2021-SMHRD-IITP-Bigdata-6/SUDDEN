@@ -121,25 +121,7 @@ public class InterDAO {
 		return cnt;
 	}
 
-	public int resetInter(String name) { // 관심삭제 /딱히 삭제버튼 없음
-
-		getconn();
-
-		String sql = "delere from tbl_my_goods where goods_name=?";
-
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, name);
-			
-			cnt = psmt.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			cloes();
-		}
-		return cnt;
-	}public ArrayList<goodsDTO> searchInter(String id) { // 관심상품 보기
+	public ArrayList<goodsDTO> searchInter(String id) { // 관심상품 보기
 
 		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
 
@@ -189,6 +171,31 @@ public class InterDAO {
 		}
 
 		return check;
+	}
+
+	public int DeleteInter(int iseq) {
+		
+		getconn();
+
+		String sql = "delete from tbl_my_goods where goods_seq=?";
+
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, iseq);
+			
+			cnt = psmt.executeUpdate();
+			
+			if(cnt<0) {
+				System.out.println("삭제실패");
+			}
+
+		} catch (Exception e) {
+			System.out.println("클래스파일 로딩실패");
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		return cnt;
 	}
 
 }
