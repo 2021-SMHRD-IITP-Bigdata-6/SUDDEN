@@ -32,8 +32,10 @@
     .review {width: 630px; height: 200px; background-color:white; border: 1px solid #ebebeb; padding: 10px 20px 10px;}
     .reviewer_name {width:50px; height:20px;}
     .reviewer_score {width: 600px; height:30px;}
-    .reviewer_score_image {width:15px; height:10px;}
-    .reviewer_product_link {width:240px; height:30px; border: 1px solid #ebebeb;}
+    .reviewer_score_image {width:50px; height:10px;}
+    .reviewer_product_link {width:350px; height:30px; border: 1px solid #ebebeb; text-align: left; margin-bottom: 10px;}
+    .review_comment {width:350px; height:70px;}
+    
 
 	
 	
@@ -122,10 +124,12 @@
                     			<a class="name" href="#"><img src="#" class="reviewer_score_image"/><!-- 리뷰 남기는 사람의 점수 이미지 --></a>
                     		</div>
                     		<a class="reviewer_product">
-                    			<button class="reviewer_product_link"><!-- 리뷰 남기는 사람이 구매한 제품으로 이동 -->
-                    				<i class="fa fa-arrow-right"></i>
+                    			<button class="reviewer_product_link">블랙아웃 후디 L<!-- 리뷰 남기는 사람이 구매한 제품으로 이동 -->
                     			</button>
                     		</a>
+                    		<div class="review_comment">
+                    			친절하고 깔끔한 거래였습니다!
+                    		</div>
                     	</div>
 
                     	<div class="review">dddd</div>
