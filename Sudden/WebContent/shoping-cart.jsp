@@ -310,7 +310,7 @@
        								out.print("</td>");
        								out.print("<td class='shoping__cart__price'>"+marr.get(i).getPrice()+"</td>");
        								out.print("<td class='shoping__cart__total'>");
-       								out.print("<a href='DeleteInter.do?delete_seq="+marr.get(i).getSeq()+"'>삭제</a>");
+       								out.print("<a href='DeleteInter.do?delete_seq="+arr.get(j).getSeq()+"'>삭제</a>");
        								out.print("</td>");
        								out.print("<td class='shoping__cart__item__close'>");
        								out.print("<a href='chat.jsp' class='snip1535two'>채팅</a>");
@@ -344,7 +344,7 @@
     								out.print("</td>");
     								out.print("<td class='shoping__cart__price'>"+arr.get(i).getPrice()+"</td>");
     								out.print("<td class='shoping__cart__total'>");
-    								out.print("<i class='fa fa-heart'></i>");
+    								out.print("<a href='DeleteInter.do?delete_seq="+iarr.get(j).getSeq()+"'>삭제</a>");
     								out.print("</td>");
     								out.print("<td class='shoping__cart__item__close'>");
     								out.print("<a href='chat.jsp' class='snip1535two'>채팅</a>");
