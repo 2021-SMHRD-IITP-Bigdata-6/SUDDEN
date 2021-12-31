@@ -1,3 +1,5 @@
+<%@page import="com.sudden.DTO.chatDTO"%>
+<%@page import="com.sudden.DAO.chatDAO"%>
 <%@page import="com.sudden.DTO.InterDTO"%>
 <%@page import="com.sudden.DTO.goodsDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -53,9 +55,6 @@
     text-transform: uppercase;
     font-weight: 100%;
 }
-	
-	
-
     
     </style>
 	<!-- Favicon  -->
@@ -138,6 +137,7 @@
                                     <th style="font-size:30px;text-align:center;">제품명</th>
                                     <th style="font-size:30px;text-align:center;">가격</th>
                                     <th style="font-size:30px;text-align:center;"></th>
+                                    <th style="font-size:30px;text-align:center;"></th>
                                     
                                 </tr>
                                 
@@ -153,24 +153,47 @@
     
 	ArrayList<goodsDTO> arr = dao.Sales(dto);
 	
+	chatDAO cdao = new chatDAO();
 	
+	
+	if(arr.size()>0){
 	for(int i = 0; i < arr.size(); i++) {
 		String status = arr.get(i).getStatus();
 		out.print("<tr>");
-		out.print("<td class='shoping__cart__item'>"+"");
+		out.print("<td class='shoping__cart__item'>"+"");	
 		out.print("<img class='images' src='Upload/"+arr.get(i).getImg()+"'>");
+		out.print("</td>");
         out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
 		out.print("<h5><a href='shop-details.jsp?goodsseq="+arr.get(i).getSeq()+"'>"+arr.get(i).getName()+"</a></h5>");
+		out.print("</td>");
 		if(status.equals("Y")){
 			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>판매완료");
 		}else{
 			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"");
 		}
-		out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a id='buttstyle' class='snip1535two' href=Salcmplt.do?goodsseq="+arr.get(i).getSeq()+">판매완료</a>");	
 		out.print("</td>");
+		ArrayList<chatDTO> arry = cdao.searchchat(arr.get(i).getSeq());
+		
+		int j = 0;
+		if(arry.size()<=0){
+			out.print("<td>arry = 0 </td>");
+		}else{
+			out.print("<td>");
+			out.print("<select id='selectTag' name='" + arr.get(i).getSeq() + "'>");
+			out.print("<option value='선택안함'>선택안함</option>");
+
+			for(j = 0; j<arry.size(); j++){	
+			out.print("<option value="+arry.get(j).getId()+">"+arry.get(j).getId()+"</option>");
+			}
+			out.print("</select>");
+			out.print("</td>");
+			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a id='buttstyle' class='snip1535two'>판매완료</a>");		
+			out.print("</td>");
+		}
+		
 		out.print("</tr>");
 	}
-	 
+	}
 	%>
   								
                             </tbody>
@@ -188,7 +211,6 @@
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/mixitup.min.js"></script>
@@ -210,6 +232,16 @@
 			
 		})
 	}
+
+	
+	$('#selectTag').on('change', function(){
+	
+		
+		$('.snip1535two').attr("href", "Salcmplt.do?goodsseq=" + $(this).attr('name')  + "&chatid=" + $(this).val());
+		
+		
+	})
+	
 	</script>
 
 

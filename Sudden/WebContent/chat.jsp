@@ -1,3 +1,5 @@
+<%@page import="com.sudden.DTO.chatDTO"%>
+<%@page import="com.sudden.DAO.chatDAO"%>
 <%@page import="com.sudden.DAO.goodsDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.sudden.DTO.memberDTO"%>
@@ -300,6 +302,13 @@ var currentTime = function(){
       	out.print("<div class='shop_menu'>"+"상품 제목 :"+gdto.getName()+"</div>");
       	out.print("<div class='shop_img'><img style='width:250px; height:150px; position:absolute; left:30px;' class='product__details__pic__item--large'src='Upload/"+gdto.getImg()+"'></div>");
       	out.print("<div class='shop_price'>"+"상품 가격 :"+gdto.getPrice()+"</div>");
+      	
+      	chatDTO cdto = new chatDTO(gdto.getSeq(), dto.getId());
+      	chatDAO cdao = new chatDAO();
+      	int cnt = cdao.buyid(cdto);
+      	
+      	if(cnt>0){ System.out.println("채팅저장성공");}
+      	else{ System.out.println("채팅저장실패");}
       	
    	%></div>
   	  <div id="map" style=" width:320px;height:200px;">

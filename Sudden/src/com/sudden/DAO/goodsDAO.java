@@ -28,7 +28,6 @@ public class goodsDAO {
 
 	int cnt = 0;
 	private boolean check;
-	private static goodsDAO instance = new goodsDAO();
 	
 
 
