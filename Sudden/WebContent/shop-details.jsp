@@ -286,27 +286,24 @@
                			}
                			out.print("/<ul>");
                		}
-               		
-             		
-            				
-         			
-       				
+               		if(dto != null){
+               	    	if(dto.getId().equals(gdto.getId())){
+               	    	out.print("<a href=postupdate.jsp?goodsseq="+gdto.getSeq()+">글 수정</button>");
+               	    	out.print("<a href=Postdel.do?goodsseq="+gdto.getSeq()+">글 삭제</a>");
+               	        }
+               	    }
+
          		out.print("</div>");
                      	
                          %>
+                          
                 </div>
+               
              </div>
-          
+
     </section>
     <!-- Product Details Section End -->
-	<%
-    if(dto != null){
-    	if(dto.getId().equals(gdto.getId())){
-    	out.print("<a style='position: relative;bottom: 640px;left: 1240px;' href=postupdate.jsp?goodsseq="+gdto.getSeq()+">글 수정</button>");
-    	out.print("<a style='position: relative;bottom: 640px;left: 1280px;'  href=Postdel.do?goodsseq="+gdto.getSeq()+">글 삭제</a>");
-        }
-    }
-	%>
+ 
     
 
     
