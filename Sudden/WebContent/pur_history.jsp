@@ -1,3 +1,5 @@
+<%@page import="com.sudden.DTO.tradeDTO"%>
+<%@page import="com.sudden.DAO.tradeDAO"%>
 <%@page import="com.sudden.DTO.goodsDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.sudden.DAO.goodsDAO"%>
@@ -112,27 +114,35 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product" style="font-size:30px; text-align:center;">구매내역</th>
+                                    <th class="shoping__product" style="font-size:30px; text-align:center;">제품이미지</th>
                                     <th style="font-size:30px;text-align:center;">제품명</th>
                                     <th style="font-size:30px;text-align:center;">가격</th>
                                 </tr>
                             </thead>
                             <tbody>
    
-    <% goodsDAO dao = new goodsDAO();
+    <% 
+    tradeDAO tdao = new tradeDAO();
     
-	ArrayList<goodsDTO> arr = dao.Sales(dto);
+    
+	int pseq = tdao.searchseq(dto);
 	
+	tradeDTO tdto = new tradeDTO(pseq);
 	
-	for(int i = 0; i < arr.size(); i++) {
-		out.print("<tr>");
-		out.print("<td class='shoping__cart__item'>"+"");
-		out.print("<img class='images' src='Upload/"+arr.get(i).getImg()+"'>");
-        out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
-		out.print("<h5>"+arr.get(i).getName()+"</h5>");
-		out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"");
-		out.print("</td>");
-		out.print("</tr>");
+	ArrayList<goodsDTO> arr = tdao.purchase(tdto);
+	if(arr.size()>0){
+		for(int i = 0; i < arr.size(); i++) {
+			out.print("<tr>");
+			out.print("<td class='shoping__cart__item'>"+"");
+			out.print("<img class='images' src='Upload/"+arr.get(i).getImg()+"'></td>");
+        	out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
+			out.print("<h5>"+arr.get(i).getName()+"</h5></td>");
+			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"</td>");
+			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a class='snip1535' href='reviewwrite.jsp?goodsseq="+arr.get(i).getSeq()+"'>리뷰등록</a></td>");		
+			out.print("</tr>");
+		}
+	}else{
+		System.out.println("size 값 0");
 	}
 	 
 	%>
@@ -152,7 +162,7 @@
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
+
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/mixitup.min.js"></script>

@@ -1,6 +1,5 @@
-<%@page import="com.sudden.DTO.chatDTO"%>
-<%@page import="com.sudden.DAO.chatDAO"%>
-<%@page import="com.sudden.DTO.InterDTO"%>
+<%@page import="com.sudden.DTO.tradeDTO"%>
+<%@page import="com.sudden.DAO.tradeDAO"%>
 <%@page import="com.sudden.DTO.goodsDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.sudden.DAO.goodsDAO"%>
@@ -27,35 +26,22 @@
 	<link href="css/magnific-popup.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	<style>
-    .images {width:200px; height:200px;}
+    .images {display: block;margin: 0 auto; width: 200px; height: 200px; text-align: center;}
+    
     .td.shoping__cart__item {width: 555px; height: 261px;}
-    .shoping__cart__table{background-color:white; width:700px; position:absolute;left:200px; top:100px;}
+   
     .footer{width:100%;position:absolute;top:2000px; }
     .shoping__cart__table table thead tr {
 	border-bottom: 3px solid #ebebeb;
 	}
-	.shoping__cart__item .images .shoping__cart__total .shoping__cart__price{
 	
-	}
+	.tablein{ width : 1600px; height : 600px; margin-left: 100px;}
 	
-	#buttstyle {
-    background-color: #394aad;
-    border: none;
-    color: #ffffff;
-    cursor: pointer;
-    display: inline-block;
-    font-family: 'BenchNine', Arial, sans-serif;
-    font-size: 1em;
-    font-size: 10px;
-    line-height: 1em;
-    margin: 15px 3px;
-    outline: none;
-    padding: 10px 10px 10px;
-    position: relative;
-    text-transform: uppercase;
-    font-weight: 100%;
-}
-    
+	.reviewin{ width: 600px; height: 200px; text-align: center; font-size: 15px; }
+	
+	.shoping__cart__table { background-color: white; width: 1800px; position: absolute; left: -300px; top: 250px; }
+	.reviewrow{ width: 200px; text-align: center; font-size: 15px; padding: 25px;}
+
     </style>
 	<!-- Favicon  -->
     <link rel="icon" href="images/favicon.png">
@@ -123,6 +109,24 @@
    %>
 </head>
 <body>
+
+    <% 
+    
+    int goodsseq=0;
+    System.out.println("리뷰");
+      try{
+         System.out.println("리뷰1");
+         goodsseq =  Integer.parseInt(request.getParameter("goodsseq"));
+         System.out.println("받아옴 "+goodsseq);
+      }catch(Exception e){
+         
+      }
+    
+    tradeDAO gdao = new tradeDAO();
+    tradeDTO gdto = new tradeDTO(goodsseq);
+	
+	ArrayList<goodsDTO> arr = gdao.purchase(gdto);
+	%>
 	
     <!-- Shoping Cart Section Begin -->
     <section class="shoping-cart spad">
@@ -130,72 +134,51 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__table">
-                        <table>
+                    <form action="ReviewService" method="get">
+							<input type="hidden" name="id" value="<%=arr.get(0).getId()%>">
+							<input type="hidden" name="seq" value="<%=arr.get(0).getSeq()%>">
+                        <table class="tablein">
                             <thead>
                                 <tr>
                                     <th class="shoping__product" style="font-size:30px; text-align:center;">제품이미지</th>
                                     <th style="font-size:30px;text-align:center;">제품명</th>
-                                    <th style="font-size:30px;text-align:center;">가격</th>
+                                    <th style="font-size:30px;text-align:center;">리뷰등록</th>
+                                    <th style="font-size:30px;text-align:center;">평점</th>
                                     <th style="font-size:30px;text-align:center;"></th>
-                                    <th style="font-size:30px;text-align:center;"></th>
-                                    
                                 </tr>
-                                
                             </thead>
+                            
                             <tbody>
-                            
-                            
-                            	
-                            	
-   
-    <% goodsDAO dao = new goodsDAO();
-    
-    
-	ArrayList<goodsDTO> arr = dao.Sales(dto);
-	
-	chatDAO cdao = new chatDAO();
-	
-	
-	if(arr.size()>0){
-	for(int i = 0; i < arr.size(); i++) {
-		String status = arr.get(i).getStatus();
-		out.print("<tr>");
-		out.print("<td class='shoping__cart__item'>"+"");	
-		out.print("<img class='images' src='Upload/"+arr.get(i).getImg()+"'>");
-		out.print("</td>");
-        out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
-		out.print("<h5><a href='shop-details.jsp?goodsseq="+arr.get(i).getSeq()+"'>"+arr.get(i).getName()+"</a></h5>");
-		out.print("</td>");
-		if(status.equals("Y")){
-			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>판매완료");
-		}else{
-			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"");
-		}
-		out.print("</td>");
-		ArrayList<chatDTO> arry = cdao.searchchat(arr.get(i).getSeq());
-		
-		int j = 0;
-		if(arry.size()<=0){
-		}else{
-			out.print("<td>");
-			out.print("<select id='selectTag' name='" + arr.get(i).getSeq() + "'>");
-			out.print("<option value='선택안함'>선택안함</option>");
-			for(j = 0; j<arry.size(); j++){	
-			out.print("<option value="+arry.get(j).getId()+">"+arry.get(j).getId()+"</option>");
-			}
-			out.print("</select>");
-			out.print("</td>");
-			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a id='buttstyle' class='snip1535two'>판매완료</a>");		
-			out.print("</td>");
-		}
-		
-		out.print("</tr>");
-	}
-	}
-	%>
-  								
+
+							<tr>
+							
+								<td class='shoping__cart__item'>
+									<img class='images' src='Upload/<%=arr.get(0).getImg() %>'>
+								</td>
+								<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>
+									<h5><%=arr.get(0).getName()%></h5>
+								</td>
+								<td class='reviewrow' style='width:200px; text-align:center; font-size:15px;'>
+									<input class="reviewin" type="text" name="review" placeholder="리뷰를 작성해주세요">
+								</td>
+								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>
+						 	 		<input type="radio" name="rating" value="1"><a>1  </a><img style="width:20px;height:20px;" src="img/1point.png" name="rating"><br>
+						 	 		<input type="radio" name="rating" value="2"><a>2  </a><img style="width:20px;height:20px;" src="img/2point.png" name="rating"><br>
+						 	 		<input type="radio" name="rating" value="3"><a>3  </a><img style="width:20px;height:20px;" src="img/3point.png" name="rating"><br>
+						 	 		<input type="radio" name="rating" value="4"><a>4  </a><img style="width:20px;height:20px;" src="img/4point.png" name="rating"><br>
+						 	 		<input type="radio" name="rating" value="5"><a>5  </a><img style="width:20px;height:20px;" src="img/5point.png" name="rating">
+						  	 	
+								</td>
+								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>
+									<button type="submit" class="snip1535two" id="idCheck" value="review">등록하기</button>
+								</td>
+							</tr>
+
+  
                             </tbody>
+
                         </table>
+           				</form>
                     </div>
                 </div>
             </div>
@@ -203,6 +186,43 @@
         </div>
     </section>
     <!-- Shoping Cart Section End -->
+    
+  <!--  <div class="text_ul_wrap">
+						 	 		<a href="javascript:;"><strong>점수 입력</strong></a>
+						  	 		<ul class="ul_select_style" style="list-style: none;">
+							    		<li><img style="width:20px;height:20px;" src="img/1point.png" value="1">1</li>
+							    		<li><img style="width:20px;height:20px;" src="img/2point.png" value="2">2</li>
+								    	<li><img style="width:20px;height:20px;" src="img/3point.png" value="3">3</li>
+								    	<li><img style="width:20px;height:20px;" src="img/4point.png" value="4">4</li>
+								    	<li><img style="width:20px;height:20px;" src="img/5point.png" value="5">5</li>
+						  	 		</ul>
+									</div>-->
+    
+							<script>
+							var _select_title = $(".text_ul_wrap > a");
+							$('<div class="select_icon"></div>').insertAfter(_select_title);
+							
+							_select_title.click(function () {
+							  $(".ul_select_style").toggleClass("active");
+							  $(".select_icon").toggleClass("active");
+							});
+							
+							$(".ul_select_style > li").on('click', function () {
+							  var _li_value = $(this).text();
+							  var _li_img = $(this).find('img').attr('src');
+							  var content = '<img style="width:20px;height:20px;" src="'+_li_img+'">'+_li_value;
+							  _select_title.html(content);
+							  $(".ul_select_style").removeClass("active");
+							  $(".select_icon").toggleClass("active");
+							});
+							$("body").click(function (e) {
+							  if($(".ul_select_style").hasClass("active")){
+							    if(!$(".text_ul_wrap").has(e.target).length){
+							      $(".ul_select_style").removeClass("active");
+							      $(".select_icon").removeClass("active");
+							    };
+							  }
+							})</script>
 
 
 
@@ -214,32 +234,6 @@
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <script type="text/javascript">
-	function salcmplt(){
-		let gseq = arr.get(i).getSeq();
-		$.ajax({
-			url : "SalecmpltService",
-			type : "get",
-			data : gseq,
-			success : function(res){
-				if(res=='ture'){
-					alert("판매완료오류.");
-				}
-				alert("판매가 되었습니다.");
-			}
-			
-		})
-	}
-	
-	$('#selectTag').on('change', function(){
-	
-		
-		$('.snip1535two').attr("href", "Salcmplt.do?goodsseq=" + $(this).attr('name')  + "&chatid=" + $(this).val());
-		
-		
-	})
-	
-	</script>
 
 
 </body>
