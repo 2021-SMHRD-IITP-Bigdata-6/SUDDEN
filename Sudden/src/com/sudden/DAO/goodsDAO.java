@@ -157,8 +157,9 @@ public class goodsDAO {
 			String img = rs.getString("goods_img");
 			int price = rs.getInt("goods_price");
 			String status = rs.getString("goods_status");
+			String id = rs.getString("mem_id");
 
-			gddto = new goodsDTO(seq,name,content, img, price, status);
+			gddto = new goodsDTO(seq,name,content, img, price, status,id);
 			
 			cnt = 1;
 		}
@@ -442,6 +443,56 @@ public class goodsDAO {
 		
 		return gddto;
 	
+	}
+
+	public int Postdel(goodsDTO dto) {
+		
+		try {
+			System.out.println("게시판삭제dao");
+			System.out.println("게시판삭제dao_seq = "+dto.getSeq() );
+			getconn();
+			String sql = "delete from tbl_product where goods_seq = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, dto.getSeq());
+			cnt = psmt.executeUpdate();
+
+			System.out.println("게시판삭제dao_cnt = "+cnt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+
+				
+		
+		return cnt;
+	}
+
+	public boolean delcheck(String seq) {
+		try {
+
+			getconn();
+			
+			System.out.println("삭제dao= "+seq);
+
+			String sql = "select * from tbl_product where goods_seq = ?";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, seq);
+
+			rs = psmt.executeQuery();
+
+			check = rs.next();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		return check;
+		
+		
 	}
 	
 	

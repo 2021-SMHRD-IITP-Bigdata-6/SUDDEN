@@ -237,7 +237,7 @@
         </div>
     </section>
     <!-- Breadcrumb Section End -->
-
+    
     <!-- Product Details Section Begin -->
     <section class="product-details spad">
         <div class="container">
@@ -245,13 +245,14 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
-                            <img class="product__details__pic__item--large"
-                                src="Upload/<%=gdto.getImg()%>" alt="">
+                            <img class="product__details__pic__item--large" style="width:500px;height:400px;" src="Upload/<%=gdto.getImg()%>" alt="">
                         </div>
 
                     </div>
                 </div>
-             <% out.print("<div class='product__details__text'>");
+             <% out.print("<div class='product__details__text'>"); //style="position: relative;top: 0px;left: 350px;"
+             	
+          
              
                 String status = gdto.getStatus();
                		out.print("<h3>"+gdto.getName()+"</h3>");
@@ -294,9 +295,18 @@
                          %>
                 </div>
              </div>
-          </div>
+          
     </section>
     <!-- Product Details Section End -->
+	<%
+    if(dto != null){
+    	if(dto.getId().equals(gdto.getId())){
+    	out.print("<a style='position: relative;bottom: 640px;left: 1240px;'>글 수정</button>");
+    	out.print("<a style='position: relative;bottom: 640px;left: 1280px;'  href=Postdel.do?goodsseq="+gdto.getSeq()+">글 삭제</a>");
+        }
+    }
+	%>
+    
 
     
 
@@ -336,6 +346,35 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+    function del() {
+    	$.ajax({
+			url : "delcheck.do",
+			type : "get", //json 데이터만
+			data : {
+				"seq" : gdto.getSeq()						
+			},
+			
+			success : function(res) {
+				
+				if(res=='true'){
+					alert("잠시 후에 시도 해주세요.");
+				}else{
+					alert("게시글이 삭제되었습니다.");
+				}
+				}
+				
+
+				
+			},
+			
+			error : function() {
+				alert("요청 실패");
+			}
+		});
+	}
+    </script>
+    
 
 
 

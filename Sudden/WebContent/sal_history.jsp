@@ -166,7 +166,7 @@
 		}else{
 			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"");
 		}
-		out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a id='buttstyle' class='snip1535two' href=Salcmplt.do?goodsseq="+arr.get(i).getSeq()+">판매완료</button>");	
+		out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a id='buttstyle' class='snip1535two' href=Salcmplt.do?goodsseq="+arr.get(i).getSeq()+">판매완료</a>");	
 		out.print("</td>");
 		out.print("</tr>");
 	}
