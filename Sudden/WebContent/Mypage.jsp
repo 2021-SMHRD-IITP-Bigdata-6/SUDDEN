@@ -242,11 +242,11 @@
 						</div>
 					</div>
 				
-				<div style="width: 445px;" class="sh_group">
+				<div style="width: 445px; padding: 50px 10px 50px;" class="sh_group">
 					<div class="column">
 						<div class="sh_content">
-								<h2>구매 및  판매 내역</h2>
-								<br><br>
+								<a style="font-size:30px;"><strong>구매 및  판매 내역</strong></a>
+								<br><br><br>
 								<div onclick="location.href='pur_history.jsp';" style="cursor:pointer; font-size:30px;">구매내역</div>
 								<br><br><br>
 								<div onclick="location.href='sal_history.jsp';" style="cursor:pointer; font-size:30px;">판매내역</div>
@@ -262,8 +262,8 @@
 				<div class="sh_content">
 							<br>
 							<p>나의 평점은??&nbsp;&nbsp;<img style="width:70px;height:70px;"src="img/1point.png"></img></p>	<!-- 리뷰이미지 정보넣는곳 -->
-								<div onclick="location.href='review.jsp';" style="cursor:pointer; font-size:20px; position:absolute; left:700px;">확인하러 가기
-								</div>		
+								<a onclick="location.href='review.jsp';" style="cursor:pointer; font-size:20px;">확인하러 가기
+								</a>		
 													
 						</div>
  				</div>
