@@ -567,6 +567,42 @@ public class goodsDAO {
 			return gddto;
 	
 	}
+	public ArrayList<goodsDTO> reseq(memberDTO dto) {
+		
+		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
+		
+		try {
+			
+			getconn();
+
+			String sql = "select * from tbl_product where mem_id = ? and goods_status = 'Y' order by goods_seq asc";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				int seq = rs.getInt("goods_seq");
+				String name = rs.getString("goods_name");
+				
+				goodsDTO gdto = new goodsDTO(seq, name, 0);
+				arr.add(gdto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return arr;
+		
+		
+	}
+
+		
+		
+	
 		
 		
 		

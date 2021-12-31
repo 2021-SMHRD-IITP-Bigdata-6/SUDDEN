@@ -233,6 +233,43 @@ public ArrayList<goodsDTO> purchase(tradeDTO tdto) {
 		}
 		return cnt;
 	}
+	public ArrayList<tradeDTO> reseq(tradeDTO tdto) {
+		
+		ArrayList<tradeDTO> tarr = new ArrayList<tradeDTO>();
+		
+		try {
+			
+			getconn();
+			
+			System.out.println("purchasedao = "+tdto.getGoodsseq());
+
+			String sql = "select * from tbl_trade where goods_seq = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, tdto.getGoodsseq());
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				String id = rs.getString("purchaser_id");
+				String review = rs.getString("trade_memo");
+				int rating =  rs.getInt("trade_rating");
+				
+				
+				tradeDTO dto = new tradeDTO(id,review,rating);
+				tarr.add(dto);
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return tarr;
+		
+		
+	}
 	
 
 }

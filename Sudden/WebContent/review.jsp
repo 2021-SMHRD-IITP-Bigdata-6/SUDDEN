@@ -1,3 +1,5 @@
+<%@page import="com.sudden.DAO.tradeDAO"%>
+<%@page import="com.sudden.DTO.tradeDTO"%>
 <%@page import="com.sudden.DAO.memberDAO"%>
 <%@page import="com.sudden.DTO.goodsDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -113,9 +115,26 @@
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
-    <%
-      memberDTO dto = (memberDTO) session.getAttribute("dto");
-   %>
+		<%
+			memberDTO dto = (memberDTO) session.getAttribute("dto");
+			goodsDTO gdto = new goodsDTO(dto.getId(),0,0);
+			goodsDAO gdao = new goodsDAO();
+			
+			tradeDTO tdto = null;
+			tradeDAO tdao = new tradeDAO();
+			
+			ArrayList<goodsDTO> garr = gdao.reseq(dto);
+			ArrayList<tradeDTO> tarr = null;
+			if(garr.size()<=0){
+				
+			}else{
+				for(int i=0; i<garr.size(); i++){
+					tdto = new tradeDTO(garr.get(i).getSeq());
+					tarr=tdao.reseq(tdto);
+				}
+			}
+					
+		%>
 </head>
 <body>
 	<img src="http://icons.iconarchive.com/icons/hopstarter/square-flags/16/South-Korea-Flag-icon.png">
@@ -124,18 +143,33 @@
     	
     					<div class="shoping__cart__table">
                     	<div class="review_title" style="font-size:30px; backgroung-color:white;" >리뷰 및 평점</div><br>
-                    	<div class="review">
-                    		<div class="review1">
-                    			<div class="review2">                    			
-		                    	    <div class="reviewer_name">
-		                    			<span class="name">이름 : <!-- 판매자의 이름 --></span>
-		                    		</div>
-		                    		<div class="reviewer_product_name">
-		                    			<span class="name">제품 이름 : <!-- 판매한 제품 --></span>
-		                    		</div>
-                    			</div>
-	                    		<div class="emo">평점</div>
-                    		</div>
+                    	
+                    	<%
+                    		out.print("<div class='review'>"); 
+                    			out.print("<div class='review1'>"); 
+                    				out.print("<div class='review2'>"); 
+                    				
+                    				if(tarr.size()<=0){
+                    					
+                    				}else{
+                    					for(int i=0; i<tarr.size(); i++){
+                    					out.print("<div class='reviewer_name'>");
+                    					out.print("<span class='name'>이름 : "+tarr.get(i).getId()+"</div>");
+                    					out.print("<div class='reviewer_product_name'>");
+                    					out.print("<span class='name'>게시글 : "+garr.get(i).getName()+"</div>");
+                    					out.print("</div>");
+                    					out.print("<div class='emo'><img style='width:20px;height:20px;' src='img/"+tarr.get(i).getRating()+"point.png'></div>");
+                    					out.print("</div>");
+                    					out.print("<div class='review_comment'>");
+                    					out.print("<div class='review_comment_box'><p>"+tarr.get(i).getReview()+"</p></div>");
+                    					out.print("</div>");
+                    					out.print("</div>");
+                    					}
+                    				}
+                    	%>
+                    		
+                   			
+		                    	    
                     		
 <!-- 							<div class="text_ul_wrap">
 						 	 	<<a href="javascript:;"><strong>점수 입력</strong></a>
@@ -175,11 +209,7 @@
 							  }
 							})</script>
 
-                    		<div class="review_comment">
-                    			<div class="review_comment_box"></div>
-                    				<p><!-- 리뷰 코멘트 --></p>
-                    		</div>
-                    	</div>
+                    		
                     	<div class="review">
                     		<div class="review1">
                     			<div class="review2">                    			

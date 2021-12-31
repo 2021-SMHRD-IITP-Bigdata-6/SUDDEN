@@ -30,6 +30,9 @@ public class goodsDTO {
 	public goodsDTO(String name) {
 		this.name = name;
 	}
+	public goodsDTO(String id, int i, int j) {
+		this.id = id;
+	}
 	public goodsDTO(int seq) {
 		this.seq = seq;
 	}
@@ -41,12 +44,18 @@ public class goodsDTO {
 	 public goodsDTO(int seq, String id) {
 			this.seq = seq;
 			this.id = id;
-		}
+	}
+	 
+	 public goodsDTO(int seq, String name, int i) {
+			this.seq = seq;
+			this.name = name;
+	}
 	
 
 	public goodsDTO(String img, String id) {
 		
 		this.img = img;
+		this.id = id;
 		
 	}
 

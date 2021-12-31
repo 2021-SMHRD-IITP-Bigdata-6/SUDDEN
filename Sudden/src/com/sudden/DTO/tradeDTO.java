@@ -17,6 +17,13 @@ public class tradeDTO {
 		this.id = id;
 	}
 	
+	public tradeDTO( String id, String review, int rating) {
+		super();
+		this.id = id;
+		this.review = review;
+		this.rating = rating;
+	}
+	
 	
 	
 	public tradeDTO(int goodsseq, String id, String review, int rating) {
