@@ -23,52 +23,36 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/swiper.css" rel="stylesheet">
 	<link href="css/magnific-popup.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/styles.css" />
+	
 	<style>
     
     .td.shoping__cart__item {width: 600px; height: 261px;}
     .shoping__cart__table{background-color:white; width:700px; height:800px; position:absolute;left:200px; top:100px; padding:10px 30px 10px;}
     .footer{width:100%;position:absolute;top:2000px; }
     .review {width: 630px; height: 230px; background-color:white; border: 1px solid #ebebeb; padding: 10px 20px 10px;}
-    .reviewer_name {width:50px; height:20px; margin-bottom:10px;}
+    .reviewer_name {width:350px; height:20px; margin-bottom:10px;}
     .reviewer_score {width: 600px; height:30px;}
-    .reviewer_score_image {width:50px; height:10px;}
     .reviewer_product_link {width:350px; height:30px; border: 1px solid #ebebeb; text-align: left; margin-bottom: 10px;}
     .review_comment {width:350px; height:70px;}
-    .review_comment_box {width:350px; height:70px;}
+    .review_comment_box {width:555px; height:130px; border: 1px solid;}
     
-    
-    .starpoint_wrap{display:inline-block;}
-	.starpoint_box{position:relative;background:url(https://hsecode.github.io/images_codepen/codepen_sp_star.png) 0 0 no-repeat;font-size:0;}
-	.starpoint_box .starpoint_bg{display:block;position:absolute;top:0;left:0;height:18px;background:url(https://hsecode.github.io/images_codepen/codepen_sp_star.png) 0 -20px no-repeat;pointer-events:none;}
-	.starpoint_box .label_star{display:inline-block;width:10px;height:18px;box-sizing:border-box;}
-	.starpoint_box .star_radio{opacity:0;width:0;height:0;position:absolute;}
-	.starpoint_box .star_radio:nth-of-type(1):hover ~ .starpoint_bg,
-	.starpoint_box .star_radio:nth-of-type(1):checked ~ .starpoint_bg{width:10%;}
-	.starpoint_box .star_radio:nth-of-type(2):hover ~ .starpoint_bg,
-	.starpoint_box .star_radio:nth-of-type(2):checked ~ .starpoint_bg{width:20%;}
-	.starpoint_box .star_radio:nth-of-type(3):hover ~ .starpoint_bg,
-	.starpoint_box .star_radio:nth-of-type(3):checked ~ .starpoint_bg{width:30%;}
-	.starpoint_box .star_radio:nth-of-type(4):hover ~ .starpoint_bg,
-	.starpoint_box .star_radio:nth-of-type(4):checked ~ .starpoint_bg{width:40%;}
-	.starpoint_box .star_radio:nth-of-type(5):hover ~ .starpoint_bg,
-	.starpoint_box .star_radio:nth-of-type(5):checked ~ .starpoint_bg{width:50%;}
-	.starpoint_box .star_radio:nth-of-type(6):hover ~ .starpoint_bg,
-	.starpoint_box .star_radio:nth-of-type(6):checked ~ .starpoint_bg{width:60%;}
-	.starpoint_box .star_radio:nth-of-type(7):hover ~ .starpoint_bg,
-	.starpoint_box .star_radio:nth-of-type(7):checked ~ .starpoint_bg{width:70%;}
-	.starpoint_box .star_radio:nth-of-type(8):hover ~ .starpoint_bg,
-	.starpoint_box .star_radio:nth-of-type(8):checked ~ .starpoint_bg{width:80%;}
-	.starpoint_box .star_radio:nth-of-type(9):hover ~ .starpoint_bg,
-	.starpoint_box .star_radio:nth-of-type(9):checked ~ .starpoint_bg{width:90%;}
-	.starpoint_box .star_radio:nth-of-type(10):hover ~ .starpoint_bg,
-	.starpoint_box .star_radio:nth-of-type(10):checked ~ .starpoint_bg{width:100%;}
-	.blind{position:absolute;clip:rect(0 0 0 0);margin:-1px;width:1px;height: 1px;overflow:hidden;}
-	.comment_submit{width:80px; height:25px; position:"absolute"; left:"50px";}
+	 ul, li{list-style:none; margin:0; padding:0}
+	.text_ul_wrap{margin:0 auto; width:240px; position: relative; right: 150px; border:1px solid #000; text-align: left}
+	.text_ul_wrap a{color:#000; line-height: 34px; display: block; padding: 0 20px 0 10px; text-decoration:none}
+	.select_icon{display: block; content: ''; clear: both; position:absolute; right:10px; top:12px; width: 0; height:0; border-left:6px solid transparent; border-right:6px solid transparent; border-top:12px solid #000; border-bottom:none;}
+	.select_icon.active{border-bottom:12px solid #000; border-top:none;}
+	.ul_select_style{position: absolute; width: 242px; left: -1px; display: none;}
+	.ul_select_style.active{display: block}
+	.ul_select_style li{line-height: 34px; border: 1px solid #000; text-align: left; padding-left: 10px; cursor: pointer;}
+	.ul_select_style li + li{border-top:none;}
+	.ul_select_style li:hover{background: rgba(0,0,0,0.2)}
+	    
     </style>
 	<!-- Favicon  -->
     <link rel="icon" href="images/favicon.png">
     <script src="jquery-3.6.0.min.js"></script>
+   
 	<body>
 	<body data-spy="scroll" data-target=".fixed-top" style="background-color:#394aad;">
     
@@ -132,45 +116,162 @@
    %>
 </head>
 <body>
-	
+	<img src="http://icons.iconarchive.com/icons/hopstarter/square-flags/16/South-Korea-Flag-icon.png">
     <!-- Shoping Cart Section Begin -->
-    <section class="shoping-cart spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__table">
-                    	<div class="review_title">리뷰 및 평점</div>
+    <section style="position:absolute; left:260px;">
+    					<div class="shoping__cart__table">
+                    	<div class="review_title" style="font-size:30px; backgroung-color:white;" >리뷰 및 평점</div><br>
                     	<div class="review">
                     	    <div class="reviewer_name">
-                    			<a class="name" href="#">김병관<!-- 리뷰 남기는 사람의 이름 --></a>
+                    			<span class="name">이름 : <!-- 판매자의 이름 --></span>
                     		</div>
-                    		<div class="reviewer_score">
-                    			<select id="select_box" name="select_box" onChange="selectForm(this.options[this.selectedIndex].value)" style="width:100">
-                    				<option>--선택--</option>
-                    				<option value="1">1</option>
-                    				<option value="2">2</option>
-                    				<option value="3">3</option>
-                    			</select>
-                    			<div id="all_forms">
-                    				<div style="color">
-                    			</div>
+<!-- 							<div class="text_ul_wrap">
+						 	 	<<a href="javascript:;"><strong>점수 입력</strong></a>
+						  	 	<ul class="ul_select_style">
+							    	<li><img style="width:20px;height:20px;" src="img/1point.png" value="test">1</li>
+							    	<li><img style="width:20px;height:20px;" src="img/2point.png">2</li>
+								    <li><img style="width:20px;height:20px;" src="img/3point.png">3</li>
+								    <li><img style="width:20px;height:20px;" src="img/4point.png">4</li>
+								    <li><img style="width:20px;height:20px;" src="img/5point.png">5</li>
+						  	 	</ul>
+							</div> -->
+
+
+							<script>
+							var _select_title = $(".text_ul_wrap > a");
+							$('<div class="select_icon"></div>').insertAfter(_select_title);
+							
+							_select_title.click(function () {
+							  $(".ul_select_style").toggleClass("active");
+							  $(".select_icon").toggleClass("active");
+							});
+							
+							$(".ul_select_style > li").on('click', function () {
+							  var _li_value = $(this).text();
+							  var _li_img = $(this).find('img').attr('src');
+							  var content = '<img style="width:20px;height:20px;" src="'+_li_img+'">'+_li_value;
+							  _select_title.html(content);
+							  $(".ul_select_style").removeClass("active");
+							  $(".select_icon").toggleClass("active");
+							});
+							$("body").click(function (e) {
+							  if($(".ul_select_style").hasClass("active")){
+							    if(!$(".text_ul_wrap").has(e.target).length){
+							      $(".ul_select_style").removeClass("active");
+							      $(".select_icon").removeClass("active");
+							    };
+							  }
+							})</script>
+                    		<div class="reviewer_product">
+                    			<button class="reviewer_product_link">제품 이름 : <!-- 판매한 제품 -->
+                    			</button>
                     		</div>
+                    		<div class="review_comment">
+                    			<div class="review_comment_box"></div>
+                    				<p><!-- 리뷰 코멘트 --></p>
+                    		</div>
+                    	</div>
+                    	                    	<div class="review">
+                    	    <div class="reviewer_name">
+                    			<span class="name">이름 : <!-- 판매자의 이름 --></span>
+                    		</div>
+<!-- 							<div class="text_ul_wrap">
+						 	 	<<a href="javascript:;"><strong>점수 입력</strong></a>
+						  	 	<ul class="ul_select_style">
+							    	<li><img style="width:20px;height:20px;" src="img/1point.png" value="test">1</li>
+							    	<li><img style="width:20px;height:20px;" src="img/2point.png">2</li>
+								    <li><img style="width:20px;height:20px;" src="img/3point.png">3</li>
+								    <li><img style="width:20px;height:20px;" src="img/4point.png">4</li>
+								    <li><img style="width:20px;height:20px;" src="img/5point.png">5</li>
+						  	 	</ul>
+							</div> -->
+
+
+							<script>
+							var _select_title = $(".text_ul_wrap > a");
+							$('<div class="select_icon"></div>').insertAfter(_select_title);
+							
+							_select_title.click(function () {
+							  $(".ul_select_style").toggleClass("active");
+							  $(".select_icon").toggleClass("active");
+							});
+							
+							$(".ul_select_style > li").on('click', function () {
+							  var _li_value = $(this).text();
+							  var _li_img = $(this).find('img').attr('src');
+							  var content = '<img style="width:20px;height:20px;" src="'+_li_img+'">'+_li_value;
+							  _select_title.html(content);
+							  $(".ul_select_style").removeClass("active");
+							  $(".select_icon").toggleClass("active");
+							});
+							$("body").click(function (e) {
+							  if($(".ul_select_style").hasClass("active")){
+							    if(!$(".text_ul_wrap").has(e.target).length){
+							      $(".ul_select_style").removeClass("active");
+							      $(".select_icon").removeClass("active");
+							    };
+							  }
+							})</script>
                     		<a class="reviewer_product">
-                    			<button class="reviewer_product_link">블랙아웃 후디 L<!-- 리뷰 남기는 사람이 구매한 제품으로 이동 -->
+                    			<button class="reviewer_product_link">제품 이름 : <!-- 판매한 제품 -->
                     			</button>
                     		</a>
                     		<div class="review_comment">
-                    			<textarea class="review_comment_box" class="comment_box" name="Review" rows="5" cols="33" maxlength="100"></textarea>
-                    			<input type="submit" value="작성완료" class="comment_submit">
+                    			<div class="review_comment_box"></div>
+                    				<p><!-- 리뷰 코멘트 --></p>
                     		</div>
                     	</div>
-                    	<div class="review">dddd</div>
-                    	<div class="review">dddd</div>
-                    </div>
-                </div>
-            </div>
+						<div class="review">
+                    	    <div class="reviewer_name">
+                    			<span class="name">이름 : <!-- 판매자의 이름 --></span>
+                    		</div>
+<!-- 							<div class="text_ul_wrap">
+						 	 	<<a href="javascript:;"><strong>점수 입력</strong></a>
+						  	 	<ul class="ul_select_style">
+							    	<li><img style="width:20px;height:20px;" src="img/1point.png" value="test">1</li>
+							    	<li><img style="width:20px;height:20px;" src="img/2point.png">2</li>
+								    <li><img style="width:20px;height:20px;" src="img/3point.png">3</li>
+								    <li><img style="width:20px;height:20px;" src="img/4point.png">4</li>
+								    <li><img style="width:20px;height:20px;" src="img/5point.png">5</li>
+						  	 	</ul>
+							</div> -->
 
-        </div>
+
+							<script>
+							var _select_title = $(".text_ul_wrap > a");
+							$('<div class="select_icon"></div>').insertAfter(_select_title);
+							
+							_select_title.click(function () {
+							  $(".ul_select_style").toggleClass("active");
+							  $(".select_icon").toggleClass("active");
+							});
+							
+							$(".ul_select_style > li").on('click', function () {
+							  var _li_value = $(this).text();
+							  var _li_img = $(this).find('img').attr('src');
+							  var content = '<img style="width:20px;height:20px;" src="'+_li_img+'">'+_li_value;
+							  _select_title.html(content);
+							  $(".ul_select_style").removeClass("active");
+							  $(".select_icon").toggleClass("active");
+							});
+							$("body").click(function (e) {
+							  if($(".ul_select_style").hasClass("active")){
+							    if(!$(".text_ul_wrap").has(e.target).length){
+							      $(".ul_select_style").removeClass("active");
+							      $(".select_icon").removeClass("active");
+							    };
+							  }
+							})</script>
+                    		<a class="reviewer_product">
+                    			<button class="reviewer_product_link">제품 이름 : <!-- 판매한 제품 -->
+                    			</button>
+                    		</a>
+                    		<div class="review_comment">
+                    			<div class="review_comment_box"></div>
+                    				<p><!-- 리뷰 코멘트 --></p>
+                    		</div>
+                    	</div>
+	</div>
     </section>
     <!-- Shoping Cart Section End -->
 
@@ -180,11 +281,14 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
+    
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/mixitup.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    
+	<script src="js/jquery.dd.min.js"></script>
+    
 
 
 </body>
