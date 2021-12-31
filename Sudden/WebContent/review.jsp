@@ -28,7 +28,7 @@
 	<style>
     
     .td.shoping__cart__item {width: 600px; height: 261px;}
-    .shoping__cart__table{background-color:white; width:700px; height:800px; position:absolute;left:200px; top:100px; padding:10px 30px 10px;}
+    .shoping__cart__table{z-index: 20; padding-top:100px; width: 700px; height: 100%; margin: 0 auto; background-color:white;padding-left:30px;}
     .footer{width:100%;position:absolute;top:2000px; }
     .review {width: 630px; height: 230px; background-color:white; border: 1px solid #ebebeb; padding: 10px 20px 10px; margin-bottom: 20px; }
     .review1 {display: flex; justify-content: space-between; margin-bottom: 10px;}
@@ -120,7 +120,8 @@
 <body>
 	<img src="http://icons.iconarchive.com/icons/hopstarter/square-flags/16/South-Korea-Flag-icon.png">
     <!-- Shoping Cart Section Begin -->
-    <section style="position:absolute; left:260px;">
+    <section>
+    	
     					<div class="shoping__cart__table">
                     	<div class="review_title" style="font-size:30px; backgroung-color:white;" >¸®ºä ¹× ÆòÁ¡</div><br>
                     	<div class="review">
