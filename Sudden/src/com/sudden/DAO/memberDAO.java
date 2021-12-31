@@ -267,6 +267,45 @@ public class memberDAO {
 		}
 	}
 	
+	//public ArrayList<memberDTO> pw_search(memberDTO dto) {
+	public String  pw_search(memberDTO dto) {
+		
+		//ArrayList<memberDTO> arr = new ArrayList<memberDTO>();
+		String check="";
+		getconn();
+		
+		try {
+			System.out.println(dto.getId());
+			System.out.println(dto.getEmail());
+			
+			String sql = "select * from TBL_MEMBER where MEM_ID=? and MEM_EMAIL=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getEmail());			
+	
+			rs = psmt.executeQuery();
+			System.out.println("rs = "+rs);
+			
+			while(rs.next()) {
+				String pw = rs.getString("mem_pw");
+				
+				check=pw;
+				
+				//dto = new memberDTO(pw,0,0);
+				//arr.add(dto);
+			}System.out.println("Ã£±â¹Þ¾Æ¿È");
+			System.out.println(check);
+
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		} finally {
+			
+			cloes();
+		}
+		//return arr;
+		return check;
+	}
 	
 
 }

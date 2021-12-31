@@ -23,6 +23,7 @@ import com.sudden.Member.JoinService;
 import com.sudden.Member.LoginService;
 import com.sudden.Member.LogoutService;
 import com.sudden.Member.PostdelService;
+import com.sudden.Member.PwsearchServiec;
 import com.sudden.Member.RegisteService;
 import com.sudden.Member.ResetService;
 import com.sudden.Member.SalcmpltService;
@@ -181,16 +182,34 @@ public class FrontController extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.print(tof);
 					
-				}
+				}else if(command.equals("pw_search.do")) {
+					//com = new PwsearchServiec();
+					//nextpage = com.execute(request, response);
+					
+					String id = request.getParameter("id");
+					String email = request.getParameter("email");
+					System.out.println("id="+id);
+					System.out.println("email"+email);
+					
+					memberDAO dao = new memberDAO();
+					memberDTO dto = new memberDTO(id, email, 0, 0);
+				//	ArrayList<memberDTO> pw_list = dao.pw_search(dto);
+					String pw_list = dao.pw_search(dto);
+					System.out.println(pw_list);
+//					Gson gson = new Gson();
+//					String json = gson.toJson(pw_list);
+					response.setCharacterEncoding("utf-8");
+					PrintWriter out = response.getWriter();
+					out.print(pw_list);
 				
-					
-					
+
+				}
 				
 				
 				if(nextpage != null) {
+					System.out.println(nextpage);
 					response.sendRedirect(nextpage);
 				
 				}
 			}
 		}
-
