@@ -52,7 +52,6 @@
 <body data-spy="scroll" data-target=".fixed-top">
 	<%
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
-
 	%>
 
 	<!-- Preloader -->
@@ -123,35 +122,37 @@
 					<br>
 					<!-- Sign Up Form -->
 					<div class="form-container">
-					<div id="pwsearch">
-						<div>가입한 아이디와 이메일을 통해 비밀번호를 찾으실수 있습니다.</div>
-						<br>
-							
-							
-							
-								<div class="form-group">
-									<input type="text" class="form-control-input" id="search_id" name="id"  placeholder="ID을 입력하세요">
-								</div>
-								<div class="form-group">
-									 <input type="email" class="form-control-input" id="search_email" name="email"  placeholder="Email를 입력하세요">
-									
-								</div>
-								<div class="num"></div>
-								<!--<div class="form-group">
+						<div id="pwsearch">
+							<div>가입한 아이디와 이메일을 통해 비밀번호를 찾으실수 있습니다.</div>
+							<br>
+
+
+
+							<div class="form-group">
+								<input type="text" class="form-control-input" id="search_id"
+									name="id" placeholder="ID을 입력하세요">
+							</div>
+							<div class="form-group">
+								<input type="email" class="form-control-input" id="search_email"
+									name="email" placeholder="Email를 입력하세요">
+
+							</div>
+							<div class="num"></div>
+							<!--<div class="form-group">
                                 <input type="text" class="form-control-input" id="cpassword" required> 
                                 <label class="label-control" for="cpassword">설정할 PW확인</label>
                                 <div class="help-block with-errors"></div>
                             </div>  -->
-								<div class="form-group">
-									<button class="snip1535two" onclick="pw_search()">찾기</button>
-								</div>
-								<div class="form-message">
-									<div id="smsgSubmit" class="h3 text-center hidden"></div>
-								</div>
-							
-							
-							
-							
+							<div class="form-group">
+								<button class="snip1535two" onclick="pw_search()">찾기</button>
+							</div>
+							<div class="form-message">
+								<div id="smsgSubmit" class="h3 text-center hidden"></div>
+							</div>
+
+
+
+
 						</div>
 					</div>
 					<!-- end of form container -->
@@ -163,47 +164,44 @@
 			<!-- end of row -->
 		</div>
 		<!-- end of container -->
-		
-	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
-	<script type="text/javascript">
-	function pw_search() {
-			$.ajax({
-						url : "pw_search.do",
-						type : "get",
-						data : {
-							"id" : $('input[id=search_id]').val(),
-							"email" : $('input[id=search_email]').val()
-						},
-						
-						success : function(pw) {
-							console.log(pw)
-							
-						
-							$('#pwsearch').html(''); //pwsearch의  html코드 초기화
-							//$('선택자').append(html/text);
-							//$('선택자').append(html/text);
-							//$('선택자').append(html/text);
-							//$('선택자').append(html/text);
-							let new_div = "";
-							
-							new_div += "<h6>회원가입시 사용한 비밀번호는 "+pw+"입니다</h6>";
-							new_div += "</div>";
-							new_div += "<a class='snip1535two' href='log-in.jsp'>로그인 이동</a>";
-							new_div += "</div>";
 
-							$('#pwsearch').append(new_div);
-							
+		<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript">
+			function pw_search() {
+				$
+						.ajax({
+							url : "pw_search.do",
+							type : "get",
+							data : {
+								"id" : $('input[id=search_id]').val(),
+								"email" : $('input[id=search_email]').val()
+							},
 
-			
-	},
-	error : function(){
-		alart("요청 실패!")
-	}
-});
-	}
+							success : function(pw) {
+								console.log(pw)
 
-	</script>
-				
+								$('#pwsearch').html(''); //pwsearch의  html코드 초기화
+								//$('선택자').append(html/text);
+								//$('선택자').append(html/text);
+								//$('선택자').append(html/text);
+								//$('선택자').append(html/text);
+								let new_div = "";
+
+								new_div += "<div>회원가입시 사용한 비밀번호는 " + "<strong>"+pw+"</strong>" + "입니다</div>";
+								
+								new_div += "<a class='snip1535two' href='log-in.jsp'>로그인 이동</a>";
+								
+
+								$('#pwsearch').append(new_div);
+
+							},
+							error : function() {
+								alart("요청 실패!")
+							}
+						});
+			}
+		</script>
+
 	</header>
 	<!-- end of ex-header -->
 	<!-- end of header -->
@@ -212,6 +210,6 @@
 	<!-- Popper tooltip library for Bootstrap -->
 	<script src="js/bootstrap.min.js"></script>
 	<!-- Custom scripts -->
-	
+
 </body>
 </html>
