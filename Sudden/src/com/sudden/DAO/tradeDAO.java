@@ -139,11 +139,11 @@ public ArrayList<goodsDTO> purchase(tradeDTO dto) {
 			
 			getconn();
 			
-			System.out.println("purchasedao = "+dto.getSeq());
+			System.out.println("purchasedao = "+dto.getGoodsseq());
 
 			String sql = "select * from tbl_product where goods_seq = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, dto.getSeq());
+			psmt.setInt(1, dto.getGoodsseq());
 
 			rs = psmt.executeQuery();
 
@@ -156,6 +156,7 @@ public ArrayList<goodsDTO> purchase(tradeDTO dto) {
 				
 				goodsDTO gdto = new goodsDTO(seq, name, img, price,status,0);
 				arr.add(gdto);
+				
 			}
 			
 		} catch (Exception e) {
@@ -168,6 +169,36 @@ public ArrayList<goodsDTO> purchase(tradeDTO dto) {
 		
 		
 	}
+
+    public int inreview(tradeDTO tdto) {
+    	
+    	try {
+			
+			getconn();
+
+			String sql = "insert into tbl_trade (goods_seq, purchaser_id) values (?, ?) where goods_seq = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, tdto.getReview());
+			psmt.setInt(2, tdto.getRating());
+			psmt.setInt(2, tdto.getGoodsseq());
+			
+			cnt = psmt.executeUpdate();
+			if(cnt>0) {
+				System.out.println("리뷰저장");
+			}else {
+				System.out.println("리뷰실패");
+			}
+		} catch (Exception e) {
+			System.out.println("클래스파일 로딩실패");
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+    	
+    	
+
+	return 0;
+}
 	
 
 }

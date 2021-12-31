@@ -109,6 +109,24 @@
    %>
 </head>
 <body>
+
+    <% 
+    
+    int goodsseq=0;
+    System.out.println("리뷰");
+      try{
+         System.out.println("리뷰1");
+         goodsseq =  Integer.parseInt(request.getParameter("goodsseq"));
+         System.out.println("받아옴 "+goodsseq);
+      }catch(Exception e){
+         
+      }
+    
+    tradeDAO gdao = new tradeDAO();
+    tradeDTO gdto = new tradeDTO(goodsseq);
+	
+	ArrayList<goodsDTO> arr = gdao.purchase(gdto);
+	%>
 	
     <!-- Shoping Cart Section Begin -->
     <section class="shoping-cart spad">
@@ -116,7 +134,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__table">
-                        <table class="tablein" border="1px">
+                    <form action="ReviewService" method="get">
+							<input type="hidden" name="id" value="<%=arr.get(0).getId()%>">
+							<input type="hidden" name="seq" value="<%=arr.get(0).getSeq()%>">
+                        <table class="tablein">
                             <thead>
                                 <tr>
                                     <th class="shoping__product" style="font-size:30px; text-align:center;">제품이미지</th>
@@ -126,47 +147,38 @@
                                     <th style="font-size:30px;text-align:center;"></th>
                                 </tr>
                             </thead>
+                            
                             <tbody>
-   
-    <% 
-    tradeDAO tdao = new tradeDAO();
-    
-    
-	int pseq = tdao.searchseq(dto);
-	
-	tradeDTO tdto = new tradeDTO(pseq);
-	
-	ArrayList<goodsDTO> arr = tdao.purchase(tdto);
-	%>
-	
 
 							<tr>
+							
 								<td class='shoping__cart__item'>
-									<img class='images' src=''><!-- Upload/ -->
+									<img class='images' src='Upload/<%=arr.get(0).getName()%>'>
 								</td>
 								<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>
-									<h5>1111</h5>
+									<h5><%=arr.get(0).getImg()%></h5>
 								</td>
 								<td class='reviewrow' style='width:200px; text-align:center; font-size:15px;'>
-									<input class="reviewin">
+									<input class="reviewin" type="text" name="review" placeholder="리뷰를 작성해주세요">
 								</td>
 								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>
-									<select>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-									</select>
+						 	 		<input type="radio" name="rating" value="1"><a>1  </a><img style="width:20px;height:20px;" src="img/1point.png" name="rating"><br>
+						 	 		<input type="radio" name="rating" value="2"><a>2  </a><img style="width:20px;height:20px;" src="img/2point.png" name="rating"><br>
+						 	 		<input type="radio" name="rating" value="3"><a>3  </a><img style="width:20px;height:20px;" src="img/3point.png" name="rating"><br>
+						 	 		<input type="radio" name="rating" value="4"><a>4  </a><img style="width:20px;height:20px;" src="img/4point.png" name="rating"><br>
+						 	 		<input type="radio" name="rating" value="5"><a>5  </a><img style="width:20px;height:20px;" src="img/5point.png" name="rating">
+						  	 	
 								</td>
 								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>
-									<a id='buttstyle' class='snip1535two'>리뷰등록</a>
+									<button type="submit" class="snip1535two" id="idCheck" value="review">등록하기</button>
 								</td>
 							</tr>
 
   
                             </tbody>
+
                         </table>
+           				</form>
                     </div>
                 </div>
             </div>
@@ -174,6 +186,43 @@
         </div>
     </section>
     <!-- Shoping Cart Section End -->
+    
+  <!--  <div class="text_ul_wrap">
+						 	 		<a href="javascript:;"><strong>점수 입력</strong></a>
+						  	 		<ul class="ul_select_style" style="list-style: none;">
+							    		<li><img style="width:20px;height:20px;" src="img/1point.png" value="1">1</li>
+							    		<li><img style="width:20px;height:20px;" src="img/2point.png" value="2">2</li>
+								    	<li><img style="width:20px;height:20px;" src="img/3point.png" value="3">3</li>
+								    	<li><img style="width:20px;height:20px;" src="img/4point.png" value="4">4</li>
+								    	<li><img style="width:20px;height:20px;" src="img/5point.png" value="5">5</li>
+						  	 		</ul>
+									</div>-->
+    
+							<script>
+							var _select_title = $(".text_ul_wrap > a");
+							$('<div class="select_icon"></div>').insertAfter(_select_title);
+							
+							_select_title.click(function () {
+							  $(".ul_select_style").toggleClass("active");
+							  $(".select_icon").toggleClass("active");
+							});
+							
+							$(".ul_select_style > li").on('click', function () {
+							  var _li_value = $(this).text();
+							  var _li_img = $(this).find('img').attr('src');
+							  var content = '<img style="width:20px;height:20px;" src="'+_li_img+'">'+_li_value;
+							  _select_title.html(content);
+							  $(".ul_select_style").removeClass("active");
+							  $(".select_icon").toggleClass("active");
+							});
+							$("body").click(function (e) {
+							  if($(".ul_select_style").hasClass("active")){
+							    if(!$(".text_ul_wrap").has(e.target).length){
+							      $(".ul_select_style").removeClass("active");
+							      $(".select_icon").removeClass("active");
+							    };
+							  }
+							})</script>
 
 
 

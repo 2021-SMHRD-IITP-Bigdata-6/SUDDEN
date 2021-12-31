@@ -195,11 +195,11 @@
 <!-- 							<div class="text_ul_wrap">
 						 	 	<<a href="javascript:;"><strong>점수 입력</strong></a>
 						  	 	<ul class="ul_select_style">
-							    	<li><img style="width:20px;height:20px;" src="img/1point.png" value="test">1</li>
-							    	<li><img style="width:20px;height:20px;" src="img/2point.png">2</li>
-								    <li><img style="width:20px;height:20px;" src="img/3point.png">3</li>
-								    <li><img style="width:20px;height:20px;" src="img/4point.png">4</li>
-								    <li><img style="width:20px;height:20px;" src="img/5point.png">5</li>
+							    	<li><img style="width:20px;height:20px;" src="img/1point.png" value="1">1</li>
+							    	<li><img style="width:20px;height:20px;" src="img/2point.png" value="2">2</li>
+								    <li><img style="width:20px;height:20px;" src="img/3point.png"value="3">3</li>
+								    <li><img style="width:20px;height:20px;" src="img/4point.png"value="4">4</li>
+								    <li><img style="width:20px;height:20px;" src="img/5point.png"value="5">5</li>
 						  	 	</ul>
 							</div> -->
 
