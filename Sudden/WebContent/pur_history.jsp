@@ -130,7 +130,6 @@
 	tradeDTO tdto = new tradeDTO(pseq);
 	
 	ArrayList<goodsDTO> arr = tdao.purchase(tdto);
-	
 	if(arr.size()>0){
 		for(int i = 0; i < arr.size(); i++) {
 			out.print("<tr>");
