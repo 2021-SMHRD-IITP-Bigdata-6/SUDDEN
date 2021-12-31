@@ -102,16 +102,33 @@ public class InterDAO {
 
 	public int InterUpload(goodsDTO dto) { // 관심등록한 값 저장하기
 
+		String sql="";
+		
 		getconn();
+		
 		try {
+			System.out.println("goods_seq= "+dto.getSeq());
+			System.out.println("mem_id= "+ dto.getId());
+			sql = "select * from tbl_my_goods where goods_seq =? and mem_id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, dto.getSeq());
+			psmt.setNString(2, dto.getId());
 			
-			String sql = "INSERT INTO tbl_my_goods (goods_seq, inter_date, mem_id) VALUES (?,sysdate,?)";
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				cnt = 0 ;
+			
+			}else {
+		
+			sql = "INSERT INTO tbl_my_goods (goods_seq, inter_date, mem_id) VALUES (?,sysdate,?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, dto.getSeq());
 			psmt.setString(2, dto.getId());
 			
 			cnt = psmt.executeUpdate();
-
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -171,7 +188,7 @@ public class InterDAO {
 		}
 
 		return check;
-	}public int inter_ckeck(int iseq) { //관심 중복체크용
+	}public int inter_ckeck(int iseq, String mid) { //관심 중복체크용
 		
 		int inter_ckeck = 0;
 		
@@ -179,22 +196,30 @@ public class InterDAO {
 		
 		try {
 			System.out.println("goods_seq= "+iseq);
-			String sql = "select * from tbl_my_goods where goods_seq =?";
+			System.out.println("mem_id= "+ mid);
+			String sql = "select * from tbl_my_goods where goods_seq =? and mem_id=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, iseq);
+			psmt.setNString(2, mid);
 			
 			rs = psmt.executeQuery();
 			
 			while(rs.next()) {
 			 inter_ckeck=1;
+			 
 			}
-
+			if(rs.next()) {
+				System.out.println("있음");
+			} else {
+				System.out.println("없음");
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			cloes();
 		}
-
+		System.out.println(inter_ckeck);
 		return inter_ckeck;
 	}
 	public int DeleteInter(int seq) {

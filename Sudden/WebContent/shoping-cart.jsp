@@ -172,6 +172,7 @@
 	int goodsseq=-1;
 	int size=0;
 	int cn=0;
+	String mid = dto.getId(); //요기
 	System.out.println("관심");
     try{
     	System.out.println("관심1");
@@ -200,7 +201,7 @@
     	//int seq = arr.get(0).getSeq();
     	int seq = goodsseq;
     	//seq = goodsseq;
-    	String mid = dto.getId();
+    	mid = dto.getId(); //요기
     	System.out.println("관심seq= "+seq);
     	System.out.println("관심id= "+mid);
     	igdto = new goodsDTO(seq,mid);
@@ -329,11 +330,11 @@
     						    	int iseq = iarr.get(j).getSeq();
     						    	System.out.println("상품쪽 관심iseq= "+iseq);	
 		
-    						    	int inter_ckeck = dao.inter_ckeck(iseq);
+    						    	int inter_ckeck = dao.inter_ckeck(iseq, mid);
       						    	System.out.println("리턴값= "+inter_ckeck);
-       								//if(inter_ckeck == 1){
-        													 
-      						    		System.out.println("실행");
+       								
+      						    	//if(inter_ckeck == 0){									 
+      						    	System.out.println("실행");
     						    	dao = new InterDAO();
     						    	arr = dao.addInter(iseq);
     						     	out.print("<tr>");
@@ -350,14 +351,13 @@
     								out.print("</td>");
     								out.print("</tr>");
     								j++;
-    								
     	 							if(size==j) {
     									break;
-    								}
-    	 
-    							 	}                          	 
+    									}
+    							 	}
+      						 
                              	 }
-                             // } 
+                            //} 
     						  %>
 
 
