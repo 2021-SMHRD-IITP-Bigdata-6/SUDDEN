@@ -46,11 +46,11 @@
     display: inline-block;
     font-family: 'BenchNine', Arial, sans-serif;
     font-size: 1em;
-    font-size: 15px;
+    font-size: 10px;
     line-height: 1em;
     margin: 15px 3px;
     outline: none;
-    padding: -10px 40px 10px;
+    padding: 10px 10px 10px;
     position: relative;
     text-transform: uppercase;
     font-weight: 100%;
@@ -180,7 +180,6 @@
 			out.print("<td>");
 			out.print("<select id='selectTag' name='" + arr.get(i).getSeq() + "'>");
 			out.print("<option value='선택안함'>선택안함</option>");
-
 			for(j = 0; j<arry.size(); j++){	
 			out.print("<option value="+arry.get(j).getId()+">"+arry.get(j).getId()+"</option>");
 			}
@@ -231,7 +230,6 @@
 			
 		})
 	}
-
 	
 	//$('#selectTag').on('change', function(){
 	$('select').on('change', function(){

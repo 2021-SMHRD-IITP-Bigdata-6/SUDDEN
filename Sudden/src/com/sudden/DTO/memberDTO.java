@@ -24,6 +24,9 @@ public class memberDTO {
 	public memberDTO(String id) {//check.do
 		super();
 		this.id = id;
+	}public memberDTO(String pw,int i,int j) {//check.do
+		super();
+		this.id = pw;
 	}
 	public memberDTO(String nick, int i) {//joinservice
 		super();
@@ -34,6 +37,11 @@ public class memberDTO {
 		super();
 		this.id = id;
 		this.nick = nick;
+	}
+	public memberDTO(String id, String email, int i, int j) {//joinservice
+		super();
+		this.id = id;
+		this.email = email;
 	}
 
 	public memberDTO(String id, String pw, int i) {//joinservice

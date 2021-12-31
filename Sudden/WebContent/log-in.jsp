@@ -120,7 +120,7 @@
                                 <div id="smsgSubmit" class="h3 text-center hidden"></div>
                             </div>
                             <p>아직 회원이아니세요? <a class="white" href="sign-up.html">회원가입</a></p> 
-                            <p>비밀번호가 생각나지 않나요? <a class="white" href="pwupdate.html">비번찾기</a></p> 
+                            <p>비밀번호가 생각나지 않나요? <a class="white" href="pwupdate.jsp">비번찾기</a></p> 
                         </form>
                     </div> <!-- end of form container -->
                     <!-- end of sign up form -->

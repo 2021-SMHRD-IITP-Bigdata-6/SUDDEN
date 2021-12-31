@@ -138,7 +138,7 @@
         	out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
 			out.print("<h5>"+arr.get(i).getName()+"</h5></td>");
 			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"</td>");
-			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a class='snip1535two' href='reviewwrite.jsp?goodsseq="+arr.get(i).getSeq()+"'>¸®ºäµî·Ï</a></td>");		
+			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a class='snip1535' href='reviewwrite.jsp?goodsseq="+arr.get(i).getSeq()+"'>¸®ºäµî·Ï</a></td>");		
 			out.print("</tr>");
 		}
 	}else{
