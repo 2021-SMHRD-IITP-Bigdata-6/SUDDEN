@@ -284,16 +284,20 @@
                				out.print("<li><b>가격</b><a style='font-size:30px; color:black;'>"+gdto.getPrice()+"</a></li>");
                				out.print("<li><b>연락하기</b><a href='chat.jsp?goodsseq="+gdto.getSeq()+"'><i class='fa fa-comment' style='font-size:50px; color:black;'></i></a></li>");
                			}
-               			out.print("/<ul>");
+               			out.print("</ul>");
                		}
                		if(dto != null){
                	    	if(dto.getId().equals(gdto.getId())){
-               	    	out.print("<a href=postupdate.jsp?goodsseq="+gdto.getSeq()+">글 수정</button>");
+               	    	out.print("<br><br><br>");
+               	    	out.print("<a href=postupdate.jsp?goodsseq="+gdto.getSeq()+">글 수정</a>");
+               	    	out.print("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
                	    	out.print("<a href=Postdel.do?goodsseq="+gdto.getSeq()+">글 삭제</a>");
                	        }
                	    }
-
+					
          		out.print("</div>");
+         		
+				
                      	
                          %>
                           

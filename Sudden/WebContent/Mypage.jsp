@@ -227,7 +227,7 @@
 						<div class="sh_header">
 							<h2>프로필 수정</h2>
 						</div>
-						<div style="font-size:20px;" class="sh_content"><br>
+						<div style="font-size:19px;" class="sh_content"><br>
 								<div>별명 :&nbsp; <%=nick%></div><br>
 								<div>이메일:&nbsp; <%=email%></div><br>
 								<div>주소:&nbsp; <%=addr%></div><br>
