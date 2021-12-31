@@ -99,8 +99,17 @@ public class goodsDTO {
 		this.status = status;
 		this.id = id;
 	}
+	public goodsDTO(int seq, String kate, String name, String content, String img, int price, String id) {
+		this.seq = seq;
+		this.kate = kate;
+		this.name = name;
+		this.content=content;
+		this.img = img;
+		this.price = price;	
+		this.id = id;
+	}
 	
-
+		
 
 
 

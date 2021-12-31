@@ -408,40 +408,44 @@ public class goodsDAO {
 
 	public goodsDTO seqdetail(goodsDTO dto) {
 		goodsDTO gddto = null;
-		String moveUrl="";
-		int cnt=0;
 		getconn();
 		try {
-		String sql = "select * from tbl_product where goods_img=? and mem_id=?";
-
-		psmt = conn.prepareStatement(sql);
-
-		psmt.setString(1, dto.getImg());
-		psmt.setString(2, dto.getId());
-		
-		rs = psmt.executeQuery();
-
-		while (rs.next()) {
-			int seq = rs.getInt("goods_seq");
-			String name = rs.getString("goods_name");
-			String content = rs.getString("goods_content");
-			String img = rs.getString("goods_img");
-			int price = rs.getInt("goods_price");
-			String status = rs.getString("goods_status");
-
-			gddto = new goodsDTO(seq,name,content, img, price, status);
 			
-			cnt = 1;
+			System.out.println("seqdetail 1 = "+dto.getSeq());
+		
+			String sql = "select * from tbl_product where goods_img=? and mem_id=?";
+
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, dto.getImg());
+			psmt.setString(2, dto.getId());
+		
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				int seq = rs.getInt("goods_seq");
+				String name = rs.getString("goods_name");
+				String content = rs.getString("goods_content");
+				String img = rs.getString("goods_img");
+				int price = rs.getInt("goods_price");
+				String status = rs.getString("goods_status");
+				
+				System.out.println("seqdetail 2 = "+seq);
+				System.out.println("seqdetail 2 = "+name);
+
+				gddto = new goodsDTO(seq,name,content, img, price, status);
+			
+				cnt = 1;
+			}
+		
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
 		}
 		
-		
-	} catch (Exception e) {
-		e.printStackTrace();
-	} finally {
-		cloes();
-	}
-		
-		return gddto;
+			return gddto;
 	
 	}
 
@@ -494,9 +498,84 @@ public class goodsDAO {
 		
 		
 	}
+
+	public int update(goodsDTO dto) {
+		
+		try {
+			
+			System.out.println("글수정dao_seq = "+dto.getSeq() );
+			getconn();
+			String sql = "update tbl_product set goods_cat = ?, goods_name = ?, goods_content = ?, goods_img = ?, goods_price = ?, goods_update = sysdate where goods_seq = ? ";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getKate());
+			psmt.setString(2, dto.getName());
+			psmt.setString(3, dto.getContent());
+			psmt.setString(4, dto.getImg());
+			psmt.setInt(5, dto.getPrice());
+			psmt.setInt(6, dto.getSeq());
+
+			cnt = psmt.executeUpdate();
+			System.out.println("글수정dao_cnt = "+cnt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+
+				
+		
+		return cnt;
+	}
+
+	public goodsDTO updatedetail(goodsDTO dto) {
+		goodsDTO gddto = null;
+		getconn();
+		try {
+			
+			System.out.println("seqdetail 1 = "+dto.getSeq());
+		
+			String sql = "select * from tbl_product where goods_seq = ?";
+
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setInt(1, dto.getSeq());
+		
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				int seq = rs.getInt("goods_seq");
+				String name = rs.getString("goods_name");
+				String content = rs.getString("goods_content");
+				String img = rs.getString("goods_img");
+				int price = rs.getInt("goods_price");
+				String status = rs.getString("goods_status");
+				
+				System.out.println("seqdetail 2 = "+seq);
+				System.out.println("seqdetail 2 = "+name);
+
+				gddto = new goodsDTO(seq,name,content, img, price, status);
+			
+				cnt = 1;
+			}
+		
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+			return gddto;
+	
+	}
+		
+		
+		
+		
+	}
 	
 	
 	
-}
+
 
 
