@@ -67,19 +67,22 @@ public class goodsDTO {
 		this.name = name;
 		this.img = img;
 		this.price = price;
-	}public goodsDTO(int seq, String name, String img, int price,String status, int i) {
+	}
+	public goodsDTO(int seq, String name, String img, int price,String status, int i) {
 		this.seq = seq;
 		this.name = name;
 		this.img = img;
 		this.price = price;
 		this.status = status;
-	}public goodsDTO(int seq, String name, String img, int price ,String id) {
+	}
+	public goodsDTO(int seq, String name, String img, int price ,String id) {
 		this.seq = seq;
 		this.name = name;
 		this.img = img;
 		this.price = price;
 		this.id = id;
-	}public goodsDTO(int seq, String name, String content, String img, int price,String status) {
+	}
+	public goodsDTO(int seq, String name, String content, String img, int price,String status) {
 		this.seq = seq;
 		this.name = name;
 		this.content=content;
@@ -87,6 +90,16 @@ public class goodsDTO {
 		this.price = price;
 		this.status = status;
 	}
+	public goodsDTO(int seq, String name, String content, String img, int price,String status, String id) {
+		this.seq = seq;
+		this.name = name;
+		this.content=content;
+		this.img = img;
+		this.price = price;
+		this.status = status;
+		this.id = id;
+	}
+	
 
 
 

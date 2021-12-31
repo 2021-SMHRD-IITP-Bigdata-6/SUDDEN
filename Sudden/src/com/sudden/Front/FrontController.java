@@ -22,6 +22,7 @@ import com.sudden.Member.DeleteInterService;
 import com.sudden.Member.JoinService;
 import com.sudden.Member.LoginService;
 import com.sudden.Member.LogoutService;
+import com.sudden.Member.PostdelService;
 import com.sudden.Member.RegisteService;
 import com.sudden.Member.ResetService;
 import com.sudden.Member.SalcmpltService;
@@ -163,6 +164,23 @@ public class FrontController extends HttpServlet {
 					System.out.println("판매완료컨트롤");
 					com = new SalcmpltService();
 					nextpage = com.execute(request, response);
+				}else if(command.equals("Postdel.do")) {
+					System.out.println("게시글삭제컨트롤");
+					com = new PostdelService();
+					nextpage = com.execute(request, response);
+				}else if(command.equals("delcheck.do")) {
+					
+					request.setCharacterEncoding("utf-8");
+					String seq = request.getParameter("seq");
+					System.out.println("삭제확인seq= "+seq);
+
+					goodsDAO dao = new goodsDAO();
+					boolean tof = dao.delcheck(seq);
+					System.out.println("삭제확인 = "+tof);
+					
+					PrintWriter out = response.getWriter();
+					out.print(tof);
+					
 				}
 				
 					
