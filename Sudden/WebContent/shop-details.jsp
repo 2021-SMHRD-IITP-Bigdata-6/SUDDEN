@@ -64,6 +64,7 @@
         if(goodsseq==0){
            System.out.println("여기2");
           gdto = (goodsDTO) session.getAttribute("gdto");
+          System.out.println("여기2받아오기 = "+gdto.getSeq());
         }
         else{
            System.out.println("여기3");
@@ -71,7 +72,7 @@
            gdto = new goodsDTO(goodsseq);
            gdto = dao.goodsdetail(gdto);
            
-           System.out.println("받아오기 = "+gdto.getName());
+           System.out.println("여기3받아오기 = "+gdto.getSeq());
            
            
         }
@@ -301,7 +302,7 @@
 	<%
     if(dto != null){
     	if(dto.getId().equals(gdto.getId())){
-    	out.print("<a style='position: relative;bottom: 640px;left: 1240px;'>글 수정</button>");
+    	out.print("<a style='position: relative;bottom: 640px;left: 1240px;' href=postupdate.jsp?goodsseq="+gdto.getSeq()+">글 수정</button>");
     	out.print("<a style='position: relative;bottom: 640px;left: 1280px;'  href=Postdel.do?goodsseq="+gdto.getSeq()+">글 삭제</a>");
         }
     }
@@ -361,8 +362,8 @@
 					alert("잠시 후에 시도 해주세요.");
 				}else{
 					alert("게시글이 삭제되었습니다.");
-				}
-				}
+				},
+				
 				
 
 				
