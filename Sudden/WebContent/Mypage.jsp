@@ -222,7 +222,7 @@
 		<div class="container">
 			<div class="row">
 				<!-- 프로필 설정 -->
-				<div style="width:600px;" class="sh_group">
+				<div style="width:580px;" class="sh_group">
 					<div class="column">
 						<div class="sh_header">
 							<h2>프로필 수정</h2>
@@ -242,13 +242,10 @@
 						</div>
 					</div>
 				
-				<div style="width:425px;height:490px; position:absolute; left:1000px;" class="sh_group">
-					<div style="width:300px;" class="column">
-						<div>
-							<h2 style="position:absolute; right:70px;">구매 및 판매 내역</h2><br>
-							<br>
-						</div>
-						<div style="width:150px;" class="sh_content">
+				<div style="width: 445px;" class="sh_group">
+					<div class="column">
+						<div class="sh_content">
+								<h2>구매 및  판매 내역</h2>
 								<br><br>
 								<div onclick="location.href='pur_history.jsp';" style="cursor:pointer; font-size:30px;">구매내역</div>
 								<br><br><br>
@@ -257,7 +254,7 @@
 					</div>
 				</div>
  			
- 		 		<div style="width:1035px;" class="sh_group">
+ 		 		<div style="width:1040px;" class="sh_group">
 				<div class="sh_header">
 					<h2>리뷰 & 평점</h2>
 				</div>
@@ -265,7 +262,7 @@
 				<div class="sh_content">
 							<br>
 							<p>나의 평점은??&nbsp;&nbsp;<img style="width:70px;height:70px;"src="img/1point.png"></img></p>	<!-- 리뷰이미지 정보넣는곳 -->
-								<div onclick="location.href='review.jsp';" style="cursor:pointer; font-size:20px; position:absolute; left:840px;">확인하러 가기
+								<div onclick="location.href='review.jsp';" style="cursor:pointer; font-size:20px; position:absolute; left:700px;">확인하러 가기
 								</div>		
 													
 						</div>
