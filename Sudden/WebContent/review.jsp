@@ -51,6 +51,8 @@
 	.ul_select_style li{line-height: 34px; border: 1px solid #000; text-align: left; padding-left: 10px; cursor: pointer;}
 	.ul_select_style li + li{border-top:none;}
 	.ul_select_style li:hover{background: rgba(0,0,0,0.2)}
+	
+	.rating{ width: 70px; height: 50px;margin: 4px;position: absolute;right: 10px;}
 	    
     </style>
 	<!-- Favicon  -->
@@ -158,7 +160,7 @@
                     					out.print("<div class='reviewer_product_name'>");
                     					out.print("<span class='name'>°Ô½Ã±Û : "+garr.get(i).getName()+"</div>");
                     					out.print("</div>");
-                    					out.print("<div class='emo'><img style='width:20px;height:20px;' src='img/"+tarr.get(i).getRating()+"point.png'></div>");
+                    					out.print("<div class='emo'><img class='rating' src='img/"+tarr.get(i).getRating()+"point.png'></div>");
                     					out.print("</div>");
                     					out.print("<div class='review_comment'>");
                     					out.print("<div class='review_comment_box'><p>"+tarr.get(i).getReview()+"</p></div>");
