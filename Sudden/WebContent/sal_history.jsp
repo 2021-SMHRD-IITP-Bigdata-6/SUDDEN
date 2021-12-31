@@ -133,7 +133,7 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product" style="font-size:30px; text-align:center;">판매내역</th>
+                                    <th class="shoping__product" style="font-size:30px; text-align:center;">제품이미지</th>
                                     <th style="font-size:30px;text-align:center;">제품명</th>
                                     <th style="font-size:30px;text-align:center;">가격</th>
                                     <th style="font-size:30px;text-align:center;"></th>
@@ -176,7 +176,6 @@
 		
 		int j = 0;
 		if(arry.size()<=0){
-			out.print("<td>arry = 0 </td>");
 		}else{
 			out.print("<td>");
 			out.print("<select id='selectTag' name='" + arr.get(i).getSeq() + "'>");

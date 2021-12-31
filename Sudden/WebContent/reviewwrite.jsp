@@ -34,6 +34,18 @@
 	border-bottom: 3px solid #ebebeb;
 	}
 	
+	.tablein{
+	
+	width : 1800px; 
+	height : 600px; 
+	
+	}
+	
+	.reviewin{
+	width : 300px; 
+	height : 200px; 
+	font-size : 15px;
+}
 	
 
     
@@ -111,12 +123,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__table">
-                        <table>
+                        <table class="tablein">
                             <thead>
                                 <tr>
                                     <th class="shoping__product" style="font-size:30px; text-align:center;">제품이미지</th>
                                     <th style="font-size:30px;text-align:center;">제품명</th>
-                                    <th style="font-size:30px;text-align:center;">가격</th>
+                                    <th style="font-size:30px;text-align:center;">리뷰등록</th>
+                                    <th style="font-size:30px;text-align:center;">평점</th>
+                                    <th style="font-size:30px;text-align:center;"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -130,23 +144,33 @@
 	tradeDTO tdto = new tradeDTO(pseq);
 	
 	ArrayList<goodsDTO> arr = tdao.purchase(tdto);
-	
-	if(arr.size()>0){
-		for(int i = 0; i < arr.size(); i++) {
-			out.print("<tr>");
-			out.print("<td class='shoping__cart__item'>"+"");
-			out.print("<img class='images' src='Upload/"+arr.get(i).getImg()+"'></td>");
-        	out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
-			out.print("<h5>"+arr.get(i).getName()+"</h5></td>");
-			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"</td>");
-			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a id='buttstyle' class='snip1535two href='Salcmplt.do?goodsseq="+arr.get(i).getSeq()+"'>리뷰등록</a></td>");		
-			out.print("</tr>");
-		}
-	}else{
-		System.out.println("size 값 0");
-	}
-	 
 	%>
+	
+
+							<tr>
+								<td class='shoping__cart__item'>
+									<img class='images' src=''><!-- Upload/ -->
+								</td>
+								<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>
+									<h5>1111</h5>
+								</td>
+								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>
+									<input class="reviewin">
+								</td>
+								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>
+									<select>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+								</td>
+								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>
+									<a id='buttstyle' class='snip1535two'>리뷰등록</a>
+								</td>
+							</tr>
+
   
                             </tbody>
                         </table>
@@ -163,7 +187,6 @@
     <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/jquery.slicknav.js"></script>
     <script src="js/mixitup.min.js"></script>
