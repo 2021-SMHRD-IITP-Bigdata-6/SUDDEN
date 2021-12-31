@@ -26,7 +26,7 @@ public class tradeDAO {
 	goodsDTO vo = null;
 
 	int cnt = 0;
-	private boolean check;
+
 	
 
 
@@ -131,7 +131,7 @@ public class tradeDAO {
 		return seq;
 	}
 	
-public ArrayList<goodsDTO> purchase(tradeDTO dto) {
+public ArrayList<goodsDTO> purchase(tradeDTO tdto) {
 		
 		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
 		
@@ -139,11 +139,11 @@ public ArrayList<goodsDTO> purchase(tradeDTO dto) {
 			
 			getconn();
 			
-			System.out.println("purchasedao = "+dto.getGoodsseq());
+			System.out.println("purchasedao = "+tdto.getGoodsseq());
 
 			String sql = "select * from tbl_product where goods_seq = ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, dto.getGoodsseq());
+			psmt.setInt(1, tdto.getGoodsseq());
 
 			rs = psmt.executeQuery();
 
@@ -176,11 +176,11 @@ public ArrayList<goodsDTO> purchase(tradeDTO dto) {
 			
 			getconn();
 
-			String sql = "insert into tbl_trade (goods_seq, purchaser_id) values (?, ?) where goods_seq = ?";
+			String sql = "update tbl_trade set trade_memo = ?, trade_rating = ? where goods_seq = ? ";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, tdto.getReview());
 			psmt.setInt(2, tdto.getRating());
-			psmt.setInt(2, tdto.getGoodsseq());
+			psmt.setInt(3, tdto.getGoodsseq());
 			
 			cnt = psmt.executeUpdate();
 			if(cnt>0) {
@@ -197,8 +197,42 @@ public ArrayList<goodsDTO> purchase(tradeDTO dto) {
     	
     	
 
-	return 0;
+	return cnt;
 }
+
+	public int review_check(tradeDTO tdto) {
+		
+		try {
+			
+			getconn();
+			
+			System.out.println("purchasedao = "+tdto.getGoodsseq());
+
+			String sql = "select * from tbl_trade where goods_seq = ? and purchaser_id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, tdto.getGoodsseq());
+			psmt.setString(2, tdto.getId());
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				int seq = rs.getInt("goods_seq");
+				if(seq==tdto.getGoodsseq()) {
+					cnt=1;
+				}
+
+				
+				
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		return cnt;
+	}
 	
 
 }

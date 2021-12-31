@@ -11,6 +11,12 @@ public class tradeDTO {
 		this.goodsseq = goodsseq;
 	}
 	
+	public tradeDTO(int goodsseq, String id) {
+		super();
+		this.goodsseq = goodsseq;
+		this.id = id;
+	}
+	
 	
 	
 	public tradeDTO(int goodsseq, String id, String review, int rating) {

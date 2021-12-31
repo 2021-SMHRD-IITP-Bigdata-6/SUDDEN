@@ -153,10 +153,10 @@
 							<tr>
 							
 								<td class='shoping__cart__item'>
-									<img class='images' src='Upload/<%=arr.get(0).getName()%>'>
+									<img class='images' src='Upload/<%=arr.get(0).getImg() %>'>
 								</td>
 								<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>
-									<h5><%=arr.get(0).getImg()%></h5>
+									<h5><%=arr.get(0).getName()%></h5>
 								</td>
 								<td class='reviewrow' style='width:200px; text-align:center; font-size:15px;'>
 									<input class="reviewin" type="text" name="review" placeholder="리뷰를 작성해주세요">
