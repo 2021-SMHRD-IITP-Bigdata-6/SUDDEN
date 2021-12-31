@@ -233,7 +233,8 @@
 	}
 
 	
-	$('#selectTag').on('change', function(){
+	//$('#selectTag').on('change', function(){
+	$('select').on('change', function(){
 	
 		
 		$('.snip1535two').attr("href", "Salcmplt.do?goodsseq=" + $(this).attr('name')  + "&chatid=" + $(this).val());
