@@ -64,6 +64,7 @@
         if(goodsseq==0){
            System.out.println("여기2");
           gdto = (goodsDTO) session.getAttribute("gdto");
+          System.out.println("여기2받아오기 = "+gdto.getSeq());
         }
         else{
            System.out.println("여기3");
@@ -71,7 +72,7 @@
            gdto = new goodsDTO(goodsseq);
            gdto = dao.goodsdetail(gdto);
            
-           System.out.println("받아오기 = "+gdto.getName());
+           System.out.println("여기3받아오기 = "+gdto.getSeq());
            
            
         }
@@ -301,7 +302,7 @@
 	<%
     if(dto != null){
     	if(dto.getId().equals(gdto.getId())){
-    	out.print("<a style='position: relative;bottom: 640px;left: 1240px;'>글 수정</button>");
+    	out.print("<a style='position: relative;bottom: 640px;left: 1240px;' href=postupdate.jsp?goodsseq="+gdto.getSeq()+">글 수정</button>");
     	out.print("<a style='position: relative;bottom: 640px;left: 1280px;'  href=Postdel.do?goodsseq="+gdto.getSeq()+">글 삭제</a>");
         }
     }
@@ -316,14 +317,20 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
-                        <div class="footer__about__logo">
-                            <a href="./index.jsp"><img  style="width:170px; height:150px;" src="img/logo2.jpg" alt=""></a>
-                        </div>
-                        <ul>
-                            <li>Address: 광주광역시 남구 송암로 60</li>
-                            <li>Phone: 000-0000-0000</li>
-                            <li>Email: jcm829700@naver.com</li>
-                        </ul>
+                        <div class="footer__about">
+						<div class="footer__about__logo">
+							<a href="./index.jsp"><img style="width:170px; height:150px;" src="img/logo2.jpg" alt=""></a>
+							<ul>
+							<li style="color:#5D5D5D;">Address: 광주광역시 남구 송암로 60</li>
+							<li style="color:#5D5D5D;">Phone: 010-9274-8297</li>
+                            <li style="color:#5D5D5D;">Email: jcm829700@naver.com</li>
+						</ul>
+						</div>
+						<div class="updown" style="position:absolute; left:360px; top:0px; border: 1px solid #EAEAEA; width: 0.1px; height: 200px;"></div>
+						<img style="width:800px;height:150px;position:absolute; left:450px; top:15px;"src="img/footerimg2.png"></img>
+						
+						
+					</div>
                     </div>
                 </div>
                
@@ -361,8 +368,8 @@
 					alert("잠시 후에 시도 해주세요.");
 				}else{
 					alert("게시글이 삭제되었습니다.");
-				}
-				}
+				},
+				
 				
 
 				

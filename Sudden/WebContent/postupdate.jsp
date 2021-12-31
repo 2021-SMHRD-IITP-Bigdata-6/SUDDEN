@@ -44,6 +44,20 @@
 	<%  goodsDTO gdto = null;
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
 		gdto = (goodsDTO) session.getAttribute("gdto");
+		
+		String goodsseq = "";
+        
+
+        try{
+        	goodsseq = request.getParameter("goodsseq");
+        	
+           
+        }catch(Exception e){
+        	
+        }
+        
+        
+        System.out.println("글수정 seq = "+goodsseq);
 	%>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -252,9 +266,10 @@
      <fieldset>
      <h2>파일 업로드</h2>
      <table style="font-size:20px; color:black;">
-     <form action="RegisteService" method="post" enctype="multipart/form-data">
+     <form action="PostupdateService" method="post" enctype="multipart/form-data">
      
-     <input type="hidden" name="id" value="<%=dto.getId()%>">
+  <!-- <input type="hidden" name="id" value="<%=dto.getId()%>">  -->   
+     <input type="hidden" name="goodsseq" value="<%=goodsseq%>">
           <tr>
               <td>제목 : </td>
               <td><input type="text" name="title" value=""/></td>
@@ -339,20 +354,14 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
-                        <div class="footer__about">
-						<div class="footer__about__logo">
-							<a href="./index.jsp"><img style="width:170px; height:150px;" src="img/logo2.jpg" alt=""></a>
-							<ul>
-							<li style="color:#5D5D5D;">Address: 광주광역시 남구 송암로 60</li>
-							<li style="color:#5D5D5D;">Phone: 010-9274-8297</li>
-                            <li style="color:#5D5D5D;">Email: jcm829700@naver.com</li>
-						</ul>
-						</div>
-						<div class="updown" style="position:absolute; left:360px; top:0px; border: 1px solid #EAEAEA; width: 0.1px; height: 200px;"></div>
-						<img style="width:800px;height:150px;position:absolute; left:450px; top:15px;"src="img/footerimg2.png"></img>
-						
-						
-					</div>
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img style="widht:170px;height:150px;" src="img/logo2.jpg" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: hello@colorlib.com</li>
+                        </ul>
                     </div>
                 </div>
                
