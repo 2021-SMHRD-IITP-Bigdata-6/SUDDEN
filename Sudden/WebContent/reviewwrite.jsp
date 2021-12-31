@@ -26,29 +26,22 @@
 	<link href="css/magnific-popup.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	<style>
-    .images {width:200px; height:200px;}
+    .images {display: block;margin: 0 auto; width: 200px; height: 200px; text-align: center;}
+    
     .td.shoping__cart__item {width: 555px; height: 261px;}
-    .shoping__cart__table{background-color:white; width:700px; position:absolute;left:200px; top:100px;}
+   
     .footer{width:100%;position:absolute;top:2000px; }
     .shoping__cart__table table thead tr {
 	border-bottom: 3px solid #ebebeb;
 	}
 	
-	.tablein{
+	.tablein{ width : 1600px; height : 600px; margin-left: 100px;}
 	
-	width : 1800px; 
-	height : 600px; 
+	.reviewin{ width: 600px; height: 200px; text-align: center; font-size: 15px; }
 	
-	}
-	
-	.reviewin{
-	width : 300px; 
-	height : 200px; 
-	font-size : 15px;
-}
-	
+	.shoping__cart__table { background-color: white; width: 1800px; position: absolute; left: -300px; top: 250px; }
+	.reviewrow{ width: 200px; text-align: center; font-size: 15px; padding: 25px;}
 
-    
     </style>
 	<!-- Favicon  -->
     <link rel="icon" href="images/favicon.png">
@@ -123,7 +116,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__table">
-                        <table class="tablein">
+                        <table class="tablein" border="1px">
                             <thead>
                                 <tr>
                                     <th class="shoping__product" style="font-size:30px; text-align:center;">제품이미지</th>
@@ -154,7 +147,7 @@
 								<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>
 									<h5>1111</h5>
 								</td>
-								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>
+								<td class='reviewrow' style='width:200px; text-align:center; font-size:15px;'>
 									<input class="reviewin">
 								</td>
 								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>

@@ -34,7 +34,6 @@
 	<%
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
 	int num = 0;
-	int asdfasdfasdfsadfasdfasdf=0;
 	%>
 
 	<!-- Page Preloder -->
