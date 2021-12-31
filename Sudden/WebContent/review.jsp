@@ -28,12 +28,14 @@
 	<style>
     
     .td.shoping__cart__item {width: 600px; height: 261px;}
-    .shoping__cart__table{background-color:white; width:700px; height:800px; position:absolute;left:200px; top:100px; padding:10px 30px 10px;}
+    .shoping__cart__table{z-index: 20; padding-top:100px; width: 700px; height: 100%; margin: 0 auto; background-color:white;padding-left:30px;}
     .footer{width:100%;position:absolute;top:2000px; }
-    .review {width: 630px; height: 230px; background-color:white; border: 1px solid #ebebeb; padding: 10px 20px 10px;}
-    .reviewer_name {width:350px; height:20px; margin-bottom:10px;}
-    .reviewer_score {width: 600px; height:30px;}
-    .reviewer_product_link {width:350px; height:30px; border: 1px solid #ebebeb; text-align: left; margin-bottom: 10px;}
+    .review {width: 630px; height: 230px; background-color:white; border: 1px solid #ebebeb; padding: 10px 20px 10px; margin-bottom: 20px; }
+    .review1 {display: flex; justify-content: space-between; margin-bottom: 10px;}
+    .review2 {display: flex; flex-direction:column;}
+    .reviewer_name .reviewer_product_name {width:350px; height:30px; border: 1px solid #ebebeb; margin-bottom:10px;}
+    .emo {width: 100px; height:60px; background-color: white; border: 1px solid; margin-bottom:10px; position:relative; right:30px;}
+    
     .review_comment {width:350px; height:70px;}
     .review_comment_box {width:555px; height:130px; border: 1px solid;}
     
@@ -118,13 +120,23 @@
 <body>
 	<img src="http://icons.iconarchive.com/icons/hopstarter/square-flags/16/South-Korea-Flag-icon.png">
     <!-- Shoping Cart Section Begin -->
-    <section style="position:absolute; left:260px;">
+    <section>
+    	
     					<div class="shoping__cart__table">
                     	<div class="review_title" style="font-size:30px; backgroung-color:white;" >리뷰 및 평점</div><br>
                     	<div class="review">
-                    	    <div class="reviewer_name">
-                    			<span class="name">이름 : <!-- 판매자의 이름 --></span>
+                    		<div class="review1">
+                    			<div class="review2">                    			
+		                    	    <div class="reviewer_name">
+		                    			<span class="name">이름 : <!-- 판매자의 이름 --></span>
+		                    		</div>
+		                    		<div class="reviewer_product_name">
+		                    			<span class="name">제품 이름 : <!-- 판매한 제품 --></span>
+		                    		</div>
+                    			</div>
+	                    		<div class="emo">평점</div>
                     		</div>
+                    		
 <!-- 							<div class="text_ul_wrap">
 						 	 	<<a href="javascript:;"><strong>점수 입력</strong></a>
 						  	 	<ul class="ul_select_style">
@@ -162,18 +174,23 @@
 							    };
 							  }
 							})</script>
-                    		<div class="reviewer_product">
-                    			<button class="reviewer_product_link">제품 이름 : <!-- 판매한 제품 -->
-                    			</button>
-                    		</div>
+
                     		<div class="review_comment">
                     			<div class="review_comment_box"></div>
                     				<p><!-- 리뷰 코멘트 --></p>
                     		</div>
                     	</div>
-                    	                    	<div class="review">
-                    	    <div class="reviewer_name">
-                    			<span class="name">이름 : <!-- 판매자의 이름 --></span>
+                    	<div class="review">
+                    		<div class="review1">
+                    			<div class="review2">                    			
+		                    	    <div class="reviewer_name">
+		                    			<span class="name">이름 : <!-- 판매자의 이름 --></span>
+		                    		</div>
+		                    		<div class="reviewer_product_name">
+		                    			<span class="name">제품 이름 : <!-- 판매한 제품 --></span>
+		                    		</div>
+                    			</div>
+	                    		<div class="emo">평점</div>
                     		</div>
 <!-- 							<div class="text_ul_wrap">
 						 	 	<<a href="javascript:;"><strong>점수 입력</strong></a>
@@ -212,18 +229,22 @@
 							    };
 							  }
 							})</script>
-                    		<a class="reviewer_product">
-                    			<button class="reviewer_product_link">제품 이름 : <!-- 판매한 제품 -->
-                    			</button>
-                    		</a>
                     		<div class="review_comment">
                     			<div class="review_comment_box"></div>
                     				<p><!-- 리뷰 코멘트 --></p>
                     		</div>
                     	</div>
 						<div class="review">
-                    	    <div class="reviewer_name">
-                    			<span class="name">이름 : <!-- 판매자의 이름 --></span>
+                    	       <div class="review1">
+                    			<div class="review2">                    			
+		                    	    <div class="reviewer_name">
+		                    			<span class="name">이름 : <!-- 판매자의 이름 --></span>
+		                    		</div>
+		                    		<div class="reviewer_product_name">
+		                    			<span class="name">제품 이름 : <!-- 판매한 제품 --></span>
+		                    		</div>
+                    			</div>
+	                    		<div class="emo">평점</div>
                     		</div>
 <!-- 							<div class="text_ul_wrap">
 						 	 	<<a href="javascript:;"><strong>점수 입력</strong></a>
@@ -262,10 +283,6 @@
 							    };
 							  }
 							})</script>
-                    		<a class="reviewer_product">
-                    			<button class="reviewer_product_link">제품 이름 : <!-- 판매한 제품 -->
-                    			</button>
-                    		</a>
                     		<div class="review_comment">
                     			<div class="review_comment_box"></div>
                     				<p><!-- 리뷰 코멘트 --></p>
