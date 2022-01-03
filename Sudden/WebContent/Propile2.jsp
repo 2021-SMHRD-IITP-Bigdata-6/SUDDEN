@@ -120,7 +120,7 @@
 			</div>
 
 			<div id="content"
-				style="background-color: #fff; width: 600px; margin-left: 670px; margin-right: auto; text-align: center; padding: 30px; border-radius: 20px;">
+				style="background-color: #fff; width: 600px; text-align: center; padding: 30px; border-radius: 20px;">
 				<input type="hidden" name="id" value="<%=dto.getId()%>">
 				<h2>프로필 수정</h2>
 				<p class="contxt">SUDDEN 프로필을 수정할수 있습니다.</p>
@@ -132,8 +132,6 @@
 						</th>
 						<td>
 							<div class="tdcell">
-								<br>
-								<br>
 								<br>
 								<br>
 								<br>
@@ -153,8 +151,6 @@
 								<br>
 								<br>
 								<br>
-								<br>
-								<br>
 								<br> <input type="text" name="upemail"
 									style="width: 254px;"> <input type="text"
 									style="display: none;">
@@ -170,8 +166,6 @@
 								<br>
 								<br>
 								<br>
-								<br>
-								<br>
 								<br> <input type="text" name="upaddr" style="width: 254px;">
 								<input type="text" style="display: none;">
 							</div>
@@ -183,8 +177,6 @@
 						</th>
 						<td>
 							<div class="tdcell">
-								<br>
-								<br>
 								<br>
 								<br>
 								<br>
