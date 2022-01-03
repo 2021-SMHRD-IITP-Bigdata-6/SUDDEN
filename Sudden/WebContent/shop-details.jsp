@@ -36,21 +36,18 @@
     color: black;
     margin-left: 50px;
 }
-
 #tdsu{
     font-size: 20px;
     margin-bottom: 18px;
     margin-right: -2px;
     color: #000000;
 }
-
 .row1{
 	display:flex; 
 	margin-left:-15px; 
 	margin-right:-15px;
 	}
 	
-
 </style>
 
 <body>
@@ -380,7 +377,6 @@
 				},
 				
 				
-
 				
 			},
 			

@@ -386,7 +386,7 @@ var currentTime = function(){
 									<td id="td1">읍/면/동</td>
 									<td>
 									<!-- 남구 -->
-									<select id="d1"onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
+									<select id="d1"onchange="showValue(this)" style="display:none;margin-left: 0px; margin-right: auto;">
 										<option value="선택">선택</option>
 									    <option value="구동">구동</option>
 									    <option value="노대동">노대동</option>
@@ -409,7 +409,7 @@ var currentTime = function(){
 									    <option value="동림동">동림동</option>
 										</select>
 										<!-- 동구 -->
-										<select id="d2" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
+										<select id="d2" onchange="showValue(this)" style="display:none;margin-left: 0px; margin-right: auto;">
 										<option value="선택">선택</option>
 									    <option value="대인동">대인동</option>
 									    <option value="금남로">금남로</option>
@@ -421,7 +421,7 @@ var currentTime = function(){
 									    
 										</select>
 										<!-- 광산구 -->
-										<select id="d3" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
+										<select id="d3" onchange="showValue(this)" style="display:none;margin-left: 0px; margin-right: auto;">
 										<option value="선택">선택</option>
 									    <option value="송정동">송정동</option>
 									    <option value="도산동">도산동</option>
@@ -460,7 +460,7 @@ var currentTime = function(){
 									    <option value="월곡동">월곡동</option>
 										</select>
 										<!-- 북구 -->
-										<select id="d4" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
+										<select id="d4" onchange="showValue(this)" style="display:none;margin-left: 0px; margin-right: auto;">
 										<option value="선택">선택</option>
 		                                <option value="중흥동">중흥동</option>
 		                                <option value="북동">북동</option>
@@ -492,7 +492,7 @@ var currentTime = function(){
 
 		                               </select>
 		                                <!-- 서구 -->
-		                               <select id="d5" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
+		                               <select id="d5" onchange="showValue(this)" style="display:none;margin-left: 0px; margin-right: auto;">
 		                               <option value="선택">선택</option>
 		                               <option value="양동">양동</option>
 		                               <option value="농성동">농성동</option>
