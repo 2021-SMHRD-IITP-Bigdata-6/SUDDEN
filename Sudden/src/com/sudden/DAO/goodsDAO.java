@@ -602,6 +602,35 @@ public class goodsDAO {
 		}
 		
 		return arr;
+	
+	}public ArrayList<goodsDTO> searchseq(goodsDTO dto) {
+		
+		ArrayList<goodsDTO> arr = new ArrayList<goodsDTO>();
+		
+		try {
+			
+			getconn();
+
+			String sql = "select * from tbl_product where mem_id = ? and goods_status = 'Y'";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				int seq = rs.getInt("goods_seq");
+				
+				goodsDTO gdto = new goodsDTO(seq);
+				arr.add(gdto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return arr;
 		
 		
 	}

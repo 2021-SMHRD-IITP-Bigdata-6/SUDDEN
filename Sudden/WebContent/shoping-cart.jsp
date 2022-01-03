@@ -292,7 +292,7 @@
        						    	
        						     	out.print("<tr>");
        								out.print("<td class='shoping__cart__item'>");
-       								out.print("<div class='product__item__pic set-bg'><a href='shop-details.jsp?goodsseq=" + marr.get(i).getSeq() + "'> <img src='Upload/" + marr.get(i).getImg() + "'/></a>");//alt=''  이미지가 없을 때 안에 텍스트로 대체
+       								out.print("<a href='shop-details.jsp?goodsseq=" + marr.get(i).getSeq() + "'> <img src='Upload/" + marr.get(i).getImg() + "'/></a>");//alt=''  이미지가 없을 때 안에 텍스트로 대체
        								out.print("<h5><a href='shop-details.jsp?goodsseq="+marr.get(i).getSeq()+"'>"+marr.get(i).getName()+"</a></h5>");
        								out.print("</td>");
        								out.print("<td class='shoping__cart__price'>"+marr.get(i).getPrice()+"원</td>");

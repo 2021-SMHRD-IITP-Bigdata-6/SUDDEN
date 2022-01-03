@@ -1,3 +1,5 @@
+<%@page import="com.sudden.DTO.tradeDTO"%>
+<%@page import="com.sudden.DAO.tradeDAO"%>
 <%@page import="com.sudden.DTO.goodsDTO"%>
 <%@page import="com.sudden.DAO.goodsDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -192,8 +194,57 @@
 	memberDAO dao = new memberDAO();
 	ArrayList<memberDTO> arr = dao.profile(pid);
 	
+
 	goodsDAO gdao = new goodsDAO();
 	goodsDTO gdto = new goodsDTO(pid,0,0);
+	
+	ArrayList<goodsDTO> myseq = gdao.searchseq(gdto);
+	
+	int sum = 0;
+	int avg =0;
+	String point="";
+	
+	if(myseq.size()<=0){
+		System.out.println("여기 ");
+		point="noreview.PNG";
+	}else{
+		System.out.println("사이즈 = "+myseq.size());
+		for(int i=0; i<myseq.size(); i++){
+		tradeDAO tdao = new tradeDAO();
+		tradeDTO tdto = new tradeDTO(myseq.get(i).getSeq());
+		
+		int rating = tdao.avgrating(tdto);
+		sum=sum+rating;
+		
+		}
+		System.out.println("합계 "+sum);
+		avg = sum/myseq.size();
+		System.out.println("평균"+avg);
+	}
+	
+	if(avg==5){
+		System.out.println("여기 5");
+		point="5point.png";
+	}else if(avg<5&&avg>=4){
+		System.out.println("여기 4");
+		point="4point.png";
+	}else if(avg<4&&avg>=3){
+		System.out.println("여기 3");
+		point="3point.png";
+	}else if(avg<3&&avg>=2){
+		System.out.println("여기 2");
+		point="2point.png";
+	}else if(avg<2&&avg>0){
+		System.out.println("여기 1");
+		point="1point.png";
+	}else{
+		System.out.println("여기 0");
+		point="noreview.PNG";
+	}
+	
+	
+	System.out.println("포인트"+point);
+	
 	
 	
 
@@ -241,7 +292,7 @@
 							 3점=<img src="img/3point.png" style="width:30px;height:30px;"> 4점=<img src="img/4point.png" style="width:30px;height:30px;"> 5점=<img src="img/5point.png" style="width:30px;height:30px;"></span></a>
 				</h2>
 							<br>
-							<p>나의 평점은??&nbsp;&nbsp;<img style="width:70px;height:70px;"src="img/1point.png"></img></p>	<!-- 리뷰이미지 정보넣는곳 -->
+							<p>나의 평점은??&nbsp;&nbsp;<img style="width:70px;height:70px;"src="img/<%=point%>"></img></p>	<!-- 리뷰이미지 정보넣는곳 -->
 								<a onclick="location.href='review.jsp';" style="cursor:pointer; font-size:20px;">확인하러 가기
 								</a>		
 													

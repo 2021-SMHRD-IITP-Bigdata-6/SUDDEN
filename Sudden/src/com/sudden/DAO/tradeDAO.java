@@ -271,6 +271,30 @@ public ArrayList<goodsDTO> purchase(tradeDTO tdto) {
 		return tarr;
 		
 		
+	}public int avgrating(tradeDTO tdto) {
+		
+		int rating = 0;
+		try {
+			
+			getconn();
+
+			String sql = "select * from tbl_trade where goods_seq = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, tdto.getGoodsseq());
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+				rating = rs.getInt("trade_rating");
+
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		return rating;
 	}
 
 }
