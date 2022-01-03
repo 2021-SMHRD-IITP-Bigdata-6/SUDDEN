@@ -123,7 +123,7 @@
 					<!-- Sign Up Form -->
 					<div class="form-container">
 						<div id="pwsearch">
-							<div>가입한 아이디와 이메일을 통해 비밀번호를 찾으실수 있습니다.</div>
+							<div>가입한 아이디와 이메일을 통해 비밀번호를 찾으실 수 있습니다.</div>
 							<br>
 
 
@@ -178,22 +178,35 @@
 							},
 
 							success : function(pw) {
+								console.log(typeof(pw))
 								console.log(pw)
-
-								$('#pwsearch').html(''); //pwsearch의  html코드 초기화
-								//$('선택자').append(html/text);
-								//$('선택자').append(html/text);
-								//$('선택자').append(html/text);
-								//$('선택자').append(html/text);
 								let new_div = "";
-
-								new_div += "<div>회원가입시 사용한 비밀번호는 " + "<strong>"+pw+"</strong>" + "입니다</div>";
 								
-								new_div += "<a class='snip1535two' href='log-in.jsp'>로그인 이동</a>";
-								
+								if (pw != 'null') {
 
-								$('#pwsearch').append(new_div);
+									$('#pwsearch').html(''); //pwsearch의  html코드 초기화
+									//$('선택자').append(html/text);
+									//$('선택자').append(html/text);
+									//$('선택자').append(html/text);
+									//$('선택자').append(html/text);
 
+									new_div += "<div>회원가입시 사용한 비밀번호는 "
+											+ "<strong>" + pw + "</strong>"
+											+ "입니다</div>";
+
+									new_div += "<a class='snip1535two' href='log-in.jsp'>로그인 이동</a>";
+
+									$('#pwsearch').append(new_div);
+									
+								} else if(pw == 'null'){
+									
+									$('#pwsearch').html('');
+									new_div += "<div>입력한 아이디와 이메일을 통해 비밀번호를 찾으실 수 없습니다.</div>";
+
+									new_div += "</button><a class='snip1535' href='sign-up.html'>회원가입</a>";
+									new_div += "</button><a class='snip1535' href='pwupdate.jsp'>비밀번호 찾기</a>";
+									$('#pwsearch').append(new_div);
+								}
 							},
 							error : function() {
 								alart("요청 실패!")
