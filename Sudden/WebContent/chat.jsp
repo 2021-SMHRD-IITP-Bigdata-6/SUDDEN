@@ -389,23 +389,13 @@ var currentTime = function(){
 									<select id="d1"onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 										<option value="선택">선택</option>
 									    <option value="구동">구동</option>
-									    <option value="구소동">구소동</option>
 									    <option value="노대동">노대동</option>
-									    <option value="대지동">대지동</option>
-									    <option value="대촌동">대촌동</option>
-									    <option value="덕남동">덕남동</option>
-									    <option value="도금동">도금동</option>
 									    <option value="방림동">방림동</option>
 									    <option value="사동">사동</option>
-									    <option value="사직동">사직동</option>
 									    <option value="서동">서동</option>
 									    <option value="백운동">백운동</option>
 									    <option value="봉선동">봉선동</option>
-									    <option value="송암동">송암동</option>
 									    <option value="송하동">송하동</option>
-									    <option value="송천동">송천동</option>
-									    <option value="신장동">신장동</option>
-									    <option value="압촌동">압촌동</option>
 									    <option value="월산동">월산동</option>
 									    <option value="주월동">주월동</option>
 									    <option value="진월동">진월동</option>
@@ -414,50 +404,32 @@ var currentTime = function(){
 									    <option value="송하동">송하동</option>
 									    <option value="양림동">양림동</option>
 									    <option value="방림동">방림동</option>
-									    <option value="구소동">구소동</option>
-									    <option value="지속동">지속동</option>
-									    <option value="화장동">화장동</option>
-									    <option value="칠석동">칠석동</option>
-									    <option value="석정동">석정동</option>
-									    <option value="양과동">양과동</option>
-									    <option value="이장동">이장동</option>
-									    <option value="대지동">대지동</option>
-									    <option value="원산동">원산동</option>
 									    <option value="월성동">월성동</option>
 									    <option value="방림동">방림동</option>
-									    <option value="압촌동">효덕동</option>
+									    <option value="동림동">동림동</option>
 										</select>
 										<!-- 동구 -->
 										<select id="d2" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 										<option value="선택">선택</option>
 									    <option value="대인동">대인동</option>
 									    <option value="금남로">금남로</option>
-									    <option value="충장동">충장동</option>
-									    <option value="수기동">수기동</option>
-									    <option value="대의동">대의동</option>
 									    <option value="궁동">궁동</option>
-									    <option value="장동">장동</option>
 									    <option value="동명동">동명동</option>
 									    <option value="계림동">계림동</option>
 									    <option value="산수동">산수동</option>
 									    <option value="지산동">지산동</option>
-									    <option value="학운동">학운동</option>
-									    <option value="서남동">서남동</option>
-									    <option value="지원동">지원동</option>
+									    
 										</select>
 										<!-- 광산구 -->
 										<select id="d3" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 										<option value="선택">선택</option>
 									    <option value="송정동">송정동</option>
 									    <option value="도산동">도산동</option>
-									    <option value="도호동">도호동</option>
 									    <option value="신촌동">신촌동</option>
-									    <option value="서봉동">서봉동</option>
 									    <option value="운수동">운수동</option>
 									    <option value="선암동">선암동</option>
 									    <option value="소촌동">소촌동</option>
 									    <option value="우산동">우산동</option>
-									    <option value="황룡동">황룡동</option>
 									    <option value="박호동">박호동</option>
 									    <option value="비아동">비아동</option>
 									    <option value="도천동">도천동</option>
@@ -473,53 +445,24 @@ var currentTime = function(){
 									    <option value="장덕동">장덕동</option>
 									    <option value="흑석동">흑석동</option>
 									    <option value="하남동">하남동</option>
-									    <option value="장수동">장수동</option>
 									    <option value="산정동">산정동</option>
 									    <option value="월곡동">월곡동</option>
-									    <option value="등임동">등임동</option>
-									    <option value="산막동">산막동</option>
-									    <option value="고룡동">고룡동</option>
 									    <option value="신룡동">신룡동</option>
-									    <option value="두정동">두정동</option>
 									    <option value="임곡동">임곡동</option>
-									    <option value="광산동">광산동</option>
-									    <option value="오산동">오산동</option>
-									    <option value="사호동">사호동동</option>
 									    <option value="하산동">하산동</option>
-									    <option value="유계동">유계동</option>
-									    <option value="본덕동">본덕동</option>
-									    <option value="요기동">요기동</option>
-									    <option value="복룡동">복룡동</option>
-									    <option value="송대동">송대동</option>
 									    <option value="옥동">옥동</option>
 									    <option value="월전동">월전동</option>
 									    <option value="장록동">장록동</option>
-									    <option value="송촌동">송촌동</option>
-									    <option value="지죽동">지죽동</option>
 									    <option value="용동">용동</option>
-									    <option value="용곡동">용곡동</option>
-									    <option value="지정동">지정동</option>
-									    <option value="명화동">명화동</option>
-									    <option value="동산동">동산동</option>
 									    <option value="연산동">연산동</option>
 									    <option value="도덕동">도덕동</option>
-									    <option value="송산동">송산동</option>
-									    <option value="지평동">지평동</option>
-									    <option value="오운동">오운동</option>
-									    <option value="삼거동">삼거동</option>
-									    <option value="내산동">내산동</option>
-									    <option value="대산동">대산동</option>
-									    <option value="동림동">동림동</option>
-									    <option value="송정동">송정동</option>
-									    <option value="첨단동">첨단동</option>
+									    <option value="송산동">송산동</option>								
 									    <option value="월곡동">월곡동</option>
 										</select>
 										<!-- 북구 -->
 										<select id="d4" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
 										<option value="선택">선택</option>
 		                                <option value="중흥동">중흥동</option>
-		                                <option value="유동">유동</option>
-		                                <option value="누문동">누문동</option>
 		                                <option value="북동">북동</option>
 		                                <option value="임동">임동</option>
 		                                <option value="신안동">신안동</option>
@@ -535,13 +478,7 @@ var currentTime = function(){
 		                                <option value="삼각동">삼각동</option>
 		                                <option value="매곡동">매곡동</option>
 		                                <option value="충효동">충효동</option>
-		                                <option value="덕의동">덕의동</option>
-		                                <option value="금곡동">금곡동</option>
 		                                <option value="망월동">망월동</option>
-		                                <option value="청풍동">청풍동</option>
-		                                <option value="화암동">화암동</option>
-		                                <option value="장등동">장등동</option>
-		                                <option value="운정동">운정동</option>
 		                                <option value="본촌동">본촌동</option>
 		                                <option value="일곡동">일곡동</option>
 		                                <option value="양산동">양산동</option>
@@ -549,17 +486,10 @@ var currentTime = function(){
 		                                <option value="신용동">신용동</option>
 		                                <option value="용두동">용두동</option>
 		                                <option value="지야동">지야동</option>
-		                                <option value="태령동">태령동</option>
 		                                <option value="수곡동">수곡동</option>
 		                                <option value="효령동">효령동</option>
-		                                <option value="용전동">용전동</option>
-		                                <option value="용강동">용강동</option>
-		                                <option value="생용동">생용동</option>
-		                                <option value="월출동">월출동</option>
-		                                <option value="대촌동">대촌동</option>
 		                                <option value="오룡동">오룡동</option>
-		                                <option value="중앙동">중앙동</option>
-		                                <option value="석곡동">석곡동</option>
+
 		                               </select>
 		                                <!-- 서구 -->
 		                               <select id="d5" onchange="showValue(this)" style="display:none;margin-left: auto; margin-right: auto;">
@@ -575,15 +505,12 @@ var currentTime = function(){
 		                               <option value="내방동">내방동</option>
 		                               <option value="서창동">서창동</option>
 		                               <option value="세하동">세하동</option>
-		                               <option value="용두동">용두동</option>
 		                               <option value="풍암동">풍암동</option>
-		                               <option value="벽진동">벽진동</option>
 		                               <option value="금호동">금호동</option>
 		                               <option value="마륵동">마륵동</option>
 		                               <option value="매월동">매월동</option>
 		                               <option value="동천동">동천동</option>
 		                               <option value="유덕동">유덕동</option>
-		                               <option value="상무동">상무동</option>
                                        </select>
                                        </td> 
 								</tr>
