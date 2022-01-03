@@ -1159,7 +1159,6 @@ b {
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-
   font-size: 12px;
   line-height: 1em;
   margin: 15px 40px;
@@ -1169,7 +1168,7 @@ b {
   text-transform: uppercase;
   font-weight: 100%;
 }
-.snip1535:before,
+.snip1535:before,	
 .snip1535:after {
   border-color: transparent;
   -webkit-transition: all 0.25s;
