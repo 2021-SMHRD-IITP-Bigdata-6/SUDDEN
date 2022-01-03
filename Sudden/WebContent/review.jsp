@@ -5,12 +5,12 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.sudden.DAO.goodsDAO"%>
 <%@page import="com.sudden.DTO.memberDTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,7 +55,7 @@
 	.rating{ width: 70px; height: 50px;margin: 4px;position: absolute;right: 10px;}
 	a.info{
     position:relative; /*this is the key*/
-    z-index:24; left:300px;
+    z-index:24; left:400px;
     background-color:white;
     color:black;
     text-decoration:none;
@@ -132,7 +132,7 @@
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="btn-outline-sm" href="Mypage.jsp" id="back">µπæ∆∞°±‚</a>
+                    <a class="btn-outline-sm" href="Mypage.jsp" id="back">ÎèåÏïÑÍ∞ÄÍ∏∞</a>
                 </span>
             </div>
         </div> <!-- end of container -->
@@ -148,14 +148,7 @@
 			
 			ArrayList<goodsDTO> garr = gdao.reseq(dto);
 			ArrayList<tradeDTO> tarr = null;
-			if(garr.size()<=0){
-				
-			}else{
-				for(int i=0; i<garr.size(); i++){
-					tdto = new tradeDTO(garr.get(i).getSeq());
-					tarr=tdao.reseq(tdto);
-				}
-			}
+			
 					
 		%>
 </head>
@@ -165,184 +158,80 @@
     <section>
     	
     					<div class="shoping__cart__table">
-                    	<div class="review_title" style="font-size:30px; backgroung-color:white;" >∏Æ∫‰ π◊ ∆Ú¡°<a class=info href="#">? <span>√— 5∞≥¿« ¡°ºˆ∑Œ ≥™¥µ∞Ì <br>1¡°=<img src="img/1point.png" style="width:30px;height:30px;"> 2¡°=<img src="img/2point.png" style="width:30px;height:30px;">
-							 3¡°=<img src="img/3point.png" style="width:30px;height:30px;"> 4¡°=<img src="img/4point.png" style="width:30px;height:30px;"> 5¡°=<img src="img/5point.png" style="width:30px;height:30px;"></span></a>
-				</div><br>
+
+                    	<div class="review_title" style="font-size:20px; backgroung-color:white;" >Î¶¨Î∑∞ Î∞è ÌèâÏ†ê<a class=info href="#">? <span>Ï¥ù 5Í∞úÏùò Ï†êÏàòÎ°ú ÎÇòÎâòÍ≥† <br>1Ï†ê=<img src="img/1point.png" style="width:30px;height:30px;"> 2Ï†ê=<img src="img/2point.png" style="width:30px;height:30px;">
+                             3Ï†ê=<img src="img/3point.png" style="width:30px;height:30px;"> 4Ï†ê=<img src="img/4point.png" style="width:30px;height:30px;"> 5Ï†ê=<img src="img/5point.png" style="width:30px;height:30px;"></span></a>
+
                     	
                     	<%
-                    		out.print("<div class='review'>"); 
-                    			out.print("<div class='review1'>"); 
-                    				out.print("<div class='review2'>"); 
-                    				
-                    				if(tarr.size()<=0){
+                    	
+
+                    				if(garr.size()<=0){
                     					
                     				}else{
-                    					for(int i=0; i<tarr.size(); i++){
-                    					out.print("<div class='reviewer_name'>");
-                    					out.print("<span class='name'>¿Ã∏ß : "+tarr.get(i).getId()+"</div>");
-                    					out.print("<div class='reviewer_product_name'>");
-                    					out.print("<span class='name'>∞‘Ω√±€ : "+garr.get(i).getName()+"</div>");
-                    					out.print("</div>");
-                    					out.print("<div class='emo'><img class='rating' src='img/"+tarr.get(i).getRating()+"point.png'></div>");
-                    					out.print("</div>");
-                    					out.print("<div class='review_comment'>");
-                    					out.print("<div class='review_comment_box'><p>"+tarr.get(i).getReview()+"</p></div>");
-                    					out.print("</div>");
-                    					out.print("</div>");
+                    					for(int i=0; i<garr.size(); i++){
+                    						tdto = new tradeDTO(garr.get(i).getSeq());
+                    						tarr=tdao.reseq(tdto);
+                    						if(tarr.size()<0){
+                            					
+                            				}else{
+                            					for(int j=0; j<tarr.size(); j++){
+                            						System.out.println("Î¶¨Î∑∞Í∞úÏàò = "+ tarr.size());
+                            						out.print("<div class='review'>"); 
+                                        			out.print("<div class='review1'>"); 
+                                        			out.print("<div class='review2'>"); 
+                            						out.print("<div class='reviewer_name'>");
+                            						out.print("<span class='name'>Ïù¥Î¶Ñ : "+tarr.get(j).getId()+"</div>");
+                            						out.print("<div class='reviewer_product_name'>");
+                            						out.print("<span class='name'>Í≤åÏãúÍ∏Ä : "+garr.get(i).getName()+"</div>");
+                            						out.print("</div>");//re2
+                            						out.print("<div class='emo'><img class='rating' src='img/"+tarr.get(j).getRating()+"point.png'></div>");
+                            						out.print("</div>");//re1
+                            						out.print("<div class='review_comment'>");
+                            						out.print("<div class='review_comment_box'><p>"+tarr.get(j).getReview()+"</p></div>");
+                            						out.print("</div>");
+                            						out.print("</div>");//re
+                            					}
+                            				}
                     					}
                     				}
+                    				
+                    				
                     	%>
-                    		
-                   			
-		                    	    
-                    		
-<!-- 							<div class="text_ul_wrap">
-						 	 	<<a href="javascript:;"><strong>¡°ºˆ ¿‘∑¬</strong></a>
-						  	 	<ul class="ul_select_style">
-							    	<li><img style="width:20px;height:20px;" src="img/1point.png" value="test">1</li>
-							    	<li><img style="width:20px;height:20px;" src="img/2point.png">2</li>
-								    <li><img style="width:20px;height:20px;" src="img/3point.png">3</li>
-								    <li><img style="width:20px;height:20px;" src="img/4point.png">4</li>
-								    <li><img style="width:20px;height:20px;" src="img/5point.png">5</li>
-						  	 	</ul>
-							</div> -->
-
-
-							<script>
-							var _select_title = $(".text_ul_wrap > a");
-							$('<div class="select_icon"></div>').insertAfter(_select_title);
-							
-							_select_title.click(function () {
-							  $(".ul_select_style").toggleClass("active");
-							  $(".select_icon").toggleClass("active");
-							});
-							
-							$(".ul_select_style > li").on('click', function () {
-							  var _li_value = $(this).text();
-							  var _li_img = $(this).find('img').attr('src');
-							  var content = '<img style="width:20px;height:20px;" src="'+_li_img+'">'+_li_value;
-							  _select_title.html(content);
-							  $(".ul_select_style").removeClass("active");
-							  $(".select_icon").toggleClass("active");
-							});
-							$("body").click(function (e) {
-							  if($(".ul_select_style").hasClass("active")){
-							    if(!$(".text_ul_wrap").has(e.target).length){
-							      $(".ul_select_style").removeClass("active");
-							      $(".select_icon").removeClass("active");
-							    };
-							  }
-							})</script>
-
-                    		
                     	<div class="review">
-                    		<div class="review1">
-                    			<div class="review2">                    			
-		                    	    <div class="reviewer_name">
-		                    			<span class="name">¿Ã∏ß : <!-- ∆«∏≈¿⁄¿« ¿Ã∏ß --></span>
-		                    		</div>
-		                    		<div class="reviewer_product_name">
-		                    			<span class="name">¡¶«∞ ¿Ã∏ß : <!-- ∆«∏≈«— ¡¶«∞ --></span>
-		                    		</div>
-                    			</div>
-	                    		<div class="emo">∆Ú¡°</div>
-                    		</div>
-<!-- 							<div class="text_ul_wrap">
-						 	 	<<a href="javascript:;"><strong>¡°ºˆ ¿‘∑¬</strong></a>
-						  	 	<ul class="ul_select_style">
-							    	<li><img style="width:20px;height:20px;" src="img/1point.png" value="1">1</li>
-							    	<li><img style="width:20px;height:20px;" src="img/2point.png" value="2">2</li>
-								    <li><img style="width:20px;height:20px;" src="img/3point.png"value="3">3</li>
-								    <li><img style="width:20px;height:20px;" src="img/4point.png"value="4">4</li>
-								    <li><img style="width:20px;height:20px;" src="img/5point.png"value="5">5</li>
-						  	 	</ul>
-							</div> -->
-
-
-							<script>
-							var _select_title = $(".text_ul_wrap > a");
-							$('<div class="select_icon"></div>').insertAfter(_select_title);
-							
-							_select_title.click(function () {
-							  $(".ul_select_style").toggleClass("active");
-							  $(".select_icon").toggleClass("active");
-							});
-							
-							$(".ul_select_style > li").on('click', function () {
-							  var _li_value = $(this).text();
-							  var _li_img = $(this).find('img').attr('src');
-							  var content = '<img style="width:20px;height:20px;" src="'+_li_img+'">'+_li_value;
-							  _select_title.html(content);
-							  $(".ul_select_style").removeClass("active");
-							  $(".select_icon").toggleClass("active");
-							});
-							$("body").click(function (e) {
-							  if($(".ul_select_style").hasClass("active")){
-							    if(!$(".text_ul_wrap").has(e.target).length){
-							      $(".ul_select_style").removeClass("active");
-							      $(".select_icon").removeClass("active");
-							    };
-							  }
-							})</script>
-                    		<div class="review_comment">
-                    			<div class="review_comment_box"></div>
-                    				<p><!-- ∏Æ∫‰ ƒ⁄∏‡∆Æ --></p>
-                    		</div>
-                    	</div>
-						<div class="review">
-                    	       <div class="review1">
-                    			<div class="review2">                    			
-		                    	    <div class="reviewer_name">
-		                    			<span class="name">¿Ã∏ß : <!-- ∆«∏≈¿⁄¿« ¿Ã∏ß --></span>
-		                    		</div>
-		                    		<div class="reviewer_product_name">
-		                    			<span class="name">¡¶«∞ ¿Ã∏ß : <!-- ∆«∏≈«— ¡¶«∞ --></span>
-		                    		</div>
-                    			</div>
-	                    		<div class="emo">∆Ú¡°</div>
-                    		</div>
-<!-- 							<div class="text_ul_wrap">
-						 	 	<<a href="javascript:;"><strong>¡°ºˆ ¿‘∑¬</strong></a>
-						  	 	<ul class="ul_select_style">
-							    	<li><img style="width:20px;height:20px;" src="img/1point.png" value="test">1</li>
-							    	<li><img style="width:20px;height:20px;" src="img/2point.png">2</li>
-								    <li><img style="width:20px;height:20px;" src="img/3point.png">3</li>
-								    <li><img style="width:20px;height:20px;" src="img/4point.png">4</li>
-								    <li><img style="width:20px;height:20px;" src="img/5point.png">5</li>
-						  	 	</ul>
-							</div> -->
-
-
-							<script>
-							var _select_title = $(".text_ul_wrap > a");
-							$('<div class="select_icon"></div>').insertAfter(_select_title);
-							
-							_select_title.click(function () {
-							  $(".ul_select_style").toggleClass("active");
-							  $(".select_icon").toggleClass("active");
-							});
-							
-							$(".ul_select_style > li").on('click', function () {
-							  var _li_value = $(this).text();
-							  var _li_img = $(this).find('img').attr('src');
-							  var content = '<img style="width:20px;height:20px;" src="'+_li_img+'">'+_li_value;
-							  _select_title.html(content);
-							  $(".ul_select_style").removeClass("active");
-							  $(".select_icon").toggleClass("active");
-							});
-							$("body").click(function (e) {
-							  if($(".ul_select_style").hasClass("active")){
-							    if(!$(".text_ul_wrap").has(e.target).length){
-							      $(".ul_select_style").removeClass("active");
-							      $(".select_icon").removeClass("active");
-							    };
-							  }
-							})</script>
-                    		<div class="review_comment">
-                    			<div class="review_comment_box"></div>
-                    				<p><!-- ∏Æ∫‰ ƒ⁄∏‡∆Æ --></p>
-                    		</div>
-                    	</div>
+                              <div class="review1">
+                             <div class="review2">                             
+                                 <div class="reviewer_name">
+                                   <span class="name">Ïù¥Î¶Ñ : <!-- ÌåêÎß§ÏûêÏùò Ïù¥Î¶Ñ --></span>
+                                </div>
+                                <div class="reviewer_product_name">
+                                   <span class="name">Ï†úÌíà Ïù¥Î¶Ñ : <!-- ÌåêÎß§Ìïú Ï†úÌíà --></span>
+                                </div>
+                             </div>
+                             <div class="emo">ÌèâÏ†ê</div>
+                          </div>
+                          <div class="review_comment">
+                             <div class="review_comment_box"></div>
+                                <p><!-- Î¶¨Î∑∞ ÏΩîÎ©òÌä∏ --></p>
+                          </div>
+                       </div>
+                                           	<div class="review">
+                              <div class="review1">
+                             <div class="review2">                             
+                                 <div class="reviewer_name">
+                                   <span class="name">Ïù¥Î¶Ñ : <!-- ÌåêÎß§ÏûêÏùò Ïù¥Î¶Ñ --></span>
+                                </div>
+                                <div class="reviewer_product_name">
+                                   <span class="name">Ï†úÌíà Ïù¥Î¶Ñ : <!-- ÌåêÎß§Ìïú Ï†úÌíà --></span>
+                                </div>
+                             </div>
+                             <div class="emo">ÌèâÏ†ê</div>
+                          </div>
+                          <div class="review_comment">
+                             <div class="review_comment_box"></div>
+                                <p><!-- Î¶¨Î∑∞ ÏΩîÎ©òÌä∏ --></p>
+                          </div>
+                       </div>
 	</div>
     </section>
     <!-- Shoping Cart Section End -->

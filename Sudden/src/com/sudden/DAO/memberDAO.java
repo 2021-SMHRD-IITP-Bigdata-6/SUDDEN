@@ -271,7 +271,7 @@ public class memberDAO {
 	public String  pw_search(memberDTO dto) {
 		
 		//ArrayList<memberDTO> arr = new ArrayList<memberDTO>();
-		String check="";
+		String check = null;
 		getconn();
 		
 		try {

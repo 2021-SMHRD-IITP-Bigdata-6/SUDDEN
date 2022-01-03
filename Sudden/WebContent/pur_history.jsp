@@ -125,25 +125,32 @@
     tradeDAO tdao = new tradeDAO();
     
     
-	int pseq = tdao.searchseq(dto);
+    ArrayList<tradeDTO> tarr = tdao.searchseq(dto);
+    if(tarr.size()>0){
+    	
+    	for(int i = 0; i<tarr.size(); i++){
+    		tradeDTO tdto = new tradeDTO(tarr.get(i).getGoodsseq());
+    		ArrayList<goodsDTO> garr = tdao.purchase(tdto);
+    		
+    		if(garr.size()>0){
+    			for(int j = 0; j < garr.size(); j++) {
+    				out.print("<tr>");
+    				out.print("<td class='shoping__cart__item'>"+"");
+    				out.print("<img class='images' src='Upload/"+garr.get(j).getImg()+"'></td>");
+    	        	out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
+    				out.print("<h5>"+garr.get(j).getName()+"</h5></td>");
+    				out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+garr.get(j).getPrice()+"</td>");
+    				out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a class='snip1535' href='reviewwrite.jsp?goodsseq="+garr.get(j).getSeq()+"'>¸®ºäµî·Ï</a></td>");		
+    				out.print("</tr>");
+    			}
+    		}else{
+    			System.out.println("size °ª 0");
+    		}
+    	
+   		}
+    }
 	
-	tradeDTO tdto = new tradeDTO(pseq);
 	
-	ArrayList<goodsDTO> arr = tdao.purchase(tdto);
-	if(arr.size()>0){
-		for(int i = 0; i < arr.size(); i++) {
-			out.print("<tr>");
-			out.print("<td class='shoping__cart__item'>"+"");
-			out.print("<img class='images' src='Upload/"+arr.get(i).getImg()+"'></td>");
-        	out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
-			out.print("<h5>"+arr.get(i).getName()+"</h5></td>");
-			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"</td>");
-			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a class='snip1535' href='reviewwrite.jsp?goodsseq="+arr.get(i).getSeq()+"'>¸®ºäµî·Ï</a></td>");		
-			out.print("</tr>");
-		}
-	}else{
-		System.out.println("size °ª 0");
-	}
 	 
 	%>
   

@@ -52,7 +52,7 @@
 	<%
 		memberDTO dto = (memberDTO) session.getAttribute("dto");
 	%>
-	<form action="UpdateCon2.do" method="get">
+	
 		<!-- Preloader -->
 		<div class="spinner-wrapper">
 			<div class="spinner">
@@ -119,11 +119,12 @@
 				</div>
 			</div>
 
-			<div id="content"
-				style="background-color: #fff; width: 600px; text-align: center; padding: 30px; border-radius: 20px;">
-				<input type="hidden" name="id" value="<%=dto.getId()%>">
+			<div id="content" style="background-color: #fff; width: 600px; text-align: center; padding: 30px; border-radius: 20px;">
+
 				<h2>프로필 수정</h2>
-				<p class="contxt">SUDDEN 프로필을 수정 할 수 있습니다.</p>
+				<p class="contxt">SUDDEN 프로필을 수정할수 있습니다.</p>
+				<form action="UpdateCon2.do" method="get">
+				<input type="hidden" name="id" value="<%=dto.getId()%>">
 				<table border="0" class="tbl_model">
 
 					<tr>
@@ -132,11 +133,10 @@
 						</th>
 						<td>
 							<div class="tdcell">
-								<br>
-								<br>
-								<br> <input type="text" name="upnick "
-									style="width: 254px;"> <input type="text"
-									style="display: none;">
+								<br><br>
+								<br><br>
+								<br><br>
+								<br> <input type="text" name="nick"style="width: 254px;">
 							</div>
 						</td>
 					</tr>
@@ -147,11 +147,10 @@
 						</th>
 						<td>
 							<div class="tdcell">
-								<br>
-								<br>
-								<br> <input type="text" name="upemail"
-									style="width: 254px;"> <input type="text"
-									style="display: none;">
+								<br><br>
+								<br><br>
+								<br><br>
+								<br> <input type="text" name="email" style="width: 254px;">
 							</div>
 						</td>
 					</tr>
@@ -161,10 +160,10 @@
 						</th>
 						<td>
 							<div class="tdcell">
-								<br>
-								<br>
-								<br> <input type="text" name="upaddr" style="width: 254px;">
-								<input type="text" style="display: none;">
+								<br><br>
+								<br><br>
+								<br><br>
+								<br> <input type="text" name="addr" style="width: 254px">
 							</div>
 						</td>
 					</tr>
@@ -174,10 +173,10 @@
 						</th>
 						<td>
 							<div class="tdcell">
-								<br>
-								<br>
-								<br> <input type="text" name="uptel" style="width: 254px;">
-								<input type="text" style="display: none;">
+								<br><br>
+								<br><br>
+								<br><br>
+								<br> <input type="text" name="tel" style="width: 254px;">
 							</div>
 						</td>
 					</tr>
@@ -187,11 +186,12 @@
 						onclick="updatecheck()" />
 					적용
 					</button>
-					<a class="snip1535" href="Mypage.jsp">뒤로가기</a>
-
+					<button class="snip1535" href="Mypage.jsp">뒤로가기</button>
 				</div>
+			</form>	
+
 			</div>
-	</form>
+	
 
 	<script type="text/javascript">
 		function updatecheck() {

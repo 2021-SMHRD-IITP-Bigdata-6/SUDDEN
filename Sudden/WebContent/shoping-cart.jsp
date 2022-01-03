@@ -272,15 +272,8 @@
                              	if(check<=0){ //관심상품없을떄
                             		out.print("<tr>");
   									out.print("<td class='shoping__cart__item'>");
-  									out.print("<img src=''>");//alt=''  이미지가 없을 때 안에 텍스트로 대체
-  									out.print("<h5><a href='shop-details.jsp?goodsseq='></a></h5>");
-  									out.print("</td>");
-  									
-  									out.print("<td class='shoping__cart__price'></td>");
-  									out.print("<td class='shoping__cart__total'></td>");
-  								
-  									out.print("<td class='shoping__cart__item__close'>");
-  									out.print("<a href='chat.jsp'></a>");
+  									out.print("관심 목록이 없습니다.");
+  									out.print("</button><a class='snip1535' href='index.jsp'>쇼핑하러가기</a>");
   									out.print("</td>");
   									out.print("</tr>");
                               	}else{ //로그인 한 후 관심 아이콘에서  들어 갈때
