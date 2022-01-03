@@ -209,7 +209,7 @@
 					out.print("</div>");
 					out.print("<div class='product__item__text'>");
 					out.print("<h6><a href='shop-details.jsp?goodsname=" + arr.get(i).getName() + "'>" + arr.get(i).getName()+ "</a></h6>");
-					out.print("<h5>" + arr.get(i).getPrice() + "</h5>");
+					out.print("<h5>" + arr.get(i).getPrice() + "원</h5>");
 					out.print("</div>");
 					out.print("</div>");
 					out.print("</div>");
