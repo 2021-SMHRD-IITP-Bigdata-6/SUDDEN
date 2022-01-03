@@ -314,7 +314,7 @@
                        if(status.equals("Y")){
                     	   out.print("<h5>판매완료</h5>");
                        }else{
-                    	   out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
+                    	   out.print("<h5>"+arr.get(i).getPrice()+"원</h5>");
                        }
                        out.print("</div>");
                        out.print("</div>");

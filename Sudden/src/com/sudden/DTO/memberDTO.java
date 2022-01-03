@@ -1,5 +1,6 @@
 package com.sudden.DTO;
 
+
 public class memberDTO {
 	
 	private String id;
@@ -57,7 +58,6 @@ public class memberDTO {
 		this.nick = nick;
 	}
 
-	
 	public memberDTO(String id, String pw, String nick, String addr) {//login_check
 		super();
 		this.id = id;
@@ -65,6 +65,15 @@ public class memberDTO {
 		this.nick = nick;
 		this.addr = addr;
 	}
+	
+	public memberDTO(int i, String nick, String email, String addr, String tel) {//login_check
+		super();
+		this.nick = nick;
+		this.email = email;
+		this.addr = addr;
+		this.tel = tel;
+	}
+	
 	public memberDTO(String id, String nick, String email, String addr, String tel, int i ) {//propile_check
 		super();
 		this.id = id;
