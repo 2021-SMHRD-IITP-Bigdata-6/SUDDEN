@@ -24,14 +24,11 @@ public class UpdateService2 implements Command {
 		
 		request.setCharacterEncoding("utf-8");
 
-		HttpSession session = request.getSession();
-
-
 		String id = request.getParameter("id");
-		String nick = request.getParameter("upnick");
-		String email = request.getParameter("upemail");
-		String addr = request.getParameter("upaddr");
-		String tel = request.getParameter("uptel");
+		String nick = request.getParameter("nick");
+		String email = request.getParameter("email");
+		String addr = request.getParameter("addr");
+		String tel = request.getParameter("tel");
 		
 		System.out.println(id);
 		System.out.println(nick);
@@ -50,7 +47,7 @@ public class UpdateService2 implements Command {
 			System.out.println("변경성공");
 		} else {
 			System.out.println("변경실패");
-			nextpage = "propile.jsp";
+			nextpage = "Propile2.jsp";
 		}
 		return nextpage;
 	}
