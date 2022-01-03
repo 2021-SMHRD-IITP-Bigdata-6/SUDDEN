@@ -36,7 +36,7 @@
     .review1 {display: flex; justify-content: space-between; margin-bottom: 10px;}
     .review2 {display: flex; flex-direction:column;}
     .reviewer_name .reviewer_product_name {width:350px; height:30px; border: 1px solid #ebebeb; margin-bottom:10px;}
-    .emo {width: 100px; height:60px; background-color: white; border: 1px solid; margin-bottom:10px; position:relative; right:30px;}
+    .emo {width: 100px; height:60px; background-color: white;  margin-bottom:10px; position:relative; right:30px;}
     
     .review_comment {width:350px; height:70px;}
     .review_comment_box {width:555px; height:130px; border: 1px solid;}
@@ -159,8 +159,8 @@
     	
     					<div class="shoping__cart__table">
 
-                    	<div class="review_title" style="font-size:20px; backgroung-color:white;" >리뷰 및 평점<a class=info href="#">? <span>총 5개의 점수로 나뉘고 <br>1점=<img src="img/1point.png" style="width:30px;height:30px;"> 2점=<img src="img/2point.png" style="width:30px;height:30px;">
-                             3점=<img src="img/3point.png" style="width:30px;height:30px;"> 4점=<img src="img/4point.png" style="width:30px;height:30px;"> 5점=<img src="img/5point.png" style="width:30px;height:30px;"></span></a>
+                    	<div class="review_title" style="font-size:20px; backgroung-color:white;" >리뷰 및 평점<a class=info href="#">평  점 <span> <br>1점=<img src="img/1point.png" style="width:30px;height:30px;"> 2점=<img src="img/2point.png" style="width:30px;height:30px;">
+                             3점=<img src="img/3point.png" style="width:30px;height:30px;"> 4점=<img src="img/4point.png" style="width:30px;height:30px;"> 5점=<img src="img/5point.png" style="width:30px;height:30px;"><br>&nbsp; </span></a>
 
                     	
                     	<%
@@ -208,7 +208,7 @@
                                    <span class="name">제품 이름 : <!-- 판매한 제품 --></span>
                                 </div>
                              </div>
-                             <div class="emo">평점</div>
+                             <div class="emo"></div>
                           </div>
                           <div class="review_comment">
                              <div class="review_comment_box"></div>
@@ -225,7 +225,7 @@
                                    <span class="name">제품 이름 : <!-- 판매한 제품 --></span>
                                 </div>
                              </div>
-                             <div class="emo">평점</div>
+                             <div class="emo"></div>
                           </div>
                           <div class="review_comment">
                              <div class="review_comment_box"></div>

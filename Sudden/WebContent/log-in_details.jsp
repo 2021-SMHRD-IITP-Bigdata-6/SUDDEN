@@ -36,6 +36,19 @@
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
 
+ <%
+                   
+                    
+                    String goodsseq = "";
+
+                    try{
+                    	goodsseq = request.getParameter("goodsseq");
+	                   
+                    }catch(Exception e){
+                    	
+                    }
+    %>
+
     
     <!-- Preloader -->
 	<div class="spinner-wrapper">
@@ -86,25 +99,14 @@
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="btn-outline-sm" href="shop-details.jsp" id="back">돌아가기</a>
+                    <a class="btn-outline-sm" href="shop-details.jsp?goodsseq=<%=goodsseq%>" id="back">돌아가기</a>
                 </span>
             </div>
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
     
-    <%
-                   
-                    
-                    String goodsseq = "";
-
-                    try{
-                    	goodsseq = request.getParameter("goodsseq");
-	                   
-                    }catch(Exception e){
-                    	
-                    }
-    %>
+   
 
 
     <!-- Header -->

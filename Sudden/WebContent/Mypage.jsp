@@ -288,7 +288,7 @@
  			
  		 		<div style="width:1040px;" class="sh_group">
 				<div class="sh_header">
-					<h2>리뷰 & 평점 <a class=info href="#">? <span>총 5개의 점수로 나뉘고 <br>1점=<img src="img/1point.png" style="width:30px;height:30px;"> 2점=<img src="img/2point.png" style="width:30px;height:30px;">
+					<h2>리뷰 & 평점 <a class=info href="#">? <span>평   점<br>1점=<img src="img/1point.png" style="width:30px;height:30px;"> 2점=<img src="img/2point.png" style="width:30px;height:30px;">
 							 3점=<img src="img/3point.png" style="width:30px;height:30px;"> 4점=<img src="img/4point.png" style="width:30px;height:30px;"> 5점=<img src="img/5point.png" style="width:30px;height:30px;"></span></a>
 				</h2>
 							<br>
