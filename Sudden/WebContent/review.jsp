@@ -198,6 +198,40 @@
                     				
                     				
                     	%>
+                    	<div class="review">
+                              <div class="review1">
+                             <div class="review2">                             
+                                 <div class="reviewer_name">
+                                   <span class="name">이름 : <!-- 판매자의 이름 --></span>
+                                </div>
+                                <div class="reviewer_product_name">
+                                   <span class="name">제품 이름 : <!-- 판매한 제품 --></span>
+                                </div>
+                             </div>
+                             <div class="emo">평점</div>
+                          </div>
+                          <div class="review_comment">
+                             <div class="review_comment_box"></div>
+                                <p><!-- 리뷰 코멘트 --></p>
+                          </div>
+                       </div>
+                                           	<div class="review">
+                              <div class="review1">
+                             <div class="review2">                             
+                                 <div class="reviewer_name">
+                                   <span class="name">이름 : <!-- 판매자의 이름 --></span>
+                                </div>
+                                <div class="reviewer_product_name">
+                                   <span class="name">제품 이름 : <!-- 판매한 제품 --></span>
+                                </div>
+                             </div>
+                             <div class="emo">평점</div>
+                          </div>
+                          <div class="review_comment">
+                             <div class="review_comment_box"></div>
+                                <p><!-- 리뷰 코멘트 --></p>
+                          </div>
+                       </div>
 	</div>
     </section>
     <!-- Shoping Cart Section End -->

@@ -99,8 +99,8 @@ public class tradeDAO {
 	
 		
 	}
-	public int searchseq(memberDTO dto) {
-		
+	public ArrayList<tradeDTO> searchseq(memberDTO dto) {
+		 ArrayList<tradeDTO> arr = new ArrayList<tradeDTO>();
 		int seq=0;
 		
 		try {
@@ -118,6 +118,8 @@ public class tradeDAO {
 
 			while (rs.next()) {
 				seq = rs.getInt("goods_seq");
+				tradeDTO tdto = new tradeDTO(seq);
+				arr.add(tdto);
 
 			}
 
@@ -126,9 +128,8 @@ public class tradeDAO {
 		} finally {
 			cloes();
 		}
-		System.out.println("searchseqdao º¸³¾ seq= "+ seq);
 		
-		return seq;
+		return arr;
 	}
 	
 public ArrayList<goodsDTO> purchase(tradeDTO tdto) {
