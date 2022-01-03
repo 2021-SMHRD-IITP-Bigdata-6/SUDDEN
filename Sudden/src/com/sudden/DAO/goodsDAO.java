@@ -216,11 +216,12 @@ public class goodsDAO {
 
 			int i = 1;
 			while (rs.next()) {
+				int seq = rs.getInt("goods_seq");
 				String name = rs.getString("goods_name");
 				String img = rs.getString("goods_img");
 				int price = rs.getInt("goods_price");
 	
-				dto = new goodsDTO(name, img, price);
+				dto = new goodsDTO(seq ,name, img, price);
 				arr.add(dto);
 				if(i==12) {
 					break;

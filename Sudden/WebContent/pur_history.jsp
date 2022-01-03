@@ -136,7 +136,7 @@
     			for(int j = 0; j < garr.size(); j++) {
     				out.print("<tr>");
     				out.print("<td class='shoping__cart__item'>"+"");
-    				out.print("<img class='images' src='Upload/"+garr.get(j).getImg()+"'></td>");
+    				out.print("<div class='product__item__pic set-bg'><a href='shop-details.jsp?goodsseq=" + garr.get(j).getSeq() + "'> <img src='Upload/" + garr.get(j).getImg() + "'/></a>");
     	        	out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
     				out.print("<h5>"+garr.get(j).getName()+"</h5></td>");
     				out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+garr.get(j).getPrice()+"</td>");

@@ -192,13 +192,15 @@
 			</div>
 			<div class="row featured__filter">
 			<%
+			System.out.println("메인여기");
 				goodsDAO dao = new goodsDAO();
 				ArrayList<goodsDTO> arr = dao.SearchAll();
+				System.out.println("메인여기1");
 				int i = 0;
 				while (true) {
 					out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
 					out.print("<div class='product__item'>");//Upload/191.jpg
-					out.print("<div class='product__item__pic set-bg' data-setbg='Upload/" + arr.get(i).getImg() + "'>");
+					out.print("<div class='product__item__pic set-bg'><a href='shop-details.jsp?goodsseq=" + arr.get(i).getSeq() + "'> <img src='Upload/" + arr.get(i).getImg() + "'/></a>");
 					out.print("<ul class='product__item__pic__hover'>");
 					if (dto == null) {
 						out.print("<li><a href='log-in_details.jsp'><i class='fa fa-heart'></i></a></li>");
@@ -208,7 +210,7 @@
 					out.print("</ul>");
 					out.print("</div>");
 					out.print("<div class='product__item__text'>");
-					out.print("<h6><a href='shop-details.jsp?goodsname=" + arr.get(i).getName() + "'>" + arr.get(i).getName()+ "</a></h6>");
+					out.print("<h6><a href='shop-details.jsp?goodsseq=" + arr.get(i).getSeq() + "'>" + arr.get(i).getName()+ "</a></h6>");
 					out.print("<h5>" + arr.get(i).getPrice() + "원</h5>");
 					out.print("</div>");
 					out.print("</div>");
