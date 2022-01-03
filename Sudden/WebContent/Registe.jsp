@@ -38,6 +38,8 @@
     	
     </script>
     
+   
+    
 </head>
 
 <body>
@@ -250,8 +252,9 @@
                     <div class="product__details__text">
                       
      <fieldset>
-     <h2>파일 업로드</h2>
-     <table style="font-size:20px; color:black;">
+     <h2>상품등록</h2>
+     <span>&nbsp</span>
+     <table style="font-size:20px; color:black; width:500px; height:350px;">
      <form action="RegisteService" method="post" enctype="multipart/form-data">
      
      <input type="hidden" name="id" value="<%=dto.getId()%>">
@@ -296,7 +299,7 @@
 				</td>
           </tr>
           <tr>
-              <td colspan="0"><button class="snip1535" "type="submit" value="사진확인">저장하기</button></td>
+              <td colspan="0"><button class="snip1535" "type="submit" value="사진확인" style="font-size:15" >저장하기</button></td> 
             
           </tr>
        
