@@ -101,7 +101,7 @@
 						<li class="nav-item"></li>
 					</ul>
 					<span class="nav-item"> <a class="btn-outline-sm"
-						href="Mypage.jsp">돌아가기</a>
+						href="Mypage.jsp">뒤로가기</a>
 					</span>
 				</div>
 			</div>
@@ -123,7 +123,7 @@
 				style="background-color: #fff; width: 600px; text-align: center; padding: 30px; border-radius: 20px;">
 				<input type="hidden" name="id" value="<%=dto.getId()%>">
 				<h2>프로필 수정</h2>
-				<p class="contxt">SUDDEN 프로필을 수정할수 있습니다.</p>
+				<p class="contxt">SUDDEN 프로필을 수정 할 수 있습니다.</p>
 				<table border="0" class="tbl_model">
 
 					<tr>
@@ -132,7 +132,6 @@
 						</th>
 						<td>
 							<div class="tdcell">
-								<br>
 								<br>
 								<br>
 								<br> <input type="text" name="upnick "
@@ -150,7 +149,6 @@
 							<div class="tdcell">
 								<br>
 								<br>
-								<br>
 								<br> <input type="text" name="upemail"
 									style="width: 254px;"> <input type="text"
 									style="display: none;">
@@ -163,7 +161,6 @@
 						</th>
 						<td>
 							<div class="tdcell">
-								<br>
 								<br>
 								<br>
 								<br> <input type="text" name="upaddr" style="width: 254px;">
@@ -179,19 +176,18 @@
 							<div class="tdcell">
 								<br>
 								<br>
-								<br>
 								<br> <input type="text" name="uptel" style="width: 254px;">
 								<input type="text" style="display: none;">
 							</div>
 						</td>
 					</tr>
 				</table>
-				<div class="btn_wrap">
+				<div class="btn_wrap" style="margin-top:10px;">
 					<button class="snip1535" "type="submit" value="업로드"
 						onclick="updatecheck()" />
 					적용
 					</button>
-					<a class="snip1535" href="Mypage.jsp">돌아가기</a>
+					<a class="snip1535" href="Mypage.jsp">뒤로가기</a>
 
 				</div>
 			</div>
