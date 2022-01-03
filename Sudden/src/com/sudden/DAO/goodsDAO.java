@@ -214,6 +214,7 @@ public class goodsDAO {
 
 			rs = psmt.executeQuery();
 
+			int i = 1;
 			while (rs.next()) {
 				String name = rs.getString("goods_name");
 				String img = rs.getString("goods_img");
@@ -221,6 +222,11 @@ public class goodsDAO {
 	
 				dto = new goodsDTO(name, img, price);
 				arr.add(dto);
+				System.out.println(i+"¹øÂ°");
+				if(i==12) {
+					break;
+				}
+				i++;
 				
 			}
 			
