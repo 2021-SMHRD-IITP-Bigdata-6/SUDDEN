@@ -55,7 +55,7 @@
 	.rating{ width: 70px; height: 50px;margin: 4px;position: absolute;right: 10px;}
 	a.info{
     position:relative; /*this is the key*/
-    z-index:24; left:300px;
+    z-index:24; left:400px;
     background-color:white;
     color:black;
     text-decoration:none;
@@ -159,7 +159,7 @@
     	
     					<div class="shoping__cart__table">
 
-                    	<div class="review_title" style="font-size:30px; backgroung-color:white;" >리뷰 및 평점<a class=info href="#">? <span>총 5개의 점수로 나뉘고 <br>1점=<img src="img/1point.png" style="width:30px;height:30px;"> 2점=<img src="img/2point.png" style="width:30px;height:30px;">
+                    	<div class="review_title" style="font-size:20px; backgroung-color:white;" >리뷰 및 평점<a class=info href="#">? <span>총 5개의 점수로 나뉘고 <br>1점=<img src="img/1point.png" style="width:30px;height:30px;"> 2점=<img src="img/2point.png" style="width:30px;height:30px;">
                              3점=<img src="img/3point.png" style="width:30px;height:30px;"> 4점=<img src="img/4point.png" style="width:30px;height:30px;"> 5점=<img src="img/5point.png" style="width:30px;height:30px;"></span></a>
 
                     	
