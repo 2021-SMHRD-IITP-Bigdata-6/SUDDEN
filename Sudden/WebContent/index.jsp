@@ -1,3 +1,6 @@
+<%@page import="com.sudden.DTO.goodsDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.sudden.DAO.goodsDAO"%>
 <%@page import="com.sudden.DTO.memberDTO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
@@ -28,6 +31,12 @@
 
 
 </head>
+<style>
+.col-lg-4 { flex-grow: 0; flex-shrink: 0; flex-basis: 25%; max-width: 25%; }
+.row { display: -ms-flexbox; display: flex; flex-wrap: wrap; margin-right: -200px; margin-left: -15px; }
+.featured { padding-top: 80px; padding-bottom: 40px; padding-right: 140px; }
+
+</style>
 
 <body>
 
@@ -169,7 +178,6 @@
 	</section>
 	<!-- Hero Section End -->
 
-	
 
 	<!-- Featured Section Begin -->
 	<section class="featured spad">
@@ -177,148 +185,42 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-title">
-						<h2>추천 상품</h2>
+						<h2>최근 등록된 상품</h2>
 					</div>
-					<div class="featured__controls">
-						<ul>
-							<li class="active" data-filter="*">All</li>
-							<li data-filter=".oranges">Oranges</li>
-							<li data-filter=".fresh-meat">Fresh Meat</li>
-							<li data-filter=".vegetables">Vegetables</li>
-							<li data-filter=".fastfood">Fastfood</li>
-						</ul>
-					</div>
+					
 				</div>
 			</div>
 			<div class="row featured__filter">
-				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-1.jpg">
-							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-2.jpg">
-							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-3.jpg">
-							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-4.jpg">
-				 			<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-5.jpg">
-							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-6.jpg">
-							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-7.jpg">
-							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-					<div class="featured__item">
-						<div class="featured__item__pic set-bg"
-							data-setbg="img/featured/feature-8.jpg">
-							<ul class="featured__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-							</ul>
-						</div>
-						<div class="featured__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
+			<%
+				goodsDAO dao = new goodsDAO();
+				ArrayList<goodsDTO> arr = dao.SearchAll();
+				int i = 0;
+				while (true) {
+					out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
+					out.print("<div class='product__item'>");//Upload/191.jpg
+					out.print("<div class='product__item__pic set-bg' data-setbg='Upload/" + arr.get(i).getImg() + "'>");
+					out.print("<ul class='product__item__pic__hover'>");
+					if (dto == null) {
+						out.print("<li><a href='log-in_details.jsp'><i class='fa fa-heart'></i></a></li>");
+					} else {
+						out.print("<li><a href='shoping-cart.jsp?goodsseq=" + arr.get(i).getSeq()+"'><i class='fa fa-heart'></i></a></li>");
+					}
+					out.print("</ul>");
+					out.print("</div>");
+					out.print("<div class='product__item__text'>");
+					out.print("<h6><a href='shop-details.jsp?goodsname=" + arr.get(i).getName() + "'>" + arr.get(i).getName()+ "</a></h6>");
+					out.print("<h5>" + arr.get(i).getPrice() + "</h5>");
+					out.print("</div>");
+					out.print("</div>");
+					out.print("</div>");
+					i++;
+
+					if (i == 12) {
+						break;
+					}
+
+				}
+			%>
 			</div>
 		</div>
 	</section>

@@ -46,9 +46,7 @@
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
-    margin-right: -200px
-
-;
+    margin-right: -200px;
     margin-left: -15px;
 }
 
@@ -394,6 +392,9 @@
 		%></div>
             </div>
         </div>
+                       </div>
+            </div>
+        </div>
     </section>
     <!-- Product Section End -->
 
@@ -426,6 +427,7 @@
                 </div>
             </div>
         </div>
+        
     </footer>
     <!-- Footer Section End -->
 

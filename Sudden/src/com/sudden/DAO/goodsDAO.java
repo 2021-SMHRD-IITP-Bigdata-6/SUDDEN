@@ -209,7 +209,7 @@ public class goodsDAO {
 			
 			getconn();
 
-			String sql = "select * from tbl_product ";
+			String sql = "select * from tbl_product order by goods_update desc";
 			psmt = conn.prepareStatement(sql);
 
 			rs = psmt.executeQuery();
