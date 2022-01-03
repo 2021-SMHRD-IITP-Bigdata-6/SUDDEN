@@ -46,11 +46,29 @@
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
-    margin-right: -200px
-
-;
+    margin-right: -200px;
     margin-left: -15px;
-}
+    }
+.btn_top {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: #394aad;
+    color: #fff;
+    border: 0px;
+    outline: 0px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    display: none;
+  }
+
+  .arrow_up {
+    width: 15px;
+    margin-bottom: 2px;
+  }
+
+
 
 </style>
 
@@ -217,6 +235,8 @@
             </div>
         </div>
     </section>
+   
+    
     <!-- Hero Section End -->
 
     <!-- Breadcrumb Section Begin -->
@@ -232,6 +252,7 @@
             </div>
         </div>
     </section>
+    
     <!-- Breadcrumb Section End -->
 
     <!-- Product Section Begin -->
@@ -372,6 +393,11 @@
 		%></div>
             </div>
         </div>
+         <div>
+  <button id="btnTop" class="btn_top" type="button">
+    		TOP
+  </button>
+</div>
     </section>
     <!-- Product Section End -->
 
@@ -417,6 +443,20 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="jquery-3.6.0.min.js"></script>
+
+<script>
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 500) {
+      $('#btnTop').show();
+    } else {
+      $('#btnTop').hide();
+    }
+  });
+
+  $('#btnTop').on('click', e => {
+    window.scrollTo({top:0, left:0, behavior:'smooth'});
+  });
+</script>
 
 
 
