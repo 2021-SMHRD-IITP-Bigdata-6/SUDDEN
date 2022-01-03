@@ -4,12 +4,12 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.sudden.DAO.goodsDAO"%>
 <%@page import="com.sudden.DTO.memberDTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -112,7 +112,7 @@
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a class="btn-outline-sm" href="Mypage.jsp" id="back">µπæ∆∞°±‚</a>
+                    <a class="btn-outline-sm" href="Mypage.jsp" id="back">ÎèåÏïÑÍ∞ÄÍ∏∞</a>
                 </span>
             </div>
         </div> <!-- end of container -->
@@ -127,11 +127,11 @@
     <% 
     
     int goodsseq=0;
-    System.out.println("∏Æ∫‰");
+    System.out.println("Î¶¨Î∑∞");
       try{
-         System.out.println("∏Æ∫‰1");
+         System.out.println("Î¶¨Î∑∞1");
          goodsseq =  Integer.parseInt(request.getParameter("goodsseq"));
-         System.out.println("πﬁæ∆ø» "+goodsseq);
+         System.out.println("Î∞õÏïÑÏò¥ "+goodsseq);
       }catch(Exception e){
          
       }
@@ -154,10 +154,10 @@
                         <table class="tablein">
                             <thead>
                                 <tr>
-                                    <th class="shoping__product" style="font-size:30px; text-align:center;">¡¶«∞¿ÃπÃ¡ˆ</th>
-                                    <th style="font-size:30px;text-align:center;">¡¶«∞∏Ì</th>
-                                    <th style="font-size:30px;text-align:center;">∏Æ∫‰µÓ∑œ</th>
-                                    <th style="font-size:30px;text-align:center;">∆Ú¡°</th>
+                                    <th class="shoping__product" style="font-size:30px; text-align:center;">Ï†úÌíàÏù¥ÎØ∏ÏßÄ</th>
+                                    <th style="font-size:30px;text-align:center;">Ï†úÌíàÎ™Ö</th>
+                                    <th style="font-size:30px;text-align:center;">Î¶¨Î∑∞Îì±Î°ù</th>
+                                    <th style="font-size:30px;text-align:center;">ÌèâÏ†ê</th>
                                     <th style="font-size:30px;text-align:center;"></th>
                                 </tr>
                             </thead>
@@ -173,7 +173,7 @@
 									<h5><%=arr.get(0).getName()%></h5>
 								</td>
 								<td class='reviewrow' style='width:200px; text-align:center; font-size:15px;'>
-									<input class="reviewin" type="text" name="review" placeholder="∏Æ∫‰∏¶ ¿€º∫«ÿ¡÷ººø‰">
+									<input class="reviewin" type="text" name="review" placeholder="Î¶¨Î∑∞Î•º ÏûëÏÑ±Ìï¥Ï£ºÏÑ∏Ïöî">
 								</td>
 								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>
 						 	 		<input type="radio" name="rating" value="1"><a>1  </a><img style="width:50px;height:50px;" src="img/1point.png" name="rating"><br>
@@ -184,7 +184,7 @@
 						  	 	
 								</td>
 								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:25px;'>
-									<button type="submit" class="snip1535two" id="idCheck" value="review">µÓ∑œ«œ±‚</button>
+									<button type="submit" class="snip1535two" id="idCheck" value="review">Îì±Î°ùÌïòÍ∏∞</button>
 								</td>
 							</tr>
 
@@ -202,7 +202,7 @@
     <!-- Shoping Cart Section End -->
     
   <!--  <div class="text_ul_wrap">
-						 	 		<a href="javascript:;"><strong>¡°ºˆ ¿‘∑¬</strong></a>
+						 	 		<a href="javascript:;"><strong>Ï†êÏàò ÏûÖÎ†•</strong></a>
 						  	 		<ul class="ul_select_style" style="list-style: none;">
 							    		<li><img style="width:20px;height:20px;" src="img/1point.png" value="1">1</li>
 							    		<li><img style="width:20px;height:20px;" src="img/2point.png" value="2">2</li>

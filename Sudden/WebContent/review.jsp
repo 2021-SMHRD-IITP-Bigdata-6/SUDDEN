@@ -127,14 +127,7 @@
 			
 			ArrayList<goodsDTO> garr = gdao.reseq(dto);
 			ArrayList<tradeDTO> tarr = null;
-			if(garr.size()<=0){
-				
-			}else{
-				for(int i=0; i<garr.size(); i++){
-					tdto = new tradeDTO(garr.get(i).getSeq());
-					tarr=tdao.reseq(tdto);
-				}
-			}
+			
 					
 		%>
 </head>
@@ -147,28 +140,39 @@
                     	<div class="review_title" style="font-size:30px; backgroung-color:white;" >리뷰 및 평점</div><br>
                     	
                     	<%
-                    		out.print("<div class='review'>"); 
-                    			out.print("<div class='review1'>"); 
-                    				out.print("<div class='review2'>"); 
-                    				
-                    				if(tarr.size()<0){
+                    	
+
+                    				if(garr.size()<=0){
                     					
                     				}else{
-                    					for(int i=0; i<tarr.size(); i++){
-                    						System.out.println("리뷰개수 = "+ tarr.size());
-                    						out.print("<div class='reviewer_name'>");
-                    						out.print("<span class='name'>이름 : "+tarr.get(i).getId()+"</div>");
-                    						out.print("<div class='reviewer_product_name'>");
-                    						out.print("<span class='name'>게시글 : "+garr.get(i).getName()+"</div>");
-                    						out.print("</div>");
-                    						out.print("<div class='emo'><img class='rating' src='img/"+tarr.get(i).getRating()+"point.png'></div>");
-                    						out.print("</div>");
-                    						out.print("<div class='review_comment'>");
-                    						out.print("<div class='review_comment_box'><p>"+tarr.get(i).getReview()+"</p></div>");
-                    						out.print("</div>");
-                    						out.print("</div>");
+                    					for(int i=0; i<garr.size(); i++){
+                    						tdto = new tradeDTO(garr.get(i).getSeq());
+                    						tarr=tdao.reseq(tdto);
+                    						if(tarr.size()<0){
+                            					
+                            				}else{
+                            					for(int j=0; j<tarr.size(); j++){
+                            						System.out.println("리뷰개수 = "+ tarr.size());
+                            						out.print("<div class='review'>"); 
+                                        			out.print("<div class='review1'>"); 
+                                        			out.print("<div class='review2'>"); 
+                            						out.print("<div class='reviewer_name'>");
+                            						out.print("<span class='name'>이름 : "+tarr.get(j).getId()+"</div>");
+                            						out.print("<div class='reviewer_product_name'>");
+                            						out.print("<span class='name'>게시글 : "+garr.get(i).getName()+"</div>");
+                            						out.print("</div>");//re2
+                            						out.print("<div class='emo'><img class='rating' src='img/"+tarr.get(j).getRating()+"point.png'></div>");
+                            						out.print("</div>");//re1
+                            						out.print("<div class='review_comment'>");
+                            						out.print("<div class='review_comment_box'><p>"+tarr.get(j).getReview()+"</p></div>");
+                            						out.print("</div>");
+                            						out.print("</div>");//re
+                            					}
+                            				}
                     					}
                     				}
+                    				
+                    				
                     	%>
 	</div>
     </section>
