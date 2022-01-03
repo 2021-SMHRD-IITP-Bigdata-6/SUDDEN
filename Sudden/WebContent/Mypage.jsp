@@ -1,3 +1,7 @@
+<%@page import="com.sudden.DTO.goodsDTO"%>
+<%@page import="com.sudden.DAO.goodsDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.sudden.DAO.memberDAO"%>
 <%@page import="com.sudden.DTO.memberDTO"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
@@ -184,59 +188,14 @@
 	<!-- end of navigation -->
 	<%
 	memberDTO dto = (memberDTO) session.getAttribute("dto");
-	//변수선언
-	String nick = "";
-	String email = "";
-	String addr = "";
-	String tel = "";
-
-	//DAO
-	Connection conn = null;
-	PreparedStatement psmt = null;
-	ResultSet rs = null;
-
-	try {
-		//드라이버 연결
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-
-		String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524";
-		String dbid = "cgi_8_5_1216";
-		String dbpw = "smhrd5";
-
-		conn = DriverManager.getConnection(url, dbid, dbpw);
-
-		//id에 해당하는 모든 정보 가져오기
-		String sql = "select * from tbl_member where mem_id=?";
-		psmt = conn.prepareStatement(sql);
-		psmt.setString(1, dto.getId());
-		rs = psmt.executeQuery();
-
-		if (rs.next()) {
-			nick = rs.getString(3);
-			email = rs.getString(6);
-			addr = rs.getString(4);
-			tel = rs.getString(5);
+	String pid = dto.getId();
+	memberDAO dao = new memberDAO();
+	ArrayList<memberDTO> arr = dao.profile(pid);
 	
-		};
-	} catch (Exception e) {
-		e.printStackTrace();
-	} finally {
-		try {
-			if (rs != null) {
-		rs.close();
-			}
-			if (psmt != null) {
-		psmt.close();
-			}
-			if (conn != null) {
-		conn.close();
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
+	goodsDAO gdao = new goodsDAO();
+	goodsDTO gdto = new goodsDTO(pid,0,0);
+	
+	
 
 	%>
 	<!-- Header -->
@@ -250,10 +209,10 @@
 							<h2>프로필 수정</h2>
 						</div>
 						<div style="font-size:19px;" class="sh_content"><br>
-								<div>별명 :&nbsp; <%=nick%></div><br>
-								<div>이메일:&nbsp; <%=email%></div><br>
-								<div>주소:&nbsp; <%=addr%></div><br>
-								<div>전화 번호:&nbsp; <%=tel%></div><br>
+								<div>별명 :&nbsp; <%=arr.get(0).getNick()%></div><br>
+								<div>이메일:&nbsp; <%=arr.get(0).getEmail()%></div><br>
+								<div>주소:&nbsp; <%=arr.get(0).getAddr()%></div><br>
+								<div>전화 번호:&nbsp; <%=arr.get(0).getTel()%></div><br>
 						</div>
 						<p class="btn_area_btm">
 							<a href="Propile2.jsp"

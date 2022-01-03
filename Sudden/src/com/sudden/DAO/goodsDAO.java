@@ -222,13 +222,12 @@ public class goodsDAO {
 	
 				dto = new goodsDTO(name, img, price);
 				arr.add(dto);
-				System.out.println(i+"번째");
 				if(i==12) {
 					break;
 				}
 				i++;
 				
-			}
+			}System.out.println(i+"번째");
 			
 
 		} catch (Exception e) {

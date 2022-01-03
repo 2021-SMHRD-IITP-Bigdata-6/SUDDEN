@@ -266,11 +266,9 @@ public class memberDAO {
 			cloes();
 		}
 	}
-	
-	//public ArrayList<memberDTO> pw_search(memberDTO dto) {
+
 	public String  pw_search(memberDTO dto) {
-		
-		//ArrayList<memberDTO> arr = new ArrayList<memberDTO>();
+
 		String check = null;
 		getconn();
 		
@@ -290,9 +288,7 @@ public class memberDAO {
 				String pw = rs.getString("mem_pw");
 				
 				check=pw;
-				
-				//dto = new memberDTO(pw,0,0);
-				//arr.add(dto);
+
 			}System.out.println("Ã£±â¹Þ¾Æ¿È");
 			System.out.println(check);
 
@@ -303,9 +299,45 @@ public class memberDAO {
 			
 			cloes();
 		}
-		//return arr;
+
 		return check;
+	}public ArrayList<memberDTO> profile(String id) {
+		
+		ArrayList<memberDTO> arr = new ArrayList<memberDTO>();
+		
+		try {
+			
+			getconn();
+
+			String sql = "select * from tbl_member where mem_id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) { 
+				String nick = rs.getString(3);
+				String email = rs.getString(6);
+				String addr = rs.getString(4);
+				String tel = rs.getString(5);
+				
+				dto = new memberDTO(0, nick, email, addr, tel);
+				arr.add(dto);
+				
+			}
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			cloes();
+		}
+		
+		return arr;
+		
+		
 	}
+	
 	
 
 }
