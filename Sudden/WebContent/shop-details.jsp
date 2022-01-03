@@ -277,9 +277,6 @@
          				out.print("<td rowspan='2'><a id='asu' style='font-size:30px; color:black;'>판매완료</a></td>");
          				out.print("</tr>");
          				out.print("<tr>");
-         				out.print("<td></td>");
-         				out.print("</tr>");
-         				out.print("<tr>");
          				out.print("<td id = 'tdsu'><b>연락하기</b></td>");
          				out.print("</tr>");
          				out.print("</table>");
