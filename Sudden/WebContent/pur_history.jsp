@@ -28,7 +28,7 @@
 	<style>
     .images {width:200px; height:200px;}
     .td.shoping__cart__item {width: 555px; height: 261px;}
-    .shoping__cart__table{background-color:white; width:700px; position:absolute;left:200px; top:100px;}
+    .shoping__cart__table{background-color:white; width:800px; position:absolute;left:200px; top:100px;}
     .footer{width:100%;position:absolute;top:2000px; }
     .shoping__cart__table table thead tr {
 	border-bottom: 3px solid #ebebeb;
@@ -129,8 +129,10 @@
     if(tarr.size()>0){
     	
     	for(int i = 0; i<tarr.size(); i++){
+    		int rating = tarr.get(i).getRating();
     		tradeDTO tdto = new tradeDTO(tarr.get(i).getGoodsseq());
     		ArrayList<goodsDTO> garr = tdao.purchase(tdto);
+    		
     		
     		if(garr.size()>0){
     			for(int j = 0; j < garr.size(); j++) {
@@ -140,7 +142,13 @@
     	        	out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
     				out.print("<h5>"+garr.get(j).getName()+"</h5></td>");
     				out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+garr.get(j).getPrice()+"</td>");
-    				out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a class='snip1535' href='reviewwrite.jsp?goodsseq="+garr.get(j).getSeq()+"'>¸®ºäµî·Ï</a></td>");		
+    				if(rating>0){
+    					out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>¸®ºäµî·Ï¿Ï·á</td>");		
+    				}
+    				else{
+    					out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a class='snip1535' href='reviewwrite.jsp?goodsseq="+garr.get(j).getSeq()+"'>¸®ºäµî·Ï</a></td>");		
+    				}
+    				
     				out.print("</tr>");
     			}
     		}else{
