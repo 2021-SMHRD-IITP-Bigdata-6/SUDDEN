@@ -31,7 +31,7 @@
         .chat_wrap .item.mymsg .box{transition:all .3s ease-out; margin:0 20px 0 0;}
         .chat_wrap .item.on .box{margin:0; opacity: 1;}
 		
-		.shop_wrap {border:1px solid #999;background-color:#EAEAEA; top:150px; position:absolute; left:1000px;width:330px; height:690px; padding:5px; font-size:45px; color:#333}
+		.shop_wrap {border:1px solid #999;background-color:#EAEAEA; top:150px; position:absolute; left:1000px;width:330px; height:693px; padding:5px; font-size:45px; color:#333}
         .shop_wrap .shop_info{background-color:white; border-radius:5px;padding:10px; height:250px; width:320px;}
         .shop_wrap .shop_info .shop_menu{font-size:17px;font-weight:bold;}
         .shop_wrap .shop_info .shop_img{height:150px; width:200px;}
@@ -255,6 +255,7 @@ var currentTime = function(){
         </div> <!-- end of container -->
     </nav> <!-- end of navbar -->
     <!-- end of navigation -->
+
    <div class="chat_wrap">
       <div class="inner">
       <p style="position:absolute; left:160px;">SUDDEN SAFE ZONE</p><br>
