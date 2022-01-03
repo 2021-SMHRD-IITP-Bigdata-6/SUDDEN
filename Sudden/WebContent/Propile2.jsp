@@ -119,9 +119,8 @@
 				</div>
 			</div>
 
-			<div id="content"
-				style="background-color: #fff; width: 600px; margin-left: 670px; margin-right: auto; text-align: center; padding: 30px; border-radius: 20px;">
-				
+			<div id="content" style="background-color: #fff; width: 600px; text-align: center; padding: 30px; border-radius: 20px;">
+
 				<h2>프로필 수정</h2>
 				<p class="contxt">SUDDEN 프로필을 수정할수 있습니다.</p>
 				<form action="UpdateCon2.do" method="get">
@@ -165,6 +164,7 @@
 								<br><br>
 								<br><br>
 								<br> <input type="text" name="addr" style="width: 254px">
+
 							</div>
 						</td>
 					</tr>
@@ -178,6 +178,7 @@
 								<br><br>
 								<br><br>
 								<br> <input type="text" name="tel" style="width: 254px;">
+
 							</div>
 						</td>
 					</tr>

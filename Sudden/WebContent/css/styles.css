@@ -1121,14 +1121,19 @@ b {
     border-collapse: collapse;
     word-wrap: break-word;
     word-break: keep-all;
-    border: 0;
-    border-bottom: 1px solid #e5e5e5;
+    
 }
 
 
 .tbl_model .thcell {
-    padding: 100px 100px 100px;
+    padding: 50px 50px 50px;
 }
+
+.thcell .tdcell {
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+}
+
 .tbl_model td {
     color: #565656;
 }
@@ -1137,13 +1142,12 @@ b {
     text-align: left;
     vertical-align: top;
     border: 0;
-    border-top: 1px solid #e5e5e5;
 }
 #content {
     position: relative;
     max-width: 954px;
     height: 100%;
-    margin: 0 auto;
+    margin: auto auto;
 }
 @import url(https://fonts.googleapis.com/css?family=BenchNine:700);
 .snip1535 {
