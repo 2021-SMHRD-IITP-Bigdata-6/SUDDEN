@@ -345,7 +345,7 @@
                        }                      
                        %>
                 </div>
-                <div class="product__pagination">    
+                <div class="product__pagination" style="padding-left:350px;">    
      <%
      
 	 int cout = size/20;

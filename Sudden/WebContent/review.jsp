@@ -53,7 +53,28 @@
 	.ul_select_style li:hover{background: rgba(0,0,0,0.2)}
 	
 	.rating{ width: 70px; height: 50px;margin: 4px;position: absolute;right: 10px;}
-	    
+	a.info{
+    position:relative; /*this is the key*/
+    z-index:24; left:300px;
+    background-color:white;
+    color:black;
+    text-decoration:none;
+    
+    }
+	
+	a.info:hover{z-index:25;}
+	
+	a.info span{display: none}
+	
+	a.info:hover span{ /*the span will display just on :hover state*/
+	    display:block;
+	    position:absolute;
+	    top:2em; left:1em; width:30em;
+	    border:1px solid #394aad;
+	    background-color:white; color:gray;
+	    text-align: center;
+	    font-size:15px;
+	    }
     </style>
 	<!-- Favicon  -->
     <link rel="icon" href="images/favicon.png">
@@ -144,7 +165,9 @@
     <section>
     	
     					<div class="shoping__cart__table">
-                    	<div class="review_title" style="font-size:30px; backgroung-color:white;" >리뷰 및 평점</div><br>
+                    	<div class="review_title" style="font-size:30px; backgroung-color:white;" >리뷰 및 평점<a class=info href="#">? <span>총 5개의 점수로 나뉘고 <br>1점=<img src="img/1point.png" style="width:30px;height:30px;"> 2점=<img src="img/2point.png" style="width:30px;height:30px;">
+							 3점=<img src="img/3point.png" style="width:30px;height:30px;"> 4점=<img src="img/4point.png" style="width:30px;height:30px;"> 5점=<img src="img/5point.png" style="width:30px;height:30px;"></span></a>
+				</div><br>
                     	
                     	<%
                     		out.print("<div class='review'>"); 
