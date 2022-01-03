@@ -59,7 +59,12 @@ public class LoginService implements Login_Command{
 					
 			}
 			else if(command.equals("Logincon_detail.do")) {
-				nextpage = "shop-details.jsp?goodsseq="+seq;
+				if(seq.equals("null")) {
+					nextpage = "index.jsp";
+				}else {
+					nextpage = "shop-details.jsp?goodsseq="+seq;
+				}
+
 			}
 			
 		} else {

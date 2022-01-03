@@ -29,7 +29,7 @@
 	<style>
     .images {width:200px; height:200px;}
     .td.shoping__cart__item {width: 555px; height: 261px;}
-    .shoping__cart__table{background-color:white; width:700px; position:absolute;left:200px; top:100px;}
+    .shoping__cart__table{background-color:white; width:800px; position:absolute;left:200px; top:100px;}
     .footer{width:100%;position:absolute;top:2000px; }
     .shoping__cart__table table thead tr {
 	border-bottom: 3px solid #ebebeb;
@@ -37,6 +37,7 @@
 	.shoping__cart__item .images .shoping__cart__total .shoping__cart__price{
 	
 	}
+	.imgwh{width:300px; height:300px;}
 	
 	#buttstyle {
     background-color: #394aad;
@@ -136,8 +137,8 @@
                                     <th class="shoping__product" style="font-size:30px; text-align:center;">제품이미지</th>
                                     <th style="font-size:30px;text-align:center;">제품명</th>
                                     <th style="font-size:30px;text-align:center;">가격</th>
-                                    <th style="font-size:30px;text-align:center;">     </th>
-                                    <th style="font-size:30px;text-align:center;">     </th>
+                                    <th style="font-size:30px;text-align:center;"></th>
+                                    <th style="font-size:30px;text-align:center;"></th>
                                     
                                 </tr>
                                 
@@ -162,7 +163,7 @@
 		String status = arr.get(i).getStatus();
 		out.print("<tr>");
 		out.print("<td class='shoping__cart__item'>"+"");	
-		out.print("<img class='images' src='Upload/"+arr.get(i).getImg()+"'>");
+		out.print("<a href='shop-details.jsp?goodsseq=" + arr.get(i).getSeq() + "'> <img class='imgwh' src='Upload/" + arr.get(i).getImg() + "'/></a>");
 		out.print("</td>");
         out.print("<td class='shoping__cart__total' style='width:300px; text-align:center; font-size:15px;'>"+"");
 		out.print("<h5><a href='shop-details.jsp?goodsseq="+arr.get(i).getSeq()+"'>"+arr.get(i).getName()+"</a></h5>");
