@@ -93,6 +93,28 @@
   background-color:gray;
   border: 1px solid #444444;
   }
+  a.info{
+    position:relative; /*this is the key*/
+    z-index:24; left:300px;
+    background-color:white;
+    color:black;
+    text-decoration:none;
+    
+    }
+	
+	a.info:hover{z-index:25;}
+	
+	a.info span{display: none}
+	
+	a.info:hover span{ /*the span will display just on :hover state*/
+	    display:block;
+	    position:absolute;
+	    top:2em; left:1em; width:30em;
+	    border:1px solid #394aad;
+	    background-color:white; color:gray;
+	    text-align: center;
+	    font-size:15px;
+	    }
 </style>
 
 
@@ -190,7 +212,7 @@
 		rs = psmt.executeQuery();
 
 		if (rs.next()) {
-			nick = dto.getNick();
+			nick = rs.getString(3);
 			email = rs.getString(6);
 			addr = rs.getString(4);
 			tel = rs.getString(5);
@@ -256,10 +278,9 @@
  			
  		 		<div style="width:1040px;" class="sh_group">
 				<div class="sh_header">
-					<h2>리뷰 & 평점</h2>
-				</div>
-				
-				<div class="sh_content">
+					<h2>리뷰 & 평점 <a class=info href="#">? <span>총 5개의 점수로 나뉘고 <br>1점=<img src="img/1point.png" style="width:30px;height:30px;"> 2점=<img src="img/2point.png" style="width:30px;height:30px;">
+							 3점=<img src="img/3point.png" style="width:30px;height:30px;"> 4점=<img src="img/4point.png" style="width:30px;height:30px;"> 5점=<img src="img/5point.png" style="width:30px;height:30px;"></span></a>
+				</h2>
 							<br>
 							<p>나의 평점은??&nbsp;&nbsp;<img style="width:70px;height:70px;"src="img/1point.png"></img></p>	<!-- 리뷰이미지 정보넣는곳 -->
 								<a onclick="location.href='review.jsp';" style="cursor:pointer; font-size:20px;">확인하러 가기
