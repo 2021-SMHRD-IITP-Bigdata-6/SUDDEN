@@ -330,36 +330,35 @@
 
 
                     }else{
-                    	
-                    
-                       arr = dao.SearchAll();
-                       int size=arr.size();
-                       int i=change_num;
-                       while(i!=size){
-                       out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
-                       out.print("<div class='product__item'>");//Upload/191.jpg
-                       out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
-                       out.print("<ul class='product__item__pic__hover'>");
-                       if(dto==null){
-                    	   out.print("<li><a href='log-in_details.jsp'><i class='fa fa-heart'></i></a></li>");
-                       }else{
-                    	   out.print("<li><a href='shoping-cart.jsp?goodsseq="+arr.get(i).getSeq()+"'><i class='fa fa-heart'></i></a></li>");
-                       }
-                       out.print("</ul>");
-                       out.print("</div>");
-                       out.print("<div class='product__item__text'>");
-                       out.print("<h6><a href='shop-details.jsp?goodsname="+arr.get(i).getName()+"'>"+arr.get(i).getName()+"</a></h6>");
-                       out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
-                       out.print("</div>");
-                       out.print("</div>");
-                       out.print("</div>");
-                       i++;
-       					
-       						if(i==20){
-       							break;
-       						}
-       					
-       				}
+                 
+ //                      arr = dao.SearchAll();
+ //                      int size=arr.size();
+ //                      int i=change_num;
+ //                      while(i!=size){
+ //                      out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
+ //                      out.print("<div class='product__item'>");//Upload/191.jpg
+ //                      out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
+ //                      out.print("<ul class='product__item__pic__hover'>");
+  //                     if(dto==null){
+  //                  	   out.print("<li><a href='log-in_details.jsp'><i class='fa fa-heart'></i></a></li>");
+  //                     }else{
+   //                 	   out.print("<li><a href='shoping-cart.jsp?goodsseq="+arr.get(i).getSeq()+"'><i class='fa fa-heart'></i></a></li>");
+  //                     }
+  //                     out.print("</ul>");
+  //                     out.print("</div>");
+  //                     out.print("<div class='product__item__text'>");
+  //                     out.print("<h6><a href='shop-details.jsp?goodsname="+arr.get(i).getName()+"'>"+arr.get(i).getName()+"</a></h6>");
+  //                     out.print("<h5>"+arr.get(i).getPrice()+"</h5>");
+   //                    out.print("</div>");
+  //                     out.print("</div>");
+   //                    out.print("</div>");
+    //                   i++;
+  //     					
+  //     						if(i==20){
+  //     							break;
+  //     						}
+   //    					
+   //    				}
 
                     }
 
