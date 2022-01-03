@@ -178,7 +178,7 @@
 						onclick="updatecheck()" />
 					적용
 					</button>
-					<button class="snip1535" href="Mypage.jsp">뒤로가기</button>
+					<button class="snip1535" type="button" onclick="location.href='Mypage.jsp'">뒤로가기</button>
 				</div>
 			</form>	
 
