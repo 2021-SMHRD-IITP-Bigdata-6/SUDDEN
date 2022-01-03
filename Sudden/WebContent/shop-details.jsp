@@ -43,6 +43,14 @@
     margin-right: -2px;
     color: #000000;
 }
+
+.row1{
+	display:flex; 
+	margin-left:-15px; 
+	margin-right:-15px;
+	}
+	
+
 </style>
 
 <body>
@@ -242,7 +250,7 @@
     <!-- Product Details Section Begin -->
     <section class="product-details spad">
         <div class="container">
-            <div class="row">
+            <div class="row1">
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">

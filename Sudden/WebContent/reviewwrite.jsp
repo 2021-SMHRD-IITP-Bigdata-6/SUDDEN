@@ -41,7 +41,21 @@
 	
 	.shoping__cart__table { background-color: white; width: 1800px; position: absolute; left: -300px; top: 250px; }
 	.reviewrow{ width: 200px; text-align: center; font-size: 15px; padding: 25px;}
-
+	.snip1535two {
+	    background-color: #394aad;
+	    border: none;
+	    color: #ffffff;
+	    display: inline-block;
+	    font-family: 'BenchNine', Arial, sans-serif;
+	    font-size: 25px;
+	    font-size: 1em;
+	    line-height: 1em;
+	    outline: none;
+	    padding: 3px 3px 3px;
+	    position: relative;
+	    text-transform: uppercase;
+	   
+}
     </style>
 	<!-- Favicon  -->
     <link rel="icon" href="images/favicon.png">
@@ -162,14 +176,14 @@
 									<input class="reviewin" type="text" name="review" placeholder="리뷰를 작성해주세요">
 								</td>
 								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>
-						 	 		<input type="radio" name="rating" value="1"><a>1  </a><img style="width:20px;height:20px;" src="img/1point.png" name="rating"><br>
-						 	 		<input type="radio" name="rating" value="2"><a>2  </a><img style="width:20px;height:20px;" src="img/2point.png" name="rating"><br>
-						 	 		<input type="radio" name="rating" value="3"><a>3  </a><img style="width:20px;height:20px;" src="img/3point.png" name="rating"><br>
-						 	 		<input type="radio" name="rating" value="4"><a>4  </a><img style="width:20px;height:20px;" src="img/4point.png" name="rating"><br>
-						 	 		<input type="radio" name="rating" value="5"><a>5  </a><img style="width:20px;height:20px;" src="img/5point.png" name="rating">
+						 	 		<input type="radio" name="rating" value="1"><a>1  </a><img style="width:50px;height:50px;" src="img/1point.png" name="rating"><br>
+						 	 		<input type="radio" name="rating" value="2"><a>2  </a><img style="width:50px;height:50px;" src="img/2point.png" name="rating"><br>
+						 	 		<input type="radio" name="rating" value="3"><a>3  </a><img style="width:50px;height:50px;" src="img/3point.png" name="rating"><br>
+						 	 		<input type="radio" name="rating" value="4"><a>4  </a><img style="width:50px;height:50px;" src="img/4point.png" name="rating"><br>
+						 	 		<input type="radio" name="rating" value="5"><a>5  </a><img style="width:50px;height:50px;" src="img/5point.png" name="rating">
 						  	 	
 								</td>
-								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>
+								<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:25px;'>
 									<button type="submit" class="snip1535two" id="idCheck" value="review">등록하기</button>
 								</td>
 							</tr>
