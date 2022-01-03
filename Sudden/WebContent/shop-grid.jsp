@@ -300,7 +300,7 @@
                        String status = arr.get(i).getStatus();
                        out.print("<div class='col-lg-4 col-md-6 col-sm-6'>");
                        out.print("<div class='product__item'>");//Upload/191.jpg
-                       out.print("<div class='product__item__pic set-bg' data-setbg='Upload/"+arr.get(i).getImg()+"'>");
+                       out.print("<div class='product__item__pic set-bg'><a href='shop-details.jsp?goodsseq=" + arr.get(i).getSeq() + "'> <img src='Upload/" + arr.get(i).getImg() + "'/></a>");
                        out.print("<ul class='product__item__pic__hover'>");
                        if(dto==null){
                     	   out.print("<li><a href='log-in_details.jsp'><i class='fa fa-heart'></i></a></li>");

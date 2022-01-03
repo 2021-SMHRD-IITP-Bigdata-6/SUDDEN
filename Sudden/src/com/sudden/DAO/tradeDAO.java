@@ -101,7 +101,7 @@ public class tradeDAO {
 	}
 	public ArrayList<tradeDTO> searchseq(memberDTO dto) {
 		 ArrayList<tradeDTO> arr = new ArrayList<tradeDTO>();
-		int seq=0;
+
 		
 		try {
 
@@ -117,8 +117,9 @@ public class tradeDAO {
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				seq = rs.getInt("goods_seq");
-				tradeDTO tdto = new tradeDTO(seq);
+				int seq = rs.getInt("goods_seq");
+				int rating = rs.getInt("trade_rating");
+				tradeDTO tdto = new tradeDTO(seq,rating);
 				arr.add(tdto);
 
 			}
@@ -271,6 +272,5 @@ public ArrayList<goodsDTO> purchase(tradeDTO tdto) {
 		
 		
 	}
-	
 
 }

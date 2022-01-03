@@ -284,10 +284,12 @@
                			out.print("<ul>");
                			if(dto == null){
                				out.print("<li><b>가격</b><a style='font-size:30px; color:black;'>"+gdto.getPrice()+"원</a></li>");
-               				out.print("<li><b>연락하기</b><a href='log-in_details.jsp'><i class='fa fa-comment' style='font-size:50px; color:black;''></i></a></li>");
+               				out.print("<li><b></b><a style='font-size:30px; color:black;'>"+"</a></li>");
+               				out.print("<li><b>연락하기</b><a href='log-in_details.jsp'><i class='fa fa-comment' style='font-size:40px; color:black;''></i></a></li>");
                			}else{
                				out.print("<li><b>가격</b><a style='font-size:30px; color:black;'>"+gdto.getPrice()+"원</a></li>");
-               				out.print("<li><b>연락하기</b><a href='chat.jsp?goodsseq="+gdto.getSeq()+"'><i class='fa fa-comment' style='font-size:50px; color:black;'></i></a></li>");
+               				out.print("<li><b></b><a style='font-size:30px; color:black;'>"+"</a></li>");
+               				out.print("<li><b>연락하기</b><a href='chat.jsp?goodsseq="+gdto.getSeq()+"'><i class='fa fa-comment' style='font-size:40px; color:black;'></i></a></li>");
                			}
                			out.print("</ul>");
                		}

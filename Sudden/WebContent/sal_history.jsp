@@ -136,8 +136,8 @@
                                     <th class="shoping__product" style="font-size:30px; text-align:center;">제품이미지</th>
                                     <th style="font-size:30px;text-align:center;">제품명</th>
                                     <th style="font-size:30px;text-align:center;">가격</th>
-                                    <th style="font-size:30px;text-align:center;"></th>
-                                    <th style="font-size:30px;text-align:center;"></th>
+                                    <th style="font-size:30px;text-align:center;">     </th>
+                                    <th style="font-size:30px;text-align:center;">     </th>
                                     
                                 </tr>
                                 
@@ -158,6 +158,7 @@
 	
 	if(arr.size()>0){
 	for(int i = 0; i < arr.size(); i++) {
+		String pricecheck="";
 		String status = arr.get(i).getStatus();
 		out.print("<tr>");
 		out.print("<td class='shoping__cart__item'>"+"");	
@@ -167,31 +168,39 @@
 		out.print("<h5><a href='shop-details.jsp?goodsseq="+arr.get(i).getSeq()+"'>"+arr.get(i).getName()+"</a></h5>");
 		out.print("</td>");
 		if(status.equals("Y")){
-			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>판매완료");
+			pricecheck="판매완료";
+			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+pricecheck+"</td>");
 		}else{
-			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"");
+			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'>"+arr.get(i).getPrice()+"</td>");
+		
 		}
-		out.print("</td>");
+
+		
+		
 		ArrayList<chatDTO> arry = cdao.searchchat(arr.get(i).getSeq());
 		
-		int j = 0;
+
 		if(arry.size()<=0){
 		}else{
-			out.print("<td>");
-			out.print("<select id='selectTag' name='" + arr.get(i).getSeq() + "'>");
-			out.print("<option value='선택안함'>선택안함</option>");
-			for(j = 0; j<arry.size(); j++){	
-			out.print("<option value="+arry.get(j).getId()+">"+arry.get(j).getId()+"</option>");
+			if(pricecheck.equals("판매완료")){}
+			else{
+				out.print("<td>");
+				out.print("<select id='selectTag' name='" + arr.get(i).getSeq() + "'>");
+				out.print("<option value='선택안함'>선택안함</option>");
+				for(int j = 0; j<arry.size(); j++){	
+					out.print("<option value="+arry.get(j).getId()+">"+arry.get(j).getId()+"</option>");
+				}
+				out.print("</select>");
+				out.print("</td>");
+				out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a id='buttstyle' class='snip1535two'>판매완료</a>");		
+				out.print("</td>");
 			}
-			out.print("</select>");
-			out.print("</td>");
-			out.print("<td class='shoping__cart__price' style='width:200px; text-align:center; font-size:15px;'><a id='buttstyle' class='snip1535two'>판매완료</a>");		
-			out.print("</td>");
 		}
 		
 		out.print("</tr>");
 	}
 	}
+	
 	%>
   								
                             </tbody>
