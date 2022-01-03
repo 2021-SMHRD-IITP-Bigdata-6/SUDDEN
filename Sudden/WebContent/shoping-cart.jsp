@@ -271,8 +271,10 @@
                         		int check = dao.checkInter(cid);
                              	if(check<=0){ //관심상품없을떄
                             		out.print("<tr>");
-  									out.print("<td class='shoping__cart__item'>");
-  									out.print("관심 목록이 없습니다.");
+  									out.print("<td class='shoping__cart__item' style='text-align: right;'>");
+  									out.print("관심 상품이 없습니다.");
+  									out.print("</td>");
+  									out.print("<td style='text-align: left;'>");
   									out.print("</button><a class='snip1535' href='index.jsp'>쇼핑하러가기</a>");
   									out.print("</td>");
   									out.print("</tr>");
@@ -292,7 +294,7 @@
        						    	
        						     	out.print("<tr>");
        								out.print("<td class='shoping__cart__item'>");
-       								out.print("<div class='product__item__pic set-bg'><a href='shop-details.jsp?goodsseq=" + marr.get(i).getSeq() + "'> <img src='Upload/" + marr.get(i).getImg() + "'/></a>");//alt=''  이미지가 없을 때 안에 텍스트로 대체
+       								out.print("<a href='shop-details.jsp?goodsseq=" + marr.get(i).getSeq() + "'> <img src='Upload/" + marr.get(i).getImg() + "'/></a>");//alt=''  이미지가 없을 때 안에 텍스트로 대체
        								out.print("<h5><a href='shop-details.jsp?goodsseq="+marr.get(i).getSeq()+"'>"+marr.get(i).getName()+"</a></h5>");
        								out.print("</td>");
        								out.print("<td class='shoping__cart__price'>"+marr.get(i).getPrice()+"원</td>");
