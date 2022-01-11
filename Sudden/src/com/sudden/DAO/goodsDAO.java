@@ -162,11 +162,6 @@ public class goodsDAO {
 			
 			cnt = 1;
 		}
-//		System.out.println("디테일에 들어갈꺼"+dto.getName());
-//		request.setAttribute("gddto", dto);
-//		//moveUrl = "OpenimgService";
-//		moveUrl = "shop-details.jsp";
-//		response.sendRedirect(moveUrl);
 		
 		
 	} catch (Exception e) {

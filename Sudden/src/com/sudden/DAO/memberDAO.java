@@ -199,30 +199,7 @@ public class memberDAO {
 		
 	}
 
-	public int P1_Update(String nick, String id) {
-
-		try {
-
-			getconn();
-
-			String sql = "update tbl_member set mem_nick=? where mem_id=?";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, nick);
-			psmt.setString(2, id);
-	
-			cnt = psmt.executeUpdate();
-
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		} finally {
-			
-			cloes();
-		}
-		return cnt;
-	}
-
-	public int P2_Update(memberDTO dto) {
+	public int P_update(memberDTO dto) {
 		try {
 
 			getconn();
@@ -245,26 +222,6 @@ public class memberDAO {
 			cloes();
 		}
 		return cnt;
-	}
-	public void cctv(memberDTO dto) {
-		try {
-
-			getconn();
-
-			String sql = "select *from tbl_cctv where cam_addr=%¿î¾Ï%";
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getNick());
-			
-	
-			cnt = psmt.executeUpdate();
-
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-		} finally {
-			
-			cloes();
-		}
 	}
 
 	public String  pw_search(memberDTO dto) {

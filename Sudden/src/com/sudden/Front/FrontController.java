@@ -25,12 +25,10 @@ import com.sudden.Member.LogoutService;
 import com.sudden.Member.PostdelService;
 import com.sudden.Member.PwsearchServiec;
 import com.sudden.Member.RegisteService;
-import com.sudden.Member.ResetService;
 import com.sudden.Member.SalcmpltService;
 import com.sudden.Member.SearchService;
 import com.sudden.Member.SearchgoodsService;
 import com.sudden.Member.UpdateService;
-import com.sudden.Member.UpdateService2;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -69,9 +67,7 @@ public class FrontController extends HttpServlet {
 					nextpage = com.execute(request, response);	
 					
 				}else if(command.equals("Search.do")) {					
-//					com = new SearchService();
-//					nextpage = com.execute(request, response);	
-//					System.out.println("nextpage = " + nextpage);
+
 					request.setCharacterEncoding("utf-8");
 
 					String name = request.getParameter("search");				
@@ -92,15 +88,7 @@ public class FrontController extends HttpServlet {
 					com = new SearchgoodsService();			
 					nextpage = com.execute(request, response);
 				}
-				//else if(command.equals("katelist.do")) {					
-				//	com = new LogoutService();
-				//	nextpage = com.execute(request, response);
-				//}
-				else if(command.equals("Upload.do")) {					
-					com = new ResetService();
-					//com = new RegisteService();
-					nextpage = com.execute(request, response);
-				}
+
 				else if(command.equals("check.do")) {
 					request.setCharacterEncoding("utf-8");
 
@@ -146,14 +134,11 @@ public class FrontController extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.print(tof);
 					System.out.println("»Æ¿Œ = "+tof);
-				}else if(command.equals("UpdateCon.do")) {
+				}
+
+				else if(command.equals("UpdateCon.do")) {
 					
 					com = new UpdateService();
-					nextpage = com.execute(request, response);
-					
-				}else if(command.equals("UpdateCon2.do")) {
-					
-					com = new UpdateService2();
 					nextpage = com.execute(request, response);
 					
 				}else if(command.equals("DeleteInter.do")) {
@@ -183,8 +168,7 @@ public class FrontController extends HttpServlet {
 					out.print(tof);
 					
 				}else if(command.equals("pw_search.do")) {
-					//com = new PwsearchServiec();
-					//nextpage = com.execute(request, response);
+
 					
 					String id = request.getParameter("id");
 					String email = request.getParameter("email");
@@ -193,11 +177,10 @@ public class FrontController extends HttpServlet {
 					
 					memberDAO dao = new memberDAO();
 					memberDTO dto = new memberDTO(id, email, 0, 0);
-				//	ArrayList<memberDTO> pw_list = dao.pw_search(dto);
+
 					String pw_list = dao.pw_search(dto);
 					System.out.println(pw_list);
-//					Gson gson = new Gson();
-//					String json = gson.toJson(pw_list);
+
 					response.setCharacterEncoding("utf-8");
 					PrintWriter out = response.getWriter();
 					out.print(pw_list);

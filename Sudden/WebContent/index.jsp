@@ -85,16 +85,7 @@
 					  if (dto.getId().equals("admin")) {%>
 						  <!-- 관리자 권한 기능  -->
 					<%}%>
-					<!-- <div class="header__cart">
-					<ul>
-						<li><a href="Registe.html"><i class="fa fa-registered"></i></a></li>
-						<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-						<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-					</ul>
-					<div class="header__cart__price">
-						item: <span>$150.00</span>
-					</div>
-				</div> -->
+
 				  <%}%>			
 			</div>
 		</div>

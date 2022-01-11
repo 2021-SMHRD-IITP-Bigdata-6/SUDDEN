@@ -266,7 +266,7 @@
 								<div>전화 번호:&nbsp; <%=arr.get(0).getTel()%></div><br>
 						</div>
 						<p class="btn_area_btm">
-							<a href="Propile2.jsp"
+							<a href="Propile.jsp"
 								onclick="changeImage();clicker(this,'imn.prfmodify','','',event);"
 								class="snip1535"> <b class="btn2">수정</b>
 								</a>
